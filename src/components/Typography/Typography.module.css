@@ -51,15 +51,35 @@
   margin-bottom: 1rem;
 }
 
+/* src/components/Typography/Typography.module.css */
+
 .subtitle1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    color: var(--color-text); /* Use your main text color variable */
+    animation: subtleGlow 5s ease-in-out infinite; /* Slower, longer animation */
+}
+
+@keyframes subtleGlow {
+  0% {
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.2), 0 0 2px rgba(255, 255, 255, 0.1); /* Very subtle white glow */
+  }
+  50% {
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3), 0 0 4px rgba(255, 255, 255, 0.15); /* Slightly brighter, still subtle */
+  }
+  100% {
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.2), 0 0 2px rgba(255, 255, 255, 0.1); /* Back to initial */
+  }
+}
+
+
+.subtitle2 {
     font-size: 1.1rem;
     font-weight: 500;
-    margin-bottom: .8rem;
-}
-.subtitle2 {
-    font-size: .9rem;
-    font-weight: 500;
-    margin-bottom: .8rem;
+    margin-bottom: 2.2rem;
+    line-height: 1;
 }
 
 .span {

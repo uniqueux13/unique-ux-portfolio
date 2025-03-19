@@ -1,46 +1,83 @@
 /* src/components/Button/Button.module.css */
+
 .button {
     padding: 0.5rem 1rem;
-    border: none;
+    border: none; /* Remove any existing border */
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
-    transition: background-color 0.2s ease;
+    transition:  transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; /* Add transition for smooth effects */
     text-decoration: none;
     display: inline-block;
     text-align: center;
-    color: var(--color-button-text); /* USING VARIABLE */
+    /* Remove animation from base button class */
+  }
+  
+  .button:hover { /*General Hover*/
+      filter: brightness(1.1);
   }
   
   .primary {
-    background-color: var(--color-primary); /* USING VARIABLE */
-  }
+      background-color: #ddd;
+      color: var(--color-background);
+      animation: breatheSunlight 4s ease-in-out infinite; /* Apply animation */
   
-  .primary:hover {
-    background-color: #357ae8; /* Darker shade on hover (optional) */
-     /* Or, could use a --color-primary-hover variable if defined */
   }
   
   .secondary {
-    background-color: var(--color-secondary); /* USING VARIABLE */
+    background-color: var(--color-background); /* Dark background */
+    color: #fff;              /* White text */
+    border: 2px solid var(--color-text); /* Add a border - initial color */
   }
   
   .secondary:hover {
-    background-color: #788697; /* Darker shade on hover (optional) */
+    /* "Breathing" border on hover */
+    animation: breatheBorder 2s ease-in-out infinite;
+      filter: brightness(1.1); /*Remove brightness*/
+  
   }
   
   .text {
     background-color: transparent;
-    color: var(--color-link); /* USING VARIABLE */
+    color: var(--color-link);
     padding: 0;
   }
   
   .text:hover {
+    color: var(--color-link-hover);
     text-decoration: underline;
   }
   
   .disabled {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+  /* Keyframes for primary button */
+  @keyframes breatheSunlight {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2); /* Initial subtle shadow */
+    }
+    50% {
+      transform: scale(1.03); /* Slightly larger */
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 252, 93, 0.3), 0 0 25px rgba(86, 214, 255, 0.2); /* Brighter, more varied colors */
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2); /* Back to initial */
+    }
+  }
+  
+  /* Keyframes for "Breathing" Border (Secondary Button) */
+  @keyframes breatheBorder {
+    0% {
+      box-shadow: 0 0 3px rgba(255, 255, 255, 0.4), 0 0 6px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 6px rgba(255, 255, 255, 0.6), 0 0 12px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+      box-shadow: 0 0 3px rgba(255, 255, 255, 0.4), 0 0 6px rgba(255, 255, 255, 0.2);
+    }
   }
