@@ -1,0 +1,71 @@
+/* src/components/Navigation/Navigation.module.css */
+.navigation {
+    /* Basic styles for the navigation container */
+  }
+  
+  .menuButton {
+    display: none; /* Hide by default on larger screens */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+  }
+  .hamburgerIcon{
+      line-height: 1;
+  }
+  
+  .navList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Default: horizontal layout */
+  }
+  
+  .navItem {
+    margin: 0 1rem; /* Spacing between items */
+  }
+  
+  .navLink {
+    text-decoration: none;
+    color: var(--color-text); /* USING VARIABLE */
+    padding: 0.5rem;
+    display: block;
+      transition: color .3s ease;
+  }
+  .navLink:hover {
+      color: var(--color-link); /* USING VARIABLE */
+  }
+  
+  /* Mobile Styles (using a media query) */
+  @media (max-width: 768px) { /* Adjust breakpoint as needed */
+    .menuButton {
+      display: block; /* Show menu button on smaller screens */
+    }
+  
+    .navList {
+      display: none; /* Hide the list by default */
+      flex-direction: column; /* Stack items vertically */
+      position: absolute; /* Position the menu */
+      top: 60px;        /*Position Below header */
+      left: 0;
+      width: 100%;
+      background-color: var(--color-header-footer-bg); /* USING VARIABLE */
+      box-shadow: 0 4px 8px var(--color-box-shadow); /* Optional shadow - USING VARIABLE */
+      z-index: 10;
+    }
+  
+    .navList.open {
+      display: flex; /* Show the list when open */
+    }
+  
+    .navItem {
+      margin: 0; /* Remove horizontal margin in mobile view */
+      padding: .5rem;
+      text-align: center;
+      border-bottom: 1px solid #ddd; /* Add separators */
+    }
+      .navItem:last-child{
+          border-bottom: none;
+      }
+  }

@@ -1,0 +1,23 @@
+.pageTitle {
+    /* Add any specific styles for the main page title */
+    margin-bottom: var(--space-md);
+}
+
+.aboutIntro {
+    /* Styles for the introductory paragraph */
+    margin-bottom: var(--space-lg); /* Add space below the intro */
+}
+
+.sectionTitle {
+    /* Styles for section titles (e.g., "Experience", "Testimonials") */
+    margin-bottom: var(--space-sm);
+}
+
+.subSectionTitle {
+    /* Styles for sub-section titles (e.g., "Key Roles") */
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-xs);
+}
+.testimonial{
+    /*Add Testimonial Styles*/
+}

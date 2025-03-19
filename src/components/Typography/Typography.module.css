@@ -1,0 +1,95 @@
+/* src/components/Typography/Typography.module.css */
+.h1, .h2, .h3, .h4, .h5, .h6, .p, .subtitle1, .subtitle2, .span {
+    color: var(--color-text); /* APPLY TO ALL - USING VARIABLE */
+}
+
+.h1 {
+    font-size: 3.5rem; /* Increased size slightly */
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+@media (max-width: 768px) {
+  .h1 {
+      font-size: 2.5rem; /*Stay with previous value or adjust.*/
+  }
+}
+
+.h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+.h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+
+.h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+}
+
+.h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.subtitle1 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: .8rem;
+}
+.subtitle2 {
+    font-size: .9rem;
+    font-weight: 500;
+    margin-bottom: .8rem;
+}
+
+.span {
+  font-size: 0.8rem;
+  /* Add any other default span styles */
+}
+
+/* Text Alignment */
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+.align-justify{
+    text-align: justify;
+}
+
+/* Add responsive styles (media queries) for different screen sizes */
+@media (max-width: 768px) {
+  .h1 {
+    font-size: 2.5rem;
+  }
+  .h2 {
+    font-size: 2rem;
+  }
+    /* Adjust other headings and text sizes as needed */
+}

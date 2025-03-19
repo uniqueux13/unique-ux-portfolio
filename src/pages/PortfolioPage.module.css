@@ -1,0 +1,17 @@
+.pageTitle {
+    /* Styles for the main page title */
+    margin-bottom: var(--space-md);
+}
+
+.projectTitle {
+    /* Styles for project titles */
+    margin-bottom: var(--space-xs);
+}
+
+.projectDescription {
+    /* Styles for project descriptions */
+    margin-bottom: var(--space-md);
+}
+.projectLink{
+    /*Add styles for links*/
+}

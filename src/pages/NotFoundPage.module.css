@@ -1,0 +1,19 @@
+.pageTitle {
+    /* Styles for the 404 title */
+    margin-bottom: var(--space-sm);
+}
+
+.errorMessage {
+    /* Styles for the error message */
+    margin-bottom: var(--space-md);
+}
+
+.homeLink {
+    /* Styles for the link back to the homepage */
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+.homeLink:hover {
+    text-decoration: underline;
+}

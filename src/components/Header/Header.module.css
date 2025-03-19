@@ -1,0 +1,28 @@
+/* src/components/Header/Header.module.css */
+.header {
+    background-color: var(--color-header-footer-bg);
+    /*  REMOVE or ADJUST overall padding if you *only* want padding on the logo:
+    padding: 1rem;
+    */
+    padding: 0; /* Remove overall padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px var(--color-box-shadow);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    padding: var(--space-sm); /* Add padding ONLY to the logo area */
+    /* Optional: remove top/bottom padding if it's too much:
+    padding-top: 0;
+    padding-bottom: 0;
+    */
+  }
+  
+  .logoImage {
+    height: 50px;
+    width: auto;
+    display: block;
+  }

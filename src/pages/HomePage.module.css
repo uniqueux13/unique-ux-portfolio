@@ -1,0 +1,59 @@
+/* src/pages/HomePage.module.css */
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column by default (for mobile) */
+    gap: var(--space-lg);       /* Spacing between grid items */
+  }
+  
+  .serviceItem {
+      text-align: center; /* Center-align the content within each item */
+  }
+  
+  .icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-primary);
+  }
+  
+  /* Responsive adjustments (Media Queries) */
+  @media (min-width: 769px) { /* Tablets and larger */
+    .servicesGrid {
+      grid-template-columns: repeat(3, 1fr); /* Three columns on larger screens */
+    }
+  }
+  
+  /*Hero Section Styles*/
+  .heroContainer {
+      position: 'relative';
+      width: '100%';
+  }
+  
+  .video {
+      position: 'absolute';
+      top: 0;
+      left: 0;
+      object-fit: 'cover';
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+  }
+  
+  .heroContent {
+      position: 'absolute';
+      top: 50%;
+      left: 50%;
+      transform: 'translate(-50%, -50%)';
+      z-index: 2;
+      text-align: 'center';
+      width: '100%';
+  }
+  .heroTitle{
+      color: white;
+  }
+  .heroIntro{
+      color: white;
+  }
+  .heroButton{
+      margin: 1rem;
+  }

@@ -1,0 +1,46 @@
+.pageTitle {
+    /* Styles for the main page title */
+    margin-bottom: var(--space-md);
+}
+
+.contactIntro {
+    /* Styles for the introductory paragraph */
+    margin-bottom: var(--space-lg);
+}
+
+.formGroup {
+    /* Styles for each form group (label + input/textarea) */
+    margin-bottom: var(--space-md);
+}
+
+.label {
+    /* Styles for labels */
+    display: block; /* Make labels block-level for better layout */
+    margin-bottom: var(--space-xs);
+    font-weight: bold;
+}
+
+.input,
+.textarea {
+    /* Styles for inputs and textareas */
+    width: 100%;
+    padding: var(--space-sm);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit; /* Inherit font from body */
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+.textarea{
+    min-height: 150px; /*Adjust as needed*/
+}
+
+.errorMessage {
+    /* Styles for error messages */
+    color: red; /* Or any other error color you prefer */
+    display: block; /*Make the span a block level element*/
+}
+.successMessage{
+    color: green;
+}
