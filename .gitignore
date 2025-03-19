@@ -1,4 +1,29 @@
-# Logs
+# Node modules (dependencies) - ESSENTIAL
+node_modules/
+
+# Build output directory (Vite uses 'dist') - ESSENTIAL
+dist/
+
+# Editor/IDE-specific files (Keep these)
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+
+# OS-generated files (Keep this)
+.DS_Store
+Thumbs.db
+
+# Environment variable files (IMPORTANT - keep secrets out of Git!) - ESSENTIAL
+.env
+.env.local
+.env.*.local
+
+# Logs (You can keep these, they're generally not a problem)
 logs
 *.log
 npm-debug.log*
@@ -7,18 +32,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Remove this.  It's redundant because you already have node_modules/
+# dist-ssr  <-- REMOVE THIS LINE
+# *.local  <-- REMOVE THIS LINE.  It's too broad and might exclude legitimate files.
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Remove the exclusion for .vscode/extensions.json.  This file is GOOD to share.
+# !.vscode/extensions.json <-- REMOVE THIS LINE
