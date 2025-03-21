@@ -1,8 +1,7 @@
 /*Footer*/
 .footer {
-    background-color: var(--color-header-footer-bg);
-    padding: var(--space-sm); /*Keep, remove, or modify padding here, depending on how you want it*/
+    background-color: var(--);
     text-align: center;
-    margin-top: 2rem;
-    color: var(--color-text);
+    padding-block: 1rem;
+    color: white;
   }

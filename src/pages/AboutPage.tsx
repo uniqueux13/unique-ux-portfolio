@@ -1,53 +1,85 @@
+// AboutPage.tsx (Example)
 import React from 'react';
 import Typography from '../components/Typography/Typography';
-import Card from '../components/Card/Card';
-import Image from '../components/Image/Image';
-import styles from './AboutPage.module.css'; // Import CSS Module
+import Button from '../components/Button/Button';
+import styles from './AboutPage.module.css';
+import { Link } from 'react-router-dom';
+import Section from '../components/Section/Section'; // Import
+import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection';
 
+interface WorkExperience {
+    title: string;
+    company: string;
+    dates: string;
+  }
 
 const AboutPage: React.FC = () => {
+    const workExperience: WorkExperience[] = [
+        { title: 'UX Designer', company: '@GroMo', dates: '2022' },
+        { title: 'UX Designer', company: '@PS', dates: '2019 & 2023' },
+        { title: 'UX Designer', company: '@Hello Bonsai', dates: '2022' },
+        { title: 'Writer', company: '@Icecream Apps', dates: '2022-2023' },
+        { title: 'Writer | UX Designer', company: '@Labs', dates: '2022' },
+        { title: 'UX Designer', company: '@OneBoard', dates: '2022' },
+        { title: 'Writer', company: '@Bnatural Media', dates: '2022' },
+        { title: 'Writer', company: '@Integrated Experts', dates: '2021-2022' },
+        { title: 'UX Designer', company: '@Manor Publishing', dates: '2020-2021' },
+        { title: 'Writer', company: '@Kind Organics', dates: '2021' },
+        { title: 'Writer', company: '@Gallaudet University', dates: '2020-2021' },
+        { title: 'Writer | UX Designer', company: '@Artifact Content', dates: '2017-2020' },
+        { title: 'Writer | UX Designer', company: '@Bay in the Castle', dates: '2017-2019' },
+        { title: 'Writer | Designer', company: '@The City Drive Group', dates: '2018-20xx' },
+        // ... add the rest of your work experience
+      ];
   return (
     <div>
-      <Typography variant="h1" align='center' className={styles.pageTitle}>About Me</Typography>
-      <Card>
-        <Typography variant="p" className={styles.aboutIntro}>
-          I'm a multidisciplinary designer and creator with a passion for building impactful experiences.  My background spans UX design, content strategy, copywriting, video editing, music, and even game design.  This diverse skillset allows me to approach projects from a holistic perspective, crafting solutions that are not only visually appealing but also strategically sound and emotionally resonant.
+      {/* Hero Section - No padding */}
+      <div className={styles.heroContent}>
+            <Typography variant="h1" className={styles.projectTitle}>About Kyle</Typography>
+            <Typography variant="subtitle1" className={styles.projectSubtitle}>
+                User Experience Designer
+            </Typography>
+      </div>
+
+    {/* Unique UX About Section - Large padding */}
+    <Section marginBottom="xl" padding="none">
+        <TwoColumnSection
+            imageSrc="/src\assets\kyle.png"
+            imageAlt="About Unique UX"
+            imageOnLeft={false}
+        >
+           <Typography variant="h2" className={styles.manifestoTitle}>Design & Content Creation</Typography>
+            <Typography variant="p" className={styles.manifestoText}>
+            I design user-centered digital experiences and the content that brings them to life. My skills span UI/UX design, content strategy, video production, and graphic design.
+            </Typography>
+        </TwoColumnSection>
+    </Section>
+
+    <Section padding="md">
+        <Typography variant="h2" className={styles.sectionTitle}>
+          Work Experience
         </Typography>
-        <Image src="/about-me-image.jpg" alt="About Kyle"  /> {/*Remove inline styling*/}
-      </Card>
-      <Card>
-        <Typography variant="h2" className={styles.sectionTitle}>Experience</Typography>
-        <Typography variant="subtitle1" className={styles.subSectionTitle}>Key Roles:</Typography>
-        <ul>
-            <li>UX Designer (Google Certified)</li>
-            <li>Content Strategist & Copywriter</li>
-            <li>Design System Specialist</li>
-            <li>Creative Consultant</li>
-        </ul>
+        <div className={styles.experienceContainer}>
+          {workExperience.map((job, index) => (
+            <div key={index} className={styles.experienceItem}>
+              <Typography variant="subtitle1" className={styles.jobTitle}>{job.title}</Typography>
+              <Typography variant="subtitle2" className={styles.company}>{job.company}</Typography>
+              <Typography variant="p" className={styles.dates}>{job.dates}</Typography>
+            </div>
+          ))}
+        </div>
+      </Section>
 
-        <Typography variant="subtitle1" className={styles.subSectionTitle}>Clients & Collaborations (Partial List):</Typography>
-          <ul>
-            <li>Wix</li>
-            <li>JDI Integrated Experts</li>
-            <li>Hello Bonsai</li>
-            <li>Pixl Labs</li>
-            <li>Icecream Apps</li>
-            {/* Add more as needed, perhaps linking to case studies */}
-          </ul>
-        </Card>
-        <Card>
-            <Typography variant="h2" className={styles.sectionTitle}>Testimonials</Typography>
-
-            <Typography variant='p' align='justify' className={styles.testimonial}>
-                "Working with Kyle was a great experience. He totally exceeded my expectations... I'd highly recommend him and will be using him for future projects!" - Josh, CEO at Pixl Labs
+    {/* Call to Action */}
+    <div className={styles.heroContent}>
+            <Typography variant="h2" className={styles.projectTitle}>Ready to Create Something Unique?</Typography>
+            <Typography variant="p" className={styles.projectSubtitle}>
+            Let's collaborate to build a digital experience that transforms your business and delights your users.
             </Typography>
-
-            <Typography variant='p' align='justify' className={styles.testimonial}>
-                "Working with Kyle is easy and stress-free. He has a great work ethic and can meet even the tightest deadlines... I would highly recommend Kyle to anyone looking for creative services." - Daniel Catullo, CEO at City Drive Studios
-            </Typography>
-            {/* Add more testimonials here */}
-        </Card>
-
+            <Button variant="primary" onClick={() => window.location.href = '/contact'} className={styles.heroButton}>
+          Let's Talk
+        </Button>
+      </div>
     </div>
   );
 };

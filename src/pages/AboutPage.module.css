@@ -1,23 +1,157 @@
-.pageTitle {
-    /* Add any specific styles for the main page title */
+/* src/pages/HomePage.module.css */
+
+/* --- Hero Section --- */
+
+
+  
+.projectTitle {
+    margin-bottom: var(--space-md);
+      color: var(--color-text);
+      text-align: center;
+  }
+  
+  .projectSubtitle {
+    color: var(--color-text);
+    text-align: center;
+  }
+  .heroP{  /*Added class*/
+    font-family: var(--font-family-sora);
+    font-size: var(--font-size-hero-paragraph);
+    line-height: var(--line-height-hero-paragraph);
+    font-weight: 400;
     margin-bottom: var(--space-md);
 }
+  .heroContent {
+    max-width: 1200px;
+    margin: 6rem auto;
+    text-align: center;
+  }
+  
+  .videoContainer {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+  }
+  
+  .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  
+  .heroTitle {
+      color: #121212;
+      position: relative;
+      z-index: 1;
+  }
+  
+  .heroIntro {
+      color: #121212;
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-family-sora);
+      font-size: var(--font-size-hero-paragraph);
+      line-height: var(--line-height-hero-paragraph);
+      font-weight: 400;
+  }
+  
+  .heroButton {
+      position: relative;
+      z-index: 1;  
+  }
+  
+  /* --- My Process Section --- */
+  .servicesGrid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column by default (mobile) */
+    gap: var(--space-lg);       /* Consistent spacing */
+  }
+  
+  .serviceItem {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  .sectionTitle{
+      text-align: center;
+      margin-bottom: var(--space-sm);
+  }
+  .serviceTitle {
+    font-weight: bold;
+    margin-bottom: var(--space-xs);
+    text-align: left;
+  }
+  
+  .serviceDescription {
+  }
+  
+  /* --- Call to Action Section --- */
+  .ctaText {
+    margin-bottom: var(--space-sm);
+  }
+  
+  .ctaBenefits {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--space-md);
+    text-align: center;
+  }
+  
+  .ctaBenefits li {
+    margin-bottom: var(--space-xs);
+  }
+  
+  .ctaButton {
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 769px) {
+    .servicesGrid {
+      grid-template-columns: repeat(3, 1fr); /* Three columns on larger screens */
+      grid-template-rows: repeat(2, auto);  /* Two rows on larger screens */
+    }
+    /* No other changes are needed within the media query */
+  }
+  
+  /* src/pages/AboutPage.module.css */
 
-.aboutIntro {
-    /* Styles for the introductory paragraph */
-    margin-bottom: var(--space-lg); /* Add space below the intro */
+.experienceContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: var(--space-md); /*Consistent spacing from design System*/
+    margin-top: var(--space-md);
 }
 
-.sectionTitle {
-    /* Styles for section titles (e.g., "Experience", "Testimonials") */
+.experienceItem {
+  
+    padding: var(--space-sm); 
+    border-bottom: 1px solid black; 
     margin-bottom: var(--space-sm);
 }
 
-.subSectionTitle {
-    /* Styles for sub-section titles (e.g., "Key Roles") */
-    margin-top: var(--space-md);
-    margin-bottom: var(--space-xs);
+.jobTitle {
+  font-size: var( --font-size-caption);
+  font-weight: bold; /* Make the job title stand out */
+  margin-bottom: var(--space-xs); /* Space between title and company */
+  color: var(--color-text-primary); /*Use primary color from design system*/
+
 }
-.testimonial{
-    /*Add Testimonial Styles*/
+
+.company {
+  margin-bottom: var(--space-xs);/* Space between company and dates */
+  font-style: italic; /* Italicize the company name, as in the image */
+  color: var(--color-text-secondary); /*Use secondary color from design system*/
+}
+
+.dates {
+  color: var(--color-text-tertiary); /*Use tertiary color from design system*/
+
+}
+.sectionTitle{
+     margin-bottom: var(--space-sm);
 }

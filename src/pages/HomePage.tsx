@@ -3,8 +3,6 @@ import React from 'react';
 import Typography from '../components/Typography/Typography';
 import Card from '../components/Card/Card';
 import Button from '../components/Button/Button';
-import Video from '../components/Video/Video';
-import Image from '../components/Image/Image';
 import styles from './HomePage.module.css';
 import { Link } from 'react-router-dom';
 import Section from '../components/Section/Section'; // Import
