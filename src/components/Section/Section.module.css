@@ -1,51 +1,51 @@
 /* src/components/Section/Section.module.css */
 .section {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    /* REMOVE default margin-bottom: var(--space-md); */
-    /* Default padding (medium) */
-    padding: var(--space-md);
-  }
-  
-  /* Padding variations */
-  .padding-sm {
-    padding: var(--space-sm);
-  }
-  
-  .padding-md {
-    padding: var(--space-md);
-  }
-  
-  .padding-lg {
-    padding: var(--space-lg);
-  }
-  
-  .padding-xl {
-    padding: var(--space-xl);
-  }
-  
-  .padding-none {
-      padding: 0;
-  }
-  
-  /* Margin-bottom variations */
-  .margin-bottom-none {
-    margin-bottom: 0;
-  }
-  
-  .margin-bottom-sm {
-    margin-bottom: var(--space-sm);
-  }
-  
-  .margin-bottom-md {
-    margin-bottom: var(--space-md);
-  }
-  
-  .margin-bottom-lg {
-    margin-bottom: var(--space-lg);
-  }
-  
-  .margin-bottom-xl {
-    margin-bottom: var(--space-xl);
-  }
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* REMOVE default margin-bottom: var(--space-md); */
+  /* Default padding (medium) */
+  padding: var(--space-md);
+}
+
+/* Padding variations */
+.padding-sm {
+  padding: var(--space-sm);
+}
+
+.padding-md {
+  padding: var(--space-md);
+}
+
+.padding-lg {
+  padding: var(--space-lg);
+}
+
+.padding-xl {
+  padding: var(--space-xl);
+}
+
+.padding-none {
+    padding: 0;
+}
+
+/* Margin-bottom variations */
+.margin-bottom-none {
+  margin-bottom: 0;
+}
+
+.margin-bottom-sm {
+  margin-bottom: var(--space-sm);
+}
+
+.margin-bottom-md {
+  margin-bottom: var(--space-md);
+}
+
+.margin-bottom-lg {
+  margin-bottom: var(--space-lg);
+}
+
+.margin-bottom-xl {
+  margin-bottom: var(--space-xl);
+}

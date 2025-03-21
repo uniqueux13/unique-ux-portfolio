@@ -6,7 +6,7 @@
     position: relative;
     width: 100%;
     text-align: center;
-    margin-block: 3rem;
+    margin-block: 5rem;
   }
   
   .videoContainer {
@@ -30,15 +30,12 @@
       color: #121212;
       position: relative;
       z-index: 1;
-      margin-bottom: var(--space-lg);
   }
   
   .heroIntro {
       color: #121212;
       position: relative;
       z-index: 1;
-      margin-bottom: var(--space-lg);
-      margin-top: 0;
       font-family: var(--font-family-sora);
       font-size: var(--font-size-hero-paragraph);
       line-height: var(--line-height-hero-paragraph);
@@ -47,25 +44,20 @@
   
   .heroButton {
       position: relative;
-      z-index: 1;
-      margin-bottom: var(--space-md);
-      margin-right: var(--space-sm);
-  
+      z-index: 1;  
   }
   
   /* --- My Process Section --- */
   .servicesGrid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    /* REMOVED margin-bottom */
+    grid-template-columns: 1fr; /* Single column by default (mobile) */
+    gap: var(--space-lg);       /* Consistent spacing */
   }
   
   .serviceItem {
     display: flex;
     flex-direction: column;
     text-align: left;
-    padding: var(--space-md); /*Padding handled in section now*/
   }
   .sectionTitle{
       text-align: center;
@@ -74,7 +66,7 @@
   .serviceTitle {
     font-weight: bold;
     margin-bottom: var(--space-xs);
-     text-align: left;
+    text-align: left;
   }
   
   .serviceDescription {
@@ -100,11 +92,10 @@
   
   @media (min-width: 769px) {
     .servicesGrid {
-      grid-template-columns: repeat(4, 1fr); /* Four columns on desktop */
+      grid-template-columns: repeat(3, 1fr); /* Three columns on larger screens */
+      grid-template-rows: repeat(2, auto);  /* Two rows on larger screens */
     }
-    .heroTitle {
-        margin-bottom: var(--space-xs);
-    }
+    /* No other changes are needed within the media query */
   }
   
   

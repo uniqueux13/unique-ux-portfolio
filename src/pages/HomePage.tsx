@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
   return (
     <div>
       {/* Hero Section - No padding */}
-      <Section padding="none" className={styles.heroSection}>
+      <section className={styles.heroSection}>
          <Typography variant="h1" align='center' className={styles.heroTitle}>Hi, Welcome to Unique UX</Typography>
         <Typography variant="heroP" align='center' className={styles.heroIntro}>
           Scaling Design Systems One Decision At A Time
@@ -22,10 +22,10 @@ const HomePage: React.FC = () => {
         <Button variant="primary" onClick={() => window.location.href = '/portfolio'} className={styles.heroButton}>
           View My Work
         </Button>
-      </Section>
+      </section>
 
       {/* Unique UX About Section - Large padding */}
-      <Section padding="xl">
+      <Section marginBottom="sm" padding="none">
         <TwoColumnSection
             imageSrc="/about-image.png"
             imageAlt="About Unique UX"
@@ -42,43 +42,57 @@ const HomePage: React.FC = () => {
       </Section>
 
       {/* "My Process" Section - Medium padding */}
-      <Section padding="md">
+      <Section marginBottom="xl" padding="none">
         <Typography variant='h2' className={styles.sectionTitle}>
           My Process
         </Typography>
         <div className={styles.servicesGrid}>
-          <Card className={styles.serviceItem}>
-            <Typography variant='subtitle1' className={styles.serviceTitle}>1. Research</Typography>
-            <Typography variant="p" className={styles.serviceDescription}>
-              Understanding user needs, behaviors, and goals through interviews, surveys, and data analysis.
-            </Typography>
-          </Card>
+  <Card className={styles.serviceItem}>
+    <Typography variant='subtitle1' className={styles.serviceTitle}>1. Discover</Typography>
+    <Typography variant="p" className={styles.serviceDescription}>
+      Understand user needs and project goals through research.
+    </Typography>
+  </Card>
 
-          <Card className={styles.serviceItem}>
-            <Typography variant='subtitle1' className={styles.serviceTitle}>2. Strategize</Typography>
-            <Typography variant="p" className={styles.serviceDescription}>
-              Developing a clear design strategy based on research insights, defining user flows and information architecture.
-            </Typography>
-          </Card>
+  <Card className={styles.serviceItem}>
+    <Typography variant='subtitle1' className={styles.serviceTitle}>2. Define</Typography>
+    <Typography variant="p" className={styles.serviceDescription}>
+      Define clear problem statements and strategies.
+    </Typography>
+  </Card>
 
-          <Card className={styles.serviceItem}>
-            <Typography variant='subtitle1' className={styles.serviceTitle}>3. Design</Typography>
-            <Typography variant="p" className={styles.serviceDescription}>
-              Creating wireframes, prototypes, and visual designs, iterating based on feedback and testing.
-            </Typography>
-          </Card>
+  <Card className={styles.serviceItem}>
+    <Typography variant='subtitle1' className={styles.serviceTitle}>3. Ideate</Typography>
+    <Typography variant="p" className={styles.serviceDescription}>
+     Generate and explore a wide range of potential solutions.
+    </Typography>
+  </Card>
 
-          <Card className={styles.serviceItem}>
-            <Typography variant='subtitle1' className={styles.serviceTitle}>4. Test & Refine</Typography>
-            <Typography variant="p" className={styles.serviceDescription}>
-             Conducting user testing to validate designs and iterating based on findings to optimize the user experience.
-            </Typography>
-          </Card>
-        </div>
+  <Card className={styles.serviceItem}>
+    <Typography variant='subtitle1' className={styles.serviceTitle}>4. Design</Typography>
+    <Typography variant="p" className={styles.serviceDescription}>
+      Create wireframes, prototypes, and visual designs.
+    </Typography>
+  </Card>
+
+  <Card className={styles.serviceItem}>
+    <Typography variant='subtitle1' className={styles.serviceTitle}>5. Test</Typography>
+    <Typography variant="p" className={styles.serviceDescription}>
+      Validate designs with users and gather feedback.
+    </Typography>
+  </Card>
+
+  <Card className={styles.serviceItem}>
+    <Typography variant='subtitle1' className={styles.serviceTitle}>6. Refine</Typography>
+    <Typography variant="p" className={styles.serviceDescription}>
+      Iterate on designs based on testing and feedback.
+    </Typography>
+  </Card>
+</div>
     </Section>
 
       {/* Call to Action - Large padding */}
-      <Section padding="lg">
+      <Section marginBottom="xl" padding="none">
         <Card>
         <Typography variant="h3" align="center">Let's Build Something Extraordinary</Typography>
         <Typography variant="p" align="center" className={styles.ctaText}>

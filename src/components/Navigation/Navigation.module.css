@@ -1,6 +1,5 @@
 /* src/components/Navigation/Navigation.module.css */
 .navigation {
-    /* Basic styles for the navigation container */
   }
   
   .menuButton {
@@ -13,6 +12,8 @@
   }
   .hamburgerIcon{
       line-height: 1;
+      color: white;
+      margin-right: 1rem;
   }
   
   .navList {
@@ -28,10 +29,11 @@
   
   .navLink {
     text-decoration: none;
+    font-family: var(--font-family-mulish);
     color: #fafafa; /* USING VARIABLE */
     padding: 0.5rem;
     display: block;
-      transition: color .3s ease;
+    transition: color .3s ease;
   }
   .navLink:hover {
       color: var(--color-link); /* USING VARIABLE */
@@ -57,12 +59,13 @@
   
     .navList.open {
       display: flex; /* Show the list when open */
+      margin-top: 1rem;
     }
   
     .navItem {
       margin: 0; /* Remove horizontal margin in mobile view */
       padding: .5rem;
-      text-align: center;
+      text-align: left;
       border-bottom: 1px solid #ddd; /* Add separators */
     }
       .navItem:last-child{

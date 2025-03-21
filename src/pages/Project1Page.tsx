@@ -344,7 +344,7 @@ const Project1Page: React.FC = () => {
     </Section>
 
     {/* Image Grid Section */}
-    <Section marginBottom="none" padding="none">
+    <Section marginBottom="xl" padding="none">
         <ImageGrid>
           <div className={styles.imageContainer}>
             <Image src="src\assets\GromoCaseStudy\caseStudy-image-22.png" alt="Image 1" className={styles.gridImage} />
@@ -359,14 +359,14 @@ const Project1Page: React.FC = () => {
       </Section>
 
     {/* Hand-off + Extras */}
-    <Section marginBottom="xl" padding="none">
+    <Section marginBottom="lg" padding="none">
         <Typography variant="h2" className={styles.sectionTitle}>Hand-off + Extras</Typography>
         <Typography variant="p" className={styles.narrowContent}> 
         In the Hand-off phase, a comprehensive review with the client illuminates design choices, and accessibility is prioritized for ongoing support to the client's team. Through knowledge transfer, a seamless hand-off is facilitated, providing essential insights for future maintenance and development.       
         </Typography>
     </Section>
 
-    <Section marginBottom="none" padding="none">
+    <Section marginBottom="xl" padding="none">
   <div className={styles.checkListGrid}>
     <div>
         <div className={styles.checklistItem}>
@@ -415,10 +415,9 @@ const Project1Page: React.FC = () => {
     <Section marginBottom="xl" padding="none">
         <Typography variant="h2" className={styles.sectionTitle}>I learned a lot!</Typography>
         <Typography variant="p" className={styles.narrowContent}> 
-        Our design journey embodies a commitment to user-centricity, iterative refinement, collaboration, flexibility, and transparent knowledge sharing.      
+        This project was a testament to user-centered design, leveraging iterative refinement, client collaboration, and a flexible approach to deliver a successful and adaptable solution.      
         </Typography>
-        <Typography variant="p" className={styles.narrowContent}> 
-        Rooted in the overarching theme of creating meaningful connections, our iterative approach, from discovery to hand-off, ensured continuous enhancement. User-centric principles guided every decision, fostering a holistic user experience. Collaborating closely with clients enriched our process, emphasizing diverse perspectives. Flexibility allowed adaptation to evolving needs, and transparent knowledge sharing in the hand-off phase ensured sustained success. The journey was more than a project; it was a testament to the power of connectivity and adaptability in design.        </Typography>
+        
     </Section>
 
     <Section marginBottom="xl" padding="none">
