@@ -31,7 +31,7 @@ body {
   margin: 0;
   line-height: 1.5;
   color: var(--color-text);
-    min-height: 100vh; /*  Full viewport height */
+  min-height: 100vh; /*  Full viewport height */
 }
 *, *::before, *::after{
   box-sizing: border-box;
@@ -41,6 +41,7 @@ main {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 1rem;
   padding: var(--space-md);
   min-height: calc(100vh - 74px - 56px); /*Adjust if header/footer heights change */
 }
