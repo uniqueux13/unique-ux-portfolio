@@ -1,61 +1,99 @@
 /* src/index.css */
-:root {
-  /* Dark Mode Colors */
-  --color-background: #121212;
-  --color-text: #eee;
-  --color-primary: #4a90e2;
-  --color-secondary: #a0aec0;
-  --color-card-background: #1e1e1e;
-  --color-button-text: #fff;
-  --color-link: #4a90e2;
-  --color-header-footer-bg: #282828;
-  --color-box-shadow: rgba(255, 255, 255, 0.1);
-  --color-slightly-lighter-bg: #121212; /* Define this if you haven't already */
 
-  /* Spacing Variables */
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 1.5rem;
-  --space-lg: 2rem;
-  --space-xl: 3rem;
+/* --- CSS Variables (Custom Properties) --- */
+:root {
+  /* --- Colors (Dark Mode) --- */
+  --color-background: #121212; /* Main background */
+  --color-text: #121212;          /* Main text color */
+  --color-primary: #4a90e2;    /* Primary accent color (blue) */
+  --color-secondary: #a0aec0;   /* Secondary color (grayish) */
+  --color-card-background: #eeeeee; /* Card background */
+  --color-button-text: #fff;       /* Button text color (for primary) */
+  --color-link: #4a90e2;          /* Link color */
+  --color-link-hover: #78b1ff;   /* Link hover color */
+  --color-header-footer-bg: #282828; /* Header/Footer background */
+  --color-box-shadow: rgba(255, 255, 255, 0.1); /* Subtle shadow */
+  --color-slightly-lighter-bg: #1a1a1a; /* For gradient */
+
+  /* --- Spacing (using rem units for scalability) --- */
+  --space-xs: 0.5rem;  /* 8px  (if 1rem = 16px) */
+  --space-sm: 1rem;   /* 16px */
+  --space-md: 1.5rem;  /* 24px */
+  --space-lg: 2rem;   /* 32px */
+  --space-xl: 4rem;    /* 48px */
+  --space-xxl: 10rem;   /* 64px */
+
+  /* --- Font Families --- */
+  --font-family-primary: 'Poppins', sans-serif;
+  --font-family-secondary: 'Montserrat', sans-serif;
+  --font-family-mulish: 'Mulish', sans-serif;
+  --font-family-sora: 'Sora', sans-serif;
+  --font-family-grotesk: 'Familjen Grotesk', sans-serif;
+
+  /* --- Font Sizes (Base 16px) --- */
+  --font-size-base: 1rem;       /* 16px - base for paragraphs */
+  --font-size-h1: 3.5rem;         /* 48px */
+  --font-size-h2: 2.5rem;        /* 40px */
+  --font-size-h3: 1.875rem;     /* 30px */
+  --font-size-h4: 1.5rem;      /* 24px */
+  --font-size-subtitle: 1.875rem;  /* 30px */
+  --font-size-paragraph: 1.125rem; /* 18px */
+  --font-size-hero-paragraph: 1.25rem; /* 20px */
+  --font-size-caption: 0.875rem;  /* 14px */
+  --font-size-button: 1rem;        /* 16px */
+  --font-size-nav-link: 1.25rem;   /* 20px */
+
+    /* --- Line Heights --- */
+  --line-height-h1: 3.3125rem;    /* 53px */
+  --line-height-h2: 2.8125rem;   /* 45px */
+  --line-height-h3: 2.75rem;     /* 44px */
+  --line-height-h4: 2.25rem;     /* 36px */
+  --line-height-subtitle: 2.75rem;/* 44px */
+  --line-height-paragraph: 2.25rem;  /* 36px */
+  --line-height-hero-paragraph: 1.5625rem;  /*25px*/
+  --line-height-caption: 1.1875rem; /* 19px */
+  --line-height-button: 1.625rem;   /* 26px */
+  --line-height-nav-link: 1.5625rem;/* 25px */
 }
 
-html { /* Apply to the <html> element */
+/* --- Global Styles --- */
+
+html {
   background-color: var(--color-background); /* Base background color */
   background-image: linear-gradient(to bottom, var(--color-background), var(--color-slightly-lighter-bg)); /* Gradient */
   min-height: 100%; /*  Full height of the *viewport* */
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: sans-serif;
-  margin: 0;
-  line-height: 1.5;
+  margin: 0; /* Remove default body margin */
+  line-height: 1.5;  /* Default line height */
   color: var(--color-text);
   min-height: 100vh; /*  Full viewport height */
+  padding: 0;
 }
-*, *::before, *::after{
-  box-sizing: border-box;
+
+*, *::before, *::after {
+  box-sizing: border-box; /* Use border-box sizing */
 }
 
 main {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-top: 1rem;
-  padding: var(--space-md);
-  min-height: calc(100vh - 74px - 56px); /*Adjust if header/footer heights change */
+  margin: 0 auto;    /* Center horizontally */
+  padding: 0.5rem;
+  min-height: calc(100vh - 74px - 56px); /*  Adjust if header/footer change */
+}
+/* --- Responsive Adjustments (Media Queries) --- */
+
+@media (max-width: 768px) {
+  main {
+    padding: var(--space-sm); /* Less padding on mobile */
+  }
 }
 
-/* Responsive adjustments (Media Queries) */
-@media (max-width: 768px) { /* Mobile and smaller tablets */
-    main{
-        padding: var(--space-sm); /* Less padding on smaller screens */
-    }
-
-}
-
-@media (min-width: 769px) and (max-width: 1200px) { /* Larger tablets and smaller desktops*/
-    main{
-        padding: var(--space-lg);
-    }
+@media (min-width: 769px) and (max-width: 1200px) {
+  main {
+    padding: var(--space-lg); /* More padding on larger tablets/small desktops */
+  }
 }

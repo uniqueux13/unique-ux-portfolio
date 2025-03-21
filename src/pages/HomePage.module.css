@@ -6,7 +6,7 @@
     position: relative;
     width: 100%;
     text-align: center;
-    /* REMOVE margin-bottom */
+    margin-block: 3rem;
   }
   
   .videoContainer {
@@ -27,19 +27,22 @@
   }
   
   .heroTitle {
-      color: white;
+      color: #121212;
       position: relative;
       z-index: 1;
-      margin-bottom: var(--space-xs);
+      margin-bottom: var(--space-lg);
   }
   
   .heroIntro {
-      color: white;
+      color: #121212;
       position: relative;
       z-index: 1;
-      margin-bottom: var(--space-md);
+      margin-bottom: var(--space-lg);
       margin-top: 0;
-  
+      font-family: var(--font-family-sora);
+      font-size: var(--font-size-hero-paragraph);
+      line-height: var(--line-height-hero-paragraph);
+      font-weight: 400;
   }
   
   .heroButton {
@@ -55,7 +58,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-lg);
-    /* REMOVE margin-bottom */
+    /* REMOVED margin-bottom */
   }
   
   .serviceItem {
@@ -93,21 +96,15 @@
     margin-bottom: var(--space-xs);
   }
   
-  /* --- REMOVE Manifesto Section Styles --- */
-  /* .manifestoSection, .manifestoCard, .manifestoContent,
-     .manifestoImageContainer, .manifestoImage, .manifestoTitle,
-     .manifestoText, .manifestoQuestion  -- REMOVE ALL THESE */
-  
-  
   /* --- Responsive Adjustments (Media Queries) --- */
   
   @media (min-width: 769px) {
     .servicesGrid {
       grid-template-columns: repeat(4, 1fr); /* Four columns on desktop */
     }
-  
     .heroTitle {
         margin-bottom: var(--space-xs);
     }
   }
+  
   

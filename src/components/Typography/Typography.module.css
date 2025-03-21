@@ -1,115 +1,109 @@
 /* src/components/Typography/Typography.module.css */
-.h1, .h2, .h3, .h4, .h5, .h6, .p, .subtitle1, .subtitle2, .span {
-    color: var(--color-text); /* APPLY TO ALL - USING VARIABLE */
-}
 
-.h1 {
-    font-size: 3.5rem; /* Increased size slightly */
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow */
-}
-@media (max-width: 768px) {
+/* --- General Styles (Apply to all variants) --- */
+.h1, .h2, .h3, .h4, .p, .subtitle1, .subtitle2, .span, .heroP, .caption {
+    color: var(--color-text);
+    margin-top: 0; /*  Remove default top margin */
+  }
+  
+  /* --- Specific Styles --- */
+  
   .h1 {
-      font-size: 2.5rem; /*Stay with previous value or adjust.*/
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-h1);
+    font-weight: 400; /* Regular */
+    margin-bottom: var(--space-sm); /* Use variables for consistent spacing */
   }
-}
-
-.h2 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 0.8rem;
-}
-
-.h3 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 0.7rem;
-}
-
-.h4 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 0.6rem;
-}
-
-.h5 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.h6 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-/* src/components/Typography/Typography.module.css */
-
-.subtitle1 {
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-bottom: 1rem;
-    line-height: 1.4;
-    color: var(--color-text); /* Use your main text color variable */
-    animation: subtleGlow 5s ease-in-out infinite; /* Slower, longer animation */
-}
-
-@keyframes subtleGlow {
-  0% {
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.2), 0 0 2px rgba(255, 255, 255, 0.1); /* Very subtle white glow */
-  }
-  50% {
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3), 0 0 4px rgba(255, 255, 255, 0.15); /* Slightly brighter, still subtle */
-  }
-  100% {
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.2), 0 0 2px rgba(255, 255, 255, 0.1); /* Back to initial */
-  }
-}
-
-
-.subtitle2 {
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin-bottom: 2.2rem;
-    line-height: 1;
-}
-
-.span {
-  font-size: 0.8rem;
-  /* Add any other default span styles */
-}
-
-/* Text Alignment */
-.align-left {
-  text-align: left;
-}
-
-.align-center {
-  text-align: center;
-}
-
-.align-right {
-  text-align: right;
-}
-.align-justify{
-    text-align: justify;
-}
-
-/* Add responsive styles (media queries) for different screen sizes */
-@media (max-width: 768px) {
-  .h1 {
-    font-size: 2.5rem;
-  }
+  
   .h2 {
-    font-size: 2rem;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    font-weight: 400;
+    margin-bottom: var(--space-sm);
   }
-    /* Adjust other headings and text sizes as needed */
-}
+  
+  .h3 {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height-h3);
+    font-weight: 400;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .h4 {
+    font-family: var(--font-family-mulish);
+    font-size: var(--font-size-h4);
+    line-height: var(--line-height-h4);
+    font-weight: 300; /* Light */
+    margin-bottom: var(--space-sm);
+  }
+  
+  .p {
+      font-family: var(--font-family-secondary);
+      font-size: var(--font-size-paragraph);
+      line-height: var(--line-height-paragraph);
+      font-weight: 400;
+      margin-bottom: var(--space-md); /* More space below paragraphs */
+  }
+  .heroP{  /*Added class*/
+      font-family: var(--font-family-sora);
+      font-size: var(--font-size-hero-paragraph);
+      line-height: var(--line-height-hero-paragraph);
+      font-weight: 400;
+      margin-bottom: var(--space-md);
+  }
+  .caption{ /*Added class*/
+      font-family: var(--font-family-secondary);
+      font-size: var(--font-size-caption);
+      line-height: var(--line-height-caption);
+      font-weight: 400;
+  }
+  
+  .subtitle1 {
+    font-family: var(--font-family-secondary);
+    font-size: var(--font-size-subtitle);
+    line-height: var(--line-height-subtitle);
+    font-weight: 300; /* Light */
+    margin-bottom: var(--space-md);
+  }
+  
+  
+  .subtitle2 {
+      font-family: var(--font-family-secondary);
+      font-size: var(--font-size-base); /*Use regular font size*/
+      line-height: 1.5; /*Use regular line-height*/
+      font-weight: 500;
+      margin-bottom: var(--space-xs);
+  }
+  
+  .span {
+    font-size: 0.8rem; /* Keep this as is */
+  }
+  
+  /* Text Alignment */
+  .align-left {
+    text-align: left;
+  }
+  
+  .align-center {
+    text-align: center;
+  }
+  
+  .align-right {
+    text-align: right;
+  }
+  
+  .align-justify {
+    text-align: justify;
+  }
+  
+  /* Responsive Adjustments (Example) */
+  @media (max-width: 768px) {
+    .h1 {
+      font-size: 2.5rem; /* Smaller on mobile */
+      line-height: 1.2;  /* Adjust line-height as needed */
+    }
+    /* Add other responsive adjustments for h2, h3, etc. */
+  }

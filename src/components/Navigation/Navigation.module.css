@@ -28,7 +28,7 @@
   
   .navLink {
     text-decoration: none;
-    color: var(--color-text); /* USING VARIABLE */
+    color: #fafafa; /* USING VARIABLE */
     padding: 0.5rem;
     display: block;
       transition: color .3s ease;

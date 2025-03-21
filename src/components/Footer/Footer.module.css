@@ -4,5 +4,5 @@
     padding: var(--space-sm); /*Keep, remove, or modify padding here, depending on how you want it*/
     text-align: center;
     margin-top: 2rem;
-    color: var(--color-text)
+    color: var(--color-text);
   }

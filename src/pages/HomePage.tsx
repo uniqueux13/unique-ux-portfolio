@@ -15,28 +15,16 @@ const HomePage: React.FC = () => {
     <div>
       {/* Hero Section - No padding */}
       <Section padding="none" className={styles.heroSection}>
-         <Typography variant="h1" align='center' className={styles.heroTitle}>Understanding Users, Designing Solutions</Typography>
-        <Typography variant="subtitle1" align='center' className={styles.heroIntro}>
+         <Typography variant="h1" align='center' className={styles.heroTitle}>Hi, Welcome to Unique UX</Typography>
+        <Typography variant="heroP" align='center' className={styles.heroIntro}>
           Scaling Design Systems One Decision At A Time
         </Typography>
         <Button variant="primary" onClick={() => window.location.href = '/portfolio'} className={styles.heroButton}>
           View My Work
         </Button>
-
-        <div className={styles.videoContainer}>
-          <Video
-            src="/background-video.mp4"
-            width="100%"
-            height="100%"
-            className={styles.video}
-            autoPlay
-            muted
-            loop
-          />
-        </div>
       </Section>
 
-      {/* Unique UX Manifesto Section - Large padding */}
+      {/* Unique UX About Section - Large padding */}
       <Section padding="xl">
         <TwoColumnSection
             imageSrc="/about-image.png"
@@ -50,12 +38,6 @@ const HomePage: React.FC = () => {
             <Typography variant='p' className={styles.manifestoText}>
               At Unique UX, we believe you can. We provide the framework, the tools, and the understanding to transform your vision into reality. We believe in the power of systems to empower individuals, to unlock potential, and to create experiences that resonate deeply.
             </Typography>
-            <Typography variant="subtitle1"  className={styles.manifestoQuestion}>
-              Ready to take control?
-            </Typography>
-              <Link to="/about">
-                <Button variant="primary">Learn More</Button>
-              </Link>
         </TwoColumnSection>
       </Section>
 
