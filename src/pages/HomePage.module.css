@@ -2,11 +2,29 @@
 
 /* --- Hero Section --- */
 
-.heroSection {
-    position: relative;
-    width: 100%;
+
+  
+  .projectTitle {
+    margin-bottom: var(--space-md);
+      color: var(--color-text);
+      text-align: center;
+  }
+  
+  .projectSubtitle {
+    color: var(--color-text);
     text-align: center;
-    margin-block: 5rem;
+  }
+  .heroP{  /*Added class*/
+    font-family: var(--font-family-sora);
+    font-size: var(--font-size-hero-paragraph);
+    line-height: var(--line-height-hero-paragraph);
+    font-weight: 400;
+    margin-bottom: var(--space-md);
+}
+  .heroContent {
+    max-width: 1200px;
+    margin: 6rem auto;
+    text-align: center;
   }
   
   .videoContainer {
@@ -88,7 +106,9 @@
     margin-bottom: var(--space-xs);
   }
   
-  /* --- Responsive Adjustments (Media Queries) --- */
+  .ctaButton {
+    margin: 0 auto;
+  }
   
   @media (min-width: 769px) {
     .servicesGrid {

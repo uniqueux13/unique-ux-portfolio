@@ -14,18 +14,17 @@ const HomePage: React.FC = () => {
   return (
     <div>
       {/* Hero Section - No padding */}
-      <section className={styles.heroSection}>
-         <Typography variant="h1" align='center' className={styles.heroTitle}>Hi, Welcome to Unique UX</Typography>
-        <Typography variant="heroP" align='center' className={styles.heroIntro}>
-          Scaling Design Systems One Decision At A Time
-        </Typography>
-        <Button variant="primary" onClick={() => window.location.href = '/portfolio'} className={styles.heroButton}>
+      <div className={styles.heroContent}>
+            <Typography variant="h1" className={styles.projectTitle}>Design Experiences That Connect</Typography>
+            <Typography variant="subtitle1" className={styles.projectSubtitle}>
+            I'm Kyle, a Google Certified UX Designer blending data, strategy, and creative vision to build impactful design systems.            </Typography>
+            <Button variant="primary" onClick={() => window.location.href = '/portfolio'} className={styles.heroButton}>
           View My Work
         </Button>
-      </section>
+      </div>
 
       {/* Unique UX About Section - Large padding */}
-      <Section marginBottom="sm" padding="none">
+      <Section marginBottom="xl" padding="none">
         <TwoColumnSection
             imageSrc="/about-image.png"
             imageAlt="About Unique UX"
@@ -91,23 +90,16 @@ const HomePage: React.FC = () => {
 </div>
     </Section>
 
-      {/* Call to Action - Large padding */}
-      <Section marginBottom="xl" padding="none">
-        <Card>
-        <Typography variant="h3" align="center">Let's Build Something Extraordinary</Typography>
-        <Typography variant="p" align="center" className={styles.ctaText}>
-        I'm here to help create a plan to take you from concept to reality.
-        </Typography>
-        <ul className={styles.ctaBenefits}>
-            <li><Typography variant='p'>User-Centered Design Expertise</Typography></li>
-            <li><Typography variant='p'>Strategic Content & Copywriting</Typography></li>
-            <li><Typography variant='p'>Measurable Results & Continuous Improvement</Typography></li>
-        </ul>
-        <Link to="/contact">
-            <Button variant='secondary'>Let's Talk</Button>
-        </Link>
-        </Card>
-    </Section>
+    {/* Call to Action */}
+    <div className={styles.heroContent}>
+            <Typography variant="h2" className={styles.projectTitle}>Ready to Create Something Unique?</Typography>
+            <Typography variant="p" className={styles.projectSubtitle}>
+            Let's collaborate to build a digital experience that transforms your business and delights your users.
+            </Typography>
+            <Button variant="primary" onClick={() => window.location.href = '/contact'} className={styles.heroButton}>
+          Let's Talk
+        </Button>
+      </div>
     </div>
   );
 };
