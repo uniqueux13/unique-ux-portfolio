@@ -1,6 +1,7 @@
 .pageTitle {
     /* Styles for the main page title */
     margin-bottom: var(--space-md);
+    padding-block: 4rem;
 }
 
 .projectTitle {
@@ -12,6 +13,18 @@
     /* Styles for project descriptions */
     margin-bottom: var(--space-md);
 }
-.projectLink{
-    /*Add styles for links*/
-}
+/* Example: PortfolioPage.module.css */
+.projectLink {
+    color: var(--color-button-text); /* Use your link color variable */
+    background-color: var(--color-link);
+    text-decoration: none;    /* Remove default underline */
+    transition: color 0.2s ease, text-decoration 0.2s ease; /* Smooth transition */
+    display: inline-block; /*Allows for padding*/
+    padding: .5rem; /*Add some padding*/
+    font-family:var(--font-family-grotesk);
+  }
+  
+  .projectLink:hover {
+    color: var(--color-link-hover); /* Use your link hover color */
+    text-decoration: underline;     /* Add underline on hover */
+  }

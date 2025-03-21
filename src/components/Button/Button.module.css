@@ -1,7 +1,7 @@
 /* src/components/Button/Button.module.css */
 
 .button {
-    padding: 0.5rem 1rem;
+    padding: 1rem 1rem;
     border: none; /* Remove any existing border */
     border-radius: 4px;
     cursor: pointer;
@@ -11,7 +11,6 @@
     text-decoration: none;
     display: inline-block;
     text-align: center;
-    /* Remove animation from base button class */
   }
   
   .button:hover { /*General Hover*/
@@ -19,10 +18,9 @@
   }
   
   .primary {
-      background-color: #ddd;
-      color: var(--color-background);
+      background-color: var(--color-background);
+      color: var(--color-button-text);
       animation: breatheSunlight 4s ease-in-out infinite; /* Apply animation */
-  
   }
   
   .secondary {

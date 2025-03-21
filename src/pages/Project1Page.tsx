@@ -9,6 +9,7 @@ import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection'; 
 import Video from '../components/Video/Video';
 import styles from './Project1Page.module.css';
 import { Link } from 'react-router-dom';
+import ImageGrid from '../components/ImageGrid/ImageGrid';
 
 const Project1Page: React.FC = () => {
   return (
@@ -224,7 +225,7 @@ const Project1Page: React.FC = () => {
     </Section>
 
     {/* Frameworks and workflows */}
-    <Section padding="sm">
+    <Section marginBottom="none" padding="none">
         <TwoColumnSection
             imageSrc="src\assets\GromoCaseStudy\caseStudy-image-11.png"
             imageAlt="''Information Architect diagram"
@@ -237,7 +238,7 @@ const Project1Page: React.FC = () => {
     </Section>
 
     {/* Client Collaboration */}
-    <Section padding="sm">
+    <Section marginBottom="none" padding="none">
         <TwoColumnSection
             imageSrc="src\assets\GromoCaseStudy\caseStudy-image-12.png"
             imageAlt="''Information Architect diagram"
@@ -251,7 +252,7 @@ const Project1Page: React.FC = () => {
     </Section>
 
     {/* Visual Conceptualization */}
-    <Section padding="sm">
+    <Section marginBottom="xl" padding="none">
         <TwoColumnSection
             imageSrc="src\assets\GromoCaseStudy\caseStudy-image-13.png"
             imageAlt="''Visual conceptualization of marketing results for the 'client'"
@@ -271,8 +272,8 @@ const Project1Page: React.FC = () => {
             I bring the vision to life using a design system. Through client validation and iterative processes, we create a 10-page website.        
         </Typography>
         </div>
-   
-      <div className={styles.videoContainer}>
+   <Section marginBottom="xl" padding="none">
+    <div className={styles.videoContainer}>
           <Video
             src="/background-video.mp4"
             width="100%"
@@ -283,9 +284,78 @@ const Project1Page: React.FC = () => {
             loop
           />
         </div>
+   </Section>
+      
+
+    {/* Figma Design Iterations */}
+    <Section marginBottom="xl" padding="none">
+        <TwoColumnSection
+            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-14.png"
+            imageAlt="Segment of GroMo's design system"
+            imageOnLeft={true}
+        >
+            <Typography variant="h3" className={styles.manifestoTitle}>Figma Design Iterations</Typography>
+            <Typography variant="p" className={styles.manifestoText}>
+                Employed Figma to bring the wireframes to life, designing icons, colors, typography, spacers, forms, buttons, inputs, hero sections, and lead magnets.
+            </Typography>
+        </TwoColumnSection>
+    </Section>
+    
+    {/* Image Grid Section */}
+    <Section marginBottom="none" padding="none">
+        <ImageGrid>
+          <div className={styles.imageContainer}>
+            <Image src="src\assets\GromoCaseStudy\caseStudy-image-15.png" alt="Image 1" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src="src\assets\GromoCaseStudy\caseStudy-image-16.png" alt="Image 2" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src="/src\assets\GromoCaseStudy\caseStudy-image-17.png" alt="Image 3" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src="src\assets\GromoCaseStudy\caseStudy-image-18.png" alt="Image 4" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src="src\assets\GromoCaseStudy\caseStudy-image-19.png" alt="Image 5" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src="src\assets\GromoCaseStudy\caseStudy-image-20.png" alt="Image 6" className={styles.gridImage} />
+          </div>
+        </ImageGrid>
+      </Section>
+
+    {/* Client Validation */}
+    <Section marginBottom="sm" padding="none">
+        <TwoColumnSection
+            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-21.png"
+            imageAlt="Segment of GroMo's design system"
+            imageOnLeft={false}
+        >
+            <Typography variant="h3" className={styles.manifestoTitle}>Client Validation</Typography>
+            <Typography variant="p" className={styles.manifestoText}>
+                I engaged in a collaborative process with the client to ensure that the design aligns seamlessly with their vision and goals. This involved presenting design iterations and receiving feedback at key stages, fostering a dynamic dialogue that contributed to the refinement of the visual elements.
+            </Typography>
+        </TwoColumnSection>
+    </Section>
+
+    {/* Image Grid Section */}
+    <Section marginBottom="none" padding="none">
+        <ImageGrid>
+          <div className={styles.imageContainer}>
+            <Image src="src\assets\GromoCaseStudy\caseStudy-image-22.png" alt="Image 1" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src="src\assets\GromoCaseStudy\caseStudy-image-23.png" alt="Image 2" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src="/src\assets\GromoCaseStudy\caseStudy-image-24.png" alt="Image 3" className={styles.gridImage} />
+          </div>
+        </ImageGrid>
+      </Section>
 
       {/* Call to Action */}
-      <Section padding="sm">
+      <Section marginBottom="none" padding="none">
         <Card className={styles.sectionCard}>
         <Link to='/contact'>
             <Button variant='secondary'>Let's Talk</Button>

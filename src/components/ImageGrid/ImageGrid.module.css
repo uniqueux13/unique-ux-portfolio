@@ -1,0 +1,43 @@
+/* src/components/ImageGrid/ImageGrid.module.css */
+
+.imageGrid {
+    display: grid;
+    grid-template-columns: repeat(var(--columns, 3), 1fr); /* Default 3 columns */
+    gap:  var(--gap, 1rem);       /*  Spacing between images */
+  }
+  
+  .imageContainer {
+      /*Optional: Add styling to contain images correctly*/
+    position: relative;  /*For aspect ratio if needed*/
+    width: 100%;
+    /* padding-bottom: 75%;  Example 4:3 aspect ratio */
+    /* overflow: hidden;     If using padding-bottom */
+  }
+  
+  .gridImage {
+    width: 100%; /* Make images fill their container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space */
+    object-fit: cover; /* Or contain, as needed */
+      /*Optional: For aspect ration.*/
+      /*
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    */
+  
+  }
+  
+  /* Responsive adjustments (optional) */
+  @media (max-width: 768px) {
+    .imageGrid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .imageGrid {
+      grid-template-columns: 1fr; /* 1 column on very small screens */
+    }
+  }
