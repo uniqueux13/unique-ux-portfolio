@@ -1,0 +1,24 @@
+/* src/components/Section/Section.module.css */
+.section {
+    width: 100%; /* Ensure it takes full width */
+    /* Default padding (medium) */
+    padding: var(--space-md);
+  }
+  
+  /* Padding variations */
+  .padding-sm {
+    padding: var(--space-sm);
+  }
+  
+  .padding-lg {
+    padding: var(--space-lg);
+  }
+  
+  .padding-xl {
+    padding: var(--space-xl);
+  }
+  .padding-none{
+      padding: 0;
+  }
+  
+  /* Add any other common section styles here */

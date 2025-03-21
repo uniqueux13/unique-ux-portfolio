@@ -1,3 +1,4 @@
+// HomePage.tsx (Example)
 import React from 'react';
 import Typography from '../components/Typography/Typography';
 import Card from '../components/Card/Card';
@@ -6,13 +7,15 @@ import Video from '../components/Video/Video';
 import Image from '../components/Image/Image';
 import styles from './HomePage.module.css';
 import { Link } from 'react-router-dom';
+import Section from '../components/Section/Section'; // Import
+import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection';
 
 const HomePage: React.FC = () => {
   return (
     <div>
-      {/* Hero Section */}
-      <div className={styles.heroSection}>
-        <Typography variant="h1" align='center' className={styles.heroTitle}>Understanding Users, Designing Solutions</Typography>
+      {/* Hero Section - No padding */}
+      <Section padding="none" className={styles.heroSection}>
+         <Typography variant="h1" align='center' className={styles.heroTitle}>Understanding Users, Designing Solutions</Typography>
         <Typography variant="subtitle1" align='center' className={styles.heroIntro}>
           Scaling Design Systems One Decision At A Time
         </Typography>
@@ -31,13 +34,16 @@ const HomePage: React.FC = () => {
             loop
           />
         </div>
-      </div>
+      </Section>
 
-      {/* Unique UX Manifesto Section */}
-      <section className={styles.manifestoSection}>
-        <Card className={styles.manifestoCard}>
-          <div className={styles.manifestoContent}>
-            <Typography variant="h2" className={styles.manifestoTitle}>About Unique UX</Typography>
+      {/* Unique UX Manifesto Section - Large padding */}
+      <Section padding="xl">
+        <TwoColumnSection
+            imageSrc="/about-image.png"
+            imageAlt="About Unique UX"
+            imageOnLeft={false}
+        >
+           <Typography variant="h2" className={styles.manifestoTitle}>About Unique UX</Typography>
             <Typography variant="p" className={styles.manifestoText}>
               What if you could control the digital narrative? What if you could shape not just how people *use* technology, but how they *experience* it?
             </Typography>
@@ -50,15 +56,11 @@ const HomePage: React.FC = () => {
               <Link to="/about">
                 <Button variant="primary">Learn More</Button>
               </Link>
-          </div>
-          <div className={styles.manifestoImageContainer}>
-            <Image src="/about-image.png" alt="About Unique UX" className={styles.manifestoImage} />
-          </div>
-        </Card>
-      </section>
+        </TwoColumnSection>
+      </Section>
 
-      {/* "My Process" Section */}
-      <section>
+      {/* "My Process" Section - Medium padding */}
+      <Section padding="md">
         <Typography variant='h2' className={styles.sectionTitle}>
           My Process
         </Typography>
@@ -91,20 +93,11 @@ const HomePage: React.FC = () => {
             </Typography>
           </Card>
         </div>
-      </section>
+    </Section>
 
-        {/* --- Testimonials Section --- */}
-      <section className={styles.testimonialsSection}>
-        <Typography variant='h2' className={styles.sectionTitle}>What Clients Say</Typography>
-        <Card className={styles.testimonialCard}>
-          <Typography variant="p" className={styles.testimonialText}>
-            "Kyle's talent goes far beyond web design... He is a fantastic copywriter, graphic, and UX designer who can capture and hold his audience's attention..." - Steven Demoya, Digital Marketer at Wix
-          </Typography>
-        </Card>
-      </section>
-
-      {/* Call to Action */}
-      <Card>
+      {/* Call to Action - Large padding */}
+      <Section padding="lg">
+        <Card>
         <Typography variant="h3" align="center">Let's Build Something Extraordinary</Typography>
         <Typography variant="p" align="center" className={styles.ctaText}>
         I'm here to help create a plan to take you from concept to reality.
@@ -117,7 +110,8 @@ const HomePage: React.FC = () => {
         <Link to="/contact">
             <Button variant='secondary'>Let's Talk</Button>
         </Link>
-      </Card>
+        </Card>
+    </Section>
     </div>
   );
 };

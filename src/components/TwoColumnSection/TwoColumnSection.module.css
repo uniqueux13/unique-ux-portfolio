@@ -1,0 +1,58 @@
+/* src/components/TwoColumnSection/TwoColumnSection.module.css */
+
+.twoColumnSection {
+    display: flex;
+    flex-direction: column; /* Stack vertically by default (mobile) */
+    align-items: center; /* Center items horizontally on mobile */
+    gap: var(--space-md); /* Space between content and image */
+  }
+  
+  .content {
+    width: 100%; /* Full width on mobile */
+    padding: var(--space-md);
+    text-align: left; /* Or center, as needed */
+    /* Add any other content styles here */
+  }
+  
+  .imageContainer {
+    width: 100%; /* Full width on mobile */
+      display: flex;
+      justify-content: center;
+  }
+  
+  .image {
+    width: 100%; /* Responsive image */
+    max-width: 500px;  /* Limit maximum width */
+    height: auto;
+    border-radius: 4px; /* Optional */
+    object-fit: cover;  /* Ensure image covers the container without distortion */
+  }
+  
+  /* Media query for larger screens */
+  @media (min-width: 769px) {
+    .twoColumnSection {
+      flex-direction: row; /* Horizontal layout on desktop */
+      align-items: center; /* Center items vertically */
+      /* justify-content: space-between;  Optional: Space between items */
+    }
+  
+    .content {
+      width: 50%; /* Content takes up half the width */
+    }
+  
+    .imageContainer {
+      width: 50%; /* Image takes up half the width */
+    }
+    .contentLeft{
+      order: 1;
+    }
+    .imageLeft{
+      order: 0;
+    }
+    .contentRight{
+      order: 2;
+    }
+    .imageRight{
+      order: 1;
+    }
+  }

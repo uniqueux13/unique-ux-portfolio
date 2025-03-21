@@ -6,7 +6,7 @@
     position: relative;
     width: 100%;
     text-align: center;
-    margin-bottom: var(--space-xl); /* Spacing below hero */
+    /* REMOVE margin-bottom */
   }
   
   .videoContainer {
@@ -39,110 +39,45 @@
       z-index: 1;
       margin-bottom: var(--space-md);
       margin-top: 0;
+  
   }
   
   .heroButton {
       position: relative;
       z-index: 1;
       margin-bottom: var(--space-md);
-      margin-right: var(--space-sm); /* Space between buttons */
-  }
+      margin-right: var(--space-sm);
   
-  /* --- Manifesto Section --- */
-  
-  .manifestoSection {
-    margin-bottom: var(--space-xl); /* Spacing below manifesto */
-  }
-  
-  .manifestoCard {
-    display: flex;
-    flex-direction: column; /* Stack content vertically on mobile */
-    align-items: stretch; /* Stretch items to full width */
-  }
-  
-  .manifestoContent {
-    padding: var(--space-md); /* Consistent padding */
-    text-align: left;
-    order: 2; /* Content below image on mobile */
-    width: 100%;
-  }
-  
-  .manifestoImageContainer {
-    width: 100%;
-    order: 1; /* Image above content on mobile */
-    display: flex;
-    justify-content: center;
-  }
-  
-  .manifestoImage {
-    width: 100%;
-    max-width: 500px; /* Limit image width */
-    height: auto;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-  
-  .manifestoTitle {
-    margin-bottom: var(--space-sm);
-    text-align: left;
-  }
-  
-  .manifestoText {
-    margin-bottom: var(--space-md);
-    text-align: left;
-  }
-  
-  .manifestoQuestion {
-      font-style: italic;
-      font-weight: bold;
-      margin-bottom: var(--space-md);
-      text-align: left;
   }
   
   /* --- My Process Section --- */
-  
   .servicesGrid {
     display: grid;
-    grid-template-columns: 1fr; /* Single column on mobile */
-    gap: var(--space-md);
-    margin-bottom: var(--space-xl); /* Spacing below process */
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    /* REMOVE margin-bottom */
   }
   
   .serviceItem {
     display: flex;
     flex-direction: column;
     text-align: left;
-    padding: var(--space-md);
+    padding: var(--space-md); /*Padding handled in section now*/
   }
-  
+  .sectionTitle{
+      text-align: center;
+      margin-bottom: var(--space-sm);
+  }
   .serviceTitle {
     font-weight: bold;
     margin-bottom: var(--space-xs);
-    text-align: left;
-  }
-  
-  .sectionTitle {
-    margin-bottom: var(--space-md);
-    text-align: center;
+     text-align: left;
   }
   
   .serviceDescription {
   }
   
-  /* --- Testimonials Section --- */
-  .testimonialsSection {
-      margin-bottom: var(--space-xl);
-  }
-  
-  .testimonialCard{
-      /*Add if needed*/
-  }
-  
-  .testimonialText{
-      font-style: italic;
-  }
   /* --- Call to Action Section --- */
-  
   .ctaText {
     margin-bottom: var(--space-sm);
   }
@@ -158,6 +93,12 @@
     margin-bottom: var(--space-xs);
   }
   
+  /* --- REMOVE Manifesto Section Styles --- */
+  /* .manifestoSection, .manifestoCard, .manifestoContent,
+     .manifestoImageContainer, .manifestoImage, .manifestoTitle,
+     .manifestoText, .manifestoQuestion  -- REMOVE ALL THESE */
+  
+  
   /* --- Responsive Adjustments (Media Queries) --- */
   
   @media (min-width: 769px) {
@@ -168,21 +109,5 @@
     .heroTitle {
         margin-bottom: var(--space-xs);
     }
-      .manifestoCard{
-          flex-direction: row; /* Horizontal layout on larger screens */
-  
-      }
-  
-      .manifestoContent{
-          width: 50%; /* Text takes up half the width */
-          order: 1;    /* Text comes first on desktop */
-      }
-      .manifestoImageContainer{
-          width: 50%;  /* Image takes up half the width */
-          order: 2;     /* Image comes second on desktop */
-      }
-      .manifestoImage{
-          width: 100%;
-          height: 100%;
-      }
   }
+  

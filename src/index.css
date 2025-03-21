@@ -1,6 +1,6 @@
 /* src/index.css */
 :root {
-  /* Dark Mode Colors (Keep these) */
+  /* Dark Mode Colors */
   --color-background: #121212;
   --color-text: #eee;
   --color-primary: #4a90e2;
@@ -10,26 +10,30 @@
   --color-link: #4a90e2;
   --color-header-footer-bg: #282828;
   --color-box-shadow: rgba(255, 255, 255, 0.1);
+  --color-slightly-lighter-bg: #121212; /* Define this if you haven't already */
 
-    /*Spacing Variables*/
-    --space-xs: 0.5rem;  /* 8px */
-    --space-sm: 1rem;   /* 16px */
-    --space-md: 1.5rem;  /* 24px */
-    --space-lg: 2rem;   /* 32px */
-    --space-xl: 3rem;    /* 48px */
+  /* Spacing Variables */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+}
 
+html { /* Apply to the <html> element */
+  background-color: var(--color-background); /* Base background color */
+  background-image: linear-gradient(to bottom, var(--color-background), var(--color-slightly-lighter-bg)); /* Gradient */
+  min-height: 100%; /*  Full height of the *viewport* */
 }
 
 body {
   font-family: sans-serif;
   margin: 0;
   line-height: 1.5;
-  background-color: var(--color-background);
-  background-image: linear-gradient(to bottom, #121212, #1a1a1a);
   color: var(--color-text);
+    min-height: 100vh; /*  Full viewport height */
 }
-
-*, *::before, *::after {
+*, *::before, *::after{
   box-sizing: border-box;
 }
 
@@ -37,8 +41,8 @@ main {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--space-md); /* Consistent padding */
-  min-height: calc(100vh - 74px - 56px); /*Adjust height values if logo height changed*/
+  padding: var(--space-md);
+  min-height: calc(100vh - 74px - 56px); /*Adjust if header/footer heights change */
 }
 
 /* Responsive adjustments (Media Queries) */

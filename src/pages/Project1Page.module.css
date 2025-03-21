@@ -1,0 +1,100 @@
+/* src/pages/Project1Page.module.css */
+
+.project1Page {
+    --color-background: #fff; /* White background */
+    --color-text: #333;       /* Dark gray text */
+    /* Override any other variables you want to change */
+    /* --color-primary: #009900;  Example: Change primary color */
+    /* --font-family: "Some Other Font", sans-serif; Example: Change font */
+  }
+  /*Use this to override section padding if needed*/
+  /*
+  .customPadding {
+       padding-top: 100px;
+      padding-bottom: 50px;
+  }
+  */
+  
+  /*  Apply background color to the main element */
+  :global(main) {
+      background-color: var(--color-background);
+      min-height: 100vh;
+  }
+  
+  .hero {
+    text-align: center;
+    /* REMOVE margin-bottom - Section handles this */
+  }
+  
+  .projectTitle {
+    margin-bottom: var(--space-xs);
+      color: var(--color-text); /* Will now be dark gray */
+  }
+  
+  .projectSubtitle {
+    margin-bottom: var(--space-md);
+    font-style: italic;
+      color: var(--color-text);
+  
+  }
+  
+  .keyResult {
+    font-weight: bold;
+    margin-bottom: var(--space-lg);
+    color: var(--color-primary);
+  }
+  
+  .heroImage {
+    width: 100%;
+    max-width: 800px; /* Or whatever your max image width should be */
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: var(--space-md); /*Probably not needed*/
+  }
+  
+  .sectionCard {
+   /* REMOVE margin-bottom - Section handles this */
+    /*padding: var(--space-md); Consistent Padding REMOVED - Section handles this*/
+      background-color: var(--color-background); /*Important*/
+      color: var(--color-text);/*Important*/
+  }
+  
+  .sectionTitle {
+    margin-bottom: var(--space-md);
+    text-align: center; /*Example*/
+  
+  }
+  
+  .processStepTitle {
+      margin-bottom: var(--space-sm);
+      font-size: 1.25rem; /* Slightly larger than regular h3 */
+      font-weight: bold;
+  }
+  
+  /* Two-Column Layout - Now handled by TwoColumnSection.module.css */
+  /* REMOVE .twoColumn styles */
+  
+  .processImage {
+    width: 100%;
+    height: auto;
+    border-radius: 4px; /* Optional */
+  }
+  
+  .imageCaption {
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+    margin-top: var(--space-xs);
+    text-align: center; /* Or left, as needed */
+  }
+  .fullWidthImage{
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+  }
+  /* Horizontal Rule/Divider */
+  .sectionDivider {
+    border: none;
+    border-top: 1px solid var(--color-secondary); /* Use your secondary color */
+    margin: var(--space-lg) 0; /* Space above and below */
+  }
+  /* No media queries needed here now, handled by TwoColumnSection */
