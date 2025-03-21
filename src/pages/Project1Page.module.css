@@ -87,3 +87,43 @@ main {
     border-top: 1px solid var(--color-secondary); 
     margin: var(--space-lg) 0; 
   }
+
+  /* src/pages/Project1Page.module.css */
+
+/* ... (your existing styles) ... */
+
+.sectionTitle {
+    margin-bottom: var(--space-md);
+    text-align: center; /* Or left, if you prefer */
+  }
+  
+  .checkListGrid {
+    display: grid;
+    grid-template-columns: 1fr; /* One column by default (mobile) */
+    gap: var(--space-md);       /* Spacing between items */
+    margin-bottom: var(--space-md);
+  }
+  
+  .checklistItem {
+      display: flex;
+      align-items: flex-start; /* Align icon with the top of the text */
+      gap: var(--space-sm); /* Space between icon and text */
+      margin-bottom: var(--space-xs); /* Space below each item */
+  }
+  
+  
+  .checklistItemTitle {
+      /* Add styles for checklist item titles, if needed */
+      font-weight: light;
+      margin-bottom: var(--space-xs); /* Space between title and description */
+  
+  }
+  .ctaTitle{
+    margin-bottom: var(--space-md);
+  }
+  /* Responsive Styles (for larger screens) */
+  @media (min-width: 769px) {
+    .checkListGrid {
+      grid-template-columns: repeat(2, 1fr); /* Two columns on larger screens */
+    }
+  }

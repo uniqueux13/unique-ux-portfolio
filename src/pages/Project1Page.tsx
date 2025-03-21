@@ -16,9 +16,9 @@ const Project1Page: React.FC = () => {
     <div className={styles.project1Page}>
       {/* Hero Section */}
       <Section marginBottom="xl" padding="none" className={styles.hero}>
-            <Typography variant="h1" className={styles.projectTitle}>Marketing Agency</Typography>
+            <Typography variant="h1" className={styles.projectTitle}>Marketing Agency Website Redesign</Typography>
             <Typography variant="subtitle1" className={styles.projectSubtitle}>
-            GroMo is an ABM-focused creative design agency dedicated to helping ambitious leaders discover effective strategies for brand and business growth.
+            Case Study: Enhancing User Engagement and Lead Generation for GroMo
             </Typography>
       </Section>
     
@@ -30,17 +30,18 @@ const Project1Page: React.FC = () => {
         >
            <Typography variant="h3" className={styles.manifestoTitle}>A step-by-step case study</Typography>
             <Typography variant="p" className={styles.manifestoText}>
-            From ideation to implementation, This case study explains my <strong>step-by-step design process</strong>, tailored for a marketing agency seeking a digital reboot.            </Typography>
+                From ideation to implementation, This case study details my <strong>step-by-step design process</strong>, for a marketing agency's digital transformation.            
+            </Typography>
             <Typography variant='p' className={styles.manifestoText}>
-            My work included refining the information architecture, crafting detailed wireframes, building design systems and bringing to life a <strong>ten-page website</strong> that beautifully highlighted this marketing company's fresh offerings.            </Typography>
+            My role included information architecture refinement, wireframing, design system development, and creating a ten-page website showcasing GroMo's updated services.            </Typography>
         </TwoColumnSection>
     </Section>
 
     {/* Discovery */}
     <Section marginBottom="sm" padding="none">
-        <Typography variant="h2" className={styles.sectionTitle}>Discovery</Typography>
+        <Typography variant="h2" className={styles.sectionTitle}>The Challenge</Typography>
         <Typography variant="p" className={styles.narrowContent}> 
-            The Discovery phase serves as the foundation of our purpose-driven UX journey, uncovering key insights and client needs.
+            The client, a marketing agency, was struggling with low website engagement and poor lead generation. Their existing website was outdated, difficult to navigate, and didn't effectively communicate their services.
         </Typography>
     </Section>
 
@@ -53,9 +54,10 @@ const Project1Page: React.FC = () => {
         >
            <Typography variant="h3" className={styles.manifestoTitle}>Meeting Insight:</Typography>
             <Typography variant="p" className={styles.manifestoText}>
-            Commenced the project by meticulously documenting client needs and specifications through a recorded meeting.</Typography>
+                The project began with a recorded meeting to document client needs and project specifications.</Typography>
             <Typography variant='p' className={styles.manifestoText}>
-            During our discussions, key members of the GroMo team and I explored the company's future offerings, clarified expectations, and exchanged ideas for the project. Overall, the meeting was fun and informative.</Typography>
+                Discussions with GroMo's team focused on future offerings, expectations, and initial project ideas.
+            </Typography>
         </TwoColumnSection>
     </Section>
 
@@ -68,10 +70,10 @@ const Project1Page: React.FC = () => {
             <div> {/* Added wrapper div */}
             <Typography variant="h3" className={styles.manifestoTitle}>Project specifications:</Typography>
             <Typography variant="p" className={styles.sectionText}>
-            My primary objectives were to develop copy, graphic designs, and UI designs.
+            My primary responsibilities were copywriting, graphic design, and UI design.
             </Typography>
             <Typography variant='p' className={styles.sectionText}>
-            Subsequently, we identified essential service pages:
+            Key service pages identified:
             <ul>
                 <li>ABM</li>
                 <li>Digital Paid Media</li>
@@ -81,7 +83,7 @@ const Project1Page: React.FC = () => {
             </ul>
             </Typography>
             <Typography variant='p' className={styles.sectionText}>
-            Vertical Focus: Insights & case studies:
+            Targeted industry verticals:
             <ul>
                 <li>SAAS</li>
                 <li>Medical</li>
@@ -99,7 +101,8 @@ const Project1Page: React.FC = () => {
     <Section marginBottom="sm" padding="none">
         <Typography variant="h2" className={styles.sectionTitle}>Planning</Typography>
         <Typography variant="p" className={styles.narrowContent}> 
-        For the planning phase, I viewed competitive analysis, crafted user personas and established a visual blueprint with an inspiration board.        </Typography>
+        The planning phase included competitive analysis, user persona development, and creating a visual inspiration board.        
+        </Typography>
     </Section>
 
     {/* Competitive Analysis */}
@@ -111,7 +114,7 @@ const Project1Page: React.FC = () => {
         >
             <Typography variant="h3" className={styles.manifestoTitle}>Competitive Analysis</Typography>
             <Typography variant="p" className={styles.manifestoText}>
-                Thorough competitive audits were conducted to extract insights that informed a unique and competitive design strategy. The findings from this analysis became integral in creating a design that not only stood out but also addressed the specific needs of our client's target audience.
+            Competitive audits provided insights to inform a distinctive and competitive design strategy. This analysis directly addressed the client's target audience needs.
             </Typography>
         </TwoColumnSection>
     </Section>
@@ -125,7 +128,7 @@ const Project1Page: React.FC = () => {
         >
             <Typography variant="h3" className={styles.manifestoTitle}>Persona Development</Typography>
             <Typography variant="p" className={styles.manifestoText}>
-                Thorough competitive audits were conducted to extract insights that informed a unique and competitive design strategy. The findings from this analysis became integral in creating a design that not only stood out but also addressed the specific needs of our client's target audience.
+            User personas were developed to represent key audience segments, informing design decisions and ensuring user-centricity.
             </Typography>
         </TwoColumnSection>
     </Section>
@@ -147,7 +150,7 @@ const Project1Page: React.FC = () => {
         >
             <Typography variant="h3" className={styles.manifestoTitle}>Visual Blueprint</Typography>
             <Typography variant="p" className={styles.manifestoText}>
-            Establishing an inspiration board integrated colors, patterns, and imagery, providing a visual blueprint for the project. This not only set the tone for the design aesthetics but also served as a reference point for decision-making throughout the project.
+            An inspiration board, incorporating colors, patterns, and imagery, established a visual direction and served as a reference point throughout the project.
             </Typography>
         </TwoColumnSection>
     </Section>
@@ -161,7 +164,7 @@ const Project1Page: React.FC = () => {
         >
             <Typography variant="h3" className={styles.manifestoTitle}>User Flow Design</Typography>
             <Typography variant="p" className={styles.manifestoText}>
-                To optimize the user journey, we meticulously mapped out a user flow for a multi-step form. This step ensured that the design not only looked visually appealing but also prioritized a seamless and intuitive experience for the end-users.            
+            A multi-step form user flow was meticulously mapped to optimize the user journey, ensuring a seamless and intuitive experience.            
             </Typography>
         </TwoColumnSection>
     </Section>
@@ -170,7 +173,7 @@ const Project1Page: React.FC = () => {
     <Section marginBottom="sm" padding="none">
         <Typography variant="h2" className={styles.sectionTitle}>UX + Copywriting</Typography>
         <Typography variant="p" className={styles.narrowContent}> 
-            My extensive research informed the tone and scope, ensuring a seamless integration of solutions into the narrative.       
+        Extensive research informed the tone and scope of the website copy, ensuring seamless integration with the overall design.       
         </Typography>
     </Section>
 
@@ -183,7 +186,7 @@ const Project1Page: React.FC = () => {
         >
             <Typography variant="h3" className={styles.manifestoTitle}>Ideation and Research</Typography>
             <Typography variant="p" className={styles.manifestoText}>
-            In this phase, we're not just throwing words together; we're brainstorming and researching extensively. We want our copy to go beyond information—it should resonate with our users' needs and desires. The result is more than just words; it's a narrative that not only speaks directly to our audience but also aligns with our brand values, ensuring a consistent and unified user experience across all our pages.           
+            This phase involved extensive brainstorming and research to create copy that resonated with user needs and aligned with brand values, ensuring a consistent user experience.           
             </Typography>
         </TwoColumnSection>
     </Section>
@@ -197,7 +200,7 @@ const Project1Page: React.FC = () => {
         >
             <Typography variant="h3" className={styles.manifestoTitle}>Collaborative Copy</Typography>
             <Typography variant="p" className={styles.manifestoText}>
-                In the Writing phase, we take a collaborative approach to craft a narrative that truly connects with our audience. We kick off this phase by working together with project members in a shared space, ensuring that the words we choose not only convey information but also resonate with our users. We're not just writing; we're tailoring language, tone, and clarity to make sure our users have a seamless and engaging experience.            
+            A collaborative approach was taken to craft a narrative that connected with the target audience, refining language, tone, and clarity.            
             </Typography>
         </TwoColumnSection>
     </Section>
@@ -211,7 +214,7 @@ const Project1Page: React.FC = () => {
         >
             <Typography variant="h3" className={styles.manifestoTitle}>Client Alignment</Typography>
             <Typography variant="p" className={styles.manifestoText}>
-                In the collaborative copywriting phase, we initiate a dynamic process of constant communication and alignment. This not only ensures that our vision seamlessly resonates but also plays a crucial role in shaping specific content decisions.            
+            Continuous communication and alignment with the client were crucial throughout the copywriting phase, ensuring the vision was realized and key content decisions were informed.            
             </Typography>
         </TwoColumnSection>
     </Section>
@@ -220,7 +223,7 @@ const Project1Page: React.FC = () => {
     <Section marginBottom="none" padding="none">
         <Typography variant="h2" className={styles.sectionTitle}>IA + wireframes</Typography>
         <Typography variant="p" className={styles.narrowContent}> 
-            Collaborating closely with decision-makers, I shape the information architecture and wireframes, marking a transition from conceptualization to a visual framework.       
+        Close collaboration with decision-makers shaped the information architecture and wireframes, transitioning the project from concept to a visual framework.       
         </Typography>
     </Section>
 
@@ -233,7 +236,8 @@ const Project1Page: React.FC = () => {
         >
             <Typography variant="h3" className={styles.manifestoTitle}>Frameworks and workflows</Typography>
             <Typography variant="p" className={styles.manifestoText}>
-                Embark on a journey through the UX designer's toolbox, where creativity meets strategy. From Adobe Suite and UI software to the wizardry of AI, witness the artful curation of inspiration and client concepts into the architectural masterpieces of Information Architecture (IA) and wireframes. It's the alchemy of ideas, meticulously crafted for a user experience that feels both magical and seamless.            </Typography>
+            Tools like Adobe Suite, UI software, and AI were used to curate inspiration and client concepts into the Information Architecture IA and wireframes.            
+            </Typography>
         </TwoColumnSection>
     </Section>
 
@@ -246,7 +250,7 @@ const Project1Page: React.FC = () => {
         >
             <Typography variant="h3" className={styles.manifestoTitle}>Client Collaboration</Typography>
             <Typography variant="p" className={styles.manifestoText}>
-                Throughout this process, our valued client was at the forefront. We worked closely with decision-makers during the creation of wireframes, ensuring that every detail aligns seamlessly with the project goals we've set.
+            Close collaboration with the client during the wireframing process ensured every detail aligned with the project goals.
             </Typography>
         </TwoColumnSection>
     </Section>
@@ -260,7 +264,7 @@ const Project1Page: React.FC = () => {
         >
             <Typography variant="h3" className={styles.manifestoTitle}>Visual Conceptualization</Typography>
             <Typography variant="p" className={styles.manifestoText}>
-                Moving forward into the Design phase, we extended our visual conceptualization using Adobe software and stock image sites. This step allowed us to design and implement customized visuals that go beyond aesthetics—they contribute to a cohesive and engaging user experience. As we transition into the Design phase, we're not just creating visuals; we're crafting an immersive journey for our users.
+            The Design phase used Adobe software and stock images to create custom visuals for a cohesive and engaging user experience.
             </Typography>
         </TwoColumnSection>
     </Section>
@@ -269,7 +273,7 @@ const Project1Page: React.FC = () => {
         <div>
         <Typography variant="h2" className={styles.sectionTitle}>Design</Typography>
         <Typography variant="p" className={styles.narrowContent}> 
-            I bring the vision to life using a design system. Through client validation and iterative processes, we create a 10-page website.        
+        A comprehensive design system was implemented, and through client validation and iterative processes, a 10-page website was developed.        
         </Typography>
         </div>
    <Section marginBottom="xl" padding="none">
@@ -296,7 +300,7 @@ const Project1Page: React.FC = () => {
         >
             <Typography variant="h3" className={styles.manifestoTitle}>Figma Design Iterations</Typography>
             <Typography variant="p" className={styles.manifestoText}>
-                Employed Figma to bring the wireframes to life, designing icons, colors, typography, spacers, forms, buttons, inputs, hero sections, and lead magnets.
+            Figma was used to bring the wireframes to life, creating design elements such as icons, colors, typography, spacers, forms, buttons, inputs, hero sections, and lead magnets.
             </Typography>
         </TwoColumnSection>
     </Section>
@@ -334,7 +338,7 @@ const Project1Page: React.FC = () => {
         >
             <Typography variant="h3" className={styles.manifestoTitle}>Client Validation</Typography>
             <Typography variant="p" className={styles.manifestoText}>
-                I engaged in a collaborative process with the client to ensure that the design aligns seamlessly with their vision and goals. This involved presenting design iterations and receiving feedback at key stages, fostering a dynamic dialogue that contributed to the refinement of the visual elements.
+            A collaborative process with the client ensured the design aligned with their vision, with feedback incorporated at key stages.
             </Typography>
         </TwoColumnSection>
     </Section>
@@ -354,14 +358,79 @@ const Project1Page: React.FC = () => {
         </ImageGrid>
       </Section>
 
-      {/* Call to Action */}
-      <Section marginBottom="none" padding="none">
-        <Card className={styles.sectionCard}>
-        <Link to='/contact'>
-            <Button variant='secondary'>Let's Talk</Button>
-        </Link>
-        </Card>
+    {/* Hand-off + Extras */}
+    <Section marginBottom="xl" padding="none">
+        <Typography variant="h2" className={styles.sectionTitle}>Hand-off + Extras</Typography>
+        <Typography variant="p" className={styles.narrowContent}> 
+        In the Hand-off phase, a comprehensive review with the client illuminates design choices, and accessibility is prioritized for ongoing support to the client's team. Through knowledge transfer, a seamless hand-off is facilitated, providing essential insights for future maintenance and development.       
+        </Typography>
     </Section>
+
+    <Section marginBottom="none" padding="none">
+  <div className={styles.checkListGrid}>
+    <div>
+        <div className={styles.checklistItem}>
+            
+            <Typography variant="h3" className={styles.checklistItemTitle}>Comprehensive Review</Typography>
+         </div>
+        <Typography variant="p" className={styles.checklistItemDescription}>
+          Conducted a thorough review of the project, leaving no aspect unexamined.
+        </Typography>
+    </div>
+
+    <div>
+        <div className={styles.checklistItem}>
+            
+            <Typography variant="h3" className={styles.checklistItemTitle}>Accessibility</Typography>
+        </div>
+        <Typography variant="p" className={styles.checklistItemDescription}>
+          Made sure the website met WCAG 2.1 AA standards, ensuring it's usable for everyone.
+        </Typography>
+    </div>
+
+    <div>
+      <div className={styles.checklistItem}>
+        
+        <Typography variant="h3" className={styles.checklistItemTitle}>Knowledge Transfer</Typography>
+      </div>
+        <Typography variant="p" className={styles.checklistItemDescription}>
+        Facilitated seamless handoff with comprehensive documentation and training.
+        </Typography>
+    </div>
+
+    <div>
+        <div className={styles.checklistItem}>
+            
+            <Typography variant="h3" className={styles.checklistItemTitle}>Post-Handoff Support</Typography>
+        </div>
+        <Typography variant="p" className={styles.checklistItemDescription}>
+          Provided ongoing support after the project launch, ensuring a smooth transition.
+        </Typography>
+    </div>
+  </div>
+</Section>
+
+
+    {/* I learned a lot! */}
+    <Section marginBottom="xl" padding="none">
+        <Typography variant="h2" className={styles.sectionTitle}>I learned a lot!</Typography>
+        <Typography variant="p" className={styles.narrowContent}> 
+        Our design journey embodies a commitment to user-centricity, iterative refinement, collaboration, flexibility, and transparent knowledge sharing.      
+        </Typography>
+        <Typography variant="p" className={styles.narrowContent}> 
+        Rooted in the overarching theme of creating meaningful connections, our iterative approach, from discovery to hand-off, ensured continuous enhancement. User-centric principles guided every decision, fostering a holistic user experience. Collaborating closely with clients enriched our process, emphasizing diverse perspectives. Flexibility allowed adaptation to evolving needs, and transparent knowledge sharing in the hand-off phase ensured sustained success. The journey was more than a project; it was a testament to the power of connectivity and adaptability in design.        </Typography>
+    </Section>
+
+    <Section marginBottom="xl" padding="none">
+        <Card>
+            <Typography variant="h2" align="center" className={styles.ctaTitle}>
+                Ready to Elevate Your Digital Presence?
+            </Typography>
+            <Link to="/contact">
+                <Button variant="primary">Let's Talk</Button>
+            </Link>
+        </Card>
+      </Section>
     </div>
   );
 };
