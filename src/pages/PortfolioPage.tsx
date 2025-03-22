@@ -13,9 +13,9 @@ const PortfolioPage: React.FC = () => {
     <div>
       {/* Hero Section */}
       <div className={styles.heroContent}>
-            <Typography variant="h1" className={styles.heroTitle}>Design Experiences That Connect</Typography>
+            <Typography variant="h1" className={styles.heroTitle}>Driving Results Through Design</Typography>
             <Typography variant="subtitle1" className={styles.heroSubtitle}>
-            I'm Kyle, a Google Certified UX Designer blending data, strategy, and creative vision to build impactful design systems.            
+            Case Studies Demonstrating Impactful UX and Content Solutions            
             </Typography>
       </div>
 

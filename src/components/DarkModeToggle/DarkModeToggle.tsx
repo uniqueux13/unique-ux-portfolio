@@ -1,3 +1,4 @@
+// src/components/DarkModeToggle/DarkModeToggle.tsx
 import React, { useState, useEffect } from 'react';
 import styles from './DarkModeToggle.module.css';
 import { FaSun, FaMoon } from 'react-icons/fa';
@@ -31,15 +32,13 @@ const DarkModeToggle: React.FC<DarkModeToggleProps> = ({className = ""}) => {
   return (
     <button
       onClick={toggleTheme}
-      className={`${styles.toggleButton} ${className}`} //Added classname
-      aria-label={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"} // ARIA label
-      aria-pressed={isDarkMode} // Indicate pressed state
+      className={`${styles.toggleButton} ${className}`}
+      aria-label={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+      aria-pressed={isDarkMode}
     >
+      {/*  Removed the span with labelText, keep only the icon: */}
       <span className={styles.icon}>
         {isDarkMode ? <FaSun /> : <FaMoon />}
-      </span>
-      <span className={styles.labelText}>
-        {isDarkMode ? 'Light' : 'Dark'} {/* Text label */}
       </span>
     </button>
   );

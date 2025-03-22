@@ -3,7 +3,8 @@ import React from 'react';
 import styles from './Typography.module.css';
 
 interface TypographyProps {
-  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'subtitle1' | 'subtitle2' | 'span' | 'heroP' | 'caption'; // Add heroP and caption
+  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'subtitle1' | 'subtitle2' | 'span' | 'heroP' | 'caption'
+    | 'listItem'; // Add 'listItem' here
   children: React.ReactNode;
   className?: string;
   align?: 'left' | 'center' | 'right' | 'justify';
@@ -16,7 +17,7 @@ const Typography: React.FC<TypographyProps> = ({
   align = 'left',
 }) => {
   let Element: React.ElementType = 'p'; // Default to <p>
-  let variantClass = styles.p;    // Default class
+  let variantClass = styles.p;
 
   switch (variant) {
     case 'h1':
@@ -44,7 +45,7 @@ const Typography: React.FC<TypographyProps> = ({
         variantClass = styles.h6;
         break;
     case 'subtitle1':
-      Element = 'p'; //  Use <p> for subtitles
+      Element = 'p';
       variantClass = styles.subtitle1;
       break;
     case 'subtitle2':
@@ -60,20 +61,24 @@ const Typography: React.FC<TypographyProps> = ({
         variantClass = styles.p;
         break;
     case 'heroP':
-        Element = 'p';  // Still a paragraph element
-        variantClass = styles.heroP; // Use the heroP class
+        Element = 'p';
+        variantClass = styles.heroP;
         break;
     case 'caption':
-        Element = 'p'; //Captions are p tags
+        Element = 'p';
         variantClass = styles.caption;
         break;
-    default: //If no variant given.
+    case 'listItem':  // Add the new case
+        Element = 'p'; //  Use <p> (or <span> if you prefer)
+        variantClass = styles.listItem; //  Apply the .listItem class
+        break;
+    default:
         Element = 'p';
         variantClass = styles.p;
         break;
   }
 
-  const alignmentClass = styles[`align-${align}`]; // Dynamic alignment class
+  const alignmentClass = styles[`align-${align}`];
 
   return (
     <Element className={`${variantClass} ${alignmentClass} ${className}`}>

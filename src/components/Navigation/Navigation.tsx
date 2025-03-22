@@ -1,7 +1,8 @@
+// src/components/Navigation/Navigation.tsx
 import React, { useState } from 'react';
 import styles from './Navigation.module.css';
-import { Link } from 'react-router-dom'; // Import Link
-import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'; // Import it!
+import { Link } from 'react-router-dom';
+import DarkModeToggle from '../DarkModeToggle/DarkModeToggle';
 
 interface NavItem {
   label: string;
@@ -9,15 +10,16 @@ interface NavItem {
 }
 
 interface NavigationProps {
-    navItems?: NavItem[]; //Array of Nav Items
+    navItems?: NavItem[];
 }
 
 const Navigation: React.FC<NavigationProps> = ({navItems = [
     { label: 'Home', path: '/' },
     { label: 'About', path: '/about' },
+    { label: 'Services', path: '/services' },
     { label: 'Portfolio', path: '/portfolio' },
     { label: 'Contact', path: '/contact' },
-  ]}) => {  //Provide Default Value
+  ]}) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,7 +30,6 @@ const Navigation: React.FC<NavigationProps> = ({navItems = [
   return (
     <nav className={styles.navigation}>
       <button className={styles.menuButton} onClick={toggleMenu}>
-        {/* Hamburger Icon or "Menu" text */}
         <span className={styles.hamburgerIcon}>&#9776;</span>
       </button>
 

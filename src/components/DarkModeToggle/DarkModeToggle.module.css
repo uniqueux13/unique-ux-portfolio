@@ -1,11 +1,11 @@
 /* src/components/DarkModeToggle/DarkModeToggle.module.css */
 .toggleButton {
     background: none;
-    border: 2px solid var(--color-primary);
+    border: none;
     cursor: pointer;
     font-size: 1rem; /* Adjust overall size here */
-    padding: .5rem 1.2rem; /* Add some padding */
-    margin-right: 1.5rem;
+    padding: .5rem 0; /* Add some padding */
+    margin-right: 1.4rem;
     display: flex; /* Use flexbox for alignment */
     align-items: center; /* Center vertically */
     justify-content: center; /* Center horizontally */
@@ -19,8 +19,8 @@
     /* REMOVE width and height:  Let font-size control it */
     /* width: 1.5em; */
     /* height: 1.5em; */
-      font-size: 1rem;
-      margin-top: 2px;
+      font-size: 1.2rem;
+      margin-top: 4px;
   }
   
   .labelText {

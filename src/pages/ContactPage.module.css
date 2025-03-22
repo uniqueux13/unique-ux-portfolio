@@ -1,7 +1,26 @@
-.pageTitle {
-    /* Styles for the main page title */
+.heroTitle {
+    margin-bottom: var(--space-md);
+      color: var(--color-text);
+      text-align: center;
+  }
+  
+  .heroSubtitle {
+    color: var(--color-text);
+    text-align: center;
+  }
+
+  .heroP{ 
+    font-family: var(--font-family-sora);
+    font-size: var(--font-size-hero-paragraph);
+    line-height: var(--line-height-hero-paragraph);
+    font-weight: 400;
     margin-bottom: var(--space-md);
 }
+  .heroContent {
+    max-width: 1200px;
+    margin: 6rem auto;
+    text-align: center;
+  }
 
 .contactIntro {
     /* Styles for the introductory paragraph */

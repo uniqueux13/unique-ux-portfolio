@@ -57,7 +57,10 @@ const ContactPage: React.FC = () => {
 
   return (
     <div>
-      <Typography variant="h1" align='center' className={styles.pageTitle}>Contact Me</Typography>
+     {/* Hero Section */}
+     <div className={styles.heroContent}>
+            <Typography variant="h1" className={styles.heroTitle}>Contact Unique UX</Typography>
+      </div>
       <Card>
         <Typography variant="p" className={styles.contactIntro}>
           Let's discuss your next project!  Fill out the form below, and I'll get back to you within 24-48 hours.

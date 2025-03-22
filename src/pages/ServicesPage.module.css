@@ -1,0 +1,64 @@
+/* src/pages/ServicesPage.module.css */
+
+.heroTitle {
+    margin-bottom: var(--space-md);
+      color: var(--color-text);
+      text-align: center;
+  }
+  
+  .heroSubtitle {
+    color: var(--color-text);
+    text-align: center;
+  }
+
+  .heroP{ 
+    font-family: var(--font-family-sora);
+    font-size: var(--font-size-hero-paragraph);
+    line-height: var(--line-height-hero-paragraph);
+    font-weight: 400;
+    margin-bottom: var(--space-md);
+}
+  .heroContent {
+    max-width: 1200px;
+    margin: 6rem auto;
+    text-align: center;
+  }
+  
+  /* REMOVE .serviceCategoryCard styles - no longer needed */
+  .categoryTitle {
+      margin-bottom: var(--space-md);
+      text-align: center; /* Or left, as needed */
+  }
+  
+  .serviceItems {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: var(--space-md); /*  Space between cards */
+    margin-bottom: 6rem;
+  }
+  
+  .serviceItem {
+    /* REMOVE padding and border - Card handles this */
+    /* padding: var(--space-md);
+    border: 1px solid var(--color-secondary); */
+  }
+  
+  .serviceTitle {
+    font-weight: bold;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .servicePrice {
+    color: var(--color-primary);
+    font-weight: bold;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .serviceDescription {
+    list-style: none;
+    padding: 0;
+    margin-left: 0;
+  }
+  .serviceDescription li {
+      margin-bottom: var(--space-xs);
+  }

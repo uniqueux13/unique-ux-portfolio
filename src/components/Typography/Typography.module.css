@@ -47,6 +47,15 @@
       font-weight: 400;
       margin-bottom: var(--space-md); /* More space below paragraphs */
   }
+
+  .listItem {
+    font-family: var(--font-family-primary); /* Use your desired font */
+    font-size:  var(--font-size-listitem);   /* Use your paragraph font size, or define a new variable */
+    line-height: 1.4rem; /*  Use your paragraph line-height */
+    font-weight: 400;     /* Example: Regular weight */
+    /*  You don't need margin-bottom here, as the <li> will handle spacing */
+  }
+
   .heroP{  /*Added class*/
       font-family: var(--font-family-sora);
       font-size: var(--font-size-hero-paragraph);
