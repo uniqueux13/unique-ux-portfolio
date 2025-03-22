@@ -1,45 +1,52 @@
 /* src/components/Button/Button.module.css */
 
 .button {
-    padding: 1rem 1rem;
-    border: none; /* Remove any existing border */
-    border-radius: 4px;
+    padding: 0.8rem 1.5rem; /* More standard padding */
+    border: none;
+    border-radius: 4px; /* Keep rounded corners */
     cursor: pointer;
-    font-size: 1rem;
+    font-size: var(--font-size-button);
+    font-family: var(--font-family-primary); /* Use variables */
     font-weight: 500;
-    transition:  transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; /* Add transition for smooth effects */
+    line-height: var(--line-height-button);
     text-decoration: none;
-    display: inline-block;
-    text-align: center;
+    letter-spacing: .05rem;
+    display: inline-flex; /* Use flexbox for alignment */
+    align-items: center;    /* Vertical alignment */
+    justify-content: center; /* Center content (text + arrow) */
+    gap: 0.5rem;          /* Space between text and arrow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
   }
   
-  .button:hover { /*General Hover*/
-      filter: brightness(1.1);
-  }
-  
+  /* --- Primary Button Styles --- */
   .primary {
-      background-color: var(--color-background);
-      color: var(--color-button-text);
-      animation: breatheSunlight 4s ease-in-out infinite; /* Apply animation */
+    background-color: var(--color-primary);  /* Light gray background */
+    color: var(--color-button-text); /* Dark text */
+    animation: breatheSunlight 4s ease-in-out infinite;
   }
   
+  .primary:hover {
+      filter: brightness(1.1); /*Slightly brighter on hover*/
+  }
+  
+  /* --- Secondary Button Styles --- */
   .secondary {
-    background-color: var(--color-background); /* Dark background */
-    color: #fff;              /* White text */
-    border: 2px solid var(--color-text); /* Add a border - initial color */
+    background-color: var(--color-background);
+    color: #fff;
+    border: 2px solid var(--color-text);
   }
   
   .secondary:hover {
-    /* "Breathing" border on hover */
-    animation: breatheBorder 2s ease-in-out infinite;
-      filter: brightness(1.1); /*Remove brightness*/
-  
+    animation: breatheBorder 2s ease-in-out infinite; /* Animation on HOVER */
+    filter: brightness(1.1);  /* Removed duplicated filter */
   }
   
+  /* --- Text Button Styles --- */
   .text {
     background-color: transparent;
     color: var(--color-link);
-    padding: 0;
+    padding: 0; /* Remove padding for text buttons */
+    border: none; /* Remove border for text buttons */
   }
   
   .text:hover {
@@ -51,23 +58,23 @@
     opacity: 0.6;
     cursor: not-allowed;
   }
-  /* Keyframes for primary button */
+  
+  /* --- Keyframes (Keep these, they are correct) --- */
   @keyframes breatheSunlight {
     0% {
       transform: scale(1);
-      box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2); /* Initial subtle shadow */
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2);
     }
     50% {
-      transform: scale(1.03); /* Slightly larger */
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 252, 93, 0.3), 0 0 25px rgba(86, 214, 255, 0.2); /* Brighter, more varied colors */
+      transform: scale(1.03);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 252, 93, 0.3), 0 0 25px rgba(86, 214, 255, 0.2);
     }
     100% {
       transform: scale(1);
-      box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2); /* Back to initial */
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2);
     }
   }
   
-  /* Keyframes for "Breathing" Border (Secondary Button) */
   @keyframes breatheBorder {
     0% {
       box-shadow: 0 0 3px rgba(255, 255, 255, 0.4), 0 0 6px rgba(255, 255, 255, 0.2);

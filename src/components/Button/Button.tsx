@@ -1,14 +1,15 @@
-// src/components/Button/Button.tsx (No Changes)
+// src/components/Button/Button.tsx
 import React from 'react';
 import styles from './Button.module.css';
 
 interface ButtonProps {
   children: React.ReactNode;
-  onClick?: () => void; // Optional click handler
-  variant?: 'primary' | 'secondary' | 'text'; // Different button styles
+  onClick?: () => void;
+  variant?: 'primary' | 'secondary' | 'text';
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
   className?: string;
+  arrow?: boolean; // Add the arrow prop
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -18,10 +19,12 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   type = 'button',
   className = '',
+  arrow = false, // Default to no arrow
 }) => {
   const buttonClassName = `${styles.button} ${styles[variant]} ${className} ${
-        disabled ? styles.disabled : ''
-    }`;
+    disabled ? styles.disabled : ''
+  }`;
+
   return (
     <button
       type={type}
@@ -30,6 +33,9 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
     >
       {children}
+      {arrow && <span> &#10132;</span>} {/* Conditionally render the arrow */}
+      {/* OR, using the Unicode character directly: */}
+      {/* {arrow && <span> ➔</span>} */}
     </button>
   );
 };

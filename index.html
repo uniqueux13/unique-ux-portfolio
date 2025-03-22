@@ -16,7 +16,19 @@
     <title>Unique UX</title>
   </head>
   <body>
+    <select id="theme-switcher" style="position: absolute; top: 10px; right: 10px; z-index: 1000;">
+      <option value="dark">Dark Mode</option>
+      <option value="light">Light Mode</option>
+    </select>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <script>
+      const themeSwitcher = document.getElementById('theme-switcher');
+      themeSwitcher.addEventListener('change', (event) => {
+        document.documentElement.setAttribute('data-theme', event.target.value);
+      });
+    </script>
   </body>
 </html>

@@ -17,9 +17,7 @@ const HomePage: React.FC = () => {
             <Typography variant="subtitle1" className={styles.heroSubtitle}>
             I'm Kyle, a Google Certified UX Designer blending data, strategy, and creative vision to build impactful design systems.            
             </Typography>
-            <Button variant="primary" onClick={() => window.location.href = '/portfolio'} className={styles.heroButton}>
-          View My Work
-        </Button>
+            <Button onClick={() => window.location.href = '/portfolio'} variant="primary" arrow>View Portfolio</Button>
       </div>
 
       {/* Unique UX About Section - Large padding */}
