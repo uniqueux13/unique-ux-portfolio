@@ -42,7 +42,7 @@
   }
   
   .heroTitle {
-      color: #121212;
+      color: var(--color-text);
       position: relative;
       z-index: 1;
   }

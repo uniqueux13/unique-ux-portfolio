@@ -1,5 +1,9 @@
 /* src/components/Navigation/Navigation.module.css */
 .navigation {
+    /* ... existing styles ... */
+  display: flex;          /*  Use flexbox */
+  align-items: center;     /*  Vertically center items */
+  justify-content: space-between; /*  Push logo and menu to the edges */
   }
   
   .menuButton {

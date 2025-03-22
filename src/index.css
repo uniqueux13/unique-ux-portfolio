@@ -63,7 +63,7 @@
     --color-button-text: #fff;      /* White text on primary button */
     --color-link: #007bff;       /* Blue links */
     --color-link-hover: #0056b3;  /* Darker blue on hover */
-    --color-header-footer-bg: #f8f9fa; /* Light gray header/footer */
+    --color-header-footer-bg: #1a1a1a; /* Light gray header/footer */
     --color-box-shadow: rgba(0, 0, 0, 0.1); /* Standard box shadow */
     --color-slightly-lighter-bg: #ffffff; /* Slightly lighter gray for gradient */
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Navigation.module.css';
 import { Link } from 'react-router-dom'; // Import Link
+import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'; // Import it!
 
 interface NavItem {
   label: string;
@@ -38,6 +39,7 @@ const Navigation: React.FC<NavigationProps> = ({navItems = [
           </li>
         ))}
       </ul>
+      <DarkModeToggle className={styles.darkModeToggle} />
     </nav>
   );
 };
