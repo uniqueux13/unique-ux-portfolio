@@ -3,15 +3,21 @@ import Typography from '../components/Typography/Typography';
 import Card from '../components/Card/Card';
 import Image from '../components/Image/Image';
 import {Link} from 'react-router-dom';
-import styles from './PortfolioPage.module.css'; // Import CSS Module
-import Section from '../components/Section/Section'; // Import Section
-import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection'; // Import
+import styles from './PortfolioPage.module.css'; 
+import Section from '../components/Section/Section'; 
+import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection'; 
 
 
 const PortfolioPage: React.FC = () => {
   return (
     <div>
-      <Typography variant="h1" align='center' className={styles.pageTitle}>Unique UX Portfolio</Typography>
+      {/* Hero Section */}
+      <div className={styles.heroContent}>
+            <Typography variant="h1" className={styles.heroTitle}>Design Experiences That Connect</Typography>
+            <Typography variant="subtitle1" className={styles.heroSubtitle}>
+            I'm Kyle, a Google Certified UX Designer blending data, strategy, and creative vision to build impactful design systems.            
+            </Typography>
+      </div>
 
       <Section marginBottom="xl" padding="none">
         <TwoColumnSection

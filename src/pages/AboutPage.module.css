@@ -1,20 +1,17 @@
 /* src/pages/HomePage.module.css */
 
 /* --- Hero Section --- */
-
-
-  
-.projectTitle {
+.heroTitle {
     margin-bottom: var(--space-md);
       color: var(--color-text);
       text-align: center;
   }
   
-  .projectSubtitle {
+  .heroSubtitle {
     color: var(--color-text);
     text-align: center;
   }
-  .heroP{  /*Added class*/
+  .heroP{
     font-family: var(--font-family-sora);
     font-size: var(--font-size-hero-paragraph);
     line-height: var(--line-height-hero-paragraph);
@@ -90,20 +87,16 @@
   .serviceDescription {
   }
   
-  /* --- Call to Action Section --- */
-  .ctaText {
+/* --- Call to Action Section --- */
+.ctaTitle {
     margin-bottom: var(--space-sm);
+      color: var(--color-text);
+      text-align: center;
   }
   
-  .ctaBenefits {
-    list-style: none;
-    padding: 0;
-    margin-bottom: var(--space-md);
+  .ctaSubtitle {
+    color: var(--color-text);
     text-align: center;
-  }
-  
-  .ctaBenefits li {
-    margin-bottom: var(--space-xs);
   }
   
   .ctaButton {

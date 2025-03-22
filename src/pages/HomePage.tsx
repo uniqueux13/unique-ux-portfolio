@@ -11,11 +11,12 @@ import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection';
 const HomePage: React.FC = () => {
   return (
     <div>
-      {/* Hero Section - No padding */}
+      {/* Hero Section */}
       <div className={styles.heroContent}>
-            <Typography variant="h1" className={styles.projectTitle}>Design Experiences That Connect</Typography>
-            <Typography variant="subtitle1" className={styles.projectSubtitle}>
-            I'm Kyle, a Google Certified UX Designer blending data, strategy, and creative vision to build impactful design systems.            </Typography>
+            <Typography variant="h1" className={styles.heroTitle}>Design Experiences That Connect</Typography>
+            <Typography variant="subtitle1" className={styles.heroSubtitle}>
+            I'm Kyle, a Google Certified UX Designer blending data, strategy, and creative vision to build impactful design systems.            
+            </Typography>
             <Button variant="primary" onClick={() => window.location.href = '/portfolio'} className={styles.heroButton}>
           View My Work
         </Button>
@@ -90,8 +91,8 @@ const HomePage: React.FC = () => {
 
     {/* Call to Action */}
     <div className={styles.heroContent}>
-            <Typography variant="h2" className={styles.projectTitle}>Ready to Create Something Unique?</Typography>
-            <Typography variant="p" className={styles.projectSubtitle}>
+            <Typography variant="h2" className={styles.ctaTitle}>Ready to Create Something Unique?</Typography>
+            <Typography variant="p" className={styles.ctaSubtitle}>
             Let's collaborate to build a digital experience that transforms your business and delights your users.
             </Typography>
             <Button variant="primary" onClick={() => window.location.href = '/contact'} className={styles.heroButton}>

@@ -1,20 +1,17 @@
 /* src/pages/HomePage.module.css */
-
 /* --- Hero Section --- */
-
-
-  
-  .projectTitle {
+  .heroTitle {
     margin-bottom: var(--space-md);
       color: var(--color-text);
       text-align: center;
   }
   
-  .projectSubtitle {
+  .heroSubtitle {
     color: var(--color-text);
     text-align: center;
   }
-  .heroP{  /*Added class*/
+
+  .heroP{ 
     font-family: var(--font-family-sora);
     font-size: var(--font-size-hero-paragraph);
     line-height: var(--line-height-hero-paragraph);
@@ -44,22 +41,6 @@
     z-index: 0;
   }
   
-  .heroTitle {
-      color: #121212;
-      position: relative;
-      z-index: 1;
-  }
-  
-  .heroIntro {
-      color: #121212;
-      position: relative;
-      z-index: 1;
-      font-family: var(--font-family-sora);
-      font-size: var(--font-size-hero-paragraph);
-      line-height: var(--line-height-hero-paragraph);
-      font-weight: 400;
-  }
-  
   .heroButton {
       position: relative;
       z-index: 1;  
@@ -87,35 +68,29 @@
     text-align: left;
   }
   
-  .serviceDescription {
-  }
-  
   /* --- Call to Action Section --- */
-  .ctaText {
+  .ctaTitle {
     margin-bottom: var(--space-sm);
+      color: var(--color-text);
+      text-align: center;
   }
   
-  .ctaBenefits {
-    list-style: none;
-    padding: 0;
-    margin-bottom: var(--space-md);
+  .ctaSubtitle {
+    color: var(--color-text);
     text-align: center;
-  }
-  
-  .ctaBenefits li {
-    margin-bottom: var(--space-xs);
   }
   
   .ctaButton {
     margin: 0 auto;
   }
   
+
+  /* --- Media Queries --- */
   @media (min-width: 769px) {
     .servicesGrid {
-      grid-template-columns: repeat(3, 1fr); /* Three columns on larger screens */
-      grid-template-rows: repeat(2, auto);  /* Two rows on larger screens */
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, auto);
     }
-    /* No other changes are needed within the media query */
   }
   
   

@@ -35,9 +35,9 @@ const AboutPage: React.FC = () => {
     <div>
       {/* Hero Section - No padding */}
       <div className={styles.heroContent}>
-            <Typography variant="h1" className={styles.projectTitle}>About Kyle</Typography>
-            <Typography variant="subtitle1" className={styles.projectSubtitle}>
-                User Experience Designer
+            <Typography variant="h1" className={styles.heroTitle}>About Kyle</Typography>
+            <Typography variant="subtitle1" className={styles.heroSubtitle}>
+                Content Designer
             </Typography>
       </div>
 
@@ -72,8 +72,8 @@ const AboutPage: React.FC = () => {
 
     {/* Call to Action */}
     <div className={styles.heroContent}>
-            <Typography variant="h2" className={styles.projectTitle}>Ready to Create Something Unique?</Typography>
-            <Typography variant="p" className={styles.projectSubtitle}>
+            <Typography variant="h2" className={styles.ctaTitle}>Ready to Create Something Unique?</Typography>
+            <Typography variant="p" className={styles.ctaSubtitle}>
             Let's collaborate to build a digital experience that transforms your business and delights your users.
             </Typography>
             <Button variant="primary" onClick={() => window.location.href = '/contact'} className={styles.heroButton}>
