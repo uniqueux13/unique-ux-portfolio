@@ -1,11 +1,13 @@
 import React from 'react';
 import Typography from '../components/Typography/Typography';
-import Card from '../components/Card/Card';
-import Image from '../components/Image/Image';
 import {Link} from 'react-router-dom';
 import styles from './PortfolioPage.module.css'; 
 import Section from '../components/Section/Section'; 
-import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection'; 
+import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection';
+import caseStudyProject1 from '../assets/GromoCaseStudy/caseStudy-project-1.png';
+import caseStudyProject2 from '../assets/GromoCaseStudy/caseStudy-project-2.png'; 
+import caseStudyProject3 from '../assets/GromoCaseStudy/caseStudy-project-3.png'; 
+
 
 
 const PortfolioPage: React.FC = () => {
@@ -21,7 +23,7 @@ const PortfolioPage: React.FC = () => {
 
       <Section marginBottom="xl" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-25.png"
+            imageSrc= {caseStudyProject1}
             imageAlt="'Step-by-step' design from project inspiration board"
             imageOnLeft={true}
         >
@@ -35,7 +37,7 @@ const PortfolioPage: React.FC = () => {
 
       <Section marginBottom="xl" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-project-2.png"
+            imageSrc={caseStudyProject2}
             imageAlt="'Step-by-step' design from project inspiration board"
             imageOnLeft={false}
         >
@@ -48,7 +50,7 @@ const PortfolioPage: React.FC = () => {
 
     <Section marginBottom="xl" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-project-3.png"
+            imageSrc={caseStudyProject3}
             imageAlt="'Step-by-step' design from project inspiration board"
             imageOnLeft={true}
         >

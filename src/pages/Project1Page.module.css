@@ -1,5 +1,26 @@
 /* src/pages/Project1Page.module.css */
-
+.heroTitle {
+    margin-bottom: var(--space-md);
+      color: var(--color-text);
+      text-align: center;
+  }
+  
+  .heroSubtitle {
+    color: var(--color-text);
+    text-align: center;
+  }
+  .heroP{
+    font-family: var(--font-family-sora);
+    font-size: var(--font-size-hero-paragraph);
+    line-height: var(--line-height-hero-paragraph);
+    font-weight: 400;
+    margin-bottom: var(--space-md);
+}
+  .heroContent {
+    max-width: 1200px;
+    margin: 6rem auto;
+    text-align: center;
+  }
 
 
   
@@ -115,8 +136,20 @@
       margin-bottom: var(--space-xs); /* Space between title and description */
   
   }
-  .ctaTitle{
-    margin-bottom: var(--space-md);
+  /* --- Call to Action Section --- */
+.ctaTitle {
+    margin-bottom: var(--space-sm);
+      color: var(--color-text);
+      text-align: center;
+  }
+  
+  .ctaSubtitle {
+    color: var(--color-text);
+    text-align: center;
+  }
+  
+  .ctaButton {
+    margin: 0 auto;
   }
   /* Responsive Styles (for larger screens) */
   @media (min-width: 769px) {

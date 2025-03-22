@@ -87,15 +87,12 @@ const HomePage: React.FC = () => {
 </div>
     </Section>
 
-    {/* Call to Action */}
     <div className={styles.heroContent}>
             <Typography variant="h2" className={styles.ctaTitle}>Ready to Create Something Unique?</Typography>
             <Typography variant="p" className={styles.ctaSubtitle}>
             Let's collaborate to build a digital experience that transforms your business and delights your users.
             </Typography>
-            <Button variant="primary" onClick={() => window.location.href = '/contact'} className={styles.heroButton}>
-          Let's Talk
-        </Button>
+            <Button onClick={() => window.location.href = '/portfolio'} variant="primary" arrow>Book a Free Consultation</Button>
       </div>
     </div>
   );

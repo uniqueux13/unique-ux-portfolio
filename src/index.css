@@ -3,7 +3,7 @@
 :root {
   /* --- Dark Mode Colors --- */
   --color-background: #121212;
-  --color-text: #eee;
+  --color-text: #fafafa;
   --color-primary: #4a90e2;
   --color-secondary: #a0aec0;
   --color-card-background: #1e1e1e;
@@ -18,8 +18,8 @@
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;
-  --space-lg: 2rem;
-  --space-xl: 3rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
 
   /* --- Font Families --- */
   --font-family-primary: 'Poppins', sans-serif;
@@ -56,7 +56,7 @@
 }
 /* Light Mode Colors */
 [data-theme="light"] {
-    --color-background: #f5f5f5; /* Light gray background */
+    --color-background: #fafafa; /* Light gray background */
     --color-text: #333;        /* Dark gray text */
     --color-primary: #007bff;    /* Example blue - adjust */
     --color-secondary: #6c757d; /* Medium gray */
@@ -66,7 +66,7 @@
     --color-link-hover: #0056b3;  /* Darker blue on hover */
     --color-header-footer-bg: #1a1a1a; /* Light gray header/footer */
     --color-box-shadow: rgba(0, 0, 0, 0.1); /* Standard box shadow */
-    --color-slightly-lighter-bg: #ffffff; /* Slightly lighter gray for gradient */
+    --color-slightly-lighter-bg: #fafafa; /* Slightly lighter gray for gradient */
 }
 
 html {

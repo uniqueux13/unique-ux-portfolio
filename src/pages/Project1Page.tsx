@@ -10,21 +10,56 @@ import Video from '../components/Video/Video';
 import styles from './Project1Page.module.css';
 import { Link } from 'react-router-dom';
 import ImageGrid from '../components/ImageGrid/ImageGrid';
+import caseStudyImage1 from'../assets/GromoCaseStudy/caseStudy-image-1.png';
+import caseStudyImage2 from'../assets/GromoCaseStudy/caseStudy-image-2.png';
+import caseStudyImage3 from'../assets/GromoCaseStudy/caseStudy-image-3.png';
+import caseStudyImage4 from'../assets/GromoCaseStudy/caseStudy-image-4.png';
+import caseStudyImage5 from'../assets/GromoCaseStudy/caseStudy-image-5.png';
+import caseStudyImage6 from '../assets/GromoCaseStudy/case-study-image-6.png';
+import caseStudyImage65 from '../assets/GromoCaseStudy/caseStudy-image-6.jpg';
+import caseStudyImage7 from '../assets/GromoCaseStudy/caseStudy-image-7.png';
+import caseStudyImage8 from '../assets/GromoCaseStudy/caseStudy-image-8.png';
+import caseStudyImage9 from '../assets/GromoCaseStudy/caseStudy-image-9.png';
+import caseStudyImage10 from '../assets/GromoCaseStudy/caseStudy-image-10.png';
+import caseStudyImage11 from '../assets/GromoCaseStudy/caseStudy-image-11.png';
+import caseStudyImage12 from '../assets/GromoCaseStudy/caseStudy-image-12.png';
+import caseStudyImage13 from '../assets/GromoCaseStudy/caseStudy-image-13.png';
+import caseStudyImage14 from '../assets/GromoCaseStudy/caseStudy-image-14.png';
+import caseStudyImage15 from '../assets/GromoCaseStudy/caseStudy-image-15.png';
+import caseStudyImage16 from '../assets/GromoCaseStudy/caseStudy-image-16.png';
+import caseStudyImage17 from '../assets/GromoCaseStudy/caseStudy-image-17.png';
+import caseStudyImage18 from '../assets/GromoCaseStudy/caseStudy-image-18.png';
+import caseStudyImage19 from '../assets/GromoCaseStudy/caseStudy-image-19.png';
+import caseStudyImage20 from '../assets/GromoCaseStudy/caseStudy-image-20.png';
+import caseStudyImage21 from '../assets/GromoCaseStudy/caseStudy-image-21.png';
+import caseStudyImage22 from '../assets/GromoCaseStudy/caseStudy-image-22.png';
+import caseStudyImage23 from '../assets/GromoCaseStudy/caseStudy-image-23.png';
+import caseStudyImage24 from '../assets/GromoCaseStudy/caseStudy-image-24.png';
+
+
 
 const Project1Page: React.FC = () => {
+    const images = [
+        { src: caseStudyImage15, alt: 'Image 1' },  // Use imported images
+        { src: caseStudyImage16, alt: 'Image 2' },
+        { src: caseStudyImage17, alt: 'Image 3' },
+        { src: caseStudyImage18, alt: 'Image 4' },
+        { src: caseStudyImage19, alt: 'Image 5' },
+        { src: caseStudyImage20, alt: 'Image 6' },
+    ];
   return (
     <div className={styles.project1Page}>
       {/* Hero Section */}
-      <Section marginBottom="xl" padding="none" className={styles.hero}>
-            <Typography variant="h1" className={styles.projectTitle}>Marketing Agency Website Redesign</Typography>
-            <Typography variant="subtitle1" className={styles.projectSubtitle}>
+      <Section marginBottom="xl" padding="none" className={styles.heroContent}>
+            <Typography variant="h1" className={styles.heroTitle}>Marketing Agency Website Redesign</Typography>
+            <Typography variant="subtitle1" className={styles.heroSubtitle}>
             Case Study: Enhancing User Engagement and Lead Generation for GroMo
             </Typography>
       </Section>
     
     <Section marginBottom="xl" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-1.png"
+            imageSrc={caseStudyImage1}
             imageAlt="'Step-by-step' design from project inspiration board"
             imageOnLeft={true}
         >
@@ -48,7 +83,7 @@ const Project1Page: React.FC = () => {
     {/* Meeting Insights */}
     <Section marginBottom="sm" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-2.png"
+            imageSrc={caseStudyImage2}
             imageAlt="'Step-by-step' design from project inspiration board"
             imageOnLeft={false}
         >
@@ -63,7 +98,7 @@ const Project1Page: React.FC = () => {
 
     <Section marginBottom="xl" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-3.png" // Corrected path
+            imageSrc={caseStudyImage3}
             imageAlt="'Step-by-step' design from project inspiration board"
             imageOnLeft={true}
         >
@@ -108,7 +143,7 @@ const Project1Page: React.FC = () => {
     {/* Competitive Analysis */}
     <Section marginBottom="sm" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-4.png"
+            imageSrc={caseStudyImage4}
             imageAlt="''collaboration' visual from approved design"
             imageOnLeft={false}
         >
@@ -122,7 +157,7 @@ const Project1Page: React.FC = () => {
     {/* Persona Development */}
     <Section marginBottom="xl" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-5.png"
+            imageSrc={caseStudyImage5}
             imageAlt="''User personas from the planning phase"
             imageOnLeft={true}
         >
@@ -135,16 +170,16 @@ const Project1Page: React.FC = () => {
 
     {/* Pain Points */}
     <Section marginBottom="none" padding="md">
-        <Typography variant="h2" className={styles.sectionTitle}>Pain Points</Typography>
-        <div className={styles.imageContainer}>
-            <Image src="src\assets\GromoCaseStudy\case-study-image-6.png" alt="Pain points design for marketing landing page" className={styles.centeredImage} />
-        </div>
+      <Typography variant="h2" className={styles.sectionTitle}>Pain Points</Typography>
+      <div className={styles.imageContainer}>
+        <Image src={caseStudyImage6} alt="Pain points design for marketing landing page" className={styles.centeredImage} /> {/* Use the imported variable */}
+      </div>
     </Section>
 
     {/* Visual Blueprint */}
     <Section marginBottom="none" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-6.jpg"
+            imageSrc={caseStudyImage65}
             imageAlt="''Gromo Inspiration Board visual"
             imageOnLeft={false}
         >
@@ -158,7 +193,7 @@ const Project1Page: React.FC = () => {
     {/* User Flow Design */}
     <Section marginBottom="xl" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-7.png"
+            imageSrc={caseStudyImage7}
             imageAlt="''This user flow visually represents the steps a user takes to accomplish a specific task within a system or application."
             imageOnLeft={true}
         >
@@ -180,7 +215,7 @@ const Project1Page: React.FC = () => {
     {/* Ideation and Research */}
     <Section marginBottom="sm" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-8.png"
+            imageSrc={caseStudyImage8}
             imageAlt="'''market analysis' visual from approved design"
             imageOnLeft={false}
         >
@@ -194,7 +229,7 @@ const Project1Page: React.FC = () => {
     {/* Collaborative Copy */}
     <Section marginBottom="sm" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-9.png"
+            imageSrc={caseStudyImage9}
             imageAlt="''Copywriting section from GroMo home page"
             imageOnLeft={true}
         >
@@ -208,7 +243,7 @@ const Project1Page: React.FC = () => {
     {/* Client Alignment */}
     <Section marginBottom="xl" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-10.png"
+            imageSrc={caseStudyImage10}
             imageAlt="''Copywriting section from GroMo home page"
             imageOnLeft={false}
         >
@@ -220,7 +255,7 @@ const Project1Page: React.FC = () => {
     </Section>
 
     {/* IA + wireframes */}
-    <Section marginBottom="none" padding="none">
+    <Section marginBottom="lg" padding="none">
         <Typography variant="h2" className={styles.sectionTitle}>IA + wireframes</Typography>
         <Typography variant="p" className={styles.narrowContent}> 
         Close collaboration with decision-makers shaped the information architecture and wireframes, transitioning the project from concept to a visual framework.       
@@ -230,7 +265,7 @@ const Project1Page: React.FC = () => {
     {/* Frameworks and workflows */}
     <Section marginBottom="none" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-11.png"
+            imageSrc={caseStudyImage11}
             imageAlt="''Information Architect diagram"
             imageOnLeft={true}
         >
@@ -244,7 +279,7 @@ const Project1Page: React.FC = () => {
     {/* Client Collaboration */}
     <Section marginBottom="none" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-12.png"
+            imageSrc={caseStudyImage12}
             imageAlt="''Information Architect diagram"
             imageOnLeft={false}
         >
@@ -258,7 +293,7 @@ const Project1Page: React.FC = () => {
     {/* Visual Conceptualization */}
     <Section marginBottom="xl" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-13.png"
+            imageSrc={caseStudyImage13}
             imageAlt="''Visual conceptualization of marketing results for the 'client'"
             imageOnLeft={true}
         >
@@ -294,7 +329,7 @@ const Project1Page: React.FC = () => {
     {/* Figma Design Iterations */}
     <Section marginBottom="xl" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-14.png"
+            imageSrc={caseStudyImage14}
             imageAlt="Segment of GroMo's design system"
             imageOnLeft={true}
         >
@@ -305,26 +340,27 @@ const Project1Page: React.FC = () => {
         </TwoColumnSection>
     </Section>
     
-    {/* Image Grid Section */}
-    <Section marginBottom="none" padding="none">
+    {/* Image Grid Section - Design Examples */}
+    <Section padding="md">
+        <Typography variant="h2" className={styles.sectionTitle}>Design Examples</Typography>
         <ImageGrid>
           <div className={styles.imageContainer}>
-            <Image src="src\assets\GromoCaseStudy\caseStudy-image-15.png" alt="Image 1" className={styles.gridImage} />
+            <Image src={caseStudyImage15} alt="Image 1" className={styles.gridImage} />
           </div>
           <div className={styles.imageContainer}>
-            <Image src="src\assets\GromoCaseStudy\caseStudy-image-16.png" alt="Image 2" className={styles.gridImage} />
+            <Image src={caseStudyImage16} alt="Image 2" className={styles.gridImage} />
           </div>
           <div className={styles.imageContainer}>
-            <Image src="/src\assets\GromoCaseStudy\caseStudy-image-17.png" alt="Image 3" className={styles.gridImage} />
+            <Image src={caseStudyImage17} alt="Image 3" className={styles.gridImage} />
           </div>
           <div className={styles.imageContainer}>
-            <Image src="src\assets\GromoCaseStudy\caseStudy-image-18.png" alt="Image 4" className={styles.gridImage} />
+            <Image src={caseStudyImage18} alt="Image 4" className={styles.gridImage} />
           </div>
           <div className={styles.imageContainer}>
-            <Image src="src\assets\GromoCaseStudy\caseStudy-image-19.png" alt="Image 5" className={styles.gridImage} />
+            <Image src={caseStudyImage19} alt="Image 5" className={styles.gridImage} />
           </div>
           <div className={styles.imageContainer}>
-            <Image src="src\assets\GromoCaseStudy\caseStudy-image-20.png" alt="Image 6" className={styles.gridImage} />
+            <Image src={caseStudyImage20} alt="Image 6" className={styles.gridImage} />
           </div>
         </ImageGrid>
       </Section>
@@ -332,7 +368,7 @@ const Project1Page: React.FC = () => {
     {/* Client Validation */}
     <Section marginBottom="sm" padding="none">
         <TwoColumnSection
-            imageSrc="src\assets\GromoCaseStudy\caseStudy-image-21.png"
+            imageSrc={caseStudyImage21}
             imageAlt="Segment of GroMo's design system"
             imageOnLeft={false}
         >
@@ -347,19 +383,19 @@ const Project1Page: React.FC = () => {
     <Section marginBottom="xl" padding="none">
         <ImageGrid>
           <div className={styles.imageContainer}>
-            <Image src="src\assets\GromoCaseStudy\caseStudy-image-22.png" alt="Image 1" className={styles.gridImage} />
+            <Image src={caseStudyImage22} alt="Image 1" className={styles.gridImage} />
           </div>
           <div className={styles.imageContainer}>
-            <Image src="src\assets\GromoCaseStudy\caseStudy-image-23.png" alt="Image 2" className={styles.gridImage} />
+            <Image src={caseStudyImage23} alt="Image 2" className={styles.gridImage} />
           </div>
           <div className={styles.imageContainer}>
-            <Image src="/src\assets\GromoCaseStudy\caseStudy-image-24.png" alt="Image 3" className={styles.gridImage} />
+            <Image src={caseStudyImage24} alt="Image 3" className={styles.gridImage} />
           </div>
         </ImageGrid>
       </Section>
 
     {/* Hand-off + Extras */}
-    <Section marginBottom="lg" padding="none">
+    <Section marginBottom="xl" padding="none">
         <Typography variant="h2" className={styles.sectionTitle}>Hand-off + Extras</Typography>
         <Typography variant="p" className={styles.narrowContent}> 
         In the Hand-off phase, a comprehensive review with the client illuminates design choices, and accessibility is prioritized for ongoing support to the client's team. Through knowledge transfer, a seamless hand-off is facilitated, providing essential insights for future maintenance and development.       
@@ -420,16 +456,13 @@ const Project1Page: React.FC = () => {
         
     </Section>
 
-    <Section marginBottom="xl" padding="none">
-        <Card>
-            <Typography variant="h2" align="center" className={styles.ctaTitle}>
-                Ready to Elevate Your Digital Presence?
+    <div className={styles.heroContent}>
+            <Typography variant="h2" className={styles.ctaTitle}>Ready to Create Something Unique?</Typography>
+            <Typography variant="p" className={styles.ctaSubtitle}>
+            Let's collaborate to build a digital experience that transforms your business and delights your users.
             </Typography>
-            <Link to="/contact">
-                <Button variant="primary">Let's Talk</Button>
-            </Link>
-        </Card>
-      </Section>
+            <Button onClick={() => window.location.href = '/portfolio'} variant="primary" arrow>Book a Free Consultation</Button>
+      </div>
     </div>
   );
 };
