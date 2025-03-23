@@ -43,7 +43,9 @@
   
   .heroButton {
       position: relative;
-      z-index: 1;  
+      z-index: 1;
+      text-decoration: none;
+      color: white;
   }
   
   /* --- My Process Section --- */

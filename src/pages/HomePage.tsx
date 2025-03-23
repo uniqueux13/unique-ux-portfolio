@@ -18,10 +18,7 @@ const HomePage: React.FC = () => {
             <Typography variant="subtitle1" className={styles.heroSubtitle}>
             Designing Unique Digital Experiences for Every User
             </Typography>
-            <Button
-          variant="primary"
-          className={styles.heroButton}
-        >
+            <Button variant="primary" className={styles.heroButton}>
           <Link to="/portfolio">View My Work</Link>
         </Button>
       </div>
