@@ -4,8 +4,6 @@ import styles from './Video.module.css';
 
 interface VideoProps {
   src: string;
-  width?: string;
-  height?: string;
   className?: string;
   autoPlay?: boolean;
   muted?: boolean;
@@ -15,8 +13,6 @@ interface VideoProps {
 
 const Video: React.FC<VideoProps> = ({
   src,
-  width,
-  height,
   className,
   autoPlay,
   muted,
@@ -43,17 +39,13 @@ const Video: React.FC<VideoProps> = ({
           src={src}
           title="YouTube video player"
           frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          width={width}
-          height={height}
         />
       ) : (
         <video
           ref={videoRef}
           className={styles.video}
-          width={width}
-          height={height}
           autoPlay={autoPlay}
           muted={muted}
           loop={loop}

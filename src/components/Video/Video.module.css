@@ -1,6 +1,24 @@
-.video {
-    max-width: 800px;
+/* src/components/Video/Video.module.css */
+
+.videoContainer {
+    position: relative; /*  Important for absolute positioning */
+    width: 100%;       /*  Take up full width of parent */
+    padding-bottom: 56.25%; /*  THIS IS THE KEY! Aspect ratio trick */
+    /* Removed max-width and margin */
+    overflow: hidden;  /* Important: Hide any overflowing content */
+  }
+  
+  .videoIframe {
+    position: absolute; /*  Absolutely position the iframe */
+    top: 0;
+    left: 0;
+    width: 100%;       /*  Fill the container */
+    height: 100%;      /*  Fill the container */
+    border: none;
+  }
+  
+  .video { /* For local videos - if you use them */
+    width: 100%;
     height: auto;
-    display: block;
-    margin: 1rem auto;
-}
+    object-fit: contain; /* Or cover, depending on your needs */
+  }
