@@ -22,7 +22,12 @@ import pizza1 from '../assets/Sketchbook-images/pizza1.png';
 import pizza2 from '../assets/Sketchbook-images/pizza2.png';
 import pizza3 from '../assets/Sketchbook-images/pizza3.png';
 import pizza4 from '../assets/Sketchbook-images/pizza4.png';
-
+import kids from '../assets/Sketchbook-images/kids.png';
+import kidsFull from '../assets/Sketchbook-images/kids-full.png'
+import kidsHalloween from '../assets/Sketchbook-images/kids-halloween.png'
+import halloween from '../assets/Sketchbook-images/halloween.png'
+import halloween2 from '../assets/Sketchbook-images/halloween2.png'
+import halloween3 from '../assets/Sketchbook-images/halloween3.png'
 
 
 const Sketchbook: React.FC = () => {
@@ -101,6 +106,30 @@ const Sketchbook: React.FC = () => {
           </div>
           <div className={styles.imageContainer}>
             <Image src={mooncat3} alt="Image 3" className={styles.gridImage} />
+          </div>
+        </ImageGrid>
+      </Section>
+
+      {/* Image Grid Section - Design Examples */}
+    <Section marginBottom="xl" padding="none">
+        <ImageGrid>
+          <div className={styles.imageContainer}>
+            <Image src={kids} alt="Image 1" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src={kidsFull} alt="Image 2" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src={kidsHalloween} alt="Image 3" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src={halloween} alt="Image 4" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src={halloween2} alt="Image 5" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src={halloween3} alt="Image 6" className={styles.gridImage} />
           </div>
         </ImageGrid>
       </Section>
