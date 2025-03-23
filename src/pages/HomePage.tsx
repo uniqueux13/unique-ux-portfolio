@@ -2,12 +2,15 @@
 import React from 'react';
 import Typography from '../components/Typography/Typography';
 import Card from '../components/Card/Card';
+import Image from '../components/Image/Image';
 import Button from '../components/Button/Button';
 import styles from './HomePage.module.css';
 import { Link } from 'react-router-dom';
 import Section from '../components/Section/Section'; // Import
 import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection';
 import heroImageAlt from '../assets/hero-image-alt.png'
+import clientLogos from '../assets/Client-logos.png'
+import uxCertificate from '../assets/google-ux-certificate.png'
 
 const HomePage: React.FC = () => {
   return (
@@ -88,6 +91,29 @@ const HomePage: React.FC = () => {
   </Card>
 </div>
     </Section>
+
+        {/* Trusted by professionals */}
+    <Section marginBottom="xl" padding="md">
+      <Typography variant="h2" className={styles.sectionTitle}>Trusted by professionals</Typography>
+      <div className={styles.imageContainer}>
+        <Image src={clientLogos} alt="Client Logos" className={styles.centeredImage} /> {/* ADD alt attribute */}
+      </div>
+    </Section>
+
+    {/* Unique UX About Section - Large padding */}
+    <Section marginBottom="xl" padding="none">
+        <TwoColumnSection
+            imageSrc={uxCertificate}
+            imageAlt="About Unique UX"
+            imageOnLeft={true}
+        >
+           <Typography variant="h2" className={styles.manifestoTitle}>Certificate | Foundations of UX design</Typography>
+            <Typography variant="p" className={styles.manifestoText}>
+            During my studies for the Google UX Design Certificate, I delved into the core principles of UX design, refining my skills in user research, prototyping, and interaction design.
+            </Typography>
+        </TwoColumnSection>
+      </Section>
+
 
     {/* Call to Action */}
     <div className={styles.heroContent}>
