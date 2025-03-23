@@ -9,6 +9,7 @@ import PortfolioPage from './pages/PortfolioPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Project1Page from './pages/Project1Page';
 import ServicesPage from './pages/ServicesPage';
+import Sketchbook from './pages/Sketchbook';
 
 
 const App: React.FC = () => {
@@ -23,6 +24,7 @@ const App: React.FC = () => {
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/project1" element={<Project1Page />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/sketchbook" element={<Sketchbook />} />
         </Routes>
       </main>
       <Footer />
