@@ -6,34 +6,10 @@ import styles from './AboutPage.module.css';
 import { Link } from 'react-router-dom';
 import Section from '../components/Section/Section'; // Import
 import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection';
-import Card from '../components/Card/Card'
 import working from '../assets/working.png'
 import profilePicture from '../assets/kyle.png'
 
-interface WorkExperience {
-    title: string;
-    company: string;
-    dates: string;
-  }
-
 const AboutPage: React.FC = () => {
-    const workExperience: WorkExperience[] = [
-        { title: 'UX Designer', company: '@GroMo', dates: '2022' },
-        { title: 'UX Designer', company: '@IPS', dates: '2019 & 2023' },
-        { title: 'UX Designer', company: '@Hello Bonsai', dates: '2022' },
-        { title: 'Writer', company: '@Icecream Apps', dates: '2022-2023' },
-        { title: 'UX Designer', company: '@PixlLabs', dates: '2022' },
-        { title: 'UX Designer', company: '@OneBoard', dates: '2022' },
-        { title: 'Writer', company: '@Bnatural Media', dates: '2022' },
-        { title: 'Writer', company: '@JDI Integrated Experts', dates: '2021-2022' },
-        { title: 'UX Designer', company: '@Manor Publishing', dates: '2020-2021' },
-        { title: 'Writer', company: '@Kind Organics', dates: '2021' },
-        { title: 'Writer', company: '@Gallaudet University', dates: '2020-2021' },
-        { title: 'UX Designer', company: '@Artifact Content', dates: '2017-2020' },
-        { title: 'UX Designer', company: '@Bay in the Castle', dates: '2017-2019' },
-        { title: 'Designer', company: '@The City Drive Group', dates: '2018-20xx' },
-        // ... add the rest of your work experience
-      ];
   return (
     <div>
       {/* Hero Section - No padding */}
@@ -57,20 +33,6 @@ const AboutPage: React.FC = () => {
             </Typography>
         </TwoColumnSection>
     </Section>
-
-    <Section marginBottom="xl" padding="none">
-        <Typography variant="h2" className={styles.sectionTitle}>
-          Work Experience
-        </Typography>
-        <div className={styles.experienceContainer}>
-          {workExperience.map((job, index) => (
-            <Card key={index} className={styles.experienceItem}>
-              <Typography variant="h4" className={styles.jobTitle}>{job.title}</Typography>
-              <Typography variant="listItem" className={styles.company}>{job.company}</Typography>
-            </Card>
-          ))}
-        </div>
-      </Section>
 
           {/* When I'm not working Section */}
       <Section marginBottom="xl" padding="none">
