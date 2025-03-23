@@ -3,6 +3,6 @@
     background-color: var(--color-card-background);
     border-radius: 8px;
     box-shadow: 0 2px 4px var(--color-box-shadow);
-    padding: var(--space-lg); /* Adjust as needed */
-    margin-bottom: var(--space-md); /* Consistent spacing between cards */
+    padding: var(--space-md); /* Adjust as needed */
+    margin-bottom: var(--space-xs); /* Consistent spacing between cards */
   }

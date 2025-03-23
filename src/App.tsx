@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';         //Create These Pages
 import AboutPage from './pages/AboutPage';
 import PortfolioPage from './pages/PortfolioPage';
-import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Project1Page from './pages/Project1Page';
 import ServicesPage from './pages/ServicesPage';
@@ -21,7 +20,6 @@ const App: React.FC = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/project1" element={<Project1Page />} />
           <Route path="/services" element={<ServicesPage />} />

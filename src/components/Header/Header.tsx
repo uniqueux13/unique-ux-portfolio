@@ -2,17 +2,18 @@
 import React from 'react';
 import styles from './Header.module.css';
 import Navigation from '../Navigation/Navigation';
-import logo from '../../assets/logo.svg'; // Import your logo.  Adjust path if needed.
+import logo from '../../assets/logo.svg'; // Make sure this path is correct
 
-interface HeaderProps{
-    siteTitle: string;
+interface HeaderProps {
+  siteTitle: string;
 }
 
-const Header: React.FC<HeaderProps> = ({siteTitle}) => {
+const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
-        <img src={logo} alt="Unique UX Logo" className={styles.logoImage} /> {/* Use the imported logo */}
+      <div className={styles.logoContainer}> {/* Use logoContainer */}
+        <img src={logo} alt="Unique UX Logo" className={styles.logoImage} />
+        <span className={styles.siteTitle}>{siteTitle}</span> {/* Add siteTitle span */}
       </div>
       <Navigation />
     </header>

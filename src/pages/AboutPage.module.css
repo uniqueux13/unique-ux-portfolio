@@ -2,7 +2,7 @@
 
 /* --- Hero Section --- */
 .heroTitle {
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-xs);
       color: var(--color-text);
       text-align: center;
   }
@@ -113,38 +113,34 @@
   
   /* src/pages/AboutPage.module.css */
 
-.experienceContainer {
+  .experienceContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-    gap: var(--space-md); /*Consistent spacing from design System*/
-    margin-top: var(--space-md);
+    gap: var(--space-md);       /*  Consistent spacing  */
+    margin-top: var(--space-md); /* Space above the grid */
 }
 
 .experienceItem {
-  
-    padding: var(--space-sm); 
-    border-bottom: 1px solid black; 
-    margin-bottom: var(--space-sm);
+    display: flex;         /*  Use flexbox */
+    flex-direction: column; /*  Stack items VERTICALLY */
+    align-items: flex-start; /* Align items to the START (top) */
+    /* padding: var(--space-sm); Optional - add padding *inside* each item */
+    margin-bottom: none; /* Space *below* each item */
 }
 
+/*Changed to subtitle2 to add more visual depth*/
 .jobTitle {
-  font-size: var( --font-size-caption);
-  font-weight: bold; /* Make the job title stand out */
-  margin-bottom: var(--space-xs); /* Space between title and company */
-  color: var(--color-text-primary); /*Use primary color from design system*/
-
+    font-weight: bold;
+    margin-bottom: 2px;
+    color: var(--color-text);
 }
-
+/*Changed to caption for less visual*/
 .company {
-  margin-bottom: var(--space-xs);/* Space between company and dates */
-  font-style: italic; /* Italicize the company name, as in the image */
-  color: var(--color-text-secondary); /*Use secondary color from design system*/
+    margin-bottom: 2px;/* Space between company and dates */
+    font-style: italic;
+    color: var(--color-secondary);
 }
-
+/*Changed to caption for less visual*/
 .dates {
-  color: var(--color-text-tertiary); /*Use tertiary color from design system*/
-
-}
-.sectionTitle{
-     margin-bottom: var(--space-sm);
+    color: var(--color-secondary);
 }

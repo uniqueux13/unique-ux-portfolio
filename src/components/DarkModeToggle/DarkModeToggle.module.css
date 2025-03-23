@@ -6,6 +6,7 @@
     font-size: 1rem; /* Adjust overall size here */
     padding: .5rem 0; /* Add some padding */
     margin-right: 1.4rem;
+    margin-left: 1.4rem;
     display: flex; /* Use flexbox for alignment */
     align-items: center; /* Center vertically */
     justify-content: center; /* Center horizontally */

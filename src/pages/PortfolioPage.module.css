@@ -1,5 +1,5 @@
 .heroTitle {
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-xs);
       color: var(--color-text);
       text-align: center;
   }
@@ -55,3 +55,5 @@
     color: var(--color-link-hover); 
     text-decoration: underline;     
   }
+
+  

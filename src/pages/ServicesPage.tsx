@@ -163,7 +163,12 @@ const ServicesPage: React.FC = () => {
             <Typography variant="subtitle1" className={styles.heroSubtitle}>
             Achieve Your Digital Goals with Our Expert Services            
             </Typography>
-            <Button onClick={() => window.location.href = '/portfolio'} variant="primary" arrow>Book a Free Consultation</Button>
+            <Link to="https://calendly.com/kyleranta/15min" target="_blank" rel="noopener noreferrer">
+            <Button variant="primary" arrow>Book a Free Consultation</Button>
+        </Link>
+        <Typography variant="listItem" align="center">
+         uniqueux13@gmail.com
+    </Typography>
       </div>
 
       {/* UX/UI Design Services */}
@@ -246,11 +251,20 @@ const ServicesPage: React.FC = () => {
                 ))}
             </div>
 
-      {/* Hero Section */}
-      <div className={styles.heroContent}>
-            <Typography variant="h2" className={styles.heroTitle}>Ready to Create Something Unique?</Typography>
-            <Button onClick={() => window.location.href = '/contact'} variant="primary" arrow>Book a Free Consultation</Button>
-      </div>
+      {/* Call to Action */}
+    <div className={styles.heroContent}>
+        <Typography variant="h2" className={styles.heroTitle}>Ready to Create Something Unique?</Typography>
+        <Typography variant="p" className={styles.heroSubtitle}>
+          Let's collaborate to build a digital experience that transforms your business and delights your users.
+        </Typography>
+      {/* Use a Link component for external links */}
+        <Link to="https://calendly.com/kyleranta/15min" target="_blank" rel="noopener noreferrer">
+            <Button variant="primary" arrow>Book a Free Consultation</Button>
+        </Link>
+        <Typography variant="listItem" align="center">
+         uniqueux13@gmail.com
+    </Typography>
+    </div>
     </Section>
   );
 };

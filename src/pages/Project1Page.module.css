@@ -1,6 +1,6 @@
 /* src/pages/Project1Page.module.css */
 .heroTitle {
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-xs);
       color: var(--color-text);
       text-align: center;
   }

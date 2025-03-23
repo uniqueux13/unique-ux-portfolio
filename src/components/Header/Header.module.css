@@ -1,28 +1,31 @@
 /* src/components/Header/Header.module.css */
+
 .header {
     background-color: var(--color-header-footer-bg);
-    /*  REMOVE or ADJUST overall padding if you *only* want padding on the logo:
-    padding: 1rem;
-    */
-    padding: 0; /* Remove overall padding */
+    padding: 1rem; /* Remove padding */
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 4px var(--color-box-shadow);
   }
   
-  .logo {
+  /* NEW:  Add this container to hold logo AND title */
+  .logoContainer {
     display: flex;
-    align-items: center;
-    padding: var(--space-sm); /* Add padding ONLY to the logo area */
-    /* Optional: remove top/bottom padding if it's too much:
-    padding-top: 0;
-    padding-bottom: 0;
-    */
+    align-items: center; /* Vertically center logo and title */
+    padding-left: 1rem;  /* Add some padding on the left side */
   }
   
   .logoImage {
-    height: 50px;
+    height: 50px; /* Adjust as needed */
     width: auto;
-    display: block;
+    display: block; /* For consistent spacing */
+    margin-right: 1rem; /* 8px gap (0.5rem = 8px if 1rem = 16px) */
+  }
+  
+  .siteTitle {
+    color: white; /*  Use a light color variable */
+    font-size: 1.5rem; /* Adjust as needed */
+    font-weight: bold;
+    font-family: var(--font-family-sora); /* Use your primary font */
   }

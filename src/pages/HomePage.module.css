@@ -1,7 +1,7 @@
 /* src/pages/HomePage.module.css */
 /* --- Hero Section --- */
   .heroTitle {
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-xs);
       color: var(--color-text);
       text-align: center;
   }
@@ -50,7 +50,8 @@
   .servicesGrid {
     display: grid;
     grid-template-columns: 1fr; /* Single column by default (mobile) */
-    gap: var(--space-lg);       /* Consistent spacing */
+    gap: var(--space-sm);       /* Consistent spacing */
+    margin-bottom: none;
   }
   
   .serviceItem {

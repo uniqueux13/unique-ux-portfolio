@@ -13,7 +13,7 @@
     font-size: var(--font-size-h1);
     line-height: var(--line-height-h1);
     font-weight: 400; /* Regular */
-    margin-bottom: var(--space-sm); /* Use variables for consistent spacing */
+    margin-bottom: var(--space-xs); /* Use variables for consistent spacing */
   }
   
   .h2 {

@@ -11,7 +11,6 @@
     width: 100%; /* Full width on mobile */
     padding: var(--space-md);
     text-align: left; /* Or center, as needed */
-    /* Add any other content styles here */
   }
   
   .imageContainer {
@@ -33,7 +32,6 @@
     .twoColumnSection {
       flex-direction: row; /* Horizontal layout on desktop */
       align-items: center; /* Center items vertically */
-      /* justify-content: space-between;  Optional: Space between items */
     }
   
     .content {
@@ -44,15 +42,15 @@
       width: 50%; /* Image takes up half the width */
     }
     .contentLeft{
-      order: 1;
+      order: 0; /* Content on the LEFT */
     }
     .imageLeft{
-      order: 0;
+      order: 1; /* Image on the LEFT */
     }
     .contentRight{
-      order: 2;
+      order: 2; /* Content on the RIGHT */
     }
     .imageRight{
-      order: 1;
+      order: 1; /* Image on the RIGHT */
     }
   }

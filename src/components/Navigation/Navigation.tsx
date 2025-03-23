@@ -18,7 +18,6 @@ const Navigation: React.FC<NavigationProps> = ({navItems = [
     { label: 'About', path: '/about' },
     { label: 'Services', path: '/services' },
     { label: 'Portfolio', path: '/portfolio' },
-    { label: 'Contact', path: '/contact' },
   ]}) => {
 
   const [isOpen, setIsOpen] = useState(false);

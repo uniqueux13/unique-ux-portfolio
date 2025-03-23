@@ -7,15 +7,17 @@ import styles from './HomePage.module.css';
 import { Link } from 'react-router-dom';
 import Section from '../components/Section/Section'; // Import
 import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection';
+import heroImage from '../assets/hero-image.png'
+import heroImageAlt from '../assets/hero-image-alt.png'
 
 const HomePage: React.FC = () => {
   return (
     <div>
       {/* Hero Section */}
       <div className={styles.heroContent}>
-            <Typography variant="h1" className={styles.heroTitle}>Design Experiences That Connect</Typography>
+            <Typography variant="h1" className={styles.heroTitle}>Personalization</Typography>
             <Typography variant="subtitle1" className={styles.heroSubtitle}>
-            I'm Kyle, a Google Certified UX Designer blending data, strategy, and creative vision to build impactful design systems.            
+            Designing Unique Digital Experiences for Every User
             </Typography>
             <Button onClick={() => window.location.href = '/portfolio'} variant="primary" arrow>View Portfolio</Button>
       </div>
@@ -23,16 +25,13 @@ const HomePage: React.FC = () => {
       {/* Unique UX About Section - Large padding */}
       <Section marginBottom="xl" padding="none">
         <TwoColumnSection
-            imageSrc="/about-image.png"
+            imageSrc={heroImageAlt}
             imageAlt="About Unique UX"
             imageOnLeft={false}
         >
            <Typography variant="h2" className={styles.manifestoTitle}>About Unique UX</Typography>
             <Typography variant="p" className={styles.manifestoText}>
-              What if you could control the digital narrative? What if you could shape not just how people *use* technology, but how they *experience* it?
-            </Typography>
-            <Typography variant='p' className={styles.manifestoText}>
-              At Unique UX, we believe you can. We provide the framework, the tools, and the understanding to transform your vision into reality. We believe in the power of systems to empower individuals, to unlock potential, and to create experiences that resonate deeply.
+            Unique UX empowers you to shape the digital narrative. We provide the framework and tools to transform your vision into impactful, resonant user experiences.
             </Typography>
         </TwoColumnSection>
       </Section>
@@ -44,42 +43,42 @@ const HomePage: React.FC = () => {
         </Typography>
         <div className={styles.servicesGrid}>
   <Card className={styles.serviceItem}>
-    <Typography variant='subtitle1' className={styles.serviceTitle}>1. Discover</Typography>
+    <Typography variant='h4' className={styles.serviceTitle}>1. Discover</Typography>
     <Typography variant="p" className={styles.serviceDescription}>
       Understand user needs and project goals through research.
     </Typography>
   </Card>
 
   <Card className={styles.serviceItem}>
-    <Typography variant='subtitle1' className={styles.serviceTitle}>2. Define</Typography>
+    <Typography variant='h4' className={styles.serviceTitle}>2. Define</Typography>
     <Typography variant="p" className={styles.serviceDescription}>
       Define clear problem statements and strategies.
     </Typography>
   </Card>
 
   <Card className={styles.serviceItem}>
-    <Typography variant='subtitle1' className={styles.serviceTitle}>3. Ideate</Typography>
+    <Typography variant='h4' className={styles.serviceTitle}>3. Ideate</Typography>
     <Typography variant="p" className={styles.serviceDescription}>
      Generate and explore a wide range of potential solutions.
     </Typography>
   </Card>
 
   <Card className={styles.serviceItem}>
-    <Typography variant='subtitle1' className={styles.serviceTitle}>4. Design</Typography>
+    <Typography variant='h4' className={styles.serviceTitle}>4. Design</Typography>
     <Typography variant="p" className={styles.serviceDescription}>
       Create wireframes, prototypes, and visual designs.
     </Typography>
   </Card>
 
   <Card className={styles.serviceItem}>
-    <Typography variant='subtitle1' className={styles.serviceTitle}>5. Test</Typography>
+    <Typography variant='h4' className={styles.serviceTitle}>5. Test</Typography>
     <Typography variant="p" className={styles.serviceDescription}>
       Validate designs with users and gather feedback.
     </Typography>
   </Card>
 
   <Card className={styles.serviceItem}>
-    <Typography variant='subtitle1' className={styles.serviceTitle}>6. Refine</Typography>
+    <Typography variant='h4' className={styles.serviceTitle}>6. Refine</Typography>
     <Typography variant="p" className={styles.serviceDescription}>
       Iterate on designs based on testing and feedback.
     </Typography>
@@ -87,13 +86,20 @@ const HomePage: React.FC = () => {
 </div>
     </Section>
 
+    {/* Call to Action */}
     <div className={styles.heroContent}>
-            <Typography variant="h2" className={styles.ctaTitle}>Ready to Create Something Unique?</Typography>
-            <Typography variant="p" className={styles.ctaSubtitle}>
-            Let's collaborate to build a digital experience that transforms your business and delights your users.
-            </Typography>
-            <Button onClick={() => window.location.href = '/portfolio'} variant="primary" arrow>Book a Free Consultation</Button>
-      </div>
+        <Typography variant="h2" className={styles.ctaTitle}>Ready to Create Something Unique?</Typography>
+        <Typography variant="p" className={styles.ctaSubtitle}>
+          Let's collaborate to build a digital experience that transforms your business and delights your users.
+        </Typography>
+      {/* Use a Link component for external links */}
+        <Link to="https://calendly.com/kyleranta/15min" target="_blank" rel="noopener noreferrer">
+            <Button variant="primary" arrow>Book a Free Consultation</Button>
+        </Link>
+        <Typography variant="listItem" align="center">
+         uniqueux13@gmail.com
+    </Typography>
+    </div>
     </div>
   );
 };
