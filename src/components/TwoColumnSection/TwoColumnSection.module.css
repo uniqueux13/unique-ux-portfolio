@@ -40,6 +40,7 @@
   
     .imageContainer {
       width: 50%; /* Image takes up half the width */
+      max-width: 800px;
     }
     .contentLeft{
       order: 0; /* Content on the LEFT */

@@ -75,16 +75,13 @@
     text-align: left;
   }
   .sectionTitle{
-      text-align: center;
+      text-align: left;
       margin-bottom: var(--space-sm);
   }
   .serviceTitle {
     font-weight: bold;
     margin-bottom: var(--space-xs);
     text-align: left;
-  }
-  
-  .serviceDescription {
   }
   
 /* --- Call to Action Section --- */

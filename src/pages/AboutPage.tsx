@@ -5,7 +5,6 @@ import Button from '../components/Button/Button';
 import styles from './AboutPage.module.css';
 import { Link } from 'react-router-dom';
 import Section from '../components/Section/Section'; // Import
-import Video from '../components/Video/Video';
 import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection';
 import Card from '../components/Card/Card'
 import working from '../assets/working.png'
@@ -87,7 +86,7 @@ const AboutPage: React.FC = () => {
       </Section>
 
       {/* I like this song Section*/}
-      <Section padding="md">
+      <Section marginBottom="xl" padding="none">
             <TwoColumnSection
                 imageSrc='https://www.youtube.com/embed/6-hRrKFkAQE?si=pxhLclOcjZ2Ts4pC'
                 imageAlt="A song from my favourite band."
@@ -95,7 +94,7 @@ const AboutPage: React.FC = () => {
             >
             <div>
               <Typography variant='h2' className={styles.sectionTitle}>
-                  I Like This Song
+                I Like This Song
               </Typography>
               <Typography variant='p'>
                 I think the name of the artist, title of the song, and overall, it fits well here.

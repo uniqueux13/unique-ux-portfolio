@@ -1,7 +1,6 @@
 // src/pages/Project1Page.tsx
 import React from 'react';
 import Typography from '../components/Typography/Typography';
-import Card from '../components/Card/Card';
 import Image from '../components/Image/Image';
 import Button from '../components/Button/Button';
 import Section from '../components/Section/Section'; // Import Section
@@ -39,14 +38,6 @@ import caseStudyImage24 from '../assets/GromoCaseStudy/caseStudy-image-24.png';
 
 
 const Project1Page: React.FC = () => {
-    const images = [
-        { src: caseStudyImage15, alt: 'Image 1' },  // Use imported images
-        { src: caseStudyImage16, alt: 'Image 2' },
-        { src: caseStudyImage17, alt: 'Image 3' },
-        { src: caseStudyImage18, alt: 'Image 4' },
-        { src: caseStudyImage19, alt: 'Image 5' },
-        { src: caseStudyImage20, alt: 'Image 6' },
-    ];
   return (
     <div className={styles.project1Page}>
       {/* Hero Section */}

@@ -7,7 +7,6 @@ import styles from './HomePage.module.css';
 import { Link } from 'react-router-dom';
 import Section from '../components/Section/Section'; // Import
 import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection';
-import heroImage from '../assets/hero-image.png'
 import heroImageAlt from '../assets/hero-image-alt.png'
 
 const HomePage: React.FC = () => {

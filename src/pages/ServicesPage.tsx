@@ -6,11 +6,6 @@ import Button from '../components/Button/Button';
 import styles from './ServicesPage.module.css';
 import { Link } from 'react-router-dom';
 
-interface ServiceItemProps {
-  title: string;
-  price: string;
-  description: string[];
-}
 
 const ServicesPage: React.FC = () => {
   const services = {

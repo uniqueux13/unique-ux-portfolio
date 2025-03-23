@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './ImageGrid.module.css';
-import Image from '../Image/Image';
 
 interface ImageGridProps {
   children: React.ReactNode; // Accept children instead of an images array
