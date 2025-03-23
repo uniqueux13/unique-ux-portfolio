@@ -306,8 +306,6 @@ const Project1Page: React.FC = () => {
     <div className={styles.videoContainer}>
           <Video
             src="/background-video.mp4"
-            width="100%"
-            height="100%"
             className={styles.video}
             autoPlay
             muted

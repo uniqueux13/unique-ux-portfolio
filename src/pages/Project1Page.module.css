@@ -70,6 +70,14 @@
       color: var(--color-text);
   }
   
+  .videoContainer {
+    position: relative;  
+    padding-bottom: 56.25%; 
+    height: 0;             
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
   .sectionTitle {
     margin-bottom: var(--space-md);
     text-align: center; 
