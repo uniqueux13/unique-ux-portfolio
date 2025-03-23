@@ -8,6 +8,7 @@ import Section from '../components/Section/Section'; // Import
 import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection';
 import Card from '../components/Card/Card'
 import working from '../assets/working.png'
+import profilePicture from '../assets/kyle.png'
 
 interface WorkExperience {
     title: string;
@@ -46,7 +47,7 @@ const AboutPage: React.FC = () => {
     {/* Unique UX About Section - Large padding */}
     <Section marginBottom="xl" padding="none">
         <TwoColumnSection
-            imageSrc="/src\assets\kyle.png"
+            imageSrc={profilePicture}
             imageAlt="About Unique UX"
             imageOnLeft={false}
         >
