@@ -18,7 +18,12 @@ const HomePage: React.FC = () => {
             <Typography variant="subtitle1" className={styles.heroSubtitle}>
             Designing Unique Digital Experiences for Every User
             </Typography>
-            <Button onClick={() => window.location.href = '/portfolio'} variant="primary" arrow>View Portfolio</Button>
+            <Button
+          variant="primary"
+          className={styles.heroButton}
+        >
+          <Link to="/portfolio">View My Work</Link>
+        </Button>
       </div>
 
       {/* Unique UX About Section - Large padding */}
