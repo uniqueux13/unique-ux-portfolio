@@ -1,83 +1,93 @@
 /* src/components/Navigation/Navigation.module.css */
+
+/* ... (your existing styles for larger screens) ... */
 .navigation {
-    /* ... existing styles ... */
-  display: flex;          /*  Use flexbox */
-  align-items: center;     /*  Vertically center items */
-  justify-content: space-between; /*  Push logo and menu to the edges */
-  }
-  
-  .menuButton {
-    display: none; /* Hide by default on larger screens */
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.25rem 0.5rem;
-  }
-  .hamburgerIcon{
-      line-height: 1;
-      color: white;
-      margin-right: 1rem;
-  }
-  
-  .navList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; /* Default: horizontal layout */
-  }
-  
-  .navItem {
-    margin: 0 1rem; /* Spacing between items */
-  }
-  
-  .navLink {
-    text-decoration: none;
-    font-family: var(--font-family-mulish);
-    color: #fafafa; /* USING VARIABLE */
-    padding: 0.5rem;
-    display: block;
+  background-color: var(--color-header-footer-bg);
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menuButton {
+  display: none; /* Hide by default on larger screens */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+    color: white;
+}
+.hamburgerIcon{
+    line-height: 1;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Default: horizontal layout */
+}
+
+.navItem {
+  margin: 0 .7rem; /* Spacing between items */
+}
+
+.navLink {
+  text-decoration: none;
+  color: white; /* Default link color */
+  padding: 0.5rem;
+  display: block;
     transition: color .3s ease;
+    font-family: var(--font-family-primarysecondary);
+    font-size: var(--font-size-nav-link);
+    line-height: var(--line-height-nav-link);
+}
+.navLink:hover {
+    color: #56D6FF;
+}
+/* Mobile Styles (using a media query) */
+@media (max-width: 768px) {
+  .menuButton {
+    display: block;
   }
-  .navLink:hover {
-      color: var(--color-link); /* USING VARIABLE */
+
+  .navList {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 74px;  /*  Position *below* the header. Adjust! */
+    left: 0;
+    width: 100%;
+    background-color: var(--color-header-footer-bg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+     /* --- Center the DarkModeToggle --- */
+     align-items: center; /* Add this */
+
   }
-  
-  @media (max-width: 768px) {
-    .menuButton {
-      display: block; /* Show menu button on smaller screens */
-    }
-  
-    .navList {
-      display: none; /* Hide the list by default */
-      flex-direction: column;
-      position: absolute;
-      top: 74px;  /*  Position *below* the header.  Adjust this value! */
-      left: 0;
-      width: 100%;       /*  Full width */
-      background-color: var(--color-header-footer-bg);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /*  Subtle shadow */
-      z-index: 10;
-    }
-    .navList.open {
-      display: flex;
-      margin-top: 0rem; /* Remove margin*/
-    }
-  
-    .navItem {
-      margin: 0;
-      padding:  0; /*Remove padding and let the links control*/
-      text-align: center; /* Center-align text */
-      border-bottom: 1px solid var(--color-secondary); /* Use a CSS variable */
-    }
+
+  .navList.open {
+    display: flex;
+  }
+
+  .navItem {
+    margin: 0;
+    padding: 0.5rem; /* Add padding *inside* the list item */
+    text-align: center;
+  }
     .navItem:last-child{
-          border-bottom: none;
-      }
+        border-bottom: none;
+    }
     .navLink {
-          padding: 1rem; /* Add padding *inside* the link */
-          width: 100%;     /* Make links full-width */
-      }
+        padding: 1rem; /* Add padding *inside* the link */
+        width: 100%;     /* Make links full-width */
+    }
+
+  /* Style for the DarkModeToggle text (optional) */
+  .darkModeLabel {
+    color: var(--color-text); /* Or any other color you prefer */
+    margin-top: 0.5rem;      /* Space below the toggle button */
+    font-size: 0.8rem;     /* Smaller font size */
   }
-  .darkModeToggle{
-    margin-right: 1rem; /* Spacing from the right edge */
-  }
+}

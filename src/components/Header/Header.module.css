@@ -2,7 +2,8 @@
 
 .header {
     background-color: var(--color-header-footer-bg);
-    padding: 1rem; /* Remove padding */
+    padding-block: 1rem; /* Remove padding */
+    padding-inline: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,7 +14,7 @@
   .logoContainer {
     display: flex;
     align-items: center; /* Vertically center logo and title */
-    padding-left: 1rem;  /* Add some padding on the left side */
+    padding-left: none;  /* Add some padding on the left side */
   }
   
   .logoImage {
@@ -24,6 +25,7 @@
   }
   
   .siteTitle {
+
     color: white; /*  Use a light color variable */
     font-size: 1.5rem; /* Adjust as needed */
     font-weight: bold;

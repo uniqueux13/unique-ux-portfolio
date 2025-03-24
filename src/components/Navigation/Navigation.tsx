@@ -18,7 +18,7 @@ const Navigation: React.FC<NavigationProps> = ({navItems = [
     { label: 'About', path: '/about' },
     { label: 'Services', path: '/services' },
     { label: 'Portfolio', path: '/portfolio' },
-    { label: 'Sketchbook', path: '/sketchbook' },
+    { label: 'Sketchbook', path: '/sketchbook' }, // Add this line!
   ]}) => {
 
   const [isOpen, setIsOpen] = useState(false);
@@ -39,8 +39,14 @@ const Navigation: React.FC<NavigationProps> = ({navItems = [
            <Link to={item.path} className={styles.navLink} onClick={()=>{setIsOpen(false)}}>{item.label}</Link>
           </li>
         ))}
+        {/* --- ADD THE TOGGLE INSIDE THE ul --- */}
+        <li className={styles.navItem}>
+            <DarkModeToggle />
+        </li>
+
       </ul>
-      <DarkModeToggle className={styles.darkModeToggle} />
+        {/* REMOVE DarkModeToggle from here */}
+      {/*<DarkModeToggle className={styles.darkModeToggle} /> */}
     </nav>
   );
 };
