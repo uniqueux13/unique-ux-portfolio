@@ -40,16 +40,15 @@ const PortfolioPage: React.FC = () => {
       <Section marginBottom="xl" padding="none">
         <TwoColumnSection
           imageSrc={caseStudyProject2} // Use the imported image variable
-          imageAlt="Plumbing Company Website Redesign"
+          imageAlt="Exploring Voice UI: An AR Concept"
           imageOnLeft={false}
         >
         <div>
-          <Typography variant="h2" className={styles.projectTitle}>Plumbing Company Website Redesign</Typography>
+          <Typography variant="h2" className={styles.projectTitle}>Voice-Activated AR Interface Concept</Typography>
           <Typography variant="p" className={styles.projectDescription}>
-          Revitalized a plumbing company's digital presence with UX expertise from brand identity & UI design to company policy creation.
+          Goal: Understand the Web Speech API and experiment with basic voice commands in a web-based simulation of an AR interface. This is a learning exercise, not a polished UI. Built with React, TypeScript, & Vite.
           </Typography>
-            {/*"Coming Soon" Text  - No Link*/}
-          <Typography variant="p" className={styles.comingSoon}>Coming Soon</Typography>
+          <Link to='/project2' className={styles.projectLink}>View Project</Link> {/* Link to detail page (create later) */}
         </div>
         </TwoColumnSection>
       </Section>
