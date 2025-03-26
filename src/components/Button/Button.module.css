@@ -31,8 +31,8 @@
   
   /* --- Secondary Button Styles --- */
   .secondary {
-    background-color: var(--color-background);
-    color: #fff;
+    background-color: #eeeeee;
+    color: black;
     border: 2px solid var(--color-text);
   }
   

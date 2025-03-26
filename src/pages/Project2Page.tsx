@@ -60,9 +60,9 @@ const Project2Page: React.FC = () => {
               imageAlt="Diagram showing VUI/AR research analysis" // REPLACE alt text
               imageOnLeft={false} // Example: Switch side
           >
-             <Typography variant="h3" className={styles.manifestoTitle}>Existing VUI & AR Research</Typography>
+             <Typography variant="h3" className={styles.manifestoTitle}>Initial Layout Concept</Typography>
              <Typography variant="p" className={styles.manifestoText}>
-              Analyzed existing voice interfaces (like Siri, Alexa) and AR applications to understand current interaction patterns, identify best practices, and pinpoint opportunities for improvement.
+             Considering an AR overlay, the user's main view shouldn't be blocked. I explored placing the core content in a defined panel on the left, simulating a secondary display within the field of view.
              </Typography>
           </TwoColumnSection>
       </Section>
@@ -74,10 +74,13 @@ const Project2Page: React.FC = () => {
               imageAlt="Mood board for VUI AR concept" // REPLACE alt text
               imageOnLeft={true} // Example: Switch side
           >
-             <Typography variant="h3" className={styles.manifestoTitle}>Conceptual Foundation</Typography>
+             <Typography variant="h3" className={styles.manifestoTitle}>Handling Voice Commands</Typography>
              <Typography variant="p" className={styles.manifestoText}>
-              Focused on creating an intuitive and responsive feel for the voice interaction, aiming for a clean, futuristic aesthetic suitable for an AR overlay.
+             Implemented the Web Speech API to capture speech. The "Start Listening" button initiates capture. This API provides the foundation for speech recognition in the browser.
              </Typography>
+             <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API" target="_blank" rel="noopener noreferrer" className={styles.ctaButtonLink}>
+              <Button variant="secondary" arrow>View Documentation</Button>
+          </a>
           </TwoColumnSection>
       </Section>
 
@@ -88,9 +91,9 @@ const Project2Page: React.FC = () => {
               imageAlt="User flow diagram for voice commands" // REPLACE alt text
               imageOnLeft={false} // Example: Switch side
           >
-             <Typography variant="h3" className={styles.manifestoTitle}>Voice Command Flow</Typography>
+             <Typography variant="h3" className={styles.manifestoTitle}>Feedback Considerations</Typography>
              <Typography variant="p" className={styles.manifestoText}>
-              Mapped the primary interaction flows, defining how users would navigate menus, select items, and trigger actions using specific voice commands.
+             How does the user know the command was heard or is processing? Added the "Last Command" display for immediate confirmation.
              </Typography>
           </TwoColumnSection>
       </Section>
@@ -102,9 +105,9 @@ const Project2Page: React.FC = () => {
               imageAlt="Information architecture for VUI AR" // REPLACE alt text
               imageOnLeft={true} // Example: Switch side
           >
-             <Typography variant="h3" className={styles.manifestoTitle}>Interface Structure & Voice Mapping</Typography>
+             <Typography variant="h3" className={styles.manifestoTitle}>Under the Hood: Basic Logic</Typography>
              <Typography variant="p" className={styles.manifestoText}>
-              Outlined the basic structure of the simulated AR interface and mapped specific voice commands to corresponding UI elements and actions using React and the Web Speech API.
+             Once speech is transcribed, how does it trigger an action? A JavaScript function checks the text for keywords ("next", "back", "show", etc.) and calls the corresponding function (e.g., changing the slide).
              </Typography>
           </TwoColumnSection>
       </Section>
@@ -116,9 +119,9 @@ const Project2Page: React.FC = () => {
               imageAlt="Visual mockups of the AR interface" // REPLACE alt text
               imageOnLeft={false} // Example: Switch side
           >
-             <Typography variant="h3" className={styles.manifestoTitle}>AR Interface Visual Design</Typography>
+             <Typography variant="h3" className={styles.manifestoTitle}>Tech Stack Used</Typography>
              <Typography variant="p" className={styles.manifestoText}>
-              Developed mockups defining the visual style for the AR overlay, focusing on clarity, minimal distraction, and clear feedback mechanisms for voice interactions.
+             This experiment was built using: React, TypeScript, Vite, Web Speech API, CSS, Netlify (for deployment), and GitHub (for version control).
              </Typography>
           </TwoColumnSection>
       </Section>
@@ -130,9 +133,9 @@ const Project2Page: React.FC = () => {
               imageAlt="Figma design system snippets for VUI AR" // REPLACE alt text
               imageOnLeft={true} // Example: Switch side
           >
-             <Typography variant="h3" className={styles.manifestoTitle}>UI Mockups & VUI Logic</Typography>
+             <Typography variant="h3" className={styles.manifestoTitle}>Learnings & Next Steps</Typography>
              <Typography variant="p" className={styles.manifestoText}>
-              Created visual mockups in Figma and defined the underlying logic for interpreting voice commands and triggering the appropriate UI responses within the React application.
+             This was a valuable first step into VUI using web tech. Key learning: Web Speech API is accessible, but context-awareness and truly seamless AR interaction are complex challenges! Next steps could involve better UI design, incorporating AI, or exploring WebXR.
              </Typography>
           </TwoColumnSection>
       </Section>
