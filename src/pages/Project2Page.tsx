@@ -7,7 +7,6 @@ import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection'; 
 // Remove unused Video import
 // Remove unused ImageGrid import
 import styles from './Project2Page.module.css'; // Make sure this CSS file exists
-import { Link } from 'react-router-dom';
 
 // --- IMPORTANT: Replace these with your actual image imports for Project 2 ---
 import vuiImage1 from '../assets/VUICaseStudy/caseStudy-image-1.png'; // Example
