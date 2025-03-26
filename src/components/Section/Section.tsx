@@ -6,7 +6,7 @@ interface SectionProps {
   children: React.ReactNode;
   className?: string;
   padding?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
-  marginBottom?: 'sm' | 'md' | 'lg' | 'xl' | 'none'; // Add marginBottom prop
+  marginBottom?: 'sm' | 'md' | 'lg' | 'xl' |'xxl'| 'none'; // Add marginBottom prop
 }
 
 const Section: React.FC<SectionProps> = ({

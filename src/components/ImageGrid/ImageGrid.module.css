@@ -39,5 +39,6 @@
   @media (max-width: 480px) {
     .imageGrid {
       grid-template-columns: 1fr; /* 1 column on very small screens */
+      margin: 0 auto;
     }
   }

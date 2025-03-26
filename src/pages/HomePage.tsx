@@ -9,8 +9,14 @@ import { Link } from 'react-router-dom';
 import Section from '../components/Section/Section'; // Import
 import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection';
 import heroImageAlt from '../assets/hero-image-alt.png'
-import clientLogos from '../assets/Client-logos.png'
 import uxCertificate from '../assets/google-ux-certificate.png'
+import gromoLogo from '../assets/Clients/gromo-logo.png'
+import nimblebotLogo from '../assets/Clients/nimblebot-logo.png'
+import ipsLogo from '../assets/Clients/ips-logo.png'
+import bonsaiLogo from '../assets/Clients/bonsai-logo.png'
+import icereamAppsLogo from '../assets/Clients/icecream-apps-logo.png'
+import gallaudetLogo from '../assets/Clients/gallaudet-logo.png'
+import ImageGrid from '../components/ImageGrid/ImageGrid';
 
 const HomePage: React.FC = () => {
   return (
@@ -29,7 +35,7 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* Unique UX About Section - Large padding */}
-      <Section marginBottom="xl" padding="none">
+      <Section marginBottom="xxl" padding="none">
         <TwoColumnSection
             imageSrc={heroImageAlt}
             imageAlt="About Unique UX"
@@ -43,7 +49,7 @@ const HomePage: React.FC = () => {
       </Section>
 
       {/* "My Process" Section - Medium padding */}
-      <Section marginBottom="xl" padding="none">
+      <Section marginBottom="xxl" padding="none">
         <Typography variant='h2' className={styles.sectionTitle}>
           My Process
         </Typography>
@@ -92,16 +98,33 @@ const HomePage: React.FC = () => {
 </div>
     </Section>
 
-        {/* Trusted by professionals */}
-    <Section marginBottom="xl" padding="md">
-      <Typography variant="h2" className={styles.sectionTitle}>Trusted by professionals</Typography>
-      <div className={styles.imageContainer}>
-        <Image src={clientLogos} alt="Client Logos" className={styles.centeredImage} /> {/* ADD alt attribute */}
-      </div>
-    </Section>
+    {/* Image Grid Section - Client Logos */}
+    <Section marginBottom="xxl" padding="none">
+        <Typography variant="h2" className={styles.sectionTitle}>Trusted by professionals</Typography>
+        <ImageGrid>
+          <div className={styles.imageContainer}>
+            <Image src={gromoLogo} alt="GroMo Agency Logo" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src={nimblebotLogo} alt="Nimblebot Logo" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src={ipsLogo} alt="IPS Logo" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src={bonsaiLogo} alt="Bonsai Logo" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src={icereamAppsLogo} alt="Icecream Apps Logo" className={styles.gridImage} />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image src={gallaudetLogo} alt="Gallaudet University Logo" className={styles.gridImage} />
+          </div>
+        </ImageGrid>
+      </Section>
 
     {/* Unique UX About Section - Large padding */}
-    <Section marginBottom="xl" padding="none">
+    <Section marginBottom="xxl" padding="none">
         <TwoColumnSection
             imageSrc={uxCertificate}
             imageAlt="About Unique UX"

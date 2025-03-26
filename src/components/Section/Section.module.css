@@ -49,3 +49,7 @@
 .margin-bottom-xl {
   margin-bottom: var(--space-xl);
 }
+
+.margin-bottom-xxl {
+  margin-bottom: var(--space-xxl);
+}
