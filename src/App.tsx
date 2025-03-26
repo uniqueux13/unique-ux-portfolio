@@ -11,12 +11,14 @@ import Project1Page from './pages/Project1Page';
 import ServicesPage from './pages/ServicesPage';
 import Sketchbook from './pages/Sketchbook';
 import Project2Page from './pages/Project2Page';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 
 const App: React.FC = () => {
   return (
     <Router>
       <Header siteTitle="Unique UX" />
+      <ScrollToTop />
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
