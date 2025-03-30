@@ -17,6 +17,7 @@ const Navigation: React.FC<NavigationProps> = ({navItems = [
     { label: 'Home', path: '/' },
     { label: 'About', path: '/about' },
     { label: 'Services', path: '/services' },
+    { label: 'Blog', path: '/blog' },
     { label: 'Portfolio', path: '/portfolio' },
     { label: 'Sketchbook', path: '/sketchbook' }, // Add this line!
   ]}) => {

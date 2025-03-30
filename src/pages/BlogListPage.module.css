@@ -1,0 +1,37 @@
+.pageTitle {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+.postList {
+    list-style: none;
+    padding: 0;
+}
+.postItem {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-secondary);
+}
+.postItem:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.postLink {
+    text-decoration: none;
+}
+.postTitle {
+    margin-bottom: var(--space-xs);
+    color: var(--color-primary); /* Example color */
+    transition: color 0.2s ease;
+}
+.postLink:hover .postTitle {
+    color: var(--color-link-hover); /* Example hover color */
+}
+.postDate {
+    display: block;
+    color: var(--color-secondary);
+    margin-bottom: var(--space-sm);
+}
+.postExcerpt {
+    /* Add styles if needed */
+}

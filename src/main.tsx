@@ -1,10 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import React from 'react'; // Make sure React is imported
+import ReactDOM from 'react-dom/client'; // Use standard React DOM
+import App from './App';
+import './index.css';
+import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+// Use standard React mounting
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <BrowserRouter> {/* Wrap your App with BrowserRouter */}
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+);
