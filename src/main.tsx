@@ -1,31 +1,24 @@
-// src/main.tsx
+// src/main.tsx (Corrected - Simplified ViteSSG options)
 import { ViteSSG } from 'vite-ssg';
 import App from './App';
 import './index.css';
 
-const routes = [
-  { path: '/', component: () => import('./pages/HomePage') },
-  { path: '/about', component: () => import('./pages/AboutPage') },
-  { path: '/services', component: () => import('./pages/ServicesPage') },
-  { path: '/portfolio', component: () => import('./pages/PortfolioPage') },
-  { path: '/project1', component: () => import('./pages/Project1Page') },
-  { path: '/project2', component: () => import('./pages/Project2Page') },
-  { path: '/sketchbook', component: () => import('./pages/Sketchbook') },
-  { path: '/blog', component: () => import('./pages/BlogListPage') },
-  { path: '/blog/:slug', component: () => import('./pages/BlogPostPage') },
-  { path: '/:pathMatch(.*)*', component: () => import('./pages/NotFoundPage') },
-];
+// No need to define routes array here for ViteSSG options
 
+// Create the app using ViteSSG
 export const createApp = ViteSSG(
-  App,
-  { routes, base: import.meta.env.BASE_URL },
-  // Prefix unused parameters with an underscore
+  App, // Your root component
+
+  // Minimal router options - just base URL (or {} if base is not needed)
+  // This avoids the object structure causing the implicit 'any' for initialState
+  { base: import.meta.env.BASE_URL },
+
+  // Optional: Custom setup function
+  // Prefix unused parameters with underscore
   ({ app: _app, router: _router, routes: _routes, isClient, initialState: _initialState }) => {
-    // Optional custom setup
     if (isClient) {
-      // You might still use isClient for client-side specific logic later
+      // Client-side only setup
       // console.log('Running client-side setup');
     }
-    // Now _app, _router, _routes, and _initialState are marked as unused
   }
 );
