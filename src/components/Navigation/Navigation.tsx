@@ -1,32 +1,37 @@
-// src/components/Navigation/Navigation.tsx (Updated for Settings Dropdown)
-import React, { useState, useEffect, useRef } from 'react'; // Added useEffect, useRef
+// src/components/Navigation/Navigation.tsx (Full Version with Nav Links & Settings)
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './Navigation.module.css';
 import { Link } from 'react-router-dom';
-import SettingsDropdown from '../SettingsDropdown/SettingsDropdown'; // Import new component
+import SettingsDropdown from '../SettingsDropdown/SettingsDropdown'; // Import SettingsDropdown
 import { FaCog } from 'react-icons/fa'; // Import settings icon
 
+// Interface for individual navigation items
 interface NavItem {
   label: string;
   path: string;
 }
 
+// Interface for the component's props
 interface NavigationProps {
-  navItems?: NavItem[];
+  navItems?: NavItem[]; // Allow passing navItems as a prop (optional)
 }
 
-const Navigation: React.FC<NavigationProps> = ({ navItems = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Services', path: '/services' },
-  { label: 'Portfolio', path: '/portfolio' },
-  { label: 'Sketchbook', path: '/sketchbook' },
-] }) => {
+// Define the default navigation items right here
+const defaultNavItems: NavItem[] = [
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Services', path: '/services' },
+    { label: 'Portfolio', path: '/portfolio' },
+    { label: 'Sketchbook', path: '/sketchbook' },
+    // Add any other top-level pages here
+];
+
+const Navigation: React.FC<NavigationProps> = ({ navItems = defaultNavItems }) => { // Use the default array
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  // --- State for Settings Dropdown ---
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  // State to hold the current primary color for the picker
-  const [currentColor, setCurrentColor] = useState('#4a90e2'); // Initialize with default
+  // State holds the current primary color string (initialized/updated in useEffect)
+  const [currentColor, setCurrentColor] = useState('#4a90e2');
 
   const settingsContainerRef = useRef<HTMLDivElement>(null); // Ref for click outside
 
@@ -39,80 +44,68 @@ const Navigation: React.FC<NavigationProps> = ({ navItems = [
     setIsSettingsOpen(!isSettingsOpen);
   };
 
+  // Close both menus (used when clicking a nav link)
   const closeMenus = () => {
       setIsMobileMenuOpen(false);
       setIsSettingsOpen(false);
   }
 
-  // --- Color Picker Logic (Moved from Footer) ---
+  // --- Color Application and Saving Logic ---
   const applyColor = (colorValue: string) => {
+    if (!colorValue) return;
     document.documentElement.style.setProperty('--color-primary', colorValue);
-    document.documentElement.style.setProperty('--color-link', colorValue); // Assuming link color matches
-    setCurrentColor(colorValue); // Update state for the input value
+    document.documentElement.style.setProperty('--color-link', colorValue);
+    setCurrentColor(colorValue); // Update state
+    try { localStorage.setItem('primaryColor', colorValue); }
+    catch (error) { console.error("Error saving color:", error); }
   };
-
-  const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newColor = event.target.value;
-    applyColor(newColor);
-    try {
-        localStorage.setItem('primaryColor', newColor);
-    } catch (error) { console.error("Error saving color:", error); }
-  };
+  // --- End Color Application Logic ---
 
   // Load saved/initial color on mount
   useEffect(() => {
     let initialColorVal = '#4a90e2'; // Default
     try { const savedColor = localStorage.getItem('primaryColor'); if (savedColor) initialColorVal = savedColor; }
     catch (error) { console.error("Error reading color:", error); }
-    applyColor(initialColorVal); // Apply on load
+    applyColor(initialColorVal);
   }, []);
-  // --- End Color Picker Logic ---
 
-  // --- Logic to close dropdown when clicking outside ---
-   useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (settingsContainerRef.current && !settingsContainerRef.current.contains(event.target as Node)) {
-                setIsSettingsOpen(false); // Close if click is outside the settings container
-            }
-        };
-        // Add listener if dropdown is open
-        if (isSettingsOpen) {
-            document.addEventListener('mousedown', handleClickOutside);
-        } else {
-            document.removeEventListener('mousedown', handleClickOutside);
+  // Click outside logic for settings dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+        if (settingsContainerRef.current && !settingsContainerRef.current.contains(event.target as Node)) {
+            setIsSettingsOpen(false);
         }
-        // Cleanup listener on component unmount or when dropdown closes
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-   }, [isSettingsOpen]); // Re-run effect when isSettingsOpen changes
-   // --- End Click Outside Logic ---
+    };
+    if (isSettingsOpen) { document.addEventListener('mousedown', handleClickOutside); }
+    else { document.removeEventListener('mousedown', handleClickOutside); }
+    return () => { document.removeEventListener('mousedown', handleClickOutside); };
+   }, [isSettingsOpen]);
 
   return (
-    // Add position relative if needed, or handle in settingsContainer
     <nav className={styles.navigation}>
        {/* Mobile Menu Button */}
       <button className={styles.menuButton} onClick={toggleMobileMenu} aria-label="Toggle menu" aria-expanded={isMobileMenuOpen}>
         <span className={styles.hamburgerIcon}>&#9776;</span>
       </button>
 
-      {/* Navigation List (Mobile slide-in / Desktop row) */}
+      {/* --- Navigation List --- */}
+      {/* This ul contains your main page links */}
       <ul className={`${styles.navList} ${isMobileMenuOpen ? styles.open : ''}`}>
-        {navItems.map((item, index) => (
-          <li key={index} className={styles.navItem}>
-            <Link to={item.path} className={styles.navLink} onClick={closeMenus}>{item.label}</Link>
+        {/* Map over the navItems array to create list items and links */}
+        {navItems.map((item) => (
+          <li key={item.path} className={styles.navItem}>
+            {/* Use Link component for navigation, close menus on click */}
+            <Link to={item.path} className={styles.navLink} onClick={closeMenus}>
+              {item.label}
+            </Link>
           </li>
         ))}
-         {/* Remove DarkModeToggle from here if it's ONLY in settings */}
-         {/*
-         <li className={styles.navItem}>
-            <DarkModeToggle />
-         </li>
-         */}
       </ul>
+      {/* --- End Navigation List --- */}
 
-       {/* Settings Dropdown Trigger and Panel - Place after UL for desktop layout */}
-       {/* Use a ref wrapper for click-outside detection */}
+
+      {/* Settings Dropdown Trigger and Panel */}
+      {/* Use a ref wrapper for click-outside detection */}
       <div className={styles.settingsContainer} ref={settingsContainerRef}>
          {/* Settings Trigger Button */}
         <button className={styles.settingsButton} onClick={toggleSettings} aria-label="Theme settings" aria-expanded={isSettingsOpen}>
@@ -120,10 +113,11 @@ const Navigation: React.FC<NavigationProps> = ({ navItems = [
         </button>
 
          {/* Settings Dropdown Panel (Conditionally Rendered) */}
+         {/* Make sure SettingsDropdown component exists and is imported */}
         <SettingsDropdown
            isOpen={isSettingsOpen}
-           initialColor={currentColor} // Pass current color state
-           onColorChange={handleColorChange} // Pass handler
+           currentColor={currentColor} // Pass current color state
+           onColorSelect={applyColor}   // Pass the combined apply/save function
         />
       </div>
 
