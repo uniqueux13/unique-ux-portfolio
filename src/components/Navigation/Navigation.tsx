@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useRef } from 'react'; // Added useEffect, useRef
 import styles from './Navigation.module.css';
 import { Link } from 'react-router-dom';
-import DarkModeToggle from '../DarkModeToggle/DarkModeToggle';
 import SettingsDropdown from '../SettingsDropdown/SettingsDropdown'; // Import new component
 import { FaCog } from 'react-icons/fa'; // Import settings icon
 
