@@ -1,99 +1,128 @@
 /* src/pages/HomePage.module.css */
+/* Single-Column Accordion/Stepper Styles - Wider Desktop Max-Width */
+
+/* --- General Section Styles --- */
+.sectionTitle { text-align: center; margin-bottom: var(--space-md); }
+
 /* --- Hero Section --- */
-  .heroTitle {
-    margin-bottom: var(--space-xs);
-      color: var(--color-text);
-      text-align: center;
-  }
-  
-  .heroSubtitle {
-    color: var(--color-text);
-    text-align: center;
-  }
+/* (Styles remain the same) */
+.heroTitle { margin-bottom: var(--space-xs); color: var(--color-text); text-align: center; }
+.heroSubtitle { color: var(--color-text); text-align: center; font-size: var(--font-size-subtitle); line-height: var(--line-height-subtitle); margin-bottom: var(--space-lg); }
+.heroContent { max-width: 1200px; margin: var(--space-lg) auto var(--space-xl) auto; padding: 0 var(--space-md); text-align: center; }
+.heroButton { position: relative; z-index: 1; text-decoration: none; }
 
-  .heroP{ 
-    font-family: var(--font-family-sora);
-    font-size: var(--font-size-hero-paragraph);
-    line-height: var(--line-height-hero-paragraph);
-    font-weight: 400;
-    margin-bottom: var(--space-md);
+/* --- Manifesto/About Section --- */
+/* (Styles remain the same) */
+.manifestoTitle { margin-bottom: var(--space-sm); }
+.manifestoText { line-height: var(--line-height-paragraph); }
+
+
+/* --- My Process Section --- */
+.processIntroText {
+  max-width: 700px; padding: 0 var(--space-sm); text-align: center;
+  color: var(--color-secondary); line-height: var(--line-height-paragraph);
+  font-size: var(--font-size-paragraph); margin-left: auto; margin-right: auto;
+  margin-bottom: var(--space-lg);
 }
-  .heroContent {
-    max-width: 1200px;
-    margin: 6rem auto;
-    text-align: center;
-  }
-  
-  .videoContainer {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-      height: 0;
-      overflow: hidden;
-  }
-  
-  .video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-  
-  .heroButton {
-      position: relative;
-      z-index: 1;
-      text-decoration: none;
-      color: white;
-  }
-  
-  /* --- My Process Section --- */
-  .servicesGrid {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column by default (mobile) */
-    gap: var(--space-sm);       /* Consistent spacing */
-    margin-bottom: none;
-  }
-  
-  .serviceItem {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-  }
-  .sectionTitle{
-      text-align: center;
-      margin-bottom: var(--space-sm);
-  }
-  .serviceTitle {
-    font-weight: bold;
-    margin-bottom: var(--space-xs);
-    text-align: left;
-  }
-  
-  /* --- Call to Action Section --- */
-  .ctaTitle {
-    margin-bottom: var(--space-sm);
-      color: var(--color-text);
-      text-align: center;
-  }
-  
-  .ctaSubtitle {
-    color: var(--color-text);
-    text-align: center;
-  }
-  
-  .ctaButton {
-    margin: 0 auto;
-  }
-  
 
-  /* --- Media Queries --- */
-  @media (min-width: 769px) {
-    .servicesGrid {
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, auto);
-    }
+/* Base Stepper Layout (Mobile First) */
+.processStepper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  /* Default max-width for readability on smaller screens */
+  max-width: 800px;
+  /* Center the block */
+  margin: 0 auto var(--space-lg) auto;
+  padding: 0 var(--space-xs); /* Base padding */
+}
+
+/* Step Item (Card) Styles remain the same */
+.serviceItem { width: 100%; display: flex; flex-direction: column; text-align: left; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, opacity 0.3s ease, border-color 0.3s ease; cursor: pointer; overflow: visible; border-radius: var(--card-border-radius, 8px); background-color: var(--color-card-background); box-shadow: 0 2px 4px var(--color-box-shadow); padding: var(--space-md); opacity: 0.75; border-left: 4px solid transparent; }
+.serviceItem.activeStep { opacity: 1; background-color: var(--color-slightly-lighter-bg); box-shadow: 0 6px 12px var(--color-box-shadow); border-left-color: var(--color-primary); }
+.serviceItem:focus,
+.serviceItem:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.5), 0 6px 12px var(--color-box-shadow); }
+.serviceItem:focus { transform: translateY(-2px); }
+.serviceItem.activeStep:focus { transform: translateY(-4px); }
+.serviceItem:not(.activeStep):hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 4px 8px var(--color-box-shadow); }
+.serviceItem.activeStep:hover { transform: translateY(-4px); box-shadow: 0 8px 16px var(--color-box-shadow); }
+.cardHeader { display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm); }
+.titleGroup { display: flex; align-items: center; gap: var(--space-sm); flex-grow: 1; min-width: 0; }
+.stepIcon { flex-shrink: 0; font-size: var(--font-size-h4); color: var(--color-primary); transition: color 0.3s ease; }
+.serviceItem:not(.activeStep) .stepIcon { color: var(--color-secondary); }
+.serviceTitle { font-weight: 600; text-align: left; color: var(--color-text); margin-bottom: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chevron { flex-shrink: 0; font-size: var(--font-size-base); color: var(--color-secondary); transition: transform 0.3s ease-in-out; }
+.chevronExpanded { transform: rotate(180deg); }
+.serviceDescription { color: var(--color-secondary); font-weight: 500; margin-top: var(--space-sm); margin-bottom: 0; line-height: var(--line-height-paragraph); font-size: var(--font-size-paragraph); }
+.expandedContent { margin-top: var(--space-sm); padding-top: var(--space-sm); border-top: 1px solid var(--color-box-shadow); /* animation using Framer Motion now */ }
+.longDescription { margin-bottom: var(--space-md); color: var(--color-text); }
+.longDescription a { color: var(--color-link); text-decoration: underline; font-weight: 500; transition: color 0.2s ease; }
+.longDescription a:hover { color: var(--color-link-hover); text-decoration: none; }
+.outcomeSection { margin-top: var(--space-md); padding: var(--space-sm); background-color: rgba(74, 144, 226, 0.05); border-left: 3px solid var(--color-primary); border-radius: 4px; margin-bottom: var(--space-md); } /* Adjust alpha color if needed */
+.outcomeTitle { margin-bottom: var(--space-xs); font-weight: 600; color: var(--color-text); }
+.outcomeText { color: var(--color-secondary); margin: 0; }
+.methodsSection {
+  /* margin-bottom: var(--space-sm); */ /* Reduce this value */
+  margin-bottom: var(--space-xs);
+}
+.methodsTitle {
+  /* ... existing styles ... */
+  /* Try reducing bottom margin slightly */
+  margin-bottom: calc(var(--space-xs) / 2); /* e.g., half of xs */
+}
+.methodsList { list-style: disc; padding-left: var(--space-md); margin-top: var(--space-xs); margin-bottom: 0; font-size: var(--font-size-caption); line-height: var(--line-height-paragraph); color: var(--color-secondary); }
+.methodsList {
+  /* ... existing styles ... */
+   /* Try reducing top margin slightly */
+  margin-top: calc(var(--space-xs) / 2); /* e.g., half of xs */
+  /* ... other styles ... */
+}
+.iterationNote { display: block; margin-top: var(--space-sm); padding-top: var(--space-xs); font-style: italic; color: var(--color-secondary); border-top: 1px dashed var(--color-box-shadow); }
+.nextStepContainer { margin-top: var(--space-lg); padding-top: var(--space-sm); border-top: 1px solid var(--color-box-shadow); display: flex; justify-content: flex-end; }
+.nextStepButton { background-color: transparent; border: 1px solid var(--color-secondary); color: var(--color-secondary); padding: var(--space-xs) var(--space-md); border-radius: 20px; cursor: pointer; font-family: var(--font-family-primary); font-size: var(--font-size-button); font-weight: 500; display: inline-flex; align-items: center; gap: var(--space-xs); transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+.nextStepButton:hover, .nextStepButton:focus { background-color: var(--color-primary); color: var(--color-button-text); border-color: var(--color-primary); outline: none; }
+.nextStepButton:focus-visible { box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.5); }
+
+
+/* --- Client Logo Grid (Unchanged) --- */
+.imageContainer { display: flex; justify-content: center; align-items: center; padding: var(--space-sm); }
+.gridImage { max-width: 100%; height: auto; max-height: 60px; object-fit: contain; filter: grayscale(100%); opacity: 0.8; transition: filter 0.3s ease, opacity 0.3s ease; }
+.gridImage:hover { filter: grayscale(0%); opacity: 1; }
+
+/* --- Certificate Section (Unchanged) --- */
+/* --- Call to Action Section (Unchanged) --- */
+.ctaTitle { margin-bottom: var(--space-sm); color: var(--color-text); text-align: center; }
+.ctaSubtitle { margin-bottom: var(--space-md); color: var(--color-text); text-align: center; max-width: 600px; margin-left: auto; margin-right: auto; font-size: var(--font-size-paragraph); line-height: var(--line-height-paragraph); }
+.emailContact { margin-top: var(--space-md); color: var(--color-secondary); }
+
+/* --- Animation (Unchanged) --- */
+/* @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } } */
+
+
+/* --- Media Queries --- */
+
+/* Adjust padding for medium screens */
+@media (min-width: 600px) {
+  .processStepper {
+     padding: 0 var(--space-md); /* Wider padding for stepper */
   }
-  
-  
+}
+
+/* Adjust padding AND max-width for larger screens (desktop) */
+@media (min-width: 992px) {
+  .processStepper {
+      padding: 0 var(--space-lg); /* Even wider padding */
+      /* --- ADDED: Increase max-width on desktop --- */
+      max-width: 1200px;
+  }
+
+  /* Keep hero content margin adjustment */
+   .heroContent {
+     margin-top: var(--space-xl);
+     margin-bottom: var(--space-xl);
+   }
+}
+
+li {
+  margin-bottom: o;
+}
