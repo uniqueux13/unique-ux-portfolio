@@ -12,7 +12,6 @@ import ServicesPage from './pages/ServicesPage';
 import Sketchbook from './pages/Sketchbook';
 import Project2Page from './pages/Project2Page';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-import { Link } from 'react-router-dom';
 
 
 const App: React.FC = () => {
