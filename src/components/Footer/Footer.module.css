@@ -1,7 +1,55 @@
-/*Footer*/
+/* src/components/Footer/Footer.module.css (Updated) */
+
 .footer {
-    background-color: var(--color-background);
-    text-align: center;
-    padding-block: 1rem;
-    color: var(--color-text);
-  }
+  background-color: var(--color-header-footer-bg); /* Use header/footer bg variable */
+  text-align: center;
+  padding: var(--space-md) var(--space-md); /* Use variable for padding */
+  color: var(--color-text);
+  margin-top: var(--space-lg); /* Add margin above footer */
+}
+
+/* Style for the copyright paragraph */
+.footer p {
+    margin: 0; /* Remove default paragraph margin */
+    margin-bottom: var(--space-sm); /* Add space below copyright */
+    font-size: var(--font-size-caption);
+    color: var(--color-secondary);
+}
+
+/* --- Added Color Picker Styles --- */
+.colorPickerWrapper {
+  display: flex; /* Use flex for inline alignment */
+  justify-content: center; /* Center items horizontally */
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm); /* Space above picker */
+}
+
+.colorPickerLabel {
+  font-size: var(--font-size-caption);
+  color: var(--color-secondary);
+}
+
+.colorPickerInput {
+  -webkit-appearance: none; /* Override default appearance */
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid var(--color-secondary);
+  border-radius: 4px;
+  cursor: pointer;
+  width: 45px;  /* Slightly wider */
+  height: 28px; /* Slightly taller */
+  padding: 2px;
+  background-color: transparent; /* Make background transparent */
+}
+/* Style the inner color swatch for Chrome/Edge/Safari */
+.colorPickerInput::-webkit-color-swatch {
+  border-radius: 3px;
+  border: none; /* Remove border on swatch itself */
+}
+/* Style the inner color swatch for Firefox */
+.colorPickerInput::-moz-color-swatch {
+  border-radius: 3px;
+  border: none;
+}
+/* --- End Added Color Picker Styles --- */

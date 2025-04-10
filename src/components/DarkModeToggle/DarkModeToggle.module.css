@@ -11,7 +11,7 @@
     align-items: center; /* Center vertically */
     justify-content: center; /* Center horizontally */
     gap: 0.5rem; /* Space between icon and text */
-    color: #fff;
+    color:  var(--color-secondary);
     border-radius: 5px; /*Example*/
     transition: background-color .3s ease; /*Example*/
   }

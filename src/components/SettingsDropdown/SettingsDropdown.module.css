@@ -1,0 +1,67 @@
+/* src/components/SettingsDropdown/SettingsDropdown.module.css */
+
+.settingsDropdown {
+    position: absolute;
+    top: 100%; /* Position below the trigger button */
+    right: 0; /* Align to the right of the relative parent */
+    background-color: var(--color-card-background);
+    border-radius: var(--card-border-radius, 8px);
+    box-shadow: 0 4px 12px var(--color-box-shadow);
+    padding: var(--space-md);
+    z-index: 100; /* Ensure it appears above other content */
+    min-width: 200px; /* Minimum width */
+    border: 1px solid var(--color-box-shadow); /* Subtle border */
+  
+    /* Animation (Optional - using simple opacity) */
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0s linear 0.2s;
+  }
+  
+  .settingsDropdown.open {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0s linear 0s;
+  }
+  
+  
+  .dropdownContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md); /* Space between settings */
+  }
+  
+  .settingItem {
+    display: flex;
+    justify-content: space-between; /* Align label and control */
+    align-items: center;
+    gap: var(--space-sm);
+  }
+  
+  .settingLabel {
+    font-size: var(--font-size-caption); /* Use caption size */
+    color: var(--color-secondary);
+    white-space: nowrap; /* Prevent label wrapping */
+  }
+  
+  /* Styles specifically for the color input */
+  .colorPickerInput {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid var(--color-secondary);
+    border-radius: 4px;
+    cursor: pointer;
+    width: 45px;
+    height: 28px;
+    padding: 2px;
+    background-color: transparent;
+  }
+  .colorPickerInput::-webkit-color-swatch {
+    border-radius: 3px; border: none;
+  }
+  .colorPickerInput::-moz-color-swatch {
+    border-radius: 3px; border: none;
+  }

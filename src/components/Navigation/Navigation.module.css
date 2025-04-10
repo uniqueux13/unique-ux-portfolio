@@ -43,6 +43,44 @@
     font-size: var(--font-size-nav-link);
     line-height: var(--line-height-nav-link);
 }
+
+/* --- Settings Area --- */
+/* Wrapper to establish relative positioning context for the dropdown */
+.settingsContainer {
+  position: relative; /* Needed for absolute positioning of dropdown */
+  display: flex; /* Align button nicely */
+  align-items: center;
+  margin-left: var(--space-md); /* Space between nav links and settings */
+}
+
+/* Style for the settings trigger button */
+.settingsButton {
+  background: none;
+  border: none;
+  color: var(--color-secondary); /* Use secondary color */
+  cursor: pointer;
+  padding: var(--space-xs); /* Make it easier to click */
+  display: flex; /* Align icon inside */
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.settingsButton:hover,
+.settingsButton:focus {
+  color: var(--color-text); /* Change color on hover/focus */
+  background-color: var(--color-card-background); /* Subtle background */
+  outline: none; /* Remove default */
+}
+.settingsButton:focus-visible {
+   box-shadow: 0 0 0 2px var(--color-primary); /* Focus ring */
+}
+
+.settingsButton svg { /* Style the icon inside */
+    width: 24px; /* Adjust size */
+    height: 24px;
+}
+
 .navLink:hover {
     color: #56D6FF;
 }
@@ -51,6 +89,20 @@
   .menuButton {
     display: block;
   }
+
+  .settingsContainer {
+    margin-left: 0; /* Remove margin inside mobile menu */
+    /* Settings container will likely be inside the .navList li */
+    width: 100%;
+    justify-content: space-between; /* Example: Align toggle differently in mobile list */
+}
+ /* If settings button is used to trigger mobile dropdown */
+ /* .settingsButton { ... } */
+
+ /* Hide DarkModeToggle if it's inside the settings dropdown now */
+ .navList .darkModeToggle {
+     /* display: none; */ /* Example if moved solely to dropdown */
+ }
 
   .navList {
     display: none;
@@ -91,3 +143,4 @@
     font-size: 0.8rem;     /* Smaller font size */
   }
 }
+
