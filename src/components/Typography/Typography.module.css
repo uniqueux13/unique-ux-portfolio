@@ -74,7 +74,7 @@
     font-family: var(--font-family-secondary);
     font-size: var(--font-size-subtitle);
     line-height: var(--line-height-subtitle);
-    font-weight: 300; /* Light */
+    font-weight: 500; /* Light */
     margin-bottom: var(--space-md);
   }
   

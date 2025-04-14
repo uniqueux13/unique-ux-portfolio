@@ -1,9 +1,9 @@
 /* src/components/Button/Button.module.css */
 
 .button {
-    padding: 0.8rem 1.5rem; /* More standard padding */
+    padding: 0.75rem 1.5rem; /* More standard padding */
     border: none;
-    border-radius: 4px; /* Keep rounded corners */
+    border-radius: 6px; /* Keep rounded corners */
     cursor: pointer;
     font-size: var(--font-size-button);
     font-family: var(--font-family-primary); /* Use variables */
@@ -51,7 +51,6 @@
   
   .text:hover {
     color: var(--color-link-hover);
-    text-decoration: underline;
   }
   
   .disabled {
@@ -63,26 +62,12 @@
   @keyframes breatheSunlight {
     0% {
       transform: scale(1);
-      box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2);
     }
     50% {
       transform: scale(1.03);
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 252, 93, 0.3), 0 0 25px rgba(86, 214, 255, 0.2);
     }
     100% {
       transform: scale(1);
-      box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2);
     }
   }
   
-  @keyframes breatheBorder {
-    0% {
-      box-shadow: 0 0 3px rgba(255, 255, 255, 0.4), 0 0 6px rgba(255, 255, 255, 0.2);
-    }
-    50% {
-      box-shadow: 0 0 6px rgba(255, 255, 255, 0.6), 0 0 12px rgba(255, 255, 255, 0.4);
-    }
-    100% {
-      box-shadow: 0 0 3px rgba(255, 255, 255, 0.4), 0 0 6px rgba(255, 255, 255, 0.2);
-    }
-  }

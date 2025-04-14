@@ -1,7 +1,7 @@
 /* src/components/Header/Header.module.css */
 
 .header {
-    background-color: var(--color-header-footer-bg);
+    background-color: #282828;
     padding-block: 1rem; 
     padding-inline: 1rem;
     display: flex;

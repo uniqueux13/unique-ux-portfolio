@@ -78,8 +78,3 @@
       mix-blend-mode: difference; /* Often helps visibility on varying backgrounds */
   }
   /* --- End Swatch Styles --- */
-  
-  /* Ensure DarkModeToggle fits well if needed */
-  .settingItem > :global(button) { /* Target DarkModeToggle button if needed */
-      /* Add styles if toggle button looks out of place */
-  }

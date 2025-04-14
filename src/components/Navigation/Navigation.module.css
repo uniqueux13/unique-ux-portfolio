@@ -2,7 +2,7 @@
 
 /* ... (your existing styles for larger screens) ... */
 .navigation {
-  background-color: var(--color-header-footer-bg);
+  background-color: #282828;
   padding: 0;
   display: flex;
   justify-content: space-between;
@@ -96,13 +96,6 @@
     width: 100%;
     justify-content: space-between; /* Example: Align toggle differently in mobile list */
 }
- /* If settings button is used to trigger mobile dropdown */
- /* .settingsButton { ... } */
-
- /* Hide DarkModeToggle if it's inside the settings dropdown now */
- .navList .darkModeToggle {
-     /* display: none; */ /* Example if moved solely to dropdown */
- }
 
   .navList {
     display: none;
@@ -111,7 +104,7 @@
     top: 74px;  /*  Position *below* the header. Adjust! */
     left: 0;
     width: 100%;
-    background-color: var(--color-header-footer-bg);
+    background-color: #282828;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 10;
      /* --- Center the DarkModeToggle --- */

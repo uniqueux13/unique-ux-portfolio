@@ -1,0 +1,98 @@
+/* src/components/Hero/Hero.module.css */
+
+.heroContent {
+    width: 100%;
+    max-width: 1200px;
+    margin: var(--space-lg) auto var(--space-xl) auto;
+    padding: var(--space-lg) var(--space-xl);
+    background-color: hsl(from var(--color-primary) h s l / 0.3); /* Use primary color + alpha */
+    backdrop-filter: blur(5px); /* Optional */
+    border-radius: var(--card-border-radius, 12px);
+    box-shadow: 0 10px 35px -15px var(--color-box-shadow);
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    --mouse-x: 0; --mouse-y: 0;
+    perspective: 1200px; transform-style: preserve-3d;
+    transform: rotateX(calc(var(--mouse-y) * -7deg)) rotateY(calc(var(--mouse-x) * 7deg));
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.3s ease; /* Added bg color transition */
+    will-change: transform, background-color;
+  }
+  
+  .heroLayoutContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+  
+  .heroTextContent {
+    flex: 1;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .heroImageContent {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    min-height: 250px;
+  }
+  
+  .heroSvg {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    overflow: visible;
+  }
+  
+  .heroSvg path {
+    stroke: var(--color-primary) !important;
+    fill: none !important;
+    stroke-width: 20.25px !important;
+    transition: stroke 0.3s ease;
+  }
+  
+  .heroTitle,
+  .heroSubtitle,
+  .heroButtonWrapper {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .heroTitle {
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+    text-align: left;
+  }
+  
+  .heroSubtitle {
+    color: var(--color-secondary);
+    text-align: left;
+    margin-bottom: var(--space-xs);
+    max-width: 500px;
+    margin-left: 0;
+    margin-right: auto;
+  }
+  
+  .heroButtonWrapper {
+    display: inline-block;
+    margin-top: var(--space-lg);
+    text-decoration: none;
+  }
+  
+  @media (min-width: 768px) {
+    .heroLayoutContainer {
+      flex-direction: row;
+      align-items: center;
+    }
+    .heroTextContent { width: 50%; }
+    .heroImageContent { justify-content: flex-end; width: 50%; }
+  }

@@ -6,7 +6,6 @@ import Button from '../components/Button/Button';
 import styles from './ServicesPage.module.css';
 import { Link } from 'react-router-dom';
 
-
 const ServicesPage: React.FC = () => {
   const services = {
      uxui: [
@@ -263,5 +262,6 @@ const ServicesPage: React.FC = () => {
     </Section>
   );
 };
+
 
 export default ServicesPage;
