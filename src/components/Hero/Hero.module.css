@@ -4,7 +4,7 @@
     width: 100%;
     max-width: 1200px;
     margin: var(--space-lg) auto var(--space-xl) auto;
-    padding: var(--space-lg) var(--space-md); /* Mobile-first padding (smaller horizontal) */
+    padding: var(--space-lg) var(--space-md);
     background-color: hsl(from var(--color-primary) h s l / 0.3);
     backdrop-filter: blur(5px);
     border-radius: var(--card-border-radius, 12px);
@@ -15,7 +15,7 @@
     --mouse-x: 0; --mouse-y: 0;
     perspective: 1200px; transform-style: preserve-3d;
     transform: rotateX(calc(var(--mouse-y) * -7deg)) rotateY(calc(var(--mouse-x) * 7deg));
-    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.3s ease, padding 0.3s ease; /* Added padding to transition */
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.3s ease, padding 0.3s ease;
     will-change: transform, background-color;
   }
   
@@ -24,6 +24,7 @@
     flex-direction: column;
     align-items: center;
     gap: var(--space-lg);
+    width: 100%;
   }
   
   .heroTextContent {
@@ -51,6 +52,8 @@
     max-width: 450px;
     height: auto;
     overflow: visible;
+    filter: drop-shadow(0 0 10px var(--color-primary)); /* Added Glow */
+    transition: filter 0.3s ease; /* Added transition for filter */
   }
   
   .heroSvg path {
@@ -76,7 +79,7 @@
   .heroSubtitle {
     color: var(--color-secondary);
     text-align: left;
-    margin-bottom: var(--space-xs); /* User changed this */
+    margin-bottom: var(--space-xs);
     max-width: 500px;
     margin-left: 0;
     margin-right: auto;
@@ -90,14 +93,15 @@
   
   @media (min-width: 768px) {
     .heroContent {
-      /* Apply larger padding on desktop */
-      padding: var(--space-xl) var(--space-xl); /* Example: Larger vertical and horizontal */
+      padding: var(--space-xl) var(--space-xl);
     }
-  
     .heroLayoutContainer {
       flex-direction: row;
       align-items: center;
+      text-align: left;
     }
-    .heroTextContent { width: 50%; }
+    .heroTextContent { width: 50%; text-align: left; }
     .heroImageContent { justify-content: flex-end; width: 50%; }
+    .heroButtonWrapper { text-align: left; }
+    .heroTitle, .heroSubtitle { text-align: left; }
   }
