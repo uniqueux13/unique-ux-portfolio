@@ -1,13 +1,22 @@
-// vite.config.ts (Updated)
-
+// vite.config.ts
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import svgr from 'vite-plugin-svgr' // <-- 1. Import the svgr plugin
+import svgr from 'vite-plugin-svgr'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    svgr() // <-- 2. Add svgr plugin HERE
+    svgr()
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) { // Removed { getModuleInfo } parameter
+          if (id.includes('/node_modules/@tsparticles/')) {
+            return 'tsparticles-vendor';
+          }
+        }
+      }
+    }
+  },
 })
