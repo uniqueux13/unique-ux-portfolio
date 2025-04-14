@@ -4,7 +4,7 @@
     width: 100%;
     max-width: 1200px;
     margin: var(--space-lg) auto var(--space-xl) auto;
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-lg) var(--space-lg);
     background-color: hsl(from var(--color-primary) h s l / 0.3);
     backdrop-filter: blur(5px);
     border-radius: var(--card-border-radius, 12px);
@@ -52,9 +52,15 @@
     max-width: 450px;
     height: auto;
     overflow: visible;
-    filter: drop-shadow(0 0 10px var(--color-primary)); /* Added Glow */
-    transition: filter 0.3s ease; /* Added transition for filter */
+    filter: drop-shadow(0 0 10px var(--color-primary));
+    transition: filter 0.3s ease;
   }
+
+  /* --- NEW RULE: Turn off filter in light mode --- */
+[data-theme="light"] .heroSvg {
+    filter: none; /* No glow when data-theme is light */
+  }
+  /* --- End New Rule --- */
   
   .heroSvg path {
     stroke: var(--color-primary) !important;
@@ -74,6 +80,7 @@
     margin-bottom: var(--space-sm);
     color: var(--color-text);
     text-align: left;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3); /* Added text shadow */
   }
   
   .heroSubtitle {
