@@ -1,0 +1,61 @@
+/* src/components/HorizontalImageScroller/HorizontalImageScroller.module.css */
+
+/* Define the keyframe animation for horizontal scrolling */
+@keyframes scrollHorizontal {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      /* Scroll by exactly half the total width (the width of the original set) */
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* Container to hide overflow and optionally apply fading edges */
+  .scrollerContainer {
+    display: flex;
+    width: 180%; /* Full width of the parent container */
+    margin-bottom: var(--space-xl); /* Space below the scroller */
+    overflow: hidden;
+    position: relative; /* Needed for mask */
+  
+    /* Use the theme background variable set by Navigation.tsx */
+    /* Fallback to transparent if the variable isn't set */
+    background-color: var(--scroller-background, transparent);
+  
+    /* Optional: Add fading effect at the edges */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, rgb(0, 0, 0) 10%, black 90%, transparent);
+  }
+  
+  /* Inner wrapper that holds all images and animates */
+  .scrollerInner {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    width: max-content; /* Expand to fit all content */
+    animation: scrollHorizontal var(--animation-duration, 40s) linear infinite; /* Use variable for duration */
+  }
+  
+  /* Optional: Pause animation on hover */
+  .scrollerContainer:hover .scrollerInner {
+    animation-play-state: paused;
+  }
+  
+  /* Wrapper for each individual image for spacing */
+  .imageWrapper {
+    display: flex; /* Align image vertically if needed */
+    align-items: center; /* Center image vertically */
+    justify-content: center; /* Center image horizontally */
+    padding: 2rem 2.5rem; /* Slightly increased spacing for larger images */
+    /* Use the CSS variable for max height, UPDATED default fallback */
+    max-height: var(--image-max-height, 65px); /* <<< Increased default size from 50px */
+    box-sizing: content-box; /* Ensure padding doesn't affect height */
+  }
+  
+  /* Styling for the actual image element */
+  .scrollerImage {
+    max-height: 100%; /* Respect the wrapper's max-height */
+    width: auto; /* Maintain aspect ratio */
+    object-fit:cover; /* Ensure the entire logo is visible */
+    flex-shrink: 0; /* Prevent images from shrinking */
+  }

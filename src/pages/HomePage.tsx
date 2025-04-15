@@ -1,20 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// Component Imports
 import Typography from '../components/Typography/Typography';
-import Image from '../components/Image/Image';
 import Section from '../components/Section/Section';
 import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection';
-import ImageGrid from '../components/ImageGrid/ImageGrid';
 import Hero from '../components/Hero/Hero';
 import ProcessAccordion from '../components/ProcessAccordion/ProcessAccordion';
-import CtaSection from '../components/CtaSection/CtaSection'; // Import the CTA component
+import CtaSection from '../components/CtaSection/CtaSection';
+import HorizontalImageScroller from '../components/HorizontalImageScroller/HorizontalImageScroller'; // Import the new component
 
-// Style Imports
-import styles from './HomePage.module.css'; // Keep styles for sections not in components
+import styles from './HomePage.module.css';
 
-// Asset Imports
 import heroImageAlt from '../assets/hero-image-alt.png';
 import uxCertificate from '../assets/google-ux-certificate.png';
 import gromoLogo from '../assets/Clients/gromo-logo.png';
@@ -24,10 +20,8 @@ import bonsaiLogo from '../assets/Clients/bonsai-logo.png';
 import icereamAppsLogo from '../assets/Clients/icecream-apps-logo.png';
 import gallaudetLogo from '../assets/Clients/gallaudet-logo.png';
 
-// --- React Icons Import (For Process Data) ---
 import { FaSearch, FaBullseye, FaRegLightbulb, FaPencilRuler, FaVial, FaTools } from "react-icons/fa";
 
-// --- Define/Import Process Data and Interface ---
 export interface ProcessStep {
   id: number; title: string; shortDesc: string; longDesc?: React.ReactNode;
   methods?: string[]; outcome?: string; iterationNote?: string; icon: React.ElementType;
@@ -43,50 +37,56 @@ const processStepsData: ProcessStep[] = [
 
 
 const HomePage: React.FC = () => {
+
+  const trustedLogos = [
+    { src: gromoLogo, alt: 'GroMo Agency Logo' },
+    { src: nimblebotLogo, alt: 'Nimblebot Logo' },
+    { src: ipsLogo, alt: 'IPS Logo' },
+    { src: bonsaiLogo, alt: 'Bonsai Logo' },
+    { src: icereamAppsLogo, alt: 'Icecream Apps Logo' },
+    { src: gallaudetLogo, alt: 'Gallaudet University Logo' },
+  ];
+
   return (
     <>
       <Hero
         title="Build Powerful Products People Love&nbsp;to&nbsp;Use&nbsp;"
-        subtitle="Powerful UX strategies to help visionary teams build, launch, and grow products that users enjoy." // Keep updated subtitle
+        subtitle="Powerful UX strategies to help visionary teams build, launch, and grow products that users enjoy."
       />
+
+      <div className={styles.trustedSection}>
+        <HorizontalImageScroller
+            images={trustedLogos}
+            speed="50s"
+            imageMaxHeight="45px"
+        />
+      </div>
 
       <Section marginBottom="xxl" padding="none">
         <TwoColumnSection
-            imageSrc={heroImageAlt}
-            imageAlt="About Unique UX"
-            imageOnLeft={false}
+          imageSrc={heroImageAlt}
+          imageAlt="About Unique UX"
+          imageOnLeft={true}
         >
-            <Typography variant="h2" className={styles.manifestoTitle}>About Unique UX</Typography>
-            <Typography variant="p" className={styles.manifestoText}>
-            Unique UX empowers you to shape the digital narrative. We provide the framework and tools to transform your vision into impactful, resonant user experiences.
-            </Typography>
+          <Typography variant="h2" className={styles.manifestoTitle}>About Unique UX</Typography>
+          <Typography variant="p" className={styles.manifestoText}>
+          Unique UX empowers you to shape the digital narrative. We provide the framework and tools to transform your vision into impactful, resonant user experiences.
+          </Typography>
         </TwoColumnSection>
       </Section>
 
       <ProcessAccordion steps={processStepsData} />
 
       <Section marginBottom="xxl" padding="none">
-        <Typography variant="h2" className={styles.sectionTitle}>Trusted by professionals</Typography>
-        <ImageGrid>
-            <div className={styles.imageContainer}><Image src={gromoLogo} alt="GroMo Agency Logo" className={styles.gridImage} /></div>
-            <div className={styles.imageContainer}><Image src={nimblebotLogo} alt="Nimblebot Logo" className={styles.gridImage} /></div>
-            <div className={styles.imageContainer}><Image src={ipsLogo} alt="IPS Logo" className={styles.gridImage} /></div>
-            <div className={styles.imageContainer}><Image src={bonsaiLogo} alt="Bonsai Logo" className={styles.gridImage} /></div>
-            <div className={styles.imageContainer}><Image src={icereamAppsLogo} alt="Icecream Apps Logo" className={styles.gridImage} /></div>
-            <div className={styles.imageContainer}><Image src={gallaudetLogo} alt="Gallaudet University Logo" className={styles.gridImage} /></div>
-        </ImageGrid>
-      </Section>
-
-      <Section marginBottom="xxl" padding="none">
          <TwoColumnSection
-            imageSrc={uxCertificate}
-            imageAlt="Google UX Design Certificate"
-            imageOnLeft={true}
+           imageSrc={uxCertificate}
+           imageAlt="Google UX Design Certificate"
+           imageOnLeft={true}
          >
-             <Typography variant="h2" className={styles.manifestoTitle}>Certificate | Foundations of UX design</Typography>
-             <Typography variant="p" className={styles.manifestoText}>
-             During my studies for the Google UX Design Certificate, I delved into the core principles of UX design, refining my skills in user research, prototyping, and interaction design through hands-on projects.
-             </Typography>
+           <Typography variant="h2" className={styles.manifestoTitle}>Certificate | Foundations of UX design</Typography>
+           <Typography variant="p" className={styles.manifestoText}>
+           During my studies for the Google UX Design Certificate, I delved into the core principles of UX design, refining my skills in user research, prototyping, and interaction design through hands-on projects.
+           </Typography>
         </TwoColumnSection>
       </Section>
 
