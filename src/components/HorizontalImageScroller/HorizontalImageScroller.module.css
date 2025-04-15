@@ -14,7 +14,8 @@
   /* Container to hide overflow and optionally apply fading edges */
   .scrollerContainer {
     display: flex;
-    width: 180%; /* Full width of the parent container */
+    height: auto;
+    width: 100%; /* Full width of the parent container */
     margin-bottom: var(--space-xl); /* Space below the scroller */
     overflow: hidden;
     position: relative; /* Needed for mask */
@@ -48,7 +49,9 @@
     justify-content: center; /* Center image horizontally */
     padding: 2rem 2.5rem; /* Slightly increased spacing for larger images */
     /* Use the CSS variable for max height, UPDATED default fallback */
-    max-height: var(--image-max-height, 65px); /* <<< Increased default size from 50px */
+    min-width: 300px; /* Minimum width for each image */
+    min-height: 100px;
+    max-height: var(--image-max-height, max-content); /* <<< Increased default size from 50px */
     box-sizing: content-box; /* Ensure padding doesn't affect height */
   }
   
