@@ -1,21 +1,20 @@
-// src/components/Hero/Hero.tsx (Simplified - No Theme Prop Needed)
-import React, { useState, useCallback, useEffect } from 'react'; // Keep hooks for particles
+// src/components/Hero/Hero.tsx (Mouse Following Gradient Spotlight)
+import React, { useRef, useEffect } from 'react'; // Added useRef, useEffect back
 import styles from './Hero.module.css';
 import Typography from '../Typography/Typography';
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
 
-// Particle Imports
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import type { Engine, ISourceOptions } from "@tsparticles/engine";
-import { loadSlim } from "@tsparticles/slim";
-import particlesDarkConfig from './particles-dark.config';
+// REMOVED Particle Imports
 
-// SVG Import
+// SVG Import (Keep)
 import ImportedUxSvg from '../../assets/UX.svg?react';
 const UxSvg: React.FC<React.SVGProps<SVGSVGElement>> = ImportedUxSvg;
 
-// Props Interface (REMOVED currentTheme)
+// Keep Checkmark Import
+import { FaCheckCircle } from "react-icons/fa";
+
+// Props Interface
 interface HeroProps {
   title: string;
   subtitle?: string;
@@ -24,60 +23,87 @@ interface HeroProps {
   buttonLink?: string;
   buttonArrow?: boolean;
   className?: string;
-  // currentTheme prop is removed
+  // Removed currentTheme prop as it's not needed for this effect
 }
+
+// Keep Keywords
+const heroKeywords = ["Actionable UX consulting that unlocks growth.", "Future-ready AI features that elevate experience.", "Strategic content design that builds brand trust."];
 
 const Hero: React.FC<HeroProps> = ({
   title,
   subtitle,
-  showButton = true,
-  buttonText = 'Learn More',
-  buttonLink = '/',
+  buttonText = 'Book a Free Consultation', // Keep updated defaults
+  buttonLink = 'https://calendly.com/kyleranta/15min',
   buttonArrow = true,
   className = '',
-  // currentTheme prop removed from parameters
 }) => {
-  const [particlesInitialized, setParticlesInitialized] = useState(false);
+  // --- Re-added Ref for mouse tracking ---
+  const heroRef = useRef<HTMLDivElement>(null);
 
-  // Initialize Particle Engine (Unchanged)
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadSlim(engine);
-  }, []);
+  // --- Re-added useEffect for Mouse Listener ---
+  useEffect(() => {
+    const heroElement = heroRef.current;
+    if (!heroElement) return;
 
-   // Ensures engine loads only once (Unchanged)
-   useEffect(() => {
-       initParticlesEngine(particlesInit).then(() => {
-           setParticlesInitialized(true);
-       });
-   }, [particlesInit]);
+    const handleMouseMove = (event: MouseEvent) => {
+      const rect = heroElement.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) - 0.5;
+      const y = ((event.clientY - rect.top) / rect.height) - 0.5;
+      // Update CSS variables controlling the gradient position
+      heroElement.style.setProperty('--mouse-x', x.toFixed(2));
+      heroElement.style.setProperty('--mouse-y', y.toFixed(2));
+    };
+
+    const handleMouseLeave = () => {
+      // Reset position when mouse leaves
+      heroElement.style.setProperty('--mouse-x', '0');
+      heroElement.style.setProperty('--mouse-y', '0');
+    };
+
+    heroElement.addEventListener('mousemove', handleMouseMove);
+    heroElement.addEventListener('mouseleave', handleMouseLeave);
+
+    // Cleanup function
+    return () => {
+      heroElement.removeEventListener('mousemove', handleMouseMove);
+      heroElement.removeEventListener('mouseleave', handleMouseLeave);
+      
+    };
+  }, []); // Empty dependency array means this effect runs only once
+
+  // --- Removed particle state and init logic ---
 
   return (
-    // Main container div
-    <div className={`${styles.heroContent} ${styles.heroLayoutContainer} ${className}`}>
+    // Attach the ref to the main div
+    <div className={`${styles.heroContent} ${styles.heroLayoutContainer} ${className}`} ref={heroRef}>
 
-       {/* Render Particles IF Initialized (No theme check needed in JS) */}
-       {/* Visibility is controlled by CSS rule: [data-theme="light"] .particlesCanvas { display: none; } */}
-      {particlesInitialized && (
-         <Particles
-            id="tsparticles-hero"
-            options={particlesDarkConfig as ISourceOptions}
-            className={styles.particlesCanvas}
-         />
-      )}
+      {/* --- Removed Conditional Particle Rendering --- */}
 
       {/* Text Content Column */}
       <div className={styles.heroTextContent}>
         <Typography variant="h1" className={styles.heroTitle}> {title} </Typography>
         {subtitle && ( <Typography variant="subtitle1" className={styles.heroSubtitle}> {subtitle} </Typography> )}
-        {showButton && buttonLink && ( <Link to={buttonLink} className={styles.heroButtonWrapper}> <Button variant="primary" arrow={buttonArrow}> {buttonText} </Button> </Link> )}
+        <ul className={styles.keywordsList}>
+            {heroKeywords.map((keyword) => (
+                <li key={keyword} className={styles.keywordItem}>
+                    <FaCheckCircle className={styles.keywordIcon} aria-hidden="true" />
+                    <span>{keyword}</span>
+                </li>
+            ))}
+        </ul>
+        <Link
+            to={buttonLink}
+            {...(buttonLink.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            className={styles.heroButtonWrapper}
+        >
+            <Button variant="primary" arrow={buttonArrow}> {buttonText} </Button>
+        </Link>
       </div>
 
+            
       {/* Image Content Column */}
       <div className={styles.heroImageContent}>
-        <UxSvg
-            className={styles.heroSvg}
-            aria-label="UX logo mark"
-        />
+        <UxSvg className={styles.heroSvg} aria-label="UX logo mark" />
       </div>
 
     </div>

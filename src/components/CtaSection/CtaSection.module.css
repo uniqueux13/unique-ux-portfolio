@@ -1,0 +1,53 @@
+/* src/components/CtaSection/CtaSection.module.css */
+
+.ctaSection {
+    /* Layout copied/adapted from old .heroContent */
+    max-width: 800px; /* You can adjust max-width specifically for CTA */
+    margin: var(--space-xl) auto var(--space-xxl) auto; /* Vertical spacing */
+    padding: var(--space-lg) var(--space-md); /* Padding inside */
+    text-align: center; /* Center content */
+    background-color: var(--color-card-background); /* Optional background */
+    border-radius: var(--card-border-radius, 12px); /* Optional rounding */
+    box-shadow: 0 4px 15px -5px var(--color-box-shadow); /* Optional shadow */
+  }
+  
+  /* Styles moved from HomePage.module.css */
+  .ctaTitle {
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+    /* text-align: center; Inherited from .ctaSection */
+    /* Font size/weight handled by Typography component */
+  }
+  
+  .ctaSubtitle {
+    margin-bottom: var(--space-md);
+    color: var(--color-secondary); /* Use secondary color */
+    /* text-align: center; Inherited from .ctaSection */
+    max-width: 600px; /* Keep max width */
+    margin-left: auto; /* Keep centering */
+    margin-right: auto; /* Keep centering */
+    font-size: var(--font-size-paragraph);
+    line-height: var(--line-height-paragraph);
+  }
+  
+  .emailContact {
+    margin-top: var(--space-md);
+    color: var(--color-secondary);
+     /* text-align: center; Set via align prop on Typography */
+     /* Font size handled by Typography variant='listItem' */
+  }
+  
+  /* Optional: Specific styling for the button in CTA */
+  .ctaButtonLink {
+      display: inline-block; /* Or block with margin auto if needed */
+      margin-top: var(--space-sm); /* Space between subtitle and button */
+      margin-bottom: var(--space-sm); /* Space between button and email */
+  }
+  
+  /* Responsive Adjustments if needed */
+  /* @media (min-width: 992px) {
+     .ctaSection {
+       margin-top: var(--space-xl);
+       margin-bottom: var(--space-xl);
+     }
+  } */

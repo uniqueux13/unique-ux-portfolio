@@ -1,80 +1,182 @@
-/* src/components/Hero/Hero.module.css (Simplified - No Tilt, CSS Hides Particles) */
+/* src/components/Hero/Hero.module.css */
 
 .heroContent {
-    width: 100%;
-    max-width: 1200px;
-    margin: var(--space-lg) auto var(--space-xl) auto;
-    padding: var(--space-lg) var(--space-md); /* Mobile padding */
-    background-color: hsl(from var(--color-primary) h s l / 0.3);
-    backdrop-filter: blur(5px);
-    border-radius: var(--card-border-radius, 12px);
-    box-shadow: 0 10px 35px -15px var(--color-box-shadow);
-    position: relative; /* Keep for positioning canvas */
-    overflow: hidden;
-    z-index: 0;
-    transition: background-color 0.3s ease, padding 0.3s ease; /* Keep relevant */
-    /* REMOVED --mouse-x, --mouse-y, perspective, transform-style, transform, will-change: transform */
-  }
-  
-  /* Style for Particle Canvas Wrapper/Container */
-  .particlesCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Behind content */
-    border-radius: inherit;
-    /* Default: Visible (for dark mode) */
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth hide/show */
-  }
-  /* Ensure inner canvas fills wrapper */
-  .particlesCanvas > canvas {
-      display: block !important; /* Override potential inline styles */
-      width: 100% !important;
-      height: 100% !important;
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-  }
-  
-  /* --- NEW: Hide Particle Canvas in Light Mode --- */
-  [data-theme="light"] .particlesCanvas {
-    display: none; /* Or visibility: hidden; opacity: 0; */
-  }
-  /* --- End Theme Hiding Rule --- */
-  
-  
-  /* Flexbox Layout */
-  .heroLayoutContainer { display: flex; flex-direction: column; align-items: center; gap: var(--space-lg); width: 100%; }
-  .heroTextContent { flex: 1; width: 100%; text-align: left; position: relative; z-index: 1; /* REMOVED transform: translateZ */ }
-  .heroImageContent { flex: 1; width: 100%; display: flex; justify-content: center; align-items: center; position: relative; z-index: 1; min-height: 250px; /* REMOVED transform: translateZ */ }
-  
-  
-  /* SVG Component Size */
-  .heroSvg { display: block; width: 100%; max-width: 450px; height: auto; overflow: visible; filter: drop-shadow(0 0 10px var(--color-primary)); transition: filter 0.3s ease, stroke 0.3s ease; }
-  /* Hide Glow in Light Mode */
-  [data-theme="light"] .heroSvg { filter: none; }
-  /* Path Styling */
-  .heroSvg path { stroke: var(--color-primary) !important; fill: none !important; stroke-width: 20.25px !important; transition: stroke 0.3s ease; }
-  
-  
-  /* Content Stacking */
-  .heroTitle, .heroSubtitle, .heroButtonWrapper { position: relative; z-index: 1; /* REMOVED transform: translateZ */ }
-  
-  /* Title, Subtitle, Button Styles */
-  .heroTitle { margin-bottom: var(--space-sm); color: var(--color-text); text-align: left; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); }
-  .heroSubtitle { color: var(--color-secondary); text-align: left; margin-bottom: var(--space-xs); max-width: 500px; margin-left: 0; margin-right: auto; }
-  .heroButtonWrapper { display: inline-block; margin-top: var(--space-lg); text-decoration: none; }
-  
-  /* Responsive Layout Change */
-  @media (min-width: 768px) {
-    .heroContent { padding: var(--space-xl) var(--space-xl); }
-    .heroLayoutContainer { flex-direction: row; align-items: center; text-align: left; }
-    .heroTextContent { width: 50%; text-align: left; }
-    .heroImageContent { justify-content: flex-end; width: 50%; }
-    .heroButtonWrapper { text-align: left; }
-    .heroTitle, .heroSubtitle { text-align: left; }
-  }
+  width: 100%;
+  max-width: 1200px;
+  margin: var(--space-lg) auto var(--space-xl) auto;
+  padding: var(--space-lg) var(--space-md);
+  background-color: var(--color-background);
+  border-radius: var(--card-border-radius, 12px);
+  box-shadow: 0 10px 35px -15px var(--color-box-shadow);
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  --mouse-x: 0;
+  --mouse-y: 0;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  /* Apply subtle container tilt */
+  transform: rotateX(calc(var(--mouse-y) * -5deg)) rotateY(calc(var(--mouse-x) * 20deg)); /* Reduced degrees */
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease; /* Slower transition for container */
+  will-change: transform, background-color;
+}
+
+[data-theme="light"] .heroContent {
+  box-shadow:
+    0px 1.4px 2.2px rgba(0, 0, 0, 0.02),
+    0px 3.3px 5.3px rgba(0, 0, 0, 0.028),
+    0px 6.3px 10px rgba(0, 0, 0, 0.035),
+    0px 11.2px 17.9px rgba(0, 0, 0, 0.042),
+    0px 20.9px 33.4px rgba(0, 0, 0, 0.05),
+    0px 50px 80px rgba(0, 0, 0, 0.07);
+}
+
+.heroContent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1; /* Behind content, above container bg */
+  pointer-events: none;
+  border-radius: inherit;
+  background-image: radial-gradient(
+    circle 500px at calc((var(--mouse-x) + 0.5) * 100%) calc((var(--mouse-y) + 0.5) * 100%),
+    hsl(from var(--color-primary) h s l / 0.25) 0%,
+    hsla(from var(--color-primary) h s l / 0.1) 40%,
+    transparent 65%
+  );
+  background-repeat: no-repeat;
+  transition: background-position 0.15s linear, opacity 0.3s ease; /* Keep fast position transition */
+  will-change: background-position, opacity;
+  opacity: 1;
+}
+
+[data-theme="light"] .heroContent::before {
+  opacity: 0; /* Hide spotlight in light mode */
+}
+
+.heroLayoutContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  width: 100%;
+  transform-style: preserve-3d; /* Allow children to be 3D */
+}
+
+.heroTextContent {
+  flex: 1;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+  /* Apply slight lift to text block */
+  transform: translateZ(15px);
+  will-change: transform;
+}
+
+.heroImageContent {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  min-height: auto;
+  perspective: 800px; /* Give image container its own perspective */
+  transform-style: preserve-3d;
+   /* Apply slight lift */
+  transform: translateZ(15px);
+  will-change: transform;
+}
+
+.heroSvg {
+  display: block;
+  width: 100%;
+  max-width: clamp(180px, 25vw + 75px, 450px);
+  height: auto;
+  overflow: visible;
+  /* Apply MORE DRAMATIC tilt to SVG */
+  transform: rotateX(calc(var(--mouse-y) * 8deg)) rotateY(calc(var(--mouse-x) * -8deg)); /* Increased degrees */
+  /* Faster transition for SVG tilt */
+  transition: filter 0.3s ease, stroke 0.3s ease, height 0.3s ease, transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: filter, stroke, transform;
+  filter: drop-shadow(0 0 10px var(--color-primary));
+}
+
+[data-theme="light"] .heroSvg {
+  filter: none;
+}
+
+.heroSvg path {
+  stroke: var(--color-primary) !important;
+  fill: none !important;
+  stroke-width: 20.25px !important;
+  transition: stroke 0.3s ease;
+}
+
+.heroTitle,
+.heroSubtitle,
+.keywordsList,
+.heroButtonWrapper {
+  position: relative;
+  z-index: 1;
+  /* Removed translateZ - applied to parent container */
+}
+
+.heroTitle {
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+  text-align: left;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.heroSubtitle {
+  color: var(--color-secondary);
+  text-align: left;
+  margin-bottom: var(--space-lg);
+  max-width: 500px;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.keywordsList {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 var(--space-lg) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+}
+
+.keywordItem {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-paragraph);
+  line-height: var(--line-height-paragraph);
+  color: var(--color-text);
+}
+
+.keywordIcon {
+  color: var(--color-primary);
+  margin-right: var(--space-sm);
+  font-size: 1.1em;
+  flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.heroButtonWrapper {
+  display: inline-block;
+  margin-top: 0;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .heroContent { padding: var(--space-xl) var(--space-xl); }
+  .heroLayoutContainer { flex-direction: row; align-items: center; text-align: left; }
+  .heroTextContent { width: 50%; text-align: left; }
+  .heroImageContent { justify-content: flex-end; width: 50%; }
+  .heroButtonWrapper { text-align: left; }
+  .heroTitle, .heroSubtitle { text-align: left; }
+}
