@@ -1,0 +1,231 @@
+/* src/components/StepProgressBar/StepProgressBar.module.css */
+
+/* --- Container --- */
+.progressContainer {
+    width: 100%;
+    padding: var(--space-md, 0.5rem) 0; /* Add some padding */
+}
+
+/* --- Dots & Lines --- */
+.progressDotsContainer {
+    display: flex;
+    align-items: center; /* Align dots and lines vertically */
+    margin-bottom: var(--space-s, 0.5rem); /* Space if labels are present */
+    /* Adjust padding to prevent dots hitting edges */
+    padding: 0 calc(var(--dot-size, 24px) / 2); /* Half dot size padding */
+}
+
+.progressStep {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Make steps distribute space evenly */
+    position: relative; /* For positioning elements within */
+}
+.progressStep:last-child {
+    flex-grow: 0; /* Last step shouldn't grow */
+}
+
+.progressDot {
+    /* Variables for easy sizing */
+    --dot-size: 24px;
+    --dot-border-width: 2px;
+
+    width: var(--dot-size);
+    height: var(--dot-size);
+    border-radius: 50%;
+    background-color: var(--color-background, #ffffff); /* Background allows border to show */
+    border: var(--dot-border-width) solid var(--color-border, #cccccc); /* Default inactive border */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(var(--dot-size) * 0.5); /* Scale font with dot size */
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-secondary);
+    position: relative; /* Ensure dot is above line */
+    z-index: 1;
+    flex-shrink: 0; /* Prevent shrinking */
+    cursor: default; /* Default cursor */
+    padding: 0; /* Reset button padding */
+}
+
+/* Style changes when clickable */
+.progressDot:not(:disabled) {
+    cursor: pointer;
+}
+.progressDot:disabled {
+    cursor: not-allowed;
+}
+
+
+/* --- Active/Completed Dot Styles --- */
+.progressDot.active {
+    /* --- Themed Active State --- */
+    border-color: var(--color-primary, #4a90e2);
+    background-color: var(--color-primary, #4a90e2);
+    color: var(--color-button-text, #ffffff); /* Text/Icon color inside */
+}
+
+/* Optional: Subtle hover for clickable dots */
+.progressDot:not(:disabled):not(.active):hover {
+     border-color: var(--color-primary-light, #7cb5f2);
+     background-color: var(--color-surface-hover, #f5f5f5);
+}
+
+/* Optional: Styles for checkmark or current indicator inside dot */
+.checkIcon {
+    font-size: calc(var(--dot-size) * 0.6); /* Checkmark size */
+    line-height: 1;
+    color: var(--color-button-text, #ffffff);
+}
+.currentDotIndicator {
+    width: calc(var(--dot-size) * 0.4); /* Inner dot size */
+    height: calc(var(--dot-size) * 0.4);
+    background-color: var(--color-button-text, #ffffff);
+    border-radius: 50%;
+}
+
+
+/* --- Connecting Line Styles --- */
+.progressLine {
+    height: 2px; /* Line thickness */
+    background-color: var(--color-border, #cccccc); /* Default inactive line */
+    flex-grow: 1; /* Fill space */
+    transition: background-color 0.3s ease;
+    /* Adjust margin if border width changes */
+    margin: 0 calc(var(--dot-border-width) * -1); /* Overlap slightly behind borders */
+    position: relative;
+    z-index: 0;
+}
+
+.progressLine.active {
+    /* --- Themed Active State --- */
+    background-color: var(--color-primary, #4a90e2);
+}
+
+
+/* --- Labels --- */
+.progressLabelsContainer {
+    display: flex;
+    justify-content: space-between; /* Keep this for base distribution */
+    /* Match padding to align labels roughly under start/end dots */
+     padding: 0 calc(var(--dot-size, 24px) / 2);
+}
+
+.progressLabel {
+    font-size: var(--font-size-sm, 0.875rem);
+    color: var(--color-text-secondary, #aaa);
+    text-align: center;
+    width: 48px; /* Adjust as needed, ensures consistent spacing basis */
+    flex-shrink: 0; /* Prevent shrinking */
+    background: none;
+    border: none;
+    cursor: default;
+    line-height: var(--line-height-tight);
+    transition: color 0.3s ease, font-weight 0.3s ease, transform 0.2s ease,
+                font-size 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Add transitions */
+    transform: translateX(0px);
+    opacity: 1; /* Default opacity */
+    visibility: visible; /* Default visibility */
+}
+
+/* --- INDIVIDUAL LABEL ADJUSTMENTS --- */
+/* Use transform: translateX(VALUE) to nudge left (-) or right (+) */
+.progressLabel:nth-child(1) {
+    text-align: left;
+    /* transform: translateX(3px); */
+}
+.progressLabel:nth-child(2) {
+    text-align: center;
+    /* transform: translateX(-4px); */
+}
+.progressLabel:nth-child(3) {
+    text-align: center;
+    /* transform: translateX(0px); */
+}
+.progressLabel:nth-child(4) {
+    text-align: center;
+    /* transform: translateX(2px); */
+}
+/* Add more nth-child rules if needed */
+.progressLabel:last-child {
+    text-align: right;
+    /* transform: translateX(-3px); */
+}
+/* --- (End Individual Adjustments) --- */
+
+.progressLabel:not(:disabled) {
+    cursor: pointer;
+}
+.progressLabel:disabled {
+    cursor: not-allowed;
+}
+
+.progressLabel.activeLabel {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold, 600);
+}
+.progressLabel:not(:disabled):not(.activeLabel):hover {
+     color: var(--color-primary);
+}
+
+
+/* ============================================= */
+/* === MOBILE STYLES for Progress Bar Labels === */
+/* ============================================= */
+
+/* Adjust breakpoint (768px) as needed for your design */
+@media (max-width: 768px) {
+
+    /* --- OPTION 1: Hide labels completely --- */
+    /* Uncomment the next line to hide the entire label container */
+     .progressLabelsContainer { display: none; } 
+
+
+    /* --- OPTION 2: Make labels smaller --- */
+    /* Uncomment the following rules to make labels smaller instead of hiding */
+
+    /*
+    .progressLabel {
+        font-size: var(--font-size-xs, 0.75rem); // Smaller font
+        width: auto; // Let width adjust to smaller text
+        padding: 0 2px; // Minimal horizontal padding
+        // Optionally reduce horizontal nudging if it causes issues
+        // transform: translateX(0px) !important; // Override specific nudges if needed
+    }
+
+    // Optionally adjust padding on the container if using auto width
+    .progressLabelsContainer {
+         padding: 0 10px; // Example: Less padding on mobile
+    }
+
+    // If you adjusted individual transforms significantly, you might need
+    // to reset or adjust them specifically for mobile here too.
+    .progressLabel:nth-child(1),
+    .progressLabel:last-child {
+        // Maybe force centering if left/right align looks bad when small
+        // text-align: center;
+    }
+    */
+
+    /* --- End Option 2 --- */
+
+     /* Adjust bottom margin on dots container if labels are hidden or smaller */
+     .progressDotsContainer {
+        /* Reduce space below dots if labels are hidden or much smaller */
+         margin-bottom: 0; /* Example: remove margin if labels are hidden */
+         /* margin-bottom: var(--space-xs); */ /* Example: less margin if smaller */
+     }
+}
+
+/* ============================================= */
+/* === End Mobile Styles === */
+/* ============================================= */
+
+
+/* Optional Dark Mode Adjustments */
+/*
+@media (prefers-color-scheme: dark) {
+    // Dark mode specific styles...
+}
+*/

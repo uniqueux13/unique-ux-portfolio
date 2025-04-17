@@ -1,0 +1,76 @@
+/* src/components/ScrollHighlightText/ScrollHighlightText.module.css */
+.highlightText {
+  /* --- Base Typographic Styling --- */
+  position: relative;
+  font-size: var(--font-size-subtitle, 1.1rem); /* Use variable or fallback */
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+  /* **MODIFIED**: Base color remains the muted gray */
+  color: var(--color-text);
+  padding: 5px 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* --- Highlight Effect Layer (via Background Clipping) --- */
+  /* **MODIFIED**: The background gradient now uses WHITE as the highlight color */
+  background: linear-gradient(
+    to bottom,
+    var(--color-text, #FFFFFF), /* Use white (or a variable for white) */
+    var(--color-primary)
+  );
+  background-size: 100% 100%;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  paint-order: stroke fill;
+  /* Base color (#555) is set via 'color'. Background provides the white
+     highlight color where revealed by the mask. */
+
+  /* --- Dynamic Reveal Mask (Same as before) --- */
+  /* This mask controls the vertical reveal */
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,         /* Fully visible (shows white highlight) */
+    black 48%,        /* Soft edge start */
+    transparent 52%,   /* Soft edge end */
+    transparent 100%  /* Fully transparent (shows base gray) */
+  );
+  mask-size: 100% 200%; /* Double height for positioning */
+  mask-repeat: no-repeat;
+  /* Position driven by JS scroll percentage */
+  mask-position: 0 calc(100% - var(--highlight-percent));
+
+  /* --- Animation & Performance --- */
+  /* **MODIFIED**: Removed color/background/mask-image from transition, only mask-position matters */
+  transition: mask-position 0.6s ease-out; /* Smooth vertical mask movement */
+  will-change: mask-position; /* Performance hint */
+
+  cursor: text;
+}
+
+/* --- Removed Hover Rule --- */
+/* .highlightText:hover { ... } rule is removed */
+
+
+/* --- Optional Enhancements (Adjusted for new colors) --- */
+.highlightText strong {
+  font-weight: var(--font-weight-bold, 700);
+  /* Inherits the current computed color (base gray or revealed white) */
+  color: inherit;
+}
+
+.highlightText a {
+  /* Inherits the current computed color (base gray or revealed white) */
+  color: inherit;
+  text-decoration: underline;
+  /* Underline matches the base color initially */
+  text-decoration-color: var(--color-primary);
+  transition: text-decoration-color 0.3s ease;
+}
+
+/* Optional: Link hover - maybe make underline white? */
+.highlightText a:hover {
+  text-decoration-color: var(--color-text);
+}

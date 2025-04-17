@@ -5,7 +5,7 @@
   margin: 0 auto;
   /* REMOVE default margin-bottom: var(--space-md); */
   /* Default padding (medium) */
-  padding: var(--space-md);
+  padding: none;
 }
 
 /* Padding variations */

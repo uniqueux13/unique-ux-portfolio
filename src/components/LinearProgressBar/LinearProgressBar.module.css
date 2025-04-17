@@ -1,0 +1,70 @@
+/* src/components/LinearProgressBar/LinearProgressBar.module.css */
+
+.progressBarWrapper {
+    width: 100%; /* Default width, can be overridden by prop */
+}
+
+.labelContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-xs, 0.25rem);
+    font-size: var(--font-size-sm, 0.875rem);
+}
+
+.labelText {
+    color: var(--color-text-secondary, #555);
+    font-weight: var(--font-weight-medium, 500);
+}
+
+.valueText {
+    color: var(--color-text-primary, #333);
+    font-weight: var(--font-weight-semibold, 600);
+}
+
+.progressBarContainer {
+    width: 100%;
+}
+
+.progressBarTrack {
+    width: 100%;
+    height: var(--progress-bar-height, 8px); /* Control height via variable */
+    background-color: var(--color-surface-secondary, #e9ecef); /* Use themed track color */
+    border-radius: var(--radius-pill, 99px); /* Make it pill-shaped */
+    overflow: hidden; /* Clip the fill */
+}
+
+.progressBarFill {
+    height: 100%;
+    /* --- Themed Fill Color --- */
+    background-color: var(--color-primary, #4a90e2);
+    /* --- End Themed Fill Color --- */
+    border-radius: var(--radius-pill, 99px);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition */
+    display: flex; /* For potentially centering text inside */
+    align-items: center;
+    justify-content: flex-end; /* Align text to the right */
+    position: relative; /* For absolute positioning of text if needed */
+}
+
+/* Optional: Style for value text shown inside the bar */
+.valueTextInside {
+    position: absolute; /* Position relative to the fill bar */
+    right: var(--space-s, 0.5rem); /* Position inside, near the end */
+    font-size: calc(var(--progress-bar-height, 8px) * 1.2); /* Scale with bar height */
+    line-height: var(--progress-bar-height, 8px);
+    color: var(--color-button-text, #ffffff); /* Ensure contrast against primary color */
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap;
+    /* Hide text if bar is too small */
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+/* Basic width check as fallback */
+/* Consider dynamic class via JS for better control */
+/* .progressBarFill[data-value-too-small="true"] .valueTextInside {
+    opacity: 0;
+} */
+
+/* You might need dark mode adjustments for track/text colors */

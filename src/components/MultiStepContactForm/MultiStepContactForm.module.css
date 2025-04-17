@@ -1,0 +1,252 @@
+/* In your CSS module or stylesheet for the Form Container component */
+
+.formContainer {
+    /* --- Core Layout & 3D Effect (Keep As Is) --- */
+    max-width: 100%;
+    margin: 0;
+    padding: var(--space-xl, 2rem); /* Use theme spacing variable or specific value */
+    border-radius: var(--card-border-radius, 12px); /* Use theme radius or specific value */
+    /* Keep the border using the primary color */
+    border: 2px solid transparent;
+    position: relative;
+    /* Ensure overflow doesn't clip the glow shadow */
+    /* Remove overflow: hidden; if it exists, or test if visible is okay */
+    /* overflow: hidden; */ /* REMOVE or change if it clips the glow */
+    z-index: 0;
+    --mouse-x: 0;
+    --mouse-y: 0;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+    transform: rotateX(calc(var(--mouse-y) * -5deg)) rotateY(calc(var(--mouse-x) * 20deg));
+
+    /* --- THEME INTEGRATION --- */
+    background-color: var(--color-text-primary); /* Use general page background */
+    color: var(--text-color-light-mode); /* Text Color (Light Mode Default) */
+    text-shadow: var(--text-shadow-light-mode); /* Text Shadow (Light Mode Default) */
+    /* Default subtle shadow */
+    box-shadow: 0 10px 35px -15px var(--color-box-shadow);
+    /* --- End Theme Integration --- */
+
+    /* Transitions: Ensure box-shadow is included (it already is) */
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                background-color 0.5s ease,
+                box-shadow 0.3s ease, /* <<< Important for smooth glow transition */
+                color 0.3s ease,
+                text-shadow 0.3s ease,
+                border-color 0.3s ease; /* Add transition for border too */
+    will-change: transform, background-color, box-shadow, color, text-shadow, border-color;
+}
+
+/* --- Dark Mode Overrides (Ensure these exist) --- */
+/* Using prefers-color-scheme */
+@media (prefers-color-scheme: dark) {
+    .formContainer {
+      color: var(--text-color-dark-mode);
+      text-shadow: var(--text-shadow-dark-mode);
+      /* Box shadow variable is already adapted in :root */
+    }
+}
+/* --- OR --- */
+/* Using a body class */
+/*
+body.dark-mode .formContainer {
+    color: var(--text-color-dark-mode);
+    text-shadow: var(--text-shadow-dark-mode);
+}
+*/
+/* --- End Dark Mode Overrides --- */
+
+
+/* --- Glow on Hover --- */
+.formContainer:hover {
+    /* Replace the default shadow with a glow effect using the primary color */
+    box-shadow:
+        0 0 8px var(--color-primary),  /* Inner sharp glow */
+        0 0 15px var(--color-primary), /* Medium glow */
+        0 0 25px var(--color-primary); /* Wider soft glow */
+
+    /* Optional: Slightly enhance the border color on hover if desired */
+     border-color: color-mix(in srgb, var(--color-primary), white 20%); /* Example: Make border slightly lighter (needs modern browser) */
+    /* Or simply keep the border-color as is */
+}
+  
+  /* --- OR --- */
+  
+  /* Option B: Using a body class */
+  /*
+  body.dark-mode .formContainer {
+    color: var(--text-color-dark-mode);
+    text-shadow: var(--text-shadow-dark-mode);
+  }
+  */
+  
+  /* Optional: Hover effect - adapt as needed */
+  .formContainer:hover {
+     /* You might slightly adjust brightness or shadow, but avoid changing colors drastically */
+     filter: brightness(1.1);
+     box-shadow: 0 12px 40px -10px var(--color-box-shadow); /* Use theme shadow var */
+  }
+
+@media (max-width: 768px) {
+    .formContainer {
+        padding: var(--space-sm, .5rem); /* Adjust padding for smaller screens */
+        margin: none;
+    }
+}
+
+.formTitle {
+    text-align: center;
+    margin-top: var(--space-xs, 2.5rem);
+    color: var(--color-text);
+}
+
+.progressBarWrapper {
+    margin-bottom: none;
+    padding-bottom: var(--space-l, 1.5rem);
+    
+}
+
+/* --- Form Element & Steps --- */
+.formElement {
+margin-bottom: none;}
+
+.stepContainer {
+    /* Add margin or padding if needed between steps/navigation */
+    margin-bottom: var(--space-xs, 2.5rem);
+    /* Add animation for step transitions */
+    animation: stepFadeIn 0.4s ease-out;
+}
+
+@keyframes stepFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.stepHeadline {
+    margin-bottom: var(--space-l, 1.5rem);
+    font-size: var(--font-size-xl, 1.5rem);
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+    padding-bottom: var(--space-s);
+    border-bottom: 1px dashed var(--color-border-subtle);
+}
+
+/* --- Form Groups & Fields --- */
+.formGroup {
+    margin-bottom: var(--space-l, 1.5rem);
+}
+
+.formLabel,
+/* Use Typography component for labels if preferred */
+label[class*="formLabel"] {
+    display: block;
+    margin-bottom: var(--space-xs, 0.25rem);
+    font-weight: var(--font-weight-medium, 500);
+    color: var(--color-text);
+    font-size: var(--font-size-sm, 0.9rem);
+}
+
+.formInput,
+.formTextarea,
+.formSelect {
+    display: block;
+    width: 100%;
+    padding: var(--space-s, 0.75rem) var(--space-m, 1rem);
+    border: 1px solid var(--color-border, #ccc);
+    border-radius: var(--border-radius-medium, 4px);
+    font-size: var(--font-size-base, 1rem);
+    line-height: var(--line-height-normal);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formInput:focus,
+.formTextarea:focus,
+.formSelect:focus {
+    outline: none;
+    border-color: var(--color-primary, #4a90e2);
+    box-shadow: 0 0 0 3px var(--color-primary-light, rgba(74, 144, 226, 0.3));
+}
+
+.formTextarea {
+    resize: vertical; /* Allow vertical resize */
+    min-height: 80px;
+}
+
+/* --- Radio / Checkbox Groups --- */
+.radioGroup,
+.checkboxGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs); /* Space between options */
+}
+
+.radioLabel,
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s, 0.5rem);
+    cursor: pointer;
+    padding: .33rem;
+    border-radius: var(--border-radius-small);
+    transition: background-color 0.15s ease;
+}
+
+.radioLabel:hover,
+.checkboxLabel:hover {
+     background-color: var(--color-primary-light, rgba(74, 144, 226, 0.1)); /* Light hover effect */
+     border-radius: 12px; /* Rounded corners on hover */        
+}
+
+
+.radioLabel input[type="radio"],
+.checkboxLabel input[type="checkbox"] {
+     /* Custom styles or hide default and style the span */
+     margin-right: var(--space-xs, 0.25rem); /* Space after input */
+     width: 1em; /* Consistent size */
+     height: 1em;
+     accent-color: var(--color-primary); /* Theme the check/dot color */
+     cursor: pointer;
+}
+
+.radioLabel span,
+.checkboxLabel span {
+     font-size: var(--font-size-base);
+     font-weight: 600;
+     color: var(--color-text-primary);
+     line-height: var(--line-height-normal);
+}
+
+
+/* --- Navigation Buttons --- */
+.navigationButtons {
+    display: flex;
+    justify-content: space-between; /* Push Prev/Next apart */
+    align-items: center;
+    margin-top: var(--space-xs, 2.5rem);
+    padding-top: var(--space-xs, 1.5rem);
+}
+
+
+.nextButton,
+.submitButton {
+     /* Uses Button variant="primary" */
+     margin-left: auto; /* Push Next/Submit to the right if Prev isn't shown */
+}
+
+/* --- Utility & Netlify --- */
+.hidden {
+    display: none;
+}
+
+.privacyNote {
+    margin-top: var(--space-m);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-tertiary);
+    text-align: center;
+}
+
+/* Add Responsive adjustments if needed */
+/* Add Dark Mode adjustments if needed */

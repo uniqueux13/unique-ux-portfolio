@@ -1,7 +1,26 @@
 /* src/components/Button/Button.module.css */
 
 .button {
-    padding: 0.75rem 1.5rem; /* More standard padding */
+  padding: 0.75rem 1.5rem; /* More standard padding */
+  border: none;
+  border-radius: 6px; /* Keep rounded corners */
+  cursor: pointer;
+  font-size: var(--font-size-button);
+  font-family: var(--font-family-primary); /* Use variables */
+  font-weight: 500;
+  line-height: var(--line-height-button);
+  text-decoration: none;
+  letter-spacing: .05rem;
+  display: inline-flex; /* Use flexbox for alignment */
+  align-items: center;    /* Vertical alignment */
+  justify-content: center; /* Center content (text + arrow) */
+  gap: 0.5rem;          /* Space between text and arrow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  }
+  
+  @media (min-width: 768px) {
+    .button {
+      padding: 0.75rem 1.5rem; /* More standard padding */
     border: none;
     border-radius: 6px; /* Keep rounded corners */
     cursor: pointer;
@@ -15,9 +34,18 @@
     align-items: center;    /* Vertical alignment */
     justify-content: center; /* Center content (text + arrow) */
     gap: 0.5rem;          /* Space between text and arrow */
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; 
+
+    }
   }
-  
+
+  @media (prefers-reduced-motion: no-preference) {
+    .button:hover {
+      transform: translateY(-2px); /* Lift effect on hover */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+    }
+  }
+
   /* --- Primary Button Styles --- */
   .primary {
     background-color: var(--color-primary);  /* Light gray background */
