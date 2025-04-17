@@ -2,10 +2,11 @@
 import React, { useState } from 'react';
 import styles from './MultiStepContactForm.module.css';
 
-// Import reusable components
-import StepProgressBar from '../StepProgressBar/StepProgressBar'; // Adjust path
-import Typography from '../Typography/Typography';             // Adjust path
-import Button from '../Button/Button';                       // Assuming you have a Button component
+// --- Import reusable components ---
+// Adjust these paths according to your project structure
+import StepProgressBar from '../StepProgressBar/StepProgressBar';
+import Typography from '../Typography/Typography';
+import Button from '../Button/Button';
 
 // --- Define the structure for your form data ---
 interface FormData {
@@ -23,72 +24,62 @@ interface FormData {
   website?: string;
 }
 
-// Define props if needed
+// --- Define props if needed ---
 interface MultiStepContactFormProps {
     formName?: string; // Name for Netlify form
 }
 
 // --- Configuration ---
 const TOTAL_STEPS = 7;
+const INITIAL_FORM_DATA: FormData = {
+  painPoint: '',
+  painPointOther: '',
+  concernsDetails: '',
+  challenges: [],
+  timeline: '',
+  budgetRange: '',
+  successLookLike: '',
+  collaborationStyle: [],
+  name: '',
+  email: '',
+  company: '',
+  website: '',
+};
 
 const MultiStepContactForm: React.FC<MultiStepContactFormProps> = ({ formName = "contactMultiStep" }) => {
   const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState<FormData>({
-    // Initialize with default values
-    painPoint: '',
-    painPointOther: '',
-    concernsDetails: '',
-    challenges: [],
-    timeline: '',
-    budgetRange: '',
-    successLookLike: '',
-    collaborationStyle: [],
-    name: '',
-    email: '',
-    company: '',
-    website: '',
-  });
-  // --- NEW State for Submission Status ---
+  const [formData, setFormData] = useState<FormData>(INITIAL_FORM_DATA);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [submitMessage, setSubmitMessage] = useState('');
-  // --- End New State ---
 
   // --- Handlers ---
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
 
     if (type === 'checkbox') {
-        // --- Handle Checkbox Groups ---
-        const checkbox = e.target as HTMLInputElement;
-        const listName = name as keyof FormData; // e.g., "challenges" or "collaborationStyle"
-        // Ensure the target property exists and is an array
-        const currentList = Array.isArray(formData[listName]) ? formData[listName] as string[] : [];
+      const checkbox = e.target as HTMLInputElement;
+      const listName = name as keyof FormData;
+      const currentList = Array.isArray(formData[listName]) ? formData[listName] as string[] : [];
 
-        let newList: string[];
-        if (checkbox.checked) {
-            // Add value if it's not already there
-            newList = currentList.includes(value) ? currentList : [...currentList, value];
-        } else {
-            // Remove value
-            newList = currentList.filter(item => item !== value);
-        }
-        setFormData(prev => ({ ...prev, [listName]: newList }));
-        // --- End Handle Checkbox Groups ---
+      let newList: string[];
+      if (checkbox.checked) {
+        newList = currentList.includes(value) ? currentList : [...currentList, value];
+      } else {
+        newList = currentList.filter(item => item !== value);
+      }
+      setFormData(prev => ({ ...prev, [listName]: newList }));
     } else {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }));
+      setFormData(prev => ({ ...prev, [name]: value }));
     }
   };
 
-
   const nextStep = () => {
+    // TODO: Add validation for the current step if needed
     if (currentStep < TOTAL_STEPS) {
       setCurrentStep(prev => prev + 1);
-        const formTop = document.getElementById('multi-step-form-top');
-        formTop?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const formTop = document.getElementById('multi-step-form-top');
+      formTop?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -100,36 +91,37 @@ const MultiStepContactForm: React.FC<MultiStepContactFormProps> = ({ formName = 
     }
   };
 
-  // --- Helper Function to Encode Data ---
+  // --- Helper Function to Encode Data for Netlify ---
   const encode = (data: { [key: string]: any }): string => {
     return Object.keys(data)
       .map(key => {
-        // Handle array values (like checkboxes) by repeating the key
         if (Array.isArray(data[key])) {
+          // Handle array values (like checkboxes) by repeating the key with []
           return data[key].map((value: string) => `${encodeURIComponent(key)}[]=${encodeURIComponent(value)}`).join('&');
         }
+        // Handle single values
         return `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`;
       })
       .join('&');
   };
-  // --- End Helper Function ---
 
-
-  // --- UPDATED handleSubmit Function ---
+  // --- AJAX handleSubmit for Netlify ---
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); // Keep this!
+    e.preventDefault(); // Prevent default browser submission
 
+    // TODO: Add final validation if needed before submitting
     setIsSubmitting(true);
     setSubmitStatus('idle');
     setSubmitMessage('');
 
     const body = encode({
-      'form-name': formName, // Crucial: Send form name with the data
+      'form-name': formName, // Send form name with the data
       ...formData,          // Spread the rest of your form data
     });
 
     try {
-      const response = await fetch('/', { // POST to the same path
+      // POST to the same path the form is on (adjust if form is not on '/')
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: body,
@@ -139,46 +131,54 @@ const MultiStepContactForm: React.FC<MultiStepContactFormProps> = ({ formName = 
         console.log('Form submission successful!');
         setSubmitStatus('success');
         setSubmitMessage('Thank you! Your inquiry has been submitted successfully. We\'ll be in touch soon.');
-        // Optionally reset form or redirect after a delay
+        // Optional: Reset form after success (e.g., after a delay)
         // setTimeout(() => {
-        //   setCurrentStep(1); // Reset to first step
-        //   setFormData({...initialFormData}); // Reset form data if you define initialFormData
-        // }, 3000);
+        //   setCurrentStep(1);
+        //   setFormData(INITIAL_FORM_DATA);
+        //   setSubmitStatus('idle'); // Allow new submission
+        // }, 5000);
       } else {
-        console.error('Form submission error:', response);
+        // Handle HTTP errors (like 404, 500 etc.)
+        console.error('Form submission error - Response not OK:', response);
         setSubmitStatus('error');
-        setSubmitMessage(`Submission failed. Status: ${response.statusText}. Please try again or contact us directly.`);
+        setSubmitMessage(`Submission failed. Server responded with status: ${response.status} ${response.statusText || ''}. Please try again or contact us directly.`);
       }
     } catch (error) {
-      console.error('Form submission error:', error);
+      // Handle network errors or other exceptions
+      console.error('Form submission error - Exception caught:', error);
       setSubmitStatus('error');
-      setSubmitMessage('An unexpected error occurred. Please try again or contact us directly.');
+      setSubmitMessage('An unexpected network error occurred. Please check your connection and try again, or contact us directly.');
     } finally {
       setIsSubmitting(false);
     }
   };
-  // --- End UPDATED handleSubmit ---
 
+  // --- Labels for the progress bar ---
   const stepLabels = [
     "Goal", "Details", "Challenges", "Success", "Logistics", "Collaboration", "Contact",
   ];
 
   // --- Render Logic ---
-  // Show success/error message instead of form if submitted
+
+  // Show success/error message after submission attempt
   if (submitStatus === 'success' || submitStatus === 'error') {
     return (
-      <div className={styles.formContainer}> {/* Optional: Reuse container style */}
+      <div id="multi-step-form-top" className={styles.formContainer}>
          <div className={`${styles.submissionStatus} ${submitStatus === 'success' ? styles.success : styles.error}`}>
-            <Typography variant="h3">
+            <Typography variant="h3" className={styles.statusTitle}>
                 {submitStatus === 'success' ? 'Submission Successful!' : 'Submission Failed'}
             </Typography>
-            <Typography variant="h5">{submitMessage}</Typography>
-            {/* Optional: Add a button to reset or go back */}
+            <Typography variant="h2" className={styles.statusMessage}>{submitMessage}</Typography>
+            {/* Optional: Add a button to start over */}
+            {/* {submitStatus === 'error' && (
+                 <Button onClick={() => setSubmitStatus('idle')} variant="secondary" style={{ marginTop: '1rem' }}>
+                    Try Again
+                 </Button>
+            )} */}
          </div>
       </div>
     );
   }
-
 
   // --- Render Form ---
   return (
@@ -192,25 +192,25 @@ const MultiStepContactForm: React.FC<MultiStepContactFormProps> = ({ formName = 
              />
         </div>
 
+        {/* Netlify requires the form tag for detection, even with JS submit */}
         <form
             name={formName}
-            method="POST"
-            data-netlify="true" // Keep for Netlify detection
-            netlify-honeypot="bot-field" // Keep
-            onSubmit={handleSubmit} // Triggers our fetch logic
+            method="POST" // Still useful fallback/indicator, though JS handles it
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            onSubmit={handleSubmit} // Use our JS handler
             className={styles.formElement}
-            // NO action attribute needed when submitting via JS
+            // No 'action' attribute needed
         >
-            {/* Hidden Netlify inputs */}
+            {/* Hidden Netlify inputs required for detection */}
             <input type="hidden" name="form-name" value={formName} />
-            <p className={styles.hidden}>
+            <p className={styles.hidden} aria-hidden="true">
                 <label>
                 Don’t fill this out if you’re human: <input name="bot-field" />
-                {/* Removed onChange - not needed for honeypot */}
                 </label>
             </p>
 
-            {/* Step Fields - Unchanged */}
+            {/* Render Current Step's Fields */}
             <div className={styles.stepContainer}>
                 {currentStep === 1 && (<Step1Goal formData={formData} handleChange={handleChange} />)}
                 {currentStep === 2 && (<Step2Details formData={formData} handleChange={handleChange} />)}
@@ -221,7 +221,7 @@ const MultiStepContactForm: React.FC<MultiStepContactFormProps> = ({ formName = 
                 {currentStep === 7 && (<Step7Contact formData={formData} handleChange={handleChange} />)}
             </div>
 
-            {/* Navigation Buttons - Add disabled state for submit */}
+            {/* Navigation Buttons */}
             <div className={styles.navigationButtons}>
                 {currentStep > 1 && (
                     <Button type="button" onClick={prevStep} variant="secondary" className={styles.prevButton} disabled={isSubmitting}>
@@ -244,8 +244,8 @@ const MultiStepContactForm: React.FC<MultiStepContactFormProps> = ({ formName = 
   );
 };
 
-
-// --- Step Field Components (Keep these as they were) ---
+// --- Step Field Components ---
+// Consider moving each Step component into its own file for better organization
 
 interface StepProps {
   formData: FormData;
@@ -268,7 +268,6 @@ const Step5Logistics: React.FC<StepProps> = ({ formData, handleChange }) => { co
 // Step 6: Collaboration Style
 const Step6Collaboration: React.FC<StepProps> = ({ formData, handleChange }) => { const collaborationStyles = ["Highly Collaborative (Frequent Interaction)", "Provide Direction, You Execute", "Regular Check-ins are Sufficient", "Mix of Collaboration & Autonomy"]; return ( <div className={styles.stepFields}> <Typography variant="h3" className={styles.stepHeadline}>How do you prefer to collaborate?</Typography> <div className={styles.formGroup}> <div className={styles.checkboxGroup}> {collaborationStyles.map(style => ( <label key={style} className={styles.checkboxLabel}> <input type="checkbox" name="collaborationStyle" value={style} checked={formData.collaborationStyle?.includes(style)} onChange={handleChange} /> <span>{style}</span> </label> ))} </div> </div> </div> ); };
 // Step 7: Contact Information
-const Step7Contact: React.FC<StepProps> = ({ formData, handleChange }) => { return ( <div className={styles.stepFields}> <Typography variant="h3" className={styles.stepHeadline}>Your Contact Information</Typography> <div className={styles.formGroup}> <label htmlFor="name" className={styles.formLabel}>Full Name</label> <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className={styles.formInput} required autoComplete="name" /> </div> <div className={styles.formGroup}> <label htmlFor="email" className={styles.formLabel}>Email Address</label> <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className={styles.formInput} required autoComplete="email" /> </div> <div className={styles.formGroup}> <label htmlFor="company" className={styles.formLabel}>Company (Optional)</label> <input type="text" id="company" name="company" value={formData.company || ''} onChange={handleChange} className={styles.formInput} autoComplete="organization" /> </div> <div className={styles.formGroup}> <label htmlFor="website" className={styles.formLabel}>Website (Optional)</label> <input type="url" id="website" name="website" value={formData.website || ''} onChange={handleChange} className={styles.formInput} placeholder="https://" autoComplete="url" /> </div> <Typography variant="h5" className={styles.privacyNote}> Your information will be kept confidential and used solely for contacting you about your inquiry. </Typography> </div> ); };
-
+const Step7Contact: React.FC<StepProps> = ({ formData, handleChange }) => { return ( <div className={styles.stepFields}> <Typography variant="h3" className={styles.stepHeadline}>Your Contact Information</Typography> <div className={styles.formGroup}> <label htmlFor="name" className={styles.formLabel}>Full Name</label> <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className={styles.formInput} required autoComplete="name" /> </div> <div className={styles.formGroup}> <label htmlFor="email" className={styles.formLabel}>Email Address</label> <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className={styles.formInput} required autoComplete="email" /> </div> <div className={styles.formGroup}> <label htmlFor="company" className={styles.formLabel}>Company (Optional)</label> <input type="text" id="company" name="company" value={formData.company || ''} onChange={handleChange} className={styles.formInput} autoComplete="organization" /> </div> <div className={styles.formGroup}> <label htmlFor="website" className={styles.formLabel}>Website (Optional)</label> <input type="url" id="website" name="website" value={formData.website || ''} onChange={handleChange} className={styles.formInput} placeholder="https://" autoComplete="url" /> </div> <Typography variant="h2" className={styles.privacyNote}> Your information will be kept confidential and used solely for contacting you about your inquiry. </Typography> </div> ); };
 
 export default MultiStepContactForm;
