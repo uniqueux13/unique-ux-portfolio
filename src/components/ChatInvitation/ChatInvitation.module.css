@@ -1,0 +1,64 @@
+.container {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-background, #f9f9f9); /* Use variable for background color */
+    padding: 1rem;
+    border-radius: 8px; 
+  }
+  
+  .logoContainer {
+    margin-right: 1rem; 
+  }
+  
+  .logoContainer img {
+    width: 40px; /* Adjust logo size */
+    height: 40px;
+  }
+  
+  .infoContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between text and button */
+    flex-grow: 1; /* Allow infoContainer to take up remaining space */
+  }
+  
+  .avatarContainer {
+    position: relative; /* For positioning the online dot */
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; 
+    object-fit: cover; 
+  }
+  
+  .onlineStatus {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green; /* Online indicator color */
+    border: 2px solid #fff; /* Optional: Border around dot */
+  }
+  
+  .message {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.5; 
+  }
+  
+  .chatButton {
+    background-color: #007bff; /* Example button color */
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .chatButton:hover {
+    background-color: #0062cc; 
+  }

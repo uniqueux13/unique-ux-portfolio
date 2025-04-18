@@ -1,13 +1,14 @@
+// src/pages/HomePage.tsx
 import React from 'react';
 import Typography from '../components/Typography/Typography';
 import Section from '../components/Section/Section';
 import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection';
 import Hero from '../components/Hero/Hero';
-// Process component imports are removed as it's replaced below
 import HorizontalImageScroller from '../components/HorizontalImageScroller/HorizontalImageScroller';
 import ScrollHighlightText from '../components/ScrollHighlightText/ScrollHighlightText';
 import styles from './HomePage.module.css';
 import MultiStepContactForm from '../components/MultiStepContactForm/MultiStepContactForm';
+import ChatInvitation from '../components/ChatInvitation/ChatInvitation'; // --- 1. Import ChatInvitation ---
 
 // Asset Imports
 import uxCertificate from '../assets/google-ux-certificate.png';
@@ -18,10 +19,6 @@ import bonsaiLogo from '../assets/Clients/bonsai-logo.png';
 import icereamAppsLogo from '../assets/Clients/icecream-apps-logo.png';
 import gallaudetLogo from '../assets/Clients/gallaudet-logo.png';
 
-// Icons related to the old process steps are no longer needed here
-// import { FaSearch, FaBullseye, FaRegLightbulb, FaPencilRuler, FaVial, FaTools } from "react-icons/fa";
-
-// ProcessStep interface and processStepsData constant are no longer needed here.
 
 const HomePage: React.FC = () => {
 
@@ -38,19 +35,19 @@ const HomePage: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
-      <Hero 
+      <Hero
         title="Build Powerful Products People Love&nbsp;to&nbsp;Use&nbsp;"
         subtitle="Powerful UX strategies to help visionary teams build, launch, and grow products that users enjoy."
       />
-  
-    
-    
-  <div className={styles.trustedSection}>
-        <HorizontalImageScroller 
-            images={trustedLogos}
-            speed="50s" // Adjust speed as desired
-            imageMaxHeight="55px" // Adjusted from previous example, tweak as needed
-        />
+
+
+      {/* Trusted By / Scroller Section */}
+      <div className={styles.trustedSection}>
+          <HorizontalImageScroller
+              images={trustedLogos}
+              speed="50s" // Adjust speed as desired
+              imageMaxHeight="55px" // Adjusted from previous example, tweak as needed
+          />
       </div>
 
       {/* Certificate Section */}
@@ -66,34 +63,31 @@ const HomePage: React.FC = () => {
            </Typography>
         </TwoColumnSection>
       </Section>
-      
-        {/* Process Section */}
-<Section padding="sm" marginBottom="md">
-    {/* Other intro text if needed */}
-    <ScrollHighlightText
-      baseColor="var(--color-text-muted)" // Optional: Customize colors
-      highlightColor="var(--color-text)"  // Optional: Customize colors
-      triggerPoint={0.7} // Optional: Adjust trigger point
-    >
-      {/* --- PASTE YOUR LARGE PARAGRAPH TEXT HERE --- */}
-      Intuitive Design. Powerful Results. Unique UX leverages expert user understanding to craft digital experiences that <span className={styles.highlightBox}>
-          solve problems
-      </span> engage users, and 
-      <span className={styles.highlightBox}>
-          accelerate your growth.
-      </span>
 
 
-Ready to see the difference expert UX can make? Describe your project below.
-      {/* --- END LARGE PARAGRAPH TEXT --- */}
-    </ScrollHighlightText>
-</Section>
+      {/* Process Section / Scroll Highlight Text */}
+      <Section padding="sm" marginBottom="md">
+        <ScrollHighlightText
+          baseColor="var(--color-text-muted)"
+          highlightColor="var(--color-text)"
+          triggerPoint={0.7}
+        >
+          Intuitive Design. Powerful Results. Unique UX leverages expert user understanding to craft digital experiences that <span className={styles.highlightBox}>
+             solve problems
+          </span> engage users, and
+          <span className={styles.highlightBox}>
+             accelerate your growth.
+          </span>
+          <br /><br />
+          Ready to see the difference expert UX can make? Describe your project below.
+        </ScrollHighlightText>
+      </Section>
 
+      {/* Multi-Step Form Section */}
       <Section padding="none" marginBottom="xxl">
         <MultiStepContactForm/>
       </Section>
 
-      {/* Call to Action Section */}
     </>
   );
 };
