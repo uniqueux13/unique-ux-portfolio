@@ -2,11 +2,14 @@
 
 /* ... (your existing styles for larger screens) ... */
 .navigation {
-  background-color: #282828;
+  background-color:  #282828; /* Use variable */
   padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* Add some default padding if needed */
+  padding-left: var(--space-md, 1.5rem);
+  padding-right: var(--space-md, 1.5rem);
 }
 
 .menuButton {
@@ -16,7 +19,7 @@
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.25rem 0.5rem;
-    color: white;
+  color: var(--color-text, white); /* Use variable */
 }
 .hamburgerIcon{
     line-height: 1;
@@ -30,28 +33,40 @@
 }
 
 .navItem {
-  margin: 0 .7rem; /* Spacing between items */
+  margin: 0 var(--space-sm, .7rem); /* Spacing between items, use variable */
 }
 
 .navLink {
   text-decoration: none;
-  color: white; /* Default link color */
+  color: white; /* Default link color, use variable */
   padding: 0.5rem;
   display: block;
-    transition: color .3s ease;
-    font-family: var(--font-family-primarysecondary);
-    font-size: var(--font-size-nav-link);
-    line-height: var(--line-height-nav-link);
+  transition: color .3s ease;
+  /* Reference font variables defined in index.css */
+  font-family: var(--font-family-secondary); /* Example, choose appropriate one */
+  font-size: var(--font-size-nav-link);
+  line-height: var(--line-height-nav-link);
 }
 
 /* --- Settings Area --- */
-/* Wrapper to establish relative positioning context for the dropdown */
+
+/* Outer container for dropdown click-outside logic */
 .settingsContainer {
-  position: relative; /* Needed for absolute positioning of dropdown */
-  display: flex; /* Align button nicely */
+  position: relative; /* Needed for absolute positioning of dropdown panel */
+  display: flex;
   align-items: center;
-  margin-left: var(--space-md); /* Space between nav links and settings */
+  /* Space from nav items */
+  margin-left: var(--space-md);
 }
+
+/* --- NEW: Wrapper for the Settings Button & Feature Tip --- */
+.settingsTriggerWrapper {
+  position: relative;     /* Crucial: Establishes positioning context for the absolute FeatureTip */
+  display: inline-block;  /* Allows wrapper to size around the button */
+  /* Add margin here if needed instead of on settingsContainer depending on layout */
+}
+/* --- End New Wrapper Style --- */
+
 
 /* Style for the settings trigger button */
 .settingsButton {
@@ -81,35 +96,41 @@
     height: 24px;
 }
 
+/* Use theme variable for hover */
 .navLink:hover {
-    color: #56D6FF;
+    color: var(--color-link-hover, #56D6FF); /* Fallback added */
 }
+
 /* Mobile Styles (using a media query) */
 @media (max-width: 768px) {
   .menuButton {
     display: block;
   }
 
+  /* Adjust overall nav padding on mobile */
+  .navigation {
+      padding-left: var(--space-sm);
+      padding-right: var(--space-sm);
+  }
+
+
   .settingsContainer {
     margin-left: 0; /* Remove margin inside mobile menu */
-    /* Settings container will likely be inside the .navList li */
-    width: 100%;
-    justify-content: space-between; /* Example: Align toggle differently in mobile list */
-}
+    /* Adjust if needed when placed inside the mobile menu */
+  }
 
   .navList {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 74px;  /*  Position *below* the header. Adjust! */
+    /* Example: Position below header - Adjust top value based on your header height */
+    top: 60px; /* Adjust this value! */
     left: 0;
     width: 100%;
-    background-color: #282828;
+    background-color: var(--color-header-footer-bg, #282828); /* Use variable */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 10;
-     /* --- Center the DarkModeToggle --- */
-     align-items: center; /* Add this */
-
+    align-items: center; /* Center items like settings toggle */
   }
 
   .navList.open {
@@ -118,22 +139,24 @@
 
   .navItem {
     margin: 0;
-    padding: 0.5rem; /* Add padding *inside* the list item */
-    text-align: center;
+    width: 100%; /* Make list items full width */
+    /* Add borders or padding for separation */
+    border-bottom: 1px solid var(--color-border, #444); /* Example separator */
   }
     .navItem:last-child{
         border-bottom: none;
     }
-    .navLink {
-        padding: 1rem; /* Add padding *inside* the link */
-        width: 100%;     /* Make links full-width */
-    }
 
-  /* Style for the DarkModeToggle text (optional) */
+  .navLink {
+      padding: var(--space-md); /* More padding for easier tapping */
+      width: 100%;
+      text-align: center; /* Center text in mobile */
+   }
+
+  /* Style for the DarkModeToggle text (optional) - Assuming it exists */
   .darkModeLabel {
-    color: var(--color-text); /* Or any other color you prefer */
-    margin-top: 0.5rem;      /* Space below the toggle button */
-    font-size: 0.8rem;     /* Smaller font size */
+    color: var(--color-text);
+    margin-top: var(--space-xs);
+    font-size: var(--font-size-caption, 0.8rem); /* Use variable */
   }
 }
-

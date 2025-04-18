@@ -1,48 +1,32 @@
-// src/components/Navigation/Navigation.tsx (Complete - Includes hexToRgba & sets transparent scroller bg)
+// src/components/Navigation/Navigation.tsx
+// (Complete - Includes Floating UI integration for FeatureTip)
+
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './Navigation.module.css';
 import { Link } from 'react-router-dom';
 import SettingsDropdown from '../SettingsDropdown/SettingsDropdown';
+import FeatureTip from '../FeatureTip/FeatureTip'; // Import FeatureTip
 import { FaCog } from 'react-icons/fa';
 
-// --- Utility Function defined directly in this file ---
-/**
- * Converts a HEX color value to RGBA format.
- * @param hex The hex color string (e.g., "#RRGGBB" or "#RGB").
- * @param alpha The desired alpha value (0 to 1). Defaults to 1.
- * @returns The color in RGBA string format (e.g., "rgba(r, g, b, alpha)").
- */
+// --- Utility Function (hexToRgba - kept as is) ---
 function hexToRgba(hex: string, alpha: number = 1): string {
-  // Remove '#' if present
   let cleanHex = hex.startsWith('#') ? hex.slice(1) : hex;
-
   let r: number = 0, g: number = 0, b: number = 0;
-
-  // Handle shorthand hex (#RGB)
   if (cleanHex.length === 3) {
     r = parseInt(cleanHex[0] + cleanHex[0], 16);
     g = parseInt(cleanHex[1] + cleanHex[1], 16);
     b = parseInt(cleanHex[2] + cleanHex[2], 16);
-  }
-  // Handle standard hex (#RRGGBB)
-  else if (cleanHex.length === 6) {
+  } else if (cleanHex.length === 6) {
     r = parseInt(cleanHex.substring(0, 2), 16);
     g = parseInt(cleanHex.substring(2, 4), 16);
     b = parseInt(cleanHex.substring(4, 6), 16);
-  }
-  // Handle invalid format
-  else {
+  } else {
     console.warn(`Invalid HEX color format received: ${hex}. Falling back to black.`);
-    // Keep r, g, b as 0 (black)
   }
-
-  // Ensure alpha is within 0-1 range
   const clampedAlpha = Math.max(0, Math.min(1, alpha));
-
   return `rgba(${r}, ${g}, ${b}, ${clampedAlpha})`;
 }
 // --- End Utility Function ---
-
 
 // Interface for individual navigation items
 interface NavItem {
@@ -69,45 +53,75 @@ const Navigation: React.FC<NavigationProps> = ({ navItems = defaultNavItems }) =
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  // State holds the current primary color string (initialized/updated in useEffect)
   const [currentColor, setCurrentColor] = useState('#4a90e2');
 
-  const settingsContainerRef = useRef<HTMLDivElement>(null); // Ref for click outside
+  // Ref for dropdown click outside logic (targets the outer container)
+  const settingsContainerRef = useRef<HTMLDivElement>(null);
+  // Ref for the settings button itself (to anchor the FeatureTip)
+  const settingsButtonRef = useRef<HTMLButtonElement>(null); // <<<--- Ref for the button
+
+  // --- State and Logic for the Feature Tip ---
+  const [showSettingsTip, setShowSettingsTip] = useState(false);
+
+  useEffect(() => {
+    // Check localStorage only once on mount
+    try {
+      const hasSeenTip = localStorage.getItem('seenSettingsTip_v1'); // Use versioned key
+      if (!hasSeenTip) {
+        setShowSettingsTip(true);
+      }
+    } catch (error) {
+      console.error("Error reading from localStorage:", error);
+      // setShowSettingsTip(true); // Optional: Show tip even if localStorage fails
+    }
+  }, []); // Empty dependency array ensures this runs only once
+
+  const handleDismissSettingsTip = () => {
+    try {
+      localStorage.setItem('seenSettingsTip_v1', 'true'); // Mark as seen
+      setShowSettingsTip(false);
+    } catch (error) {
+      console.error("Error writing to localStorage:", error);
+      setShowSettingsTip(false); // Still hide visually
+    }
+  };
+  // --- End Feature Tip Logic ---
+
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-    setIsSettingsOpen(false); // Close settings when toggling mobile menu
+    setIsSettingsOpen(false);
+    // Also hide the tip if the mobile menu is toggled
+    if (showSettingsTip) {
+        handleDismissSettingsTip();
+    }
   };
 
   const toggleSettings = () => {
     setIsSettingsOpen(!isSettingsOpen);
+    // Dismiss the tip when the settings button is clicked to open the dropdown
+    if (showSettingsTip) {
+        handleDismissSettingsTip();
+    }
   };
 
   // Close both menus (used when clicking a nav link)
   const closeMenus = () => {
       setIsMobileMenuOpen(false);
       setIsSettingsOpen(false);
+      // Optional: Dismiss tip if a nav link is clicked
+      // if (showSettingsTip) { handleDismissSettingsTip(); }
   }
 
-  // --- Color Application and Saving Logic (Includes More Transparent Scroller Bg) ---
+  // --- Color Application and Saving Logic ---
   const applyColor = (colorValue: string) => {
     if (!colorValue) return;
-    const root = document.documentElement; // Get root element
-
-    // 1. Set primary opaque colors
+    const root = document.documentElement;
     root.style.setProperty('--color-primary', colorValue);
-    root.style.setProperty('--color-link', colorValue); // Using --color-link for hover below
-
-    // --- 2. Set the transparent scroller background ---
-    const scrollerAlpha = 0.08; // <<< Using more transparent value (8% opaque)
-    const scrollerRgbaColor = hexToRgba(colorValue, scrollerAlpha); // Use function defined above
+    root.style.setProperty('--color-link', colorValue);
+    const scrollerRgbaColor = hexToRgba(colorValue, 0.08);
     root.style.setProperty('--scroller-background', scrollerRgbaColor);
-    // --- End scroller background logic ---
-
-    // 3. Update state
     setCurrentColor(colorValue);
-
-    // 4. Save to localStorage
     try { localStorage.setItem('primaryColor', colorValue); }
     catch (error) { console.error("Error saving color:", error); }
   };
@@ -118,7 +132,6 @@ const Navigation: React.FC<NavigationProps> = ({ navItems = defaultNavItems }) =
     let initialColorVal = '#4a90e2'; // Default
     try { const savedColor = localStorage.getItem('primaryColor'); if (savedColor) initialColorVal = savedColor; }
     catch (error) { console.error("Error reading color:", error); }
-    // Apply color (which now also sets the --scroller-background)
     applyColor(initialColorVal);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Run only once on mount
@@ -126,14 +139,18 @@ const Navigation: React.FC<NavigationProps> = ({ navItems = defaultNavItems }) =
   // Click outside logic for settings dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+        // Use the container ref which holds both button and dropdown
         if (settingsContainerRef.current && !settingsContainerRef.current.contains(event.target as Node)) {
             setIsSettingsOpen(false);
+            // NOTE: We don't necessarily dismiss the tip on outside clicks,
+            // only when interacting with settings or explicitly dismissing.
         }
     };
     if (isSettingsOpen) { document.addEventListener('mousedown', handleClickOutside); }
     else { document.removeEventListener('mousedown', handleClickOutside); }
     return () => { document.removeEventListener('mousedown', handleClickOutside); };
-   }, [isSettingsOpen]);
+    }, [isSettingsOpen]); // Re-run if dropdown visibility changes
+
 
   return (
     <nav className={styles.navigation}>
@@ -142,7 +159,7 @@ const Navigation: React.FC<NavigationProps> = ({ navItems = defaultNavItems }) =
         <span className={styles.hamburgerIcon}>&#9776;</span>
       </button>
 
-      {/* --- Navigation List --- */}
+      {/* Navigation List */}
       <ul className={`${styles.navList} ${isMobileMenuOpen ? styles.open : ''}`}>
         {navItems.map((item) => (
           <li key={item.path} className={styles.navItem}>
@@ -151,23 +168,50 @@ const Navigation: React.FC<NavigationProps> = ({ navItems = defaultNavItems }) =
             </Link>
           </li>
         ))}
+        {/* Potentially add settings toggle inside mobile menu here if needed */}
       </ul>
-      {/* --- End Navigation List --- */}
+      {/* End Navigation List */}
 
 
-      {/* Settings Dropdown Trigger and Panel */}
+      {/* Settings Area: Includes Dropdown Trigger/Panel and Feature Tip */}
+      {/* Ref for click-outside remains here */}
       <div className={styles.settingsContainer} ref={settingsContainerRef}>
-         {/* Settings Trigger Button */}
-        <button className={styles.settingsButton} onClick={toggleSettings} aria-label="Theme settings" aria-expanded={isSettingsOpen}>
-           <FaCog /> {/* Settings Icon */}
-        </button>
 
-        {/* Settings Dropdown Panel */}
-        <SettingsDropdown
-          isOpen={isSettingsOpen}
-          currentColor={currentColor} // Pass current color state
-          onColorSelect={applyColor}   // Pass the combined apply/save function
-        />
+          {/* Wrapper Div for Tip Positioning */}
+          <div className={styles.settingsTriggerWrapper}>
+              {/* Settings Trigger Button - Attach ref */}
+              <button
+                  ref={settingsButtonRef} // <<<--- Attach button ref
+                  className={styles.settingsButton}
+                  onClick={toggleSettings}
+                  aria-label="Theme settings"
+                  aria-expanded={isSettingsOpen}
+                  // Link tip via aria-describedby when visible
+                  aria-describedby={showSettingsTip ? "settings-feature-tip" : undefined}
+              >
+                  <FaCog /> {/* Settings Icon */}
+              </button>
+
+              {/* Render the Feature Tip, passing the button ref */}
+              <FeatureTip
+                  id="settings-feature-tip" // ID for aria-describedby
+                  targetRef={settingsButtonRef} // <<<--- Pass button ref
+                  title="Theme & Brightness Settings"
+                  message="Click to customize your view."
+                  isVisible={showSettingsTip}
+                  onDismiss={handleDismissSettingsTip}
+                  placement="bottom" // Preferred placement ('bottom', 'top', 'left', 'right')
+              />
+          </div>
+          {/* End Wrapper Div */}
+
+          {/* Settings Dropdown Panel */}
+          {/* This is positioned relative to settingsContainer */}
+          <SettingsDropdown
+            isOpen={isSettingsOpen}
+            currentColor={currentColor}
+            onColorSelect={applyColor}
+          />
       </div>
 
     </nav>
