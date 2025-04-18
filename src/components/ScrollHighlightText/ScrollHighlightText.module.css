@@ -74,3 +74,25 @@
 .highlightText a:hover {
   text-decoration-color: var(--color-text);
 }
+
+.highlightBox {
+  display: inline-block; /* Allows padding and background */
+  padding: 0.15em 0.5em; /* Adjust vertical and horizontal padding (em units scale with font size) */
+  /* Example: Use a subtle background derived from your primary color */
+  /* Using HSL allows easy alpha adjustment. Replace with your actual primary HSL values */
+  background-color: hsla(var(--color-primary-hsl, 217 71% 53%), 0.15); /* 15% opacity background */
+  /* Fallback if HSL variable isn't set */
+  /* background-color: rgba(74, 144, 226, 0.15); */
+
+  border-radius: 4px; /* Slightly rounded corners */
+
+  /* Optional: Add a subtle border */
+  /* border: 1px solid hsla(var(--color-primary-hsl, 217 71% 53%), 0.3); */
+
+  /* Text color inside the box will inherit from ScrollHighlightText */
+  /* You could override it here if needed, e.g., color: var(--color-primary); */
+
+  margin: 0 0.1em; /* Add tiny horizontal space around the box */
+  vertical-align: baseline; /* Keep it aligned with surrounding text */
+  font-weight: var(--font-weight-medium); /* Optional: Make it slightly bolder */
+}

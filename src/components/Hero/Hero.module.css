@@ -22,7 +22,7 @@
 }
 
 [data-theme="light"] .heroContent {
-  box-shadow: 0 10px 35px -15px var(--color-box-shadow);
+  box-shadow: none;
 }
 
 .heroContent::before {
@@ -54,7 +54,7 @@
   align-items: center;
   gap: var(--space-xs);
   width: 100%;
-  margin-bottom: var(--space-xxl);
+  margin-bottom: var(--space-xl);
   transform-style: preserve-3d; /* Allow children to be 3D */
 }
 

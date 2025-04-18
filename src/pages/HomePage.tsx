@@ -76,7 +76,13 @@ const HomePage: React.FC = () => {
       triggerPoint={0.7} // Optional: Adjust trigger point
     >
       {/* --- PASTE YOUR LARGE PARAGRAPH TEXT HERE --- */}
-      Intuitive Design. Powerful Results. Unique UX leverages expert user understanding to craft digital experiences that solve problems, engage users, and accelerate your growth.
+      Intuitive Design. Powerful Results. Unique UX leverages expert user understanding to craft digital experiences that <span className={styles.highlightBox}>
+          solve problems
+      </span> engage users, and 
+      <span className={styles.highlightBox}>
+          accelerate your growth.
+      </span>
+
 
 Ready to see the difference expert UX can make? Describe your project below.
       {/* --- END LARGE PARAGRAPH TEXT --- */}

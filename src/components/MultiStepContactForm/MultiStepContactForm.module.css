@@ -24,7 +24,7 @@
     color: var(--text-color-light-mode); /* Text Color (Light Mode Default) */
     text-shadow: var(--text-shadow-light-mode); /* Text Shadow (Light Mode Default) */
     /* Default subtle shadow */
-    box-shadow: 0 10px 35px -15px var(--color-box-shadow);
+    box-shadow: none;
     /* --- End Theme Integration --- */
 
     /* Transitions: Ensure box-shadow is included (it already is) */
@@ -97,6 +97,7 @@ body.dark-mode .formContainer {
 .formTitle {
     text-align: center;
     margin-top: var(--space-xs, 2.5rem);
+    margin-bottom: var(--space-lg, 1.5rem);
     color: var(--color-text);
 }
 

@@ -67,3 +67,24 @@
   color: var(--color-secondary);
 }
 
+.highlightBox {
+  display: inline-block; /* Allows padding and background */
+  padding: 0.05em 0.25em; /* Adjust vertical and horizontal padding (em units scale with font size) */
+  /* Example: Use a subtle background derived from your primary color */
+  /* Using HSL allows easy alpha adjustment. Replace with your actual primary HSL values */
+  
+  /* Fallback if HSL variable isn't set */
+  background-color: color-mix(in srgb, var(--color-primary) 48%, transparent);
+
+  border-radius: 8px; /* Slightly rounded corners */
+
+  /* Optional: Add a subtle border */
+   border: 1px solid hsla(var(--color-primary-hsl, 217 71% 53%), 0.3); 
+
+  /* Text color inside the box will inherit from ScrollHighlightText */
+  /* You could override it here if needed, e.g., color: var(--color-primary); */
+
+  margin: 0 0.1em; /* Add tiny horizontal space around the box */
+  vertical-align: baseline; /* Keep it aligned with surrounding text */
+  font-weight: var(--font-weight-medium); /* Optional: Make it slightly bolder */
+}

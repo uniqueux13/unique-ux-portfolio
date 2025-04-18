@@ -61,7 +61,7 @@
 }
 
 [data-theme="light"] {
-    --color-background: #ffffff;
+    --color-background: #FAFAFA;
     --color-text: #333;
     --color-primary: #007bff;
     --color-secondary: #6c757d;
