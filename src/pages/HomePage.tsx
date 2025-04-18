@@ -8,7 +8,6 @@ import HorizontalImageScroller from '../components/HorizontalImageScroller/Horiz
 import ScrollHighlightText from '../components/ScrollHighlightText/ScrollHighlightText';
 import styles from './HomePage.module.css';
 import MultiStepContactForm from '../components/MultiStepContactForm/MultiStepContactForm';
-import ChatInvitation from '../components/ChatInvitation/ChatInvitation'; // --- 1. Import ChatInvitation ---
 
 // Asset Imports
 import uxCertificate from '../assets/google-ux-certificate.png';
