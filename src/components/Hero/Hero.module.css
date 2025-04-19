@@ -176,14 +176,14 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding-block: 6rem;
+    padding-block: 6.25rem;
     gap: var(--space-xs); /* Or var(--space-sm), or a specific value like 30px */
     width: 100%;
     text-align: left;
     scroll-behavior: none;
   
     /* Add negative margins to pull the container outwards */
-    margin: -1px;
+    margin: -4px;
     
     /* Crucially, calculate the width to compensate for the negative margins */
     /* 100% width + 24px left margin + 24px right margin */
