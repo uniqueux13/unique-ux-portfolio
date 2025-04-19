@@ -183,11 +183,11 @@
     scroll-behavior: none;
   
     /* Add negative margins to pull the container outwards */
-    margin: -12px;
+    margin: -1px;
     
     /* Crucially, calculate the width to compensate for the negative margins */
     /* 100% width + 24px left margin + 24px right margin */
-    width: calc(100% + 148px);
+    width: calc(100% + 48px);
   
     /* Ensure box-sizing is border-box if not set globally */
     /* This makes padding/border included IN the width/height */
