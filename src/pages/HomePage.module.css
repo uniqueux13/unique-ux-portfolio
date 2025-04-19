@@ -1,5 +1,14 @@
 /* src/pages/HomePage.module.css */
-
+.heroBackground{
+  padding: var(--space-xs);
+  background-image: linear-gradient(
+    to bottom right,
+    hsl(from var(--color-primary) h s l / 0.25) 0%,
+    hsla(from var(--color-primary) h s l / 0.1) 40%,
+    transparent 65%
+  );;
+  
+}
 .manifestoTitle {
   margin-bottom: var(--space-sm);
 }

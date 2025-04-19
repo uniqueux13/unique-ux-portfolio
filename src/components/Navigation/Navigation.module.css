@@ -10,6 +10,7 @@
   /* Add some default padding if needed */
   padding-left: var(--space-md, 1.5rem);
   padding-right: var(--space-md, 1.5rem);
+  z-index: 1000; /* Ensure it stays on top */
 }
 
 .menuButton {
@@ -105,6 +106,7 @@
 @media (max-width: 768px) {
   .menuButton {
     display: block;
+    color: white;
   }
 
   /* Adjust overall nav padding on mobile */

@@ -35,10 +35,13 @@ const HomePage: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
+      <div className={styles.heroBackground}>
       <Hero
-        title="Build Powerful Products People Love&nbsp;to&nbsp;Use&nbsp;"
+        title="Build Products People&nbsp;Love&nbsp;to&nbsp;Use&nbsp;"
         subtitle="Powerful UX strategies to help visionary teams build, launch, and grow products that users enjoy."
       />
+      </div>
+      
 
 
       {/* Trusted By / Scroller Section */}

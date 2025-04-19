@@ -14,7 +14,7 @@
   /* Container to hide overflow and optionally apply fading edges */
   .scrollerContainer {
     display: flex;
-    height: auto;
+    height: 140px;
     width: 100%; /* Full width of the parent container */
     margin-bottom: var(--space-xs); /* Space below the scroller */
     overflow: hidden;
@@ -32,24 +32,22 @@
   /* Inner wrapper that holds all images and animates */
   .scrollerInner {
     display: flex;
+    align-items: center;
+    gap: var(--space-xl); /* Space between images */
     flex-wrap: nowrap; /* Prevent wrapping */
     width: max-content; /* Expand to fit all content */
     animation: scrollHorizontal var(--animation-duration, 40s) linear infinite; /* Use variable for duration */
   }
   
-  /* Optional: Pause animation on hover */
-  .scrollerContainer:hover .scrollerInner {
-    animation-play-state: paused;
-  }
+ 
   
   /* Wrapper for each individual image for spacing */
   .imageWrapper {
     display: flex; /* Align image vertically if needed */
     align-items: center; /* Center image vertically */
     justify-content: center; /* Center image horizontally */
-    padding: 2rem 2.5rem; /* Slightly increased spacing for larger images */
     /* Use the CSS variable for max height, UPDATED default fallback */
-    min-width: 300px; /* Minimum width for each image */
+    min-width: 240px; /* Minimum width for each image */
     min-height: 100px;
     max-height: var(--image-max-height, max-content); /* <<< Increased default size from 50px */
     box-sizing: content-box; /* Ensure padding doesn't affect height */

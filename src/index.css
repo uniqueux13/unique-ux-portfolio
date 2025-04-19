@@ -34,7 +34,7 @@
   /* --- Font Sizes using clamp(MIN, PREFERRED, MAX) --- */
   --font-size-base: 1rem; /* Base usually stays fixed */
   --font-size-hero: clamp(1rem, 1.4rem + 2.2vw, 3.23rem);
-  --font-size-h1: clamp(2.25rem, 1.99rem + 1.13vw, 3rem);
+  --font-size-h1: clamp(2.25rem, 1.99rem + 1.23vw, 3rem);
   --font-size-h2: clamp(1.875rem, 1.66rem + 0.94vw, 2.5rem);
   --font-size-h3: clamp(1.5rem, 1.31rem + 0.56vw, 1.875rem); /* Added clamp */
   --font-size-h4: clamp(1.2rem, 1.01rem + 0.45vw, 1.5rem);   /* Added clamp */
