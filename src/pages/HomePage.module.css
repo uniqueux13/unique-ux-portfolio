@@ -76,10 +76,10 @@
   /* Fallback if HSL variable isn't set */
   background-color: color-mix(in srgb, var(--color-primary) 48%, transparent);
 
-  border-radius: none; /* Slightly rounded corners */
+  border-radius: 4px; /* Slightly rounded corners */
 
   /* Optional: Add a subtle border */
-   border: 1px solid hsla(var(--color-primary-hsl, 217 71% 53%), 0.3); 
+   border: 4px solid hsla(var(--color-primary-hsl, 217 71% 53%), 0.3); 
 
   /* Text color inside the box will inherit from ScrollHighlightText */
   /* You could override it here if needed, e.g., color: var(--color-primary); */
@@ -88,3 +88,43 @@
   vertical-align: baseline; /* Keep it aligned with surrounding text */
   font-weight: var(--font-weight-medium); /* Optional: Make it slightly bolder */
 }
+
+/* HomePage.module.css */
+
+/* ... other styles ... */
+
+/* --- Styles for Responsive YouTube Embed --- */
+.videoWrapper {
+  position: relative;
+  /* Sets aspect ratio (16:9) */
+  padding-bottom: 53.5%;
+  margin-block: var(--space-lg);
+  height: 0;
+  overflow: hidden;
+  border: 2px solid var(--color-primary); /* Optional: Border around the video */
+  border-radius: 12px;
+
+  /* --- ADJUSTMENTS based on request --- */
+  width: 100%; /* Ensure it tries to take full width of its container */
+  max-width: 1112px; /* Apply the maximum width limit */
+  /* Center the wrapper horizontally when max-width is active */
+  margin-left: auto;
+  margin-right: auto;
+  /* --- End Adjustments --- */
+
+  /* Optional styles (keep or remove as needed) */
+  background: #000; /* Optional: Background while loading */
+  border-radius: var(--border-radius-medium); /* Optional: Rounded corners */
+  box-shadow: var(--shadow-medium); /* Optional: Add some shadow */
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0; /* Remove default iframe border */
+}
+
+/* ... rest of your HomePage.module.css styles ... */

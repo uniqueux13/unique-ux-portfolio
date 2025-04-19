@@ -18,6 +18,7 @@ import bonsaiLogo from '../assets/Clients/bonsai-logo.png';
 import icereamAppsLogo from '../assets/Clients/icecream-apps-logo.png';
 import gallaudetLogo from '../assets/Clients/gallaudet-logo.png';
 
+const youtubeEmbedUrl = "https://www.youtube.com/embed/bIwTsAEJNF8?si=iP1RKxSzdA7MwotO";
 
 const HomePage: React.FC = () => {
 
@@ -48,6 +49,22 @@ const HomePage: React.FC = () => {
               imageMaxHeight="55px" // Adjusted from previous example, tweak as needed
           />
       </div>
+
+    {/* --- START: Latest Video Section --- */}
+    <Section padding="sm" marginBottom="md"> {/* Adjust padding/margin as needed */}
+        {/* Responsive Video Wrapper */}
+        <div className={styles.videoWrapper}>
+            <iframe
+                src={youtubeEmbedUrl} // Use the correct embed URL
+                title="YouTube video player" // Keep a descriptive title
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                // width/height/frameborder are handled by CSS now
+            ></iframe>
+        </div>
+      </Section>
+      {/* --- END: Latest Video Section --- */}
 
       {/* Certificate Section */}
       <Section padding="none" marginBottom="md"> {/* Ensure standard padding */}
