@@ -185,7 +185,7 @@
 
   .heroTextContent {
     /* Optional but recommended: Constrain text width */
-    max-width: 600px; /* Adjust this value as needed */
+    max-width: fit-content; /* Adjust this value as needed */
     /* Ensure no extra horizontal margin/padding pushing things apart */
     margin-left: 0;
     margin-right: 0; /* Might interfere with gap, often better to rely on gap */
@@ -203,7 +203,7 @@
     padding-right: 0;
     /* You might give the image container a max-width too if needed,
        but usually the image itself controls this. */
-    max-width: 32%;
+    max-width: max-content;
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -223,6 +223,7 @@
   .heroTitle {
     text-align: left;
     line-height: 70px;
+    max-width: 600px;
   }
 
   .heroSubtitle {
