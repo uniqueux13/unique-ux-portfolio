@@ -17,6 +17,9 @@
     width: 100%; /* Full width on mobile */
       display: flex;
       justify-content: center;
+      padding-inline: var(--space-sm); /* Optional padding */ 
+      padding-block: none; 
+      margin-block: none;
   }
   
   .image {

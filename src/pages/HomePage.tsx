@@ -50,7 +50,7 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* Certificate Section */}
-      <Section padding="sm" marginBottom="md"> {/* Ensure standard padding */}
+      <Section padding="none" marginBottom="md"> {/* Ensure standard padding */}
          <TwoColumnSection
            imageSrc={uxCertificate}
            imageAlt="Google UX Design Certificate"
