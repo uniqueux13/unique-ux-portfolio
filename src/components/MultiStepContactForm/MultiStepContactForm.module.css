@@ -4,7 +4,7 @@
     /* --- Core Layout & 3D Effect (Keep As Is) --- */
     max-width: 100%;
     margin: 0;
-    padding: var(--space-xl, 2rem); /* Use theme spacing variable or specific value */
+    padding: var(--space-md, 2rem); /* Use theme spacing variable or specific value */
     border-radius: var(--card-border-radius, 12px); /* Use theme radius or specific value */
     /* Keep the border using the primary color */
     border: 2px solid transparent;

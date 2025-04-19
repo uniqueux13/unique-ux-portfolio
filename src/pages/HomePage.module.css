@@ -1,20 +1,5 @@
 /* src/pages/HomePage.module.css */
 
-
-.heroContent {
-  max-width: 1440px;
-  margin: none;
-  padding: none;
-  text-align: center;
-}
-
-@media (min-width: 992px) {
-   .heroContent {
-     margin-top: var(--space-xl);
-     margin-bottom: var(--space-xl);
-   }
-}
-
 .manifestoTitle {
   margin-bottom: var(--space-sm);
 }
@@ -127,4 +112,9 @@
   border: 0; /* Remove default iframe border */
 }
 
-/* ... rest of your HomePage.module.css styles ... */
+@media (max-width: 768px) {
+  .videoWrapper {
+    /* Adjustments for smaller screens */
+    margin-bottom: 1px; /* Adjust aspect ratio for mobile if needed */
+  }
+}
