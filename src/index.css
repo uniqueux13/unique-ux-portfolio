@@ -115,7 +115,7 @@ main {
 /* Keep media queries for layout adjustments */
 @media (max-width: 768px) {
     main{
-        padding: var(--space-xs);
+        padding: none;
     }
 }
 
