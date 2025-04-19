@@ -51,7 +51,11 @@
 }
 
 /* --- Removed Hover Rule --- */
-/* .highlightText:hover { ... } rule is removed */
+.highlightText:hover {
+  /* Removed hover effect to keep the text color consistent */
+  /* Optional: You can add a hover effect if desired */
+   color: var(--color-text);
+} 
 
 
 /* --- Optional Enhancements (Adjusted for new colors) --- */
@@ -84,7 +88,7 @@
   /* Fallback if HSL variable isn't set */
   /* background-color: rgba(74, 144, 226, 0.15); */
 
-  border-radius: 4px; /* Slightly rounded corners */
+  border-radius: none; /* Slightly rounded corners */
 
   /* Optional: Add a subtle border */
   /* border: 1px solid hsla(var(--color-primary-hsl, 217 71% 53%), 0.3); */

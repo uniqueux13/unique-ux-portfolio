@@ -86,7 +86,6 @@
 
 html {
   background-color: var(--color-background);
-  background-image: linear-gradient(to bottom, var(--color-background), var(--color-slightly-lighter-bg));
   min-height: 100%;
   font-size: var(--font-size-base);
   scroll-behavior: smooth;

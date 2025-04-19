@@ -3,8 +3,8 @@
 
 .heroContent {
   max-width: 1440px;
-  margin: var(--space-lg) auto var(--space-xl) auto;
-  padding: 0 var(--space-md);
+  margin: none;
+  padding: none;
   text-align: center;
 }
 
@@ -76,7 +76,7 @@
   /* Fallback if HSL variable isn't set */
   background-color: color-mix(in srgb, var(--color-primary) 48%, transparent);
 
-  border-radius: 8px; /* Slightly rounded corners */
+  border-radius: none; /* Slightly rounded corners */
 
   /* Optional: Add a subtle border */
    border: 1px solid hsla(var(--color-primary-hsl, 217 71% 53%), 0.3); 

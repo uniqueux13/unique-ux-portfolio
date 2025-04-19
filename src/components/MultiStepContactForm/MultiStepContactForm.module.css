@@ -226,6 +226,7 @@ label[class*="formLabel"] {
     display: flex;
     justify-content: space-between; /* Push Prev/Next apart */
     align-items: center;
+    gap: var(--space-xs, 0.5rem); /* Space between buttons */
     margin-top: var(--space-xs, 2.5rem);
     padding-top: var(--space-xs, 1.5rem);
 }

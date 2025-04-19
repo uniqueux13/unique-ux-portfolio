@@ -50,7 +50,7 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* Certificate Section */}
-      <Section padding="sm" marginBottom="xxl"> {/* Ensure standard padding */}
+      <Section padding="sm" marginBottom="md"> {/* Ensure standard padding */}
          <TwoColumnSection
            imageSrc={uxCertificate}
            imageAlt="Google UX Design Certificate"
@@ -65,7 +65,7 @@ const HomePage: React.FC = () => {
 
 
       {/* Process Section / Scroll Highlight Text */}
-      <Section padding="sm" marginBottom="md">
+      <Section padding="sm" marginBottom="none">
         <ScrollHighlightText
           baseColor="var(--color-text-muted)"
           highlightColor="var(--color-text)"
@@ -78,12 +78,12 @@ const HomePage: React.FC = () => {
              accelerate your growth.
           </span>
           <br /><br />
-          Ready to see the difference expert UX can make? Describe your project below.
+          Ready to see the difference <span className={styles.highlightBox}>expert UX</span> can make? Let's collaborate to turn your vision into a seamless and effective user experience. To get started, describe your project below – tell us about your objectives, <span className={styles.highlightBox}>target audience,</span> and any specific hurdles you're facing. We're excited to learn more.
         </ScrollHighlightText>
       </Section>
 
       {/* Multi-Step Form Section */}
-      <Section padding="none" marginBottom="xxl">
+      <Section padding="none" marginBottom="lg">
         <MultiStepContactForm/>
       </Section>
 

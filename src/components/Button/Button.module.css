@@ -1,22 +1,26 @@
 /* src/components/Button/Button.module.css */
 
 .button {
-  padding: 0.75rem 1.5rem; /* More standard padding */
+  padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 6px; /* Keep rounded corners */
+  border-radius: 6px;
   cursor: pointer;
+  width: 100%; /* Full width by default */
+  max-width: 400px;
   font-size: var(--font-size-button);
-  font-family: var(--font-family-primary); /* Use variables */
+  font-family: var(--font-family-primary);
   font-weight: 500;
   line-height: var(--line-height-button);
   text-decoration: none;
   letter-spacing: .05rem;
-  display: inline-flex; /* Use flexbox for alignment */
-  align-items: center;    /* Vertical alignment */
-  justify-content: center; /* Center content (text + arrow) */
-  gap: 0.5rem;          /* Space between text and arrow */
+  display: inline-flex; /* Default - sizes to content */
+  align-items: center;
+  justify-content: center; /* Centers content inside button */
+  gap: 0.5rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-  }
+  /* Add text-align center for potentially better visual centering of text content */
+  text-align: center;
+}
   
   @media (min-width: 768px) {
     .button {
