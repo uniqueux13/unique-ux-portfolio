@@ -94,6 +94,7 @@ html {
 body {
   font-family: var(--font-family-secondary);
   margin: 0;
+  overflow-x: hidden;
   line-height: 1.6;
   color: var(--color-text);
   min-height: 100vh;
