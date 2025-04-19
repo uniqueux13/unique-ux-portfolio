@@ -16,7 +16,7 @@
     display: flex;
     height: auto;
     width: 100%; /* Full width of the parent container */
-    margin-bottom: var(--space-xl); /* Space below the scroller */
+    margin-bottom: var(--space-xs); /* Space below the scroller */
     overflow: hidden;
     position: relative; /* Needed for mask */
   
