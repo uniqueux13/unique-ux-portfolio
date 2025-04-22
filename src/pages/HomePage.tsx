@@ -17,6 +17,9 @@ import ipsLogo from '../assets/Clients/ips-logo.png';
 import bonsaiLogo from '../assets/Clients/bonsai-logo.png';
 import icereamAppsLogo from '../assets/Clients/icecream-apps-logo.png';
 import gallaudetLogo from '../assets/Clients/gallaudet-logo.png';
+import documintLogo from '../assets/Clients/documint-logo.png';
+import jdiLogo from '../assets/Clients/jdi-logo.png';
+import portifyLogo from '../assets/Clients/portify-logo.png' // Example logo, adjust as needed
 
 const youtubeEmbedUrl = "https://www.youtube.com/embed/bIwTsAEJNF8?si=iP1RKxSzdA7MwotO";
 
@@ -26,10 +29,13 @@ const HomePage: React.FC = () => {
   const trustedLogos = [
     { src: gromoLogo, alt: 'GroMo Agency Logo' },
     { src: nimblebotLogo, alt: 'Nimblebot Logo' },
+    { src: jdiLogo, alt: 'JDI Logo' },
     { src: ipsLogo, alt: 'IPS Logo' },
     { src: bonsaiLogo, alt: 'Bonsai Logo' },
     { src: icereamAppsLogo, alt: 'Icecream Apps Logo' },
     { src: gallaudetLogo, alt: 'Gallaudet University Logo' },
+    { src: documintLogo, alt: 'Documint Logo' },
+    { src: portifyLogo, alt: 'JDI Logo' },
   ];
 
   return (
