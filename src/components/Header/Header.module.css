@@ -34,7 +34,7 @@
 }
 
 .logoImage {
-  height: 48px; /* Adjust as needed */
+  height: 44px; /* Adjust as needed */
   width: auto;
   display: block; /* For consistent spacing */
   margin-right: .7rem; /* 8px gap (0.5rem = 8px if 1rem = 16px) */

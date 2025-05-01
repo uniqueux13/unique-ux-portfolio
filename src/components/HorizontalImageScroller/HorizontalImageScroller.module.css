@@ -14,7 +14,7 @@
   /* Container to hide overflow and optionally apply fading edges */
   .scrollerContainer {
     display: flex;
-    height: 140px;
+    height: 132px;
     width: 100%; /* Full width of the parent container */
     margin-bottom: var(--space-xs); /* Space below the scroller */
     overflow: hidden;
@@ -22,7 +22,7 @@
   
     /* Use the theme background variable set by Navigation.tsx */
     /* Fallback to transparent if the variable isn't set */
-    background-color: var(--scroller-background, transparent);
+    background-color: transparent;
   
     /* Optional: Add fading effect at the edges */
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);

@@ -1,12 +1,16 @@
 // src/components/Navigation/Navigation.tsx
-// (Complete - Includes Floating UI integration for FeatureTip)
+// (Complete - Includes Mobile Nav Icons and separate Mobile Settings Trigger)
+// Updated: 2025-05-01 (Based on location: Dayton, Ohio, United States)
 
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './Navigation.module.css';
 import { Link } from 'react-router-dom';
 import SettingsDropdown from '../SettingsDropdown/SettingsDropdown';
-import FeatureTip from '../FeatureTip/FeatureTip'; // Import FeatureTip
-import { FaCog } from 'react-icons/fa';
+import FeatureTip from '../FeatureTip/FeatureTip';
+
+// Import IconType and specific icons for nav items
+import { IconType } from 'react-icons';
+import { FaCog, FaHome, FaInfoCircle, FaCogs, FaImages, FaPencilAlt } from 'react-icons/fa'; // Add/change icons as needed
 
 // --- Utility Function (hexToRgba - kept as is) ---
 function hexToRgba(hex: string, alpha: number = 1): string {
@@ -28,10 +32,11 @@ function hexToRgba(hex: string, alpha: number = 1): string {
 }
 // --- End Utility Function ---
 
-// Interface for individual navigation items
+// Updated Interface for individual navigation items (includes icon)
 interface NavItem {
   label: string;
   path: string;
+  icon?: IconType; // Added optional icon property
 }
 
 // Interface for the component's props
@@ -39,14 +44,14 @@ interface NavigationProps {
   navItems?: NavItem[]; // Allow passing navItems as a prop (optional)
 }
 
-// Define the default navigation items right here
+// Updated default navigation items with icons
 const defaultNavItems: NavItem[] = [
-    { label: 'Home', path: '/' },
-    { label: 'About', path: '/about' },
-    { label: 'Services', path: '/services' },
-    { label: 'Portfolio', path: '/portfolio' },
-    { label: 'Sketchbook', path: '/sketchbook' },
-    // Add any other top-level pages here
+    { label: 'Home', path: '/', icon: FaHome },
+    { label: 'About', path: '/about', icon: FaInfoCircle },
+    { label: 'Services', path: '/services', icon: FaCogs }, // Example
+    { label: 'Portfolio', path: '/portfolio', icon: FaImages }, // Example
+    { label: 'Sketchbook', path: '/sketchbook', icon: FaPencilAlt }, // Example
+    // Add any other top-level pages here, assigning icons
 ];
 
 const Navigation: React.FC<NavigationProps> = ({ navItems = defaultNavItems }) => {
@@ -55,12 +60,12 @@ const Navigation: React.FC<NavigationProps> = ({ navItems = defaultNavItems }) =
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [currentColor, setCurrentColor] = useState('#4a90e2');
 
-  // Ref for dropdown click outside logic (targets the outer container)
+  // Ref for dropdown click outside logic (targets the DESKTOP container)
   const settingsContainerRef = useRef<HTMLDivElement>(null);
-  // Ref for the settings button itself (to anchor the FeatureTip)
-  const settingsButtonRef = useRef<HTMLButtonElement>(null); // <<<--- Ref for the button
+  // Ref for the DESKTOP settings button itself (to anchor the FeatureTip)
+  const settingsButtonRef = useRef<HTMLButtonElement>(null);
 
-  // --- State and Logic for the Feature Tip ---
+  // --- State and Logic for the Feature Tip (Targets DESKTOP button) ---
   const [showSettingsTip, setShowSettingsTip] = useState(false);
 
   useEffect(() => {
@@ -72,7 +77,6 @@ const Navigation: React.FC<NavigationProps> = ({ navItems = defaultNavItems }) =
       }
     } catch (error) {
       console.error("Error reading from localStorage:", error);
-      // setShowSettingsTip(true); // Optional: Show tip even if localStorage fails
     }
   }, []); // Empty dependency array ensures this runs only once
 
@@ -90,16 +94,17 @@ const Navigation: React.FC<NavigationProps> = ({ navItems = defaultNavItems }) =
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-    setIsSettingsOpen(false);
-    // Also hide the tip if the mobile menu is toggled
+    setIsSettingsOpen(false); // Close settings when toggling mobile menu
+    // Also hide the tip if the mobile menu is toggled (although tip is desktop only now)
     if (showSettingsTip) {
         handleDismissSettingsTip();
     }
   };
 
+  // This function toggles the state for the SINGLE dropdown panel
   const toggleSettings = () => {
     setIsSettingsOpen(!isSettingsOpen);
-    // Dismiss the tip when the settings button is clicked to open the dropdown
+    // Dismiss the tip when the settings button (desktop or mobile) is clicked
     if (showSettingsTip) {
         handleDismissSettingsTip();
     }
@@ -109,11 +114,9 @@ const Navigation: React.FC<NavigationProps> = ({ navItems = defaultNavItems }) =
   const closeMenus = () => {
       setIsMobileMenuOpen(false);
       setIsSettingsOpen(false);
-      // Optional: Dismiss tip if a nav link is clicked
-      // if (showSettingsTip) { handleDismissSettingsTip(); }
   }
 
-  // --- Color Application and Saving Logic ---
+  // --- Color Application and Saving Logic (Existing) ---
   const applyColor = (colorValue: string) => {
     if (!colorValue) return;
     const root = document.documentElement;
@@ -127,7 +130,7 @@ const Navigation: React.FC<NavigationProps> = ({ navItems = defaultNavItems }) =
   };
   // --- End Color Application Logic ---
 
-  // Load saved/initial color on mount
+  // Load saved/initial color on mount (Existing)
   useEffect(() => {
     let initialColorVal = '#4a90e2'; // Default
     try { const savedColor = localStorage.getItem('primaryColor'); if (savedColor) initialColorVal = savedColor; }
@@ -136,83 +139,118 @@ const Navigation: React.FC<NavigationProps> = ({ navItems = defaultNavItems }) =
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Run only once on mount
 
-  // Click outside logic for settings dropdown
+  // Click outside logic for settings dropdown (Now checks DESKTOP container ref)
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-        // Use the container ref which holds both button and dropdown
+        // Check clicks outside the DESKTOP settings container
+        // The dropdown panel is visually detached on mobile, but logically associated here
         if (settingsContainerRef.current && !settingsContainerRef.current.contains(event.target as Node)) {
-            setIsSettingsOpen(false);
-            // NOTE: We don't necessarily dismiss the tip on outside clicks,
-            // only when interacting with settings or explicitly dismissing.
+            // Also check if the click was inside the mobile trigger button - if so, don't close
+             const mobileSettingsButton = document.querySelector(`.${styles.settingsMobileButton}`);
+             if (!mobileSettingsButton || !mobileSettingsButton.contains(event.target as Node)) {
+                 setIsSettingsOpen(false);
+             }
         }
     };
     if (isSettingsOpen) { document.addEventListener('mousedown', handleClickOutside); }
     else { document.removeEventListener('mousedown', handleClickOutside); }
     return () => { document.removeEventListener('mousedown', handleClickOutside); };
-    }, [isSettingsOpen]); // Re-run if dropdown visibility changes
+    // Dependency includes isSettingsOpen and the CSS class name used for mobile button selector
+  }, [isSettingsOpen, styles.settingsMobileButton]);
 
 
   return (
     <nav className={styles.navigation}>
       {/* Mobile Menu Button */}
-      <button className={styles.menuButton} onClick={toggleMobileMenu} aria-label="Toggle menu" aria-expanded={isMobileMenuOpen}>
+      <button
+        className={styles.menuButton}
+        onClick={toggleMobileMenu}
+        aria-label="Toggle menu"
+        aria-expanded={isMobileMenuOpen}
+        aria-controls="main-nav-list"
+      >
         <span className={styles.hamburgerIcon}>&#9776;</span>
       </button>
 
-      {/* Navigation List */}
-      <ul className={`${styles.navList} ${isMobileMenuOpen ? styles.open : ''}`}>
+      {/* Navigation List (Includes mobile settings trigger) */}
+      <ul id="main-nav-list" className={`${styles.navList} ${isMobileMenuOpen ? styles.open : ''}`}>
+        {/* Map Nav Items */}
         {navItems.map((item) => (
           <li key={item.path} className={styles.navItem}>
             <Link to={item.path} className={styles.navLink} onClick={closeMenus}>
-              {item.label}
+              {item.icon && (
+                <item.icon className={styles.navIcon} aria-hidden="true" />
+              )}
+              <span>{item.label}</span>
             </Link>
           </li>
         ))}
-        {/* Potentially add settings toggle inside mobile menu here if needed */}
+
+        {/* --- Settings Trigger for Mobile Menu --- */}
+        {/* This li will be hidden on desktop via CSS */}
+        <li className={`${styles.navItem} ${styles.settingsMobileItem}`}>
+          <button
+            className={`${styles.settingsButton} ${styles.settingsMobileButton}`}
+            onClick={() => {
+                toggleSettings(); // Open/close the dropdown
+                // Optionally close the mobile menu when settings is clicked:
+                // setIsMobileMenuOpen(false);
+            }}
+            aria-label="Theme settings"
+          >
+            <FaCog />
+            {/* Optional: Add text label visible only on mobile */}
+            <span className={styles.settingsMobileLabel}>Settings</span>
+          </button>
+        </li>
+        {/* --- End Mobile Settings Trigger --- */}
+
       </ul>
       {/* End Navigation List */}
 
 
-      {/* Settings Area: Includes Dropdown Trigger/Panel and Feature Tip */}
-      {/* Ref for click-outside remains here */}
-      <div className={styles.settingsContainer} ref={settingsContainerRef}>
-
-          {/* Wrapper Div for Tip Positioning */}
+      {/* --- Settings Area for Desktop --- */}
+      {/* This container holds the desktop button, the feature tip, and the dropdown panel */}
+      {/* It is hidden entirely on mobile via CSS */}
+      <div
+        className={`${styles.settingsContainer} ${styles.settingsDesktopContainer}`}
+        ref={settingsContainerRef} // Ref for click outside detection
+      >
           <div className={styles.settingsTriggerWrapper}>
-              {/* Settings Trigger Button - Attach ref */}
+              {/* Desktop settings button - has ref */}
               <button
-                  ref={settingsButtonRef} // <<<--- Attach button ref
+                  ref={settingsButtonRef} // Ref for FeatureTip anchor
                   className={styles.settingsButton}
-                  onClick={toggleSettings}
+                  onClick={toggleSettings} // Same toggle function
                   aria-label="Theme settings"
-                  aria-expanded={isSettingsOpen}
-                  // Link tip via aria-describedby when visible
+                  aria-expanded={isSettingsOpen} // Reflects shared state
                   aria-describedby={showSettingsTip ? "settings-feature-tip" : undefined}
               >
-                  <FaCog /> {/* Settings Icon */}
+                  <FaCog />
               </button>
 
-              {/* Render the Feature Tip, passing the button ref */}
+              {/* FeatureTip is ONLY rendered/anchored relative to the desktop button */}
               <FeatureTip
-                  id="settings-feature-tip" // ID for aria-describedby
-                  targetRef={settingsButtonRef} // <<<--- Pass button ref
+                  id="settings-feature-tip"
+                  targetRef={settingsButtonRef}
                   title="Theme & Brightness Settings"
                   message="Click to customize your view."
                   isVisible={showSettingsTip}
                   onDismiss={handleDismissSettingsTip}
-                  placement="bottom" // Preferred placement ('bottom', 'top', 'left', 'right')
+                  placement="bottom"
               />
           </div>
-          {/* End Wrapper Div */}
 
-          {/* Settings Dropdown Panel */}
-          {/* This is positioned relative to settingsContainer */}
+          {/* SettingsDropdown is ONLY rendered here, its visibility controlled by isOpen */}
+          {/* Its positioning is relative to this container on desktop, but overridden */}
+          {/* to position:fixed on mobile via CSS */}
           <SettingsDropdown
             isOpen={isSettingsOpen}
             currentColor={currentColor}
             onColorSelect={applyColor}
           />
       </div>
+      {/* --- End Desktop Settings Area --- */}
 
     </nav>
   );

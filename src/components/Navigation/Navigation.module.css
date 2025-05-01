@@ -1,15 +1,19 @@
 /* src/components/Navigation/Navigation.module.css */
+/* Foundation based on user's last provided CSS */
+/* Added rule to hide MOBILE settings item on DESKTOP */
+/* Added rule to hide DESKTOP settings container on mobile */
+/* Added styles for MOBILE settings button to match nav links */
 
-/* ... (your existing styles for larger screens) ... */
 .navigation {
-  background-color:  #282828; /* Use variable */
+  /* Consider using var(--color-header-footer-bg, #282828); */
+  background-color: #282828;
   padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* Add some default padding if needed */
   padding-left: var(--space-md, 1.5rem);
-  padding-right: var(--space-xs, 1.5rem);
+  /* Corrected fallback for --space-xs */
+  padding-right: var(--space-xs, 0.5rem);
   z-index: 1000; /* Ensure it stays on top */
 }
 
@@ -22,7 +26,7 @@
   padding: 0.25rem 0.5rem;
   color: var(--color-text, white); /* Use variable */
 }
-.hamburgerIcon{
+.hamburgerIcon {
     line-height: 1;
 }
 
@@ -34,105 +38,124 @@
 }
 
 .navItem {
-  margin: 0 var(--space-xs, .5rem); /* Spacing between items, use variable */
+  margin: 0 var(--space-xs, .5rem); /* Spacing between items */
 }
 
 .navLink {
   text-decoration: none;
-  color: white; /* Default link color, use variable */
+  /* Consider using var(--color-text, white); */
+  color: white;
   padding: 0.5rem;
-  display: block;
+  /* --- MODIFIED for Icon Alignment --- */
+  display: flex; /* Use flex to allow icon alignment */
+  align-items: center; /* Vertically align icon and text */
+  gap: var(--space-xs); /* Optional gap, mainly for potential future desktop icons */
+  /* --------------------------------- */
   transition: color .3s ease;
-  /* Reference font variables defined in index.css */
-  font-family: var(--font-family-secondary); /* Example, choose appropriate one */
+  font-family: var(--font-family-secondary);
   font-size: var(--font-size-nav-link);
   line-height: var(--line-height-nav-link);
 }
 
-/* --- Settings Area --- */
+/* Style for the Nav Icon (Hidden on Desktop) */
+.navIcon {
+  display: none; /* Hide icons by default (on Desktop) */
+  flex-shrink: 0; /* Prevent icon from shrinking if space is tight */
+}
 
-/* Outer container for dropdown click-outside logic */
+
+/* Use theme variable for hover */
+.navLink:hover {
+    color: var(--color-primary);
+}
+
+
+/* --- Settings Area (Desktop) --- */
 .settingsContainer {
-  position: relative; /* Needed for absolute positioning of dropdown panel */
-  display: flex;
+  position: relative;
+  display: flex; /* Makes it visible on desktop */
   align-items: center;
-  /* Space from nav items */
   margin-left: var(--space-xs);
 }
 
-/* --- NEW: Wrapper for the Settings Button & Feature Tip --- */
 .settingsTriggerWrapper {
-  position: relative;     /* Crucial: Establishes positioning context for the absolute FeatureTip */
-  display: inline-block;  /* Allows wrapper to size around the button */
-  /* Add margin here if needed instead of on settingsContainer depending on layout */
+  position: relative;
+  display: inline-block;
 }
-/* --- End New Wrapper Style --- */
 
-
-/* Style for the settings trigger button */
+/* Base styles for settings button icon - applied to both versions */
 .settingsButton {
   background: none;
   border: none;
-  color: var(--color-secondary); /* Use secondary color */
+  color: var(--color-secondary);
   cursor: pointer;
-  padding: var(--space-xs); /* Make it easier to click */
-  display: flex; /* Align icon inside */
+  padding: var(--space-xs); /* Base padding for desktop icon */
+  display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   transition: color 0.2s ease, background-color 0.2s ease;
 }
-.settingsButton:hover,
-.settingsButton:focus {
-  color: var(--color-text); /* Change color on hover/focus */
-  background-color: var(--color-card-background); /* Subtle background */
-  outline: none; /* Remove default */
+/* Desktop-specific hover/focus */
+.settingsContainer .settingsButton:hover,
+.settingsContainer .settingsButton:focus {
+  color: var(--color-text);
+  background-color: var(--color-card-background);
+  outline: none;
 }
-.settingsButton:focus-visible {
-   box-shadow: 0 0 0 2px var(--color-primary); /* Focus ring */
+.settingsContainer .settingsButton:focus-visible {
+   box-shadow: 0 0 0 2px var(--color-primary);
 }
-
-.settingsButton svg { /* Style the icon inside */
-    width: 24px; /* Adjust size */
+/* Base icon size */
+.settingsButton svg {
+    width: 24px;
     height: 24px;
 }
+/* --- End Settings Area --- */
 
-/* Use theme variable for hover */
-.navLink:hover {
-    color: var(--color-link-hover, #56D6FF); /* Fallback added */
+
+/* --- Hide Mobile-Specific Settings Item on Desktop --- */
+.settingsMobileItem {
+  display: none;
 }
+/* --- End Hide Mobile --- */
 
-/* Mobile Styles (using a media query) */
+
+/* --- Mobile Styles --- */
 @media (max-width: 768px) {
+  .settingsButton {
+    display: none;
+  }
+
   .menuButton {
     display: block;
-    color: white;
+    color: white; /* Ensure visibility against dark background */
   }
 
-  /* Adjust overall nav padding on mobile */
   .navigation {
-      padding-left: var(--space-xs);
-      padding-right: var(--space-xs);
+    padding-left: var(--space-xs);
+    padding-right: var(--space-xs);
   }
 
-
+  /* Hide the DESKTOP settings container on mobile */
   .settingsContainer {
-    margin-left: 0; /* Remove margin inside mobile menu */
-    /* Adjust if needed when placed inside the mobile menu */
+    margin-left: 0;
+    color: transparent;
+    background-color: transparent;
   }
 
   .navList {
     display: none;
     flex-direction: column;
     position: absolute;
-    /* Example: Position below header - Adjust top value based on your header height */
-    top: 60px; /* Adjust this value! */
-    left: 0;
-    width: 100%;
-    background-color: var(--color-header-footer-bg, #282828); /* Use variable */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* NOTE: Uses 60px top and lacks max-height/overflow per user request to ignore */
+    top: 60px; /* You may need to adjust this to 76px */
+    right: 0;
+    width: 60%;
+    background-color: var(--color-header-footer-bg, #282828);
+    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 10;
-    align-items: center; /* Center items like settings toggle */
+    align-items: stretch;
   }
 
   .navList.open {
@@ -141,24 +164,86 @@
 
   .navItem {
     margin: 0;
-    width: 100%; /* Make list items full width */
-    /* Add borders or padding for separation */
-    border-bottom: 1px solid var(--color-border, #444); /* Example separator */
+    width: 100%;
+    border-bottom: 1px solid var(--color-border, #444);
   }
-    .navItem:last-child{
-        border-bottom: none;
+    .navItem:last-child {
+      border-bottom: none;
     }
 
   .navLink {
-      padding: var(--space-md); /* More padding for easier tapping */
-      width: 100%;
-      text-align: center; /* Center text in mobile */
-   }
+    color: var(--color-text);
+    padding: var(--space-md);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
 
-  /* Style for the DarkModeToggle text (optional) - Assuming it exists */
+  /* Show and style icons ONLY on mobile */
+  .navIcon {
+    display: inline-block;
+    margin-right: var(--space-sm);
+    font-size: 1.1em;
+    flex-shrink: 0;
+  }
+
+  /* --- Show Mobile Settings Item --- */
+  .settingsMobileItem {
+    display: block; /* Show the list item */
+     /* Border handled by navItem:last-child */
+  }
+
+  /* --- NEW: Style the Mobile Settings Button like a NavLink --- */
+  .settingsMobileButton {
+    /* Reset/Override base .settingsButton styles */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align left like navLink */
+    width: 100%;
+    padding: var(--space-md); /* Match navLink padding */
+    color: var(--color-text); /* Match navLink color */
+    background: none; /* Ensure no button background */
+    border: none; /* Ensure no button border */
+    border-radius: 0; /* Remove rounding */
+    font-family: var(--font-family-secondary); /* Match navLink font */
+    font-size: var(--font-size-nav-link); /* Match navLink font size */
+    line-height: var(--line-height-nav-link); /* Match navLink line height */
+    cursor: pointer;
+    transition: none; /* Remove default button transition */
+    text-align: left; /* Ensure text aligns left */
+  }
+  .settingsMobileButton:hover {
+     background-color: rgba(255, 255, 255, 0.05); /* Subtle hover */
+     color: var(--color-primary); /* Match navLink hover */
+  }
+
+  /* Style the icon *inside* the mobile settings button */
+  .settingsMobileButton svg {
+     margin-right: var(--space-sm); /* Match navIcon margin */
+     font-size: 1.1em; /* Match navIcon size */
+     color: inherit; /* Match button text color */
+     width: auto; /* Override fixed size if needed */
+     height: auto;
+     flex-shrink: 0;
+  }
+  /* Style the optional text label *inside* the mobile settings button */
+  .settingsMobileLabel {
+      display: inline-block; /* Make label visible */
+      /* Add any other specific styles needed */
+  }
+  /* --- End Mobile Settings Button Styles --- */
+
+  /* Existing styles - Keep if needed */
   .darkModeLabel {
     color: var(--color-text);
     margin-top: var(--space-xs);
-    font-size: var(--font-size-caption, 0.8rem); /* Use variable */
+    font-size: var(--font-size-caption, 0.8rem);
   }
-}
+
+  /* NOTE: Styles to reposition the dropdown panel on mobile */
+  /* (:global(.settingsDropdown) { position: fixed; ... }) */
+  /* are NOT included here per user request to focus only on button styling. */
+  /* The dropdown might appear incorrectly positioned without them. */
+
+} /* End Mobile Media Query */
