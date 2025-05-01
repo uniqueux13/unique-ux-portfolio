@@ -1,13 +1,12 @@
 // AboutPage.tsx (Example)
 import React from 'react';
 import Typography from '../components/Typography/Typography';
-import Button from '../components/Button/Button';
 import styles from './AboutPage.module.css';
-import { Link } from 'react-router-dom';
 import Section from '../components/Section/Section'; // Import
 import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection';
 import working from '../assets/working.png'
 import profilePicture from '../assets/kyle.png'
+import CtaSection from '../components/CtaSection/CtaSection';
 
 const AboutPage: React.FC = () => {
   return (
@@ -67,19 +66,7 @@ const AboutPage: React.FC = () => {
         </Section>
 
     {/* Call to Action */}
-    <div className={styles.heroContent}>
-        <Typography variant="h2" className={styles.ctaTitle}>Ready to Create Something Unique?</Typography>
-        <Typography variant="p" className={styles.ctaSubtitle}>
-          Let's collaborate to build a digital experience that transforms your business and delights your users.
-        </Typography>
-      {/* Use a Link component for external links */}
-        <Link to="https://calendly.com/kyleranta/15min" target="_blank" rel="noopener noreferrer">
-            <Button variant="primary" arrow>Book a Free Consultation</Button>
-        </Link>
-        <Typography variant="listItem" align="center">
-         uniqueux13@gmail.com
-    </Typography>
-    </div>
+    <CtaSection/>
     </div>
   );
 };
