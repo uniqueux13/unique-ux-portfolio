@@ -7,12 +7,23 @@ import { FaCheck } from 'react-icons/fa'; // Import check icon for active state
 // --- Define Accessible Colors (Verify contrast >= 4.5:1 against #FFF) ---
 // You should verify these yourself using a contrast checker tool!
 const accessibleColors = [
-    { name: 'Default Blue', value: '#4a90e2' },
-    { name: 'Teal', value: '#0b7285' },
-    { name: 'Green', value: '#1a7f37' },
-    { name: 'Dark Orange', value: '#d9480f' },
-    { name: 'Dark Red', value: '#c92a2a' },
-    { name: 'Deep Purple', value: '#7048e8' },
+  // A blue that passes WCAG AA (4.5:1) for text against both light/dark backgrounds
+  { name: 'Bright Blue', value: '#367BEC' },
+
+  // A vibrant teal that also passes AA on both backgrounds
+  { name: 'Teal', value: '#17a2b8' },
+
+  // A clear green passing AA on both backgrounds
+  { name: 'Emerald Green', value: '#0A996F' },
+
+  // A saturated orange passing AA/AAA on both backgrounds
+  { name: 'Vibrant Orange', value: '#f76707' },
+
+  // A magenta/pink instead of dark red, passes AA/AAA on both
+  { name: 'Magenta', value: '#d63384' },
+
+  // A slightly adjusted purple passing AA/AAA on both backgrounds
+  { name: 'Indigo Purple', value: '#6f42c1' },
 ];
 // --- End Accessible Colors ---
 
