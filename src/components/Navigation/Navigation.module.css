@@ -87,7 +87,7 @@
 .settingsButton {
   background: none;
   border: none;
-  color: var(--color-secondary);
+  color: white;
   cursor: pointer;
   padding: var(--space-xs); /* Base padding for desktop icon */
   display: flex;
@@ -99,8 +99,8 @@
 /* Desktop-specific hover/focus */
 .settingsContainer .settingsButton:hover,
 .settingsContainer .settingsButton:focus {
-  color: var(--color-text);
-  background-color: var(--color-card-background);
+  color: var(--color-primary);
+  background-color: none;
   outline: none;
 }
 .settingsContainer .settingsButton:focus-visible {
