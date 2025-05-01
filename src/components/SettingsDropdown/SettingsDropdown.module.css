@@ -4,7 +4,7 @@
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: var(--color-card-background);
+    background-color: var(--color-background);
     border-radius: var(--card-border-radius, 8px);
     box-shadow: 0 4px 12px var(--color-box-shadow);
     padding: var(--space-md);

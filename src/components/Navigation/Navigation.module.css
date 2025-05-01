@@ -9,7 +9,7 @@
   align-items: center;
   /* Add some default padding if needed */
   padding-left: var(--space-md, 1.5rem);
-  padding-right: var(--space-md, 1.5rem);
+  padding-right: var(--space-xs, 1.5rem);
   z-index: 1000; /* Ensure it stays on top */
 }
 
@@ -34,7 +34,7 @@
 }
 
 .navItem {
-  margin: 0 var(--space-sm, .7rem); /* Spacing between items, use variable */
+  margin: 0 var(--space-xs, .5rem); /* Spacing between items, use variable */
 }
 
 .navLink {
@@ -57,7 +57,7 @@
   display: flex;
   align-items: center;
   /* Space from nav items */
-  margin-left: var(--space-md);
+  margin-left: var(--space-xs);
 }
 
 /* --- NEW: Wrapper for the Settings Button & Feature Tip --- */
@@ -111,8 +111,8 @@
 
   /* Adjust overall nav padding on mobile */
   .navigation {
-      padding-left: var(--space-sm);
-      padding-right: var(--space-sm);
+      padding-left: var(--space-xs);
+      padding-right: var(--space-xs);
   }
 
 

@@ -1,33 +1,54 @@
 /* src/components/Header/Header.module.css */
 
 .header {
-    background-color: #282828;
-    padding-block: 1rem; 
-    padding-inline: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px var(--color-box-shadow);
-  }
-  
-  /* NEW:  Add this container to hold logo AND title */
-  .logoContainer {
-    display: flex;
-    align-items: center; /* Vertically center logo and title */
-    padding-left: none;  /* Add some padding on the left side */
-  }
-  
-  .logoImage {
-    height: 50px; /* Adjust as needed */
-    width: auto;
-    display: block; /* For consistent spacing */
-    margin-right: 1rem; /* 8px gap (0.5rem = 8px if 1rem = 16px) */
-  }
-  
-  .siteTitle {
+  background-color: #282828; /* Or var(--color-header-footer-bg) */
+  padding-block: 1rem;
+  padding-inline: .5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px var(--color-box-shadow);
 
-    color: white; /*  Use a light color variable */
-    font-size: 1.5rem; /* Adjust as needed */
-    font-weight: bold;
-    font-family: var(--font-family-sora); /* Use your primary font */
-  }
+  /* --- Add these properties for fixed positioning --- */
+  position: fixed;      /* Position relative to viewport */
+  top: 0;               /* Pin to the top */
+  left: 0;              /* Pin to the left */
+  width: 100%;          /* Span full viewport width */
+  z-index: 1000;        /* Ensure it's above other content (match/exceed Navigation's z-index) */
+  /* ------------------------------------------------- */
+
+  /* Optional but Recommended: Explicit Height */
+  /* Define a height explicitly if possible. Let's assume 74px based on */
+  /* your previous index.css calc() - adjust if needed */
+  /* height: 74px;  */
+  /* OR better yet, use a variable if you define one: */
+  /* height: var(--header-height); */
+}
+
+/* NEW: Add this container to hold logo AND title */
+.logoContainer {
+  display: flex;
+  align-items: center; /* Vertically center logo and title */
+  /* Removed padding-left: none; - not a valid value */
+  /* padding-left: var(--space-sm); /* Optional: Add padding if needed */
+}
+
+.logoImage {
+  height: 48px; /* Adjust as needed */
+  width: auto;
+  display: block; /* For consistent spacing */
+  margin-right: .7rem; /* 8px gap (0.5rem = 8px if 1rem = 16px) */
+}
+
+.siteTitle {
+  color: white; /* Or var(--color-text) */
+  font-size: 1.5rem; /* Adjust as needed */
+  font-weight: bold;
+  font-family: var(--font-family-grotesk); /* Use your primary font */
+}
+
+/* --- IMPORTANT: Adjust padding/height if needed --- */
+/* If you set an explicit height above (e.g., 74px), ensure */
+/* your padding-block and content (logo height, title size) */
+/* fit comfortably within that explicit height, or remove the */
+/* explicit height and let the content + padding define it. */
