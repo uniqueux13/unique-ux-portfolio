@@ -1,79 +1,100 @@
 /* src/components/FeatureTip/FeatureTip.module.css */
+/* Updated for mobile responsiveness */
 
 .tipWrapper {
-    /* REMOVE: position, left, transform, top, bottom related to placement */
-    /* Keep appearance styles */
-    z-index: 100;
-    background-color: var(--color-card-background, #333);
-    color: var(--color-text, #fff);
-    padding: var(--space-sm, 1rem);
-    border-radius: var(--card-border-radius, 8px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    width: max-content;
-    max-width: 250px;
-    font-size: var(--font-size-sm, 0.875rem);
-    line-height: var(--line-height-tight, 1.4);
-    /* Keep or adjust animation */
-    opacity: 0;
-    /* transform: translateY(5px); */ /* Initial transform might interfere, test */
-    animation: fadeInTipSimple 0.3s ease forwards;
-  }
-  
-  /* Simplified Fade In */
-  @keyframes fadeInTipSimple {
-    to {
+  /* REMOVED: margin-top: 80px; - This should be handled by Floating UI offset middleware if needed */
+  /* Keep appearance styles */
+  z-index: 1000; /* Ensure it's above most content */
+  background-color: var(--color-card-background, #333);
+  color: var(--color-text, #fff);
+  padding: var(--space-sm, 1rem);
+  border-radius: var(--card-border-radius, 8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: max-content; /* Fit content */
+  max-width: 250px; /* Default max width */
+  font-size: var(--font-size-sm, 0.875rem);
+  line-height: var(--line-height-tight, 1.4);
+  /* Keep animation */
+  opacity: 0;
+  animation: fadeInTipSimple 0.3s ease forwards;
+  /* Ensure position context for close button if not handled by floating-ui wrapper */
+  position: relative; /* Added just in case for absolute positioned close button */
+}
+
+/* Simplified Fade In */
+@keyframes fadeInTipSimple {
+  to {
       opacity: 1;
-      /* transform: translateY(0); */ /* Maybe remove transform from animation */
-    }
   }
-  
-  /* Arrow Base Styling (Shape/Color) */
-  .tipArrow {
-    /* REMOVE absolute positioning related to wrapper edges */
-    /* position: absolute; */ /* Style will be applied inline by Floating UI */
-    width: 8px; /* Arrow base width */
-    height: 8px; /* Arrow base height */
-    background-color: inherit; /* Match tooltip background */
-    transform: rotate(45deg); /* Rotate square to make diamond/arrow */
+}
+
+/* Arrow Base Styling (Shape/Color) */
+.tipArrow {
+  /* Positioning styles are applied inline by Floating UI */
+  width: 8px; /* Arrow base width */
+  height: 8px; /* Arrow base height */
+  background-color: inherit; /* Match tooltip background */
+  transform: rotate(45deg); /* Rotate square to make diamond/arrow */
+}
+
+/* Positioning rules like .tipWrapper.bottom .tipArrow are removed */
+
+
+/* Content & Close Button (Mostly kept) */
+.tipContent {
+  margin-top: 1rem;
+}
+
+.tipTitle {
+  display: block;
+  font-weight: var(--font-weight-semibold, 600);
+  margin-bottom: var(--space-xs, 0.5rem);
+}
+
+.tipMessage {
+  margin: 0;
+  color: var(--color-text-secondary, #ccc);
+}
+
+.closeButton {
+  position: absolute; /* Position relative to .tipWrapper */
+  top: var(--space-xs, 0.5rem);
+  right: var(--space-xs, 0.5rem);
+  background: none;
+  border: none;
+  color: var(--color-text-secondary, #ccc);
+  cursor: pointer;
+  padding: 2px; /* Initial padding */
+  line-height: 1;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+  z-index: 1; /* Ensure button is above arrow if overlaps */
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  color: var(--color-text, #fff);
+  outline: none;
+}
+
+/* --- Mobile Adjustments --- */
+/* Using a smaller breakpoint for width/padding adjustments */
+@media (max-width: 480px) {
+  .tipWrapper { /* Adjust selector if FeatureTip applies a different root class */
+    display: none;
   }
-  
-  /* --- REMOVE All .tipWrapper.bottom .tipArrow, .tipWrapper.top .tipArrow etc. rules --- */
-  /* Floating UI's 'arrowStyles' object handles positioning */
-  
-  
-  /* Content & Close Button (Keep these) */
+
   .tipContent {
-    margin-top: 1rem;
+      /* Adjust margin if needed due to smaller padding */
+      margin-top: 0.8rem;
   }
-  
-  .tipTitle {
-    display: block;
-    font-weight: var(--font-weight-semibold, 600);
-    margin-bottom: var(--space-xs, 0.5rem);
-  }
-  
-  .tipMessage {
-    margin: 0;
-    color: var(--color-text-secondary, #ccc);
-  }
-  
+
   .closeButton {
-    position: absolute;
-    top: var(--space-xs, 0.5rem);
-    right: var(--space-xs, 0.5rem);
-    background: none;
-    border: none;
-    color: var(--color-text-secondary, #ccc);
-    cursor: pointer;
-    padding: 2px;
-    line-height: 1;
-    font-size: 1rem;
-    transition: color 0.2s ease;
-    z-index: 1; /* Ensure button is above arrow */
+      /* Optional: Increase padding for easier tapping */
+      padding: var(--space-xs, 0.5rem);
+      /* Adjust top/right if needed with new padding */
+      top: 2px;
+      right: 2px;
   }
-  
-  .closeButton:hover,
-  .closeButton:focus {
-    color: var(--color-text, #fff);
-    outline: none;
-  }
+}
+
