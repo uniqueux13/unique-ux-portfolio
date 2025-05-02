@@ -66,6 +66,15 @@ const AboutPage: React.FC = () => {
         </Section>
 
     {/* Call to Action */}
+    <div>
+      {/* --- Updated Heading and Intro --- */}
+      <Typography variant="h2" className={styles.ctaTitle}>
+        Get In Touch
+      </Typography>
+      <Typography variant="p" className={styles.ctaSubtitle}>
+        Have a project in mind or want to discuss a potential collaboration? I'd love to hear from you!
+      </Typography>
+    </div>
     <CtaSection/>
     </div>
   );

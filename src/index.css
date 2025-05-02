@@ -7,7 +7,7 @@
   --color-background: #121212;
   --color-text: #EDEDED;                 
   --color-primary: #367BEC;                        
-  --color-link: var(--color-primary);              /* Link color */
+  --color-link: white;              /* Link color */
   --color-link-hover: #639fff;                     /* Lighter Blue hover */
   --color-secondary: #A0A0A0;                      /* Secondary Text/Subtle elements */
   --color-header-footer-bg: #1F1F1F;               /* Header/Footer Background */
@@ -70,38 +70,16 @@
 /* --- Light Theme Overrides --- */
 [data-theme="light"] {
   --color-background: #FFFFFF;                     /* Base Background (White) */
-  --color-text: #1F1F1F;                           /* Base Text (Near Black) */
-  /* Contrast: 15.14:1 (AAA) */
-
-  /* --color-primary is inherited from :root (#367BEC) */
-  /* Contrast vs #FFFFFF: 4.50:1 (AA Normal / AAA Large) */
-
-  /* --color-link is inherited */
+  --color-text: #1F1F1F;       
+  --color-link: var(--color-primary);                    /* Base Text (Near Black) */
   --color-link-hover: #1a5fcc;                     /* Darker Blue hover */
-  /* Contrast vs #FFFFFF: 6.77:1 (AAA) */
-
   --color-secondary: #555555;                      /* Secondary Text */
-  /* Contrast vs #FFFFFF: 6.31:1 (AAA) */
-  /* Contrast vs --color-text (#1F1F1F): 2.40:1 (Use only for non-critical text) */
-
   --color-header-footer-bg: #F5F5F5;               /* Header/Footer Background */
-  /* Contrast vs --color-text (#1F1F1F): 13.76:1 (AAA) */
-
   --color-card-background: #FFFFFF;                /* Card Background */
   --color-slightly-lighter-bg: #EDEDED;            /* Subtle BG variant (now darker than main BG) */
-   /* Contrast vs --color-text (#1F1F1F): 12.12:1 (AAA) */
-
-  /* --color-button-text is inherited (#FFFFFF) */
   --color-box-shadow: rgba(0, 0, 0, 0.1);          /* Standard shadow */
-
-  /* RGB Values */
   --color-background-rgb-val: 255, 255, 255;
   --color-text-rgb-val: 31, 31, 31;
-  /* --color-primary-rgb-val is inherited */
-
-  /* Adjusted Gradients (Optional - based on new primary/bg) */
-  /* --color-gradient-primary-glow is inherited */
-  /* --color-gradient-secondary-glow is removed */
   --color-gradient-fade-to: rgba(var(--color-background-rgb-val), 0);
 }
 

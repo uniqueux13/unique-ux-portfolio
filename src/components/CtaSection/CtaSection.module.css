@@ -1,94 +1,72 @@
 /* src/components/CtaSection/CtaSection.module.css */
-/* Updated: 2025-05-01 (Based on location: Dayton, Ohio, United States) */
-/* Corresponds to CtaSection.tsx with integrated contact info and Calendly embed */
+/* Updated: 2025-05-01 */
+/* Incorporates styles for new contact information and availability sections */
 
 .ctaSection {
-  /* Adjusted max-width for potential two-column layout */
-  max-width: 1100px; /* Increased from 800px */
-  margin: var(--space-xl) auto var(--space-xxl) auto; /* Vertical spacing */
-  padding: var(--space-lg) var(--space-md); /* Padding inside */
-  /* text-align: center; /* Removed - Alignment handled by children now */
+  /* Layout copied/adapted from old .heroContent */
+  max-width: 1200px; /* You can adjust max-width specifically for CTA */
+  margin: var(--space-xs) auto var(--space-xs) auto; /* Vertical spacing */
+  padding: var(--space-xs) var(--space-lg); /* Padding inside */
   background-color: var(--color-card-background); /* Optional background */
   border-radius: var(--card-border-radius, 12px); /* Optional rounding */
   box-shadow: 0 4px 15px -5px var(--color-box-shadow); /* Optional shadow */
 }
 
-/* --- Title and Subtitle Styles --- */
+/* --- Title and Subtitle Styles (Mostly Existing) --- */
 .ctaTitle {
-  text-align: center; /* Keep title centered */
   margin-bottom: var(--space-sm);
   color: var(--color-text);
   /* Font size/weight handled by Typography component variant="h2" */
 }
 
 .ctaSubtitle {
-  text-align: center; /* Keep subtitle centered */
-  margin-bottom: var(--space-lg); /* Space before columns start */
+  margin-bottom: var(--space-md); /* Reduced margin from original suggestion */
   color: var(--color-secondary); /* Use secondary color */
   max-width: 600px; /* Keep max width */
   margin-left: auto; /* Keep centering */
   margin-right: auto; /* Keep centering */
+  /* Keep explicit font/line-height as per user's original file */
   font-size: var(--font-size-paragraph);
   line-height: var(--line-height-paragraph);
 }
 
-/* --- Styles for Two-Column Layout --- */
-.contentColumns {
-  display: grid;
-  grid-template-columns: 1fr; /* Default to single column for mobile */
-  gap: var(--space-xl); /* Gap between columns (vertically on mobile, horizontally on desktop) */
-  align-items: start; /* Align columns to the top */
-  margin-top: var(--space-lg); /* Space below subtitle */
+/* --- Removed .emailContact as element is removed --- */
+
+
+/* --- NEW: Contact Info Styles --- */
+.contactHeading {
+  margin-top: var(--space-lg); /* Space above heading */
+  margin-bottom: var(--space-xs);
+  color: var(--color-text); /* Use main text color for headings */
+  /* Font size/weight handled by Typography component variant="h3" */
 }
 
-/* --- Styles for Info Column (Column 1) --- */
-.infoColumn {
-  text-align: left; /* Align text left within this column */
-}
-
-/* Target headings specifically within info column */
-.infoColumn .contactHeading {
-  text-align: left; /* Override any inherited center alignment */
-  margin-top: var(--space-lg); /* Space above subsequent headings */
-  margin-bottom: var(--space-md); /* Increased space below heading */
-  color: var(--color-text);
-  /* Font handled by Typography variant="h3" */
-}
-/* No top margin for the very first heading in the column */
-.infoColumn .contactHeading:first-of-type {
-   margin-top: 0;
-}
-
-.infoColumn .contactIntro {
-  text-align: left; /* Override any inherited center alignment */
+.contactIntro {
   margin-bottom: var(--space-md);
   color: var(--color-secondary);
-  max-width: none; /* Remove max-width constraint if within column */
-  margin-left: 0;
-  margin-right: 0;
-   /* Font handled by Typography variant="p" */
+  /* Font size/weight handled by Typography component variant="p" */
 }
 
-/* Styles for the contact details grid within the info column */
-.infoColumn .contactGrid {
+.contactGrid {
   display: grid;
-  /* Let grid figure out columns based on content width */
+  /* Responsive columns: 1 on small, up to 3 on larger */
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: var(--space-md);
-  margin: 0 0 var(--space-lg) 0; /* Remove horizontal auto margin, add bottom margin */
-  text-align: left;
+  gap: var(--space-xs);
 }
+
+
 
 .contactLabel {
   display: block;
   color: var(--color-secondary);
-  /* Font handled by Typography variant="caption" */
+  /* Font size handled by Typography variant="caption" */
+  /* font-weight: var(--font-weight-semibold); */ /* Handled by Typography? */
   margin-bottom: calc(var(--space-xs) / 2); /* Smaller space */
 }
 
 .contactValue {
   margin: 0; /* Reset paragraph margin if using Typography variant="p" */
-  color: var(--color-text);
+  color: var(--color-text); /* Use main text color for values */
   word-break: break-word; /* Prevent long emails/numbers overflowing */
 }
 
@@ -102,70 +80,39 @@
   text-decoration: underline;
 }
 
-/* Styles for availability section within the info column */
-.infoColumn .availabilityInfo {
-  margin-bottom: 0; /* No bottom margin needed if last element in column */
-  align-items: flex-start; /* Align items left */
-  text-align: left; /* Ensure text inside aligns left */
+/* --- NEW: Availability Styles --- */
+.availabilityInfo {
+  margin-bottom: var(--space-lg); /* Space before main CTA button */
+  /* display: flex; flex-direction: column; align-items: center; gap: var(--space-sm); */
+  /* Simpler: rely on parent text-align: center */
 }
 
 .availabilityText {
   margin: 0 0 var(--space-sm) 0; /* Space below text, before badge */
   color: var(--color-text);
-   /* Font handled by Typography variant="p" */
+  /* Font handled by Typography variant="p" */
 }
 
 .availabilityBadge {
-  display: inline-block; /* Allow left alignment via parent text-align */
+  display: inline-block; /* Allow centering via text-align */
   background-color: var(--color-primary);
   color: var(--color-button-text);
-  padding: calc(var(--space-xs) / 2) var(--space-sm);
-  border-radius: 1rem;
+  padding: calc(var(--space-xs) / 2) var(--space-sm); /* Smaller padding */
+  border-radius: 1rem; /* Pill shape */
   font-size: var(--font-size-caption);
-  /* Use CSS var for font-weight if available, otherwise fallback */
-  font-weight: var(--font-weight-medium, 500);
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-weight: var(--font-weight-medium); /* Check if variable exists */
+  line-height: 1.2; /* Adjust line height */
+  text-transform: uppercase; /* Example styling */
+  letter-spacing: 0.5px; /* Example styling */
 }
 
-/* --- Styles for Calendly Column (Column 2) --- */
-.calendlyColumn {
-  text-align: left;
+
+/* --- CTA Button Styles (Mostly Existing) --- */
+.ctaButtonLink {
+    display: inline-block; /* Allows centering via text-align */
+    margin-top: 0; /* Remove top margin if space comes from .availabilityInfo */
+    margin-bottom: var(--space-lg); /* Remove bottom margin as it's last */
 }
 
-/* Heading above Calendly */
-.calendlyColumn .contactHeading {
-  text-align: left;
-  margin-top: 0; /* No top margin */
-  margin-bottom: var(--space-md); /* Space below heading */
-  color: var(--color-text);
-  /* Font handled by Typography variant="h3" */
-}
-
-/* Wrapper div around the Calendly iframe */
-.calendlyInlineWidget {
-  /* Override Calendly's inline styles if necessary */
-  height: 700px; /* Default from Calendly, adjust if needed */
-  min-width: 320px; /* Default from Calendly */
-  /* Optional styling */
-  border: 1px solid var(--color-border, #444); /* Use border variable or fallback */
-  border-radius: var(--card-border-radius, 8px);
-  overflow: hidden; /* Prevent scrollbars within this container */
-  /* Set background for theme consistency, Calendly itself might be light */
-  background-color: #ffffff; /* Usually keep Calendly on white BG */
-}
-/* Example theme adjustments if needed, though keeping Calendly light is common */
-/* [data-theme="dark"] .calendlyInlineWidget { ... } */
-/* [data-theme="light"] .calendlyInlineWidget { ... } */
-
-
-/* --- Responsive Layout for Columns --- */
-/* Switch to two columns on wider screens */
-@media (min-width: 769px) { /* Adjust breakpoint as needed */
-  .contentColumns {
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-  }
-}
-
-/* --- Removed .emailContact and .ctaButtonLink styles as elements are removed --- */
+/* --- Responsive (Keep commented out or implement) --- */
+/* @media (min-width: 992px) { ... } */

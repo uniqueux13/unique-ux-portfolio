@@ -4,7 +4,7 @@
   width: 100%;
   max-width: 100vw;
   margin: none none;
-  padding: var(--space-xs) var(--space-sm);
+  padding: var(--space-sm) var(--space-sm);
   background-color: transparent;
   position: relative;
   overflow: hidden;
@@ -20,7 +20,7 @@
 }
 
 [data-theme="light"] .heroContent {
-  box-shadow: var;
+  box-shadow: var();
 }
 
 .heroContent::before {
@@ -98,14 +98,17 @@
   filter: drop-shadow(0 0 10px var(--color-primary));
 }
 
+[data-theme="light"] .heroSvg path {
+  filter: none;
+  fill: var(--color-link);
+}
+
 [data-theme="light"] .heroSvg {
   filter: none;
 }
 
 .heroSvg path {
-  stroke: var(--color-primary) !important;
-  fill: none !important;
-  stroke-width: 20.25px !important;
+  fill: white;
   transition: stroke 0.3s ease;
 }
 
