@@ -1,5 +1,5 @@
 /* src/components/Hero/Hero.module.css */
-/* Updated: Uses [data-theme='dark'] selector for theme overrides */
+/* Updated: Minimal changes for InteractiveWireframe integration */
 
 /* ------------------------------------ */
 /* --- Base Container & Layout --- */
@@ -7,7 +7,7 @@
 
 .heroContent {
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* Keep hidden to contain potential animation overflows */
   width: 100%;
   padding-top: var(--space-lg);
   padding-bottom: var(--space-lg);
@@ -16,16 +16,23 @@
   justify-content: center;
   background-color: var(--color-background);
   transition: background-color 0.3s ease;
+
+  /* << ADDED: Declare CSS variables for mouse tracking >> */
+  --hero-mouse-x: 0;
+  --hero-mouse-y: 0;
 }
 
 .heroLayoutContainer {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: var(--space-xs); /* Keep user's gap */
   width: 100%;
   max-width: var(--max-width-container, 1440px);
-  padding-left: var(--space-xs);
-  padding-right: var(--space-xs);
+  padding-left: var(--space-xs); /* Keep user's padding */
+  padding-right: var(--space-xs); /* Keep user's padding */
+  /* Add margin auto for centering the container */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ------------------------------------ */
@@ -36,8 +43,8 @@
   order: 1; /* Text first on mobile */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: left;
+  align-items: flex-start; /* Match alignment in media query */
+  text-align: left; /* Match alignment in media query */
   width: 100%;
   margin-bottom: var(--space-md);
 }
@@ -51,52 +58,45 @@
   width: 100%;
   order: 2; /* Image second on mobile */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 150px;
+  justify-content: center; /* Center the wrapper */
+  align-items: center; /* Center the wrapper */
+  min-height: 250px; /* Adjust min height slightly for new visual */
 }
 
-/* --- Wrapper for SVG and Social Proof --- */
+/* --- Wrapper for Illustration and Social Proof --- */
 .imageAndProofWrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* Center items vertically */
   position: relative;
   width: 100%;
-  gap: var(--space-xs);
+  max-width: 500px; /* Limit max width */
+  gap: var(--space-md); /* Adjust gap between illustration and proof */
 }
 
-/* --- Foreground UX SVG --- */
-/* Base styles implicitly act as [data-theme="light"] styles */
-.heroSvg {
-  position: relative;
-  z-index: 1;
-  /* Sizing */
-  width: 340px;
-  height: auto;
-  /* Coloring & Filter (Light Mode Default) */
-  color: var(--color-primary);
-  fill: var(--color-primary);
-  filter: drop-shadow(0 4px 8px rgba(var(--color-primary-rgb-val, 80, 150, 240), 0.3));
-  /* Transitions */
-  transition: color 0.3s ease, fill 0.3s ease, filter 0.3s ease, width 0.3s ease;
+
+/* --- << REMOVED ALL .heroSvg styles >> --- */
+/* .heroSvg { ... } */
+/* [data-theme="dark"] .heroSvg { ... } */
+/* [data-theme="light"] .heroSvg path { ... } */
+
+
+/* --- << ADDED: Styles for the .heroIllustration class applied to InteractiveWireframe >> --- */
+.heroIllustration {
+  position: relative; /* Or static */
+  width: 100%;
+  /* Start with a max-width similar to old SVG base */
+  max-width: 340px;
+  /* Allow height to be determined by component's aspect ratio */
+  /* Or set explicit aspect-ratio if known: */
+  /* aspect-ratio: 300 / 250; */
+  margin: 0 auto; /* Center horizontally */
+  color: var(--color-text); /* Inherit text color */
 }
 
-/* --- Dark Mode SVG Styling --- */
-/* Use :global selector with the data attribute */
-[data-theme="dark"] .heroSvg {
-  color: white;
-  fill: white;
-  filter: drop-shadow(0 0 12px var(--color-primary)); /* Glow uses primary color */
-}
-
-[data-theme="light"] .heroSvg path {
-  color: rgb(0, 0, 0);
-  fill: var(--color-primary);
-}
 
 /* ------------------------------------ */
-/* --- Typography --- */
+/* --- Typography (Keep User's Styles) --- */
 /* ------------------------------------ */
 
 .heroEyebrow {
@@ -114,8 +114,8 @@
 .heroTitle {
   font-size: clamp(2rem, 6vw, 3.2rem);
   padding-inline: var(--space-sm);
-  margin-bottom: none;
-  font-family: var(--font-family-mulish, 'Poppins', sans-serif);
+  margin-bottom: var(--space-xs); /* Minimal bottom margin */
+  font-family: var(--font-family-mulish, "Poppins", sans-serif);
   line-height: 1.5;
   color: var(--color-text);
   font-weight: 700;
@@ -128,12 +128,13 @@
   color: var(--color-secondary);
 }
 /* ------------------------------------ */
-/* --- Keywords / Features List --- */
+/* --- Keywords / Features List (Keep User's Styles) --- */
 /* ------------------------------------ */
 
 .keywordsList {
   list-style: none;
-  margin: 0 0 var(--space-md) 0;
+  margin: 0 var(--space-sm) var(--space-lg) var(--space-sm); /* Use padding var for consistency */
+  padding: 0; /* Reset padding */
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
@@ -141,16 +142,15 @@
 
 .keywordItem {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Align icon top */
   font-size: var(--font-size-base);
   color: var(--color-text);
   text-align: left;
-  max-width: 500px;
   width: 100%;
 }
 
 .keywordIcon {
-  align-self: start;
+  align-self: flex-start;
   margin-top: 4.5px;
   color: var(--color-primary);
   margin-right: var(--space-sm);
@@ -159,28 +159,28 @@
 }
 
 /* ------------------------------------ */
-/* --- Button --- */
+/* --- Button (Keep User's Styles) --- */
 /* ------------------------------------ */
 
 .heroButtonWrapper {
-  display: inline-block;
+  display: block; /* Makes width/padding apply correctly */
   width: 100%;
   max-width: 450px;
-  padding-inline: var(--space-xs);
+  padding-inline: var(--space-sm); /* Match text padding */
   margin-bottom: 0;
 }
 
 /* ------------------------------------ */
-/* --- Social Proof --- */
+/* --- Social Proof (Keep User's Styles, minor tweaks) --- */
 /* ------------------------------------ */
 
 .socialProof {
   margin-top: var(--space-md);
-  padding-inline: none;
+  padding-inline: var(--space-sm); /* Match text padding */
   border-top: none;
   width: 100%;
-  max-width: 450px;
-  text-align: center;
+  /* max-width: 450px; */ /* Let wrapper control max-width */
+  text-align: left; /* Align content left */
 }
 
 .rating {
@@ -209,6 +209,7 @@
   margin-bottom: var(--space-sm);
   color: var(--color-secondary);
   line-height: var(--line-height-paragraph);
+  text-align: left;
 }
 
 .testimonialAuthor {
@@ -216,16 +217,14 @@
   display: block;
   font-weight: 500;
   color: var(--color-text);
+  text-align: left;
 }
-
 
 /* ==================================== */
 /* --- Tablet & Up Adjustments --- */
 /* ==================================== */
 @media (min-width: 768px) {
-
   .heroContent {
-    /* Consider uncommenting if 80vh is too restrictive on larger screens */
     /* height: auto; */
     /* min-height: 80vh; */
     padding-top: var(--space-xl);
@@ -238,7 +237,6 @@
     gap: var(--space-sm);
     padding-left: var(--space-lg);
     padding-right: var(--space-lg);
-    margin-top: none;
   }
 
   .heroTextContent {
@@ -247,7 +245,6 @@
     align-items: flex-start;
     padding-right: var(--space-md);
     margin-bottom: 0;
-    /* Order 1 is already set */
   }
 
   .heroImageContent {
@@ -255,35 +252,33 @@
     min-height: 400px;
     justify-content: center;
     align-items: center;
-     /* Order 2 is already set */
   }
 
   .imageAndProofWrapper {
-    align-items: start;
+    align-items: center; /* Center content vertically */
     max-width: 100%;
-    gap: var(--space-xs);
+    gap: var(--space-md); /* Adjust gap */
     padding-inline: 0;
   }
 
-  .heroSvg {
-    width: 350px; /* Tablet SVG size */
-    max-width: 100%;
+  /* << UPDATED: Size adjustment for illustration >> */
+  /* Match old tablet SVG size */
+  .heroIllustration {
+    max-width: 350px;
   }
 
   .keywordsList {
-     align-items: flex-start;
+    align-items: flex-start;
   }
-
   .keywordItem {
-     max-width: none;
-     width: auto;
+    /* max-width: none; */ /* Keep user's default */
+    width: 100%;
   }
-
   .socialProof {
-    text-align: center;
-    max-width: 400px;
+    text-align: left; /* Align left */
+    /* max-width: 400px; */ /* Let wrapper control width */
+     padding-inline: 0; /* Remove padding if wrapper handles alignment */
   }
-
   .rating {
     justify-content: left;
   }
@@ -293,45 +288,45 @@
 /* --- Desktop & Up Adjustments --- */
 /* ==================================== */
 @media (min-width: 1024px) {
-
   .heroContent {
-    padding-top: none;
-    padding-bottom: none;
+    /* padding-top: none; */ /* Keep padding from tablet or increase */
+    /* padding-bottom: none; */
+    padding-top: var(--space-xxl);
+    padding-bottom: var(--space-xxl);
   }
 
   .heroLayoutContainer {
-    gap: var(--space-xs);
+    gap: var(--space-lg); /* Increase gap */
   }
 
-   .heroTextContent {
-     flex: 1.1;
-   }
-
-   .heroImageContent {
-     flex: 0.9;
-     min-height: 450px;
-     justify-content: left;
-   }
-
-   .heroTitle {
-    font-size: clamp(2rem, 6vw, 3.2rem);
-    margin-bottom: var(--space-sm);
-    font-family: var(--font-family-mulish, 'Poppins', sans-serif);
-    line-height: 1.4;
-    color: var(--color-text);
-    font-weight: 700;
+  .heroTextContent {
+    flex: 1.1;
+    padding-right: var(--space-lg); /* Increase padding */
   }
 
+  .heroImageContent {
+    flex: 0.9;
+    min-height: 500px; /* Increase min height */
+    justify-content: center; /* Keep centered */
+  }
+
+  /* << UPDATED: Size adjustment for illustration >> */
+  /* Match old desktop SVG size */
+  .heroIllustration {
+    max-width: 400px; /* Increased from user's 300px for SVG */
+  }
+
+
+  /* Keep user's typography adjustments for desktop */
+  .heroTitle {
+      margin-bottom: var(--space-sm);
+      line-height: 1.4;
+  }
   .heroSubtitle {
-    margin-bottom: var(--space-lg);
-    line-height: 2;
+      margin-bottom: var(--space-lg);
+      line-height: 2;
   }
-
-   .heroSvg {
-     width: 300px; /* Desktop SVG size */
-   }
-
-   .socialProof {
-       max-width: 450px;
-   }
+  /* .socialProof { */
+     /* Let wrapper handle width */
+  /* } */
 }
