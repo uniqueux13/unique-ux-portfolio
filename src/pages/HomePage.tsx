@@ -5,7 +5,7 @@ import Hero from "../components/Hero/Hero";
 import Card from "../components/Card/Card";
 // import TwoColumnSection from "../components/TwoColumnSection/TwoColumnSection";
 import ScrollHighlightText from "../components/ScrollHighlightText/ScrollHighlightText";
-import CtaSection from "../components/CtaSection/CtaSection";
+// import CtaSection from "../components/CtaSection/CtaSection";
 import Typography from "../components/Typography/Typography";
 import HorizontalImageScroller from "../components/HorizontalImageScroller/HorizontalImageScroller";
 // import ScrollHighlightText from "../components/ScrollHighlightText/ScrollHighlightText";
@@ -85,13 +85,15 @@ const HomePage: React.FC = () => {
         />
       </div>
 
-      <Section marginBlock="xxl">
+      <Section marginBottom="xs">
         <ScrollHighlightText
           baseColor='var(--color-text-muted)'
           highlightColor='var(--color-text)'
           triggerPoint={0.7} // Adjust trigger point if needed
+          align="center"
         >
-          Building meaningful digital experiences takes dedication, strategic vision, and the right <span className={styles.highlightBox}>expert team.</span>We provide the <span className={styles.highlightBox}>focused skills</span>across key disciplines.
+          
+          Transforming <span className={styles.highlightBox}>Your Vision</span>into a high-performing digital reality requires diverse capabilities. Explore the core services we offer to make it happen:
         </ScrollHighlightText>
       </Section>
 
@@ -99,7 +101,7 @@ const HomePage: React.FC = () => {
       {/* === NEW Services Section === */}
       {/* ============================== */}
       <Section
-        marginBlock='xxl'
+        marginBlock='xs'
         padding='sm'
         aria-labelledby='services-section-title'
       >
@@ -190,11 +192,10 @@ const HomePage: React.FC = () => {
           baseColor='var(--color-text-muted)'
           highlightColor='var(--color-text)'
           triggerPoint={0.7} // Adjust trigger point if needed
+          align="center"
         >
-          Imagine your ideal customer arriving on a landing page that feels
-          tailor-made for them. The message connects, the visuals engage, and
-          the
-          <span className={styles.highlightBox}>next step</span>feels intuitive.
+          Applying these services with strategic focus is key. Our commitment to
+          <span className={styles.highlightBox}>Expert Execution</span>ensures every detail aligns with your goals.
         </ScrollHighlightText>
       </Section>
 
@@ -306,14 +307,26 @@ const HomePage: React.FC = () => {
         </TwoColumnSection>
       </Section> */}
 
+<Section>
+        <ScrollHighlightText
+          baseColor='var(--color-text-muted)'
+          highlightColor='var(--color-text)'
+          triggerPoint={0.7} // Adjust trigger point if needed
+          align="center"
+        >
+          When a landing page feels intuitive and tailor-made, it drives  
+          <span className={styles.highlightBox}>Real Results.</span>Ready to build yours? Start the assessment below.
+        </ScrollHighlightText>
+      </Section>
+
     {/* Multi-Step Form Section */}
     <Section padding='none' marginBottom='xxl'>
         <MultiStepContactForm />
       </Section>
 
-      <Section marginBottom='xl'>
+      {/* <Section marginBottom='xl'>
         <CtaSection></CtaSection>
-      </Section>
+      </Section> */}
     </>
   );
 };

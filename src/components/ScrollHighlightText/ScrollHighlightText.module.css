@@ -2,7 +2,7 @@
 .highlightText {
   position: relative;
   text-align: left;
-  max-width: 1000px;
+  max-width: 100%;
   font-size: var(--font-size-h3); 
   line-height: 1.9;
   letter-spacing: 0.01em;
@@ -95,4 +95,27 @@
   margin: 0 0.1em; /* Add tiny horizontal space around the box */
   vertical-align: baseline; /* Keep it aligned with surrounding text */
   font-weight: var(--font-weight-bold); /* Optional: Make it slightly bolder */
+}
+
+/* ADD these classes */
+.textAlignLeft {
+  text-align: left;
+  margin-left: 0; /* Override auto margin */
+  /* margin-right: auto; */ /* Keep auto */
+}
+.textAlignCenter {
+  text-align: center;
+  /* margin auto handles centering */
+}
+.textAlignRight {
+  text-align: right;
+  /* margin-left: auto; */ /* Keep auto */
+  margin-right: 0; /* Override auto margin */
+}
+
+/* Highlight Box needs explicit color if parent uses text-fill-color */
+.highlightBox {
+    /* ... existing styles ... */
+   color: var(--color-text); /* Set explicit color */
+   -webkit-text-fill-color: initial; /* Reset fill color */
 }
