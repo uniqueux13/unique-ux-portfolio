@@ -41,7 +41,7 @@
 @media (min-width: 1024px) {
   .card {
     /* OPTIONAL: Further increase padding for desktops if desired */
-    /* padding: var(--space-xl); */
+     padding: var(--space-md); 
 
     /* OPTIONAL: Further increase margin-bottom for desktops if desired */
      margin-bottom: var(--space-xl); 

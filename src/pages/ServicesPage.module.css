@@ -1,58 +1,146 @@
 /* src/pages/ServicesPage.module.css */
+/* Updated: Includes layout and featured card styles */
+/* Current Date: Saturday, May 3, 2025 */
 
+/* --- Hero Section Styles --- */
 .heroTitle {
-    margin-bottom: var(--space-xs);
-      color: var(--color-text);
-      text-align: center;
-  }
-  
-  .heroSubtitle {
-    color: var(--color-text);
-    text-align: center;
-  }
-
-  .heroP{ 
-    font-family: var(--font-family-sora);
-    font-size: var(--font-size-hero-paragraph);
-    line-height: var(--line-height-hero-paragraph);
-    font-weight: 400;
-    margin-bottom: var(--space-md);
+  margin-bottom: var(--space-xs);
+  color: var(--color-text);
+  text-align: center;
+  /* Font size/weight likely handled by Typography variant="h1" */
 }
-  .heroContent {
-    max-width: 1200px;
-    margin: 6rem auto;
-    text-align: center;
-  }
-  
-  /* REMOVE .serviceCategoryCard styles - no longer needed */
-  .categoryTitle {
-      margin-bottom: var(--space-md);
-      text-align: center; /* Or left, as needed */
-  }
-  
-  .serviceItems {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
-    gap: var(--space-md); /*  Space between cards */
-    margin-bottom: 6rem;
-  }
-  
-  .serviceTitle {
-    font-weight: bold;
-    margin-bottom: var(--space-xs);
-  }
-  
-  .servicePrice {
-    color: var(--color-primary);
-    font-weight: bold;
-    margin-bottom: var(--space-sm);
-  }
-  
-  .serviceDescription {
-    list-style: none;
-    padding: 0;
-    margin-left: 0;
-  }
-  .serviceDescription li {
-      margin-bottom: var(--space-xs);
-  }
+
+.heroSubtitle {
+  color: var(--color-secondary); /* Use secondary for subtitles */
+  text-align: center;
+  max-width: 65ch; /* Limit width for readability */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-lg); /* Add space before button */
+   /* Font size/weight likely handled by Typography variant="subtitle1" */
+}
+
+/* Optional specific paragraph styling within hero */
+.heroP {
+  font-family: var(--font-family-sora); /* Ensure these variables are defined */
+  font-size: var(--font-size-hero-paragraph);
+  line-height: var(--line-height-hero-paragraph);
+  font-weight: 400;
+  margin-bottom: var(--space-md);
+  color: var(--color-secondary);
+  max-width: 70ch; /* Limit width for readability */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.heroContent {
+  max-width: 1200px;
+  margin-top: var(--space-xl); /* Adjusted margin */
+  margin-bottom: var(--space-xl); /* Adjusted margin */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-inline: var(--space-md); /* Add horizontal padding */
+}
+
+/* --- Service Category Styles --- */
+.categoryTitle {
+  margin-bottom: var(--space-lg);
+  margin-top: var(--space-xl); /* Space between categories */
+  text-align: center; /* Or left if preferred */
+  /* Use heading variables if defined */
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+/* Optional: remove top margin from the very first category title */
+/* .categoryTitle:first-of-type { margin-top: 0; } */
+
+
+/* --- Service Items Grid Layout --- */
+.serviceItems {
+  display: grid;
+  /* Responsive columns, minimum 300px wide */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-md); /* Gap between cards */
+  margin-bottom: var(--space-sm); /* Space after grid */
+  /* No background/shadow/border needed here; cards handle their own */
+}
+
+/* --- Styles Applied WITHIN Service Cards --- */
+/* These selectors target elements rendered inside your Card components */
+.serviceTitle {
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-large); /* Or match h4 variant */
+  color: var(--color-text);
+}
+
+.servicePrice {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-sm);
+  font-size: var(--font-size-large); /* Or match subtitle2 variant */
+}
+
+.serviceDescription {
+  list-style: none; /* Remove default bullets */
+  padding: 0;
+  margin: 0; /* Reset default margins */
+  font-size: var(--font-size-caption); /* Use smaller font for list items */
+  color: var(--color-secondary);
+  line-height: var(--line-height-tight, 1); /* Adjust line height */
+}
+.serviceDescription li {
+  margin-bottom: var(--space-xs);
+  font-size: 1rem;
+  padding-left: var(--space-md); /* Indent items */
+  position: relative; /* Needed for pseudo-element */
+  text-align: left; /* Ensure list items are left-aligned */
+}
+
+.serviceDescription li p {
+  margin-bottom: var(--space-xs);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-align: left; /* Ensure list items are left-aligned */
+}
+
+/* Custom bullet point */
+.serviceDescription li::before {
+  content: '🔹'; /* Or '✓', '→', etc. */
+  position: absolute;
+  left: 0;
+  top: 0; /* Adjust alignment if needed */
+  color: var(--color-primary);
+  font-size: 0.9em; /* Adjust size */
+}
+
+/* --- Styles for Featured Service Card --- */
+/* This class is applied ADDITIONALLY to the Card component in ServicesPage.tsx */
+/* e.g., <Card className={styles.featuredService}> */
+.featuredService {
+/* Overrides/enhances base Card styles from Card.module.css */
+border: 2px solid var(--color-primary);
+/* Add a subtle glow effect combined with base shadow */
+/* Assumes Card.module.css applies var(--shadow-low) by default */
+box-shadow: 0 0 12px -5px var(--color-primary), var(--shadow-low);
+position: relative; /* If needed for pseudo-elements like tags */
+}
+
+/* Enhance hover state specifically for featured card */
+.featuredService:hover {
+border-color: var(--color-primary); /* Keep border color */
+/* Enhance glow and use medium shadow */
+/* Assumes Card.module.css hover applies var(--shadow-medium) */
+box-shadow: 0 0 18px -4px var(--color-primary), var(--shadow-medium);
+/* Ensure transform is applied (matches or overrides base Card hover) */
+transform: translateY(-5px) scale(1.02);
+}
+
+/* --- Final Wrapper Style --- */
+.wrapper {
+  width: 100%; /* Use 100% instead of 100vw */
+  background-color: var(--color-background-alt); /* Use alt background */
+}
