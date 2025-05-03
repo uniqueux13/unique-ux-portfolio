@@ -93,7 +93,7 @@ const HomePage: React.FC = () => {
           align="center"
         >
           
-          Transforming <span className={styles.highlightBox}>Your Vision</span>into a high-performing digital reality requires diverse capabilities. Explore the core services we offer to make it happen:
+          Transforming<span className={styles.highlightBox}>Your Vision</span>into a high-performing digital reality requires diverse capabilities. Explore the core services we offer to make it happen:
         </ScrollHighlightText>
       </Section>
 
