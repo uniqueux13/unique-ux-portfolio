@@ -9,7 +9,8 @@
   
   .content {
     width: 100%; /* Full width on mobile */
-    padding: var(--space-sm);
+    max-width: 580px;
+    padding: none;
     text-align: left; /* Or center, as needed */
   }
   

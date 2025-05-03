@@ -1,7 +1,7 @@
 /* src/components/Section/Section.module.css */
 .section {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   /* REMOVE default margin-bottom: var(--space-md); */
   /* Default padding (medium) */
@@ -52,4 +52,28 @@
 
 .margin-bottom-xxl {
   margin-bottom: var(--space-xxl);
+}
+
+.margin-block-xs {
+  margin-block: var(--space-xs);
+}
+
+.margin-block-sm {
+  margin-block: var(--space-sm);
+}
+
+.margin-block-md {
+  margin-block: var(--space-md);
+}
+
+.margin-block-lg {
+  margin-block: var(--space-lg);
+}
+
+.margin-block-xl {
+  margin-block: var(--space-xl);
+}
+
+.margin-block-xxl {
+  margin-block: var(--space-xxl);
 }

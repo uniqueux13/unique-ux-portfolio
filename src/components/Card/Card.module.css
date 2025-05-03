@@ -1,8 +1,53 @@
 /* src/components/Card/Card.module.css */
+/* Updated: Added responsive padding and margin-bottom */
+
 .card {
-    background-color: var(--color-card-background);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px var(--color-box-shadow);
-    padding: var(--space-md); /* Adjust as needed */
-    margin-bottom: var(--space-xs); /* Consistent spacing between cards */
+  background-color: var(--color-card-background);
+  /* Suggestion: Use a variable for consistency if you have one */
+  border-radius: var(--border-radius-medium, 8px);
+  /* Suggestion: Use a shadow variable if you have one */
+  box-shadow: var(--shadow-small, 0 2px 4px rgba(0, 0, 0, 0.1)); /* Added example fallback */
+  color: var(--color-text); /* Good practice to set default text color */
+
+  /* --- Base (Mobile) Spacing --- */
+  padding: var(--space-md); /* Start with medium padding */
+  margin-bottom: var(--space-md); /* Start with medium bottom margin */
+
+  /* Add transitions if you plan hover effects (like in HomePage.module.css) */
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+/* Example hover effect (optional, ensure consistency) */
+/* .card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+} */
+
+
+/* --- Tablet and Up Spacing --- */
+/* Replace 768px with your tablet breakpoint variable if available (e.g., var(--breakpoint-md)) */
+@media (min-width: 768px) {
+  .card {
+    /* Increase padding for tablets */
+    padding: var(--space-lg);
+
+    /* Increase margin-bottom for tablets */
+    margin-bottom: var(--space-lg);
   }
+}
+
+/* --- Desktop and Up Spacing --- */
+/* Replace 1024px with your desktop breakpoint variable if available (e.g., var(--breakpoint-lg)) */
+@media (min-width: 1024px) {
+  .card {
+    /* OPTIONAL: Further increase padding for desktops if desired */
+    /* padding: var(--space-xl); */
+
+    /* OPTIONAL: Further increase margin-bottom for desktops if desired */
+    /* margin-bottom: var(--space-xl); */
+
+    /* Often, the tablet spacing (lg) is sufficient for desktops too. */
+    /* Only add overrides here if you specifically need larger spacing */
+    /* on large screens than on tablets.                          */
+  }
+}

@@ -5,19 +5,26 @@
 :root {
   /* --- Dark Theme Colors --- */
   --color-background: #121212;
-  --color-text: #EDEDED;                 
-  --color-primary: #367BEC;                        
-  --color-link: white;              /* Link color */
-  --color-link-hover: #639fff;                     /* Lighter Blue hover */
-  --color-secondary: #A0A0A0;                      /* Secondary Text/Subtle elements */
-  --color-header-footer-bg: #1F1F1F;               /* Header/Footer Background */
+  --color-text: #ededed;
+  --color-primary: #367bec;
+  --color-link: white; /* Link color */
+  --color-link-hover: #639fff; /* Lighter Blue hover */
+  --color-secondary: #b7b7b7; /* Secondary Text/Subtle elements */
+  --color-header-footer-bg: #1f1f1f; /* Header/Footer Background */
   --color-card-background: var(--color-header-footer-bg); /* Card Background */
-  --color-slightly-lighter-bg: #2C2C2C;           /* Subtle BG variant */
-  --color-button-text: #FFFFFF;                    /* Text on colored buttons (Pure White) */
-  --color-box-shadow: rgba(255, 255, 255, 0.08);    /* Softer shadow */
+  --color-slightly-lighter-bg: #2c2c2c; /* Subtle BG variant */
+  --color-button-text: #ffffff; /* Text on colored buttons (Pure White) */
+  --color-box-shadow: rgba(56, 56, 56, 0.5); /* Softer shadow */
+  --color-border-subtle: #2b2b2b;
   --color-background-rgb-val: 18, 18, 18;
   --color-text-rgb-val: 237, 237, 237;
   --color-primary-rgb-val: 54, 123, 236; /* Added for #367BEC */
+
+  --border-radius-xs: 2px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
 
   --color-gradient-primary-glow: rgba(var(--color-primary-rgb-val), 0.3);
   /* Removed secondary glow as --color-dark-blue was removed */
@@ -33,11 +40,11 @@
   --space-xxl: 7rem;
 
   /* --- Fonts (Unchanged) --- */
-  --font-family-primary: 'Poppins', sans-serif;
-  --font-family-secondary: 'Montserrat', sans-serif;
-  --font-family-mulish: 'Mulish', sans-serif;
-  --font-family-sora: 'Sora', sans-serif;
-  --font-family-grotesk: 'Familjen Grotesk', sans-serif;
+  --font-family-primary: "Poppins", sans-serif;
+  --font-family-secondary: "Montserrat", sans-serif;
+  --font-family-mulish: "Mulish", sans-serif;
+  --font-family-sora: "Sora", sans-serif;
+  --font-family-grotesk: "Familjen Grotesk", sans-serif;
 
   /* --- Font Sizes (Unchanged) --- */
   --font-size-base: 1rem;
@@ -45,23 +52,23 @@
   --font-size-h1: clamp(2.25rem, 1.99rem + 1.23vw, 3rem);
   --font-size-h2: clamp(1.875rem, 1.66rem + 0.94vw, 2.5rem);
   --font-size-h3: clamp(1.5rem, 1.31rem + 0.56vw, 1.875rem);
-  --font-size-h4: clamp(1.2rem, 1.01rem + 0.45vw, 1.5rem);
-  --font-size-subtitle: clamp(1.375rem, 1.20rem + .5vw, 1.875rem);
+  --font-size-h4: clamp(1.1rem, 1.01rem + 0.20vw, 1.2rem);
+  --font-size-subtitle: clamp(1.375rem, 1.2rem + 0.5vw, 1.875rem);
   --font-size-paragraph: clamp(1rem, 0.96rem + 0.19vw, 1.125rem);
-  --font-size-listitem: .9rem;
+  --font-size-listitem: 0.9rem;
   --font-size-hero-paragraph: clamp(1.1rem, 1rem + 0.5vw, 1.25rem);
   --font-size-caption: 0.875rem;
   --font-size-button: 1rem;
   --font-size-nav-link: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
 
   /* --- Line Heights (Unchanged) --- */
-  --line-height-h1: 1.1;
+  --line-height-h1: 1.4;
   --line-height-h2: 1.2;
   --line-height-h3: 1.3;
   --line-height-h4: 1.4;
   --line-height-subtitle: 1.3;
-  --line-height-paragraph: 1.6;
-  --line-height-hero-paragraph: 1.5625rem;
+  --line-height-paragraph: 1.7;
+  --line-height-hero-paragraph: 1.7;
   --line-height-caption: 1.4;
   --line-height-button: 1.5;
   --line-height-nav-link: 1.5;
@@ -69,15 +76,16 @@
 
 /* --- Light Theme Overrides --- */
 [data-theme="light"] {
-  --color-background: #FFFFFF;                     /* Base Background (White) */
-  --color-text: #1F1F1F;       
-  --color-link: var(--color-primary);                    /* Base Text (Near Black) */
-  --color-link-hover: #1a5fcc;                     /* Darker Blue hover */
-  --color-secondary: #555555;                      /* Secondary Text */
-  --color-header-footer-bg: #F5F5F5;               /* Header/Footer Background */
-  --color-card-background: #FFFFFF;                /* Card Background */
-  --color-slightly-lighter-bg: #EDEDED;            /* Subtle BG variant (now darker than main BG) */
-  --color-box-shadow: rgba(0, 0, 0, 0.1);          /* Standard shadow */
+  --color-background: #ffffff; /* Base Background (White) */
+  --color-text: #1f1f1f;
+  --color-border-subtle: #eaeaea;
+  --color-link: var(--color-primary); /* Base Text (Near Black) */
+  --color-link-hover: #1a5fcc; /* Darker Blue hover */
+  --color-secondary: #707070; /* Secondary Text */
+  --color-header-footer-bg: #f5f5f5; /* Header/Footer Background */
+  --color-card-background: #ffffff; /* Card Background */
+  --color-slightly-lighter-bg: #ededed; /* Subtle BG variant (now darker than main BG) */
+  --color-box-shadow: rgba(0, 0, 0, 0.1); /* Standard shadow */
   --color-background-rgb-val: 255, 255, 255;
   --color-text-rgb-val: 31, 31, 31;
   --color-gradient-fade-to: rgba(var(--color-background-rgb-val), 0);
@@ -102,7 +110,9 @@ body {
   min-height: 100vh;
 }
 
-*, *::before, *::after{
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -110,7 +120,7 @@ body {
 main {
   width: 100%;
   max-width: 100vw;
-  margin-top: 80px;  /* User defined */
+  margin-top: 100px;
   margin-inline: auto; /* Changed 'none' to 'auto' for centering if max-width applies */
   padding: 0; /* Changed 'none' to '0' */
   min-height: calc(100vh - 74px - 56px); /* User defined */
@@ -119,17 +129,15 @@ main {
 /* Keep media queries for layout adjustments */
 /* Note: padding 'none' is invalid CSS, should be '0' or removed */
 @media (max-width: 768px) {
-    main{
-        padding: 0;
-        margin-top: 80px; /* User defined */
-    }
+  main {
+    padding: 0;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1440px) {
-    main{
-        padding: 0; /* Use 0 instead of none */
-        /* margin-inline: var(--space-md); /* Example: Add side margin on mid-size screens */
-    }
+  main {
+    padding: 0; /* Use 0 instead of none */
+  }
 }
 
 /* --- Links (Unchanged) --- */
@@ -141,5 +149,5 @@ a {
 }
 
 a:hover {
-    color: var(--color-link-hover);
+  color: var(--color-link-hover);
 }

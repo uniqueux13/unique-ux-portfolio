@@ -1,249 +1,337 @@
 /* src/components/Hero/Hero.module.css */
+/* Updated: Uses [data-theme='dark'] selector for theme overrides */
+
+/* ------------------------------------ */
+/* --- Base Container & Layout --- */
+/* ------------------------------------ */
 
 .heroContent {
-  width: 100%;
-  max-width: 100vw;
-  margin: none none;
-  padding: var(--space-sm) var(--space-sm);
-  background-color: transparent;
   position: relative;
   overflow: hidden;
-  z-index: 0;
-  --mouse-x: 0;
-  --mouse-y: 0;
-  perspective: 1200px;
-  transform-style: preserve-3d;
-  /* Apply subtle container tilt */
-  transform: rotateX(calc(var(--mouse-y) * 0deg)) rotateY(calc(var(--mouse-x) * 12deg)); /* Reduced degrees */
-  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease; /* Slower transition for container */
-  will-change: transform, background-color;
-}
-
-[data-theme="light"] .heroContent {
-  box-shadow: var();
-}
-
-.heroContent::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1; /* Behind content, above container bg */
-  pointer-events: none;
-  border-radius: inherit;
-  background-image: radial-gradient(
-    circle 500px at calc((var(--mouse-x) + 0.5) * 100%) calc((var(--mouse-y) + 0.5) * 100%),
-    hsl(from var(--color-primary) h s l / 0.25) 0%,
-    hsla(from var(--color-primary) h s l / 0.1) 40%,
-    transparent 65%
-  );
-  background-repeat: no-repeat;
-  transition: background-position 0.15s linear, opacity 0.3s ease; /* Keep fast position transition */
-  will-change: background-position, opacity;
-  opacity: 1;
-}
-
-[data-theme="light"] .heroContent::before {
-  opacity: 0; /* Hide spotlight in light mode */
+  width: 100%;
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background);
+  transition: background-color 0.3s ease;
 }
 
 .heroLayoutContainer {
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
-  padding-top: var(--space-md);
   width: 100%;
-  margin-bottom: none;
-  transform-style: preserve-3d; /* Allow children to be 3D */
+  max-width: var(--max-width-container, 1440px);
+  padding-left: var(--space-xs);
+  padding-right: var(--space-xs);
 }
+
+/* ------------------------------------ */
+/* --- Text Content Column --- */
+/* ------------------------------------ */
 
 .heroTextContent {
-  flex: 1;
-  width: 100%;
+  order: 1; /* Text first on mobile */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: left;
-  position: relative;
-  z-index: 1;
-  /* Apply slight lift to text block */
-  transform: translateZ(15px);
-  will-change: transform;
+  width: 100%;
+  margin-bottom: var(--space-md);
 }
 
+/* ------------------------------------ */
+/* --- Image Content Column --- */
+/* ------------------------------------ */
+
 .heroImageContent {
-  flex: 1;
+  position: relative;
   width: 100%;
+  order: 2; /* Image second on mobile */
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  z-index: 1;
-  min-height: auto;
-  perspective: 800px; /* Give image container its own perspective */
-  transform-style: preserve-3d;
-   /* Apply slight lift */
-  transform: translateZ(15px);
-  will-change: transform;
+  min-height: 150px;
 }
 
-.heroSvg {
-  display: block;
+/* --- Wrapper for SVG and Social Proof --- */
+.imageAndProofWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
   width: 100%;
-  margin-block: 2rem;
-  max-width: clamp(440px, 25vw + 75px, 450px);
+  gap: var(--space-xs);
+}
+
+/* --- Foreground UX SVG --- */
+/* Base styles implicitly act as [data-theme="light"] styles */
+.heroSvg {
+  position: relative;
+  z-index: 1;
+  /* Sizing */
+  width: 340px;
   height: auto;
-  overflow: visible;
-  /* Apply MORE DRAMATIC tilt to SVG */
-  transform: rotateX(calc(var(--mouse-y) * 8deg)) rotateY(calc(var(--mouse-x) * -8deg)); /* Increased degrees */
-  /* Faster transition for SVG tilt */
-  transition: filter 0.3s ease, stroke 0.3s ease, height 0.3s ease, transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-  will-change: filter, stroke, transform;
-  filter: drop-shadow(0 0 10px var(--color-primary));
+  /* Coloring & Filter (Light Mode Default) */
+  color: var(--color-primary);
+  fill: var(--color-primary);
+  filter: drop-shadow(0 4px 8px rgba(var(--color-primary-rgb-val, 80, 150, 240), 0.3));
+  /* Transitions */
+  transition: color 0.3s ease, fill 0.3s ease, filter 0.3s ease, width 0.3s ease;
+}
+
+/* --- Dark Mode SVG Styling --- */
+/* Use :global selector with the data attribute */
+[data-theme="dark"] .heroSvg {
+  color: white;
+  fill: white;
+  filter: drop-shadow(0 0 12px var(--color-primary)); /* Glow uses primary color */
 }
 
 [data-theme="light"] .heroSvg path {
-  filter: none;
-  fill: var(--color-link);
+  color: rgb(0, 0, 0);
+  fill: var(--color-primary);
 }
 
-[data-theme="light"] .heroSvg {
-  filter: none;
-}
+/* ------------------------------------ */
+/* --- Typography --- */
+/* ------------------------------------ */
 
-.heroSvg path {
-  fill: white;
-  transition: stroke 0.3s ease;
-}
-
-.heroTitle,
-.heroSubtitle,
-.keywordsList,
-.heroButtonWrapper {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  /* Removed translateZ - applied to parent container */
+.heroEyebrow {
+  display: block;
+  margin-bottom: var(--space-sm);
+  width: 100%;
+  padding-inline: var(--space-sm);
+  color: var(--color-secondary);
+  font-size: var(--font-size-caption);
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
 }
 
 .heroTitle {
-  margin-bottom: var(--space-sm);
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  padding-inline: var(--space-sm);
+  margin-bottom: none;
+  font-family: var(--font-family-mulish, 'Poppins', sans-serif);
+  line-height: 1.5;
   color: var(--color-text);
-  text-align: left;
+  font-weight: 700;
 }
 
 .heroSubtitle {
+  margin-bottom: var(--space-lg);
+  padding-inline: var(--space-sm);
+  line-height: 2;
   color: var(--color-secondary);
-  text-align: left;
-  margin-bottom: var(--space-md);
-  line-height: 40px;
-  max-width: 500px;
-  margin-left: 0;
-  margin-right: auto;
 }
+/* ------------------------------------ */
+/* --- Keywords / Features List --- */
+/* ------------------------------------ */
 
 .keywordsList {
   list-style: none;
-  padding-left: 0;
-  margin: 0 0 var(--space-lg) 0;
+  margin: 0 0 var(--space-md) 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: var(--space-xs);
 }
 
 .keywordItem {
   display: flex;
-  align-items: top;
-  font-size: var(--font-size-paragraph);
-  line-height: var(--line-height-paragraph);
+  align-items: center;
+  font-size: var(--font-size-base);
   color: var(--color-text);
+  text-align: left;
+  max-width: 500px;
+  width: 100%;
 }
 
 .keywordIcon {
+  align-self: start;
+  margin-top: 4.5px;
   color: var(--color-primary);
-  margin-right: var(--space-xs);
-  margin-top: .35rem;
-  font-size: 1em;
+  margin-right: var(--space-sm);
   flex-shrink: 0;
-  transition: color 0.3s ease;
+  font-size: 1.2em;
 }
+
+/* ------------------------------------ */
+/* --- Button --- */
+/* ------------------------------------ */
 
 .heroButtonWrapper {
-  display: flex;
-  margin-top: 0;
-  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  max-width: 450px;
+  padding-inline: var(--space-xs);
+  margin-bottom: 0;
 }
 
+/* ------------------------------------ */
+/* --- Social Proof --- */
+/* ------------------------------------ */
+
+.socialProof {
+  margin-top: var(--space-md);
+  padding-inline: none;
+  border-top: none;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: var(--space-sm);
+}
+
+.starIcon {
+  color: var(--color-primary);
+  margin-right: 0.25rem;
+  font-size: 1rem;
+}
+
+.ratingText {
+  margin-left: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.testimonialText {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: var(--space-sm);
+  color: var(--color-secondary);
+  line-height: var(--line-height-paragraph);
+}
+
+.testimonialAuthor {
+  font-size: var(--font-size-caption);
+  display: block;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+
+/* ==================================== */
+/* --- Tablet & Up Adjustments --- */
+/* ==================================== */
 @media (min-width: 768px) {
-  
+
+  .heroContent {
+    /* Consider uncommenting if 80vh is too restrictive on larger screens */
+    /* height: auto; */
+    /* min-height: 80vh; */
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
 
   .heroLayoutContainer {
-    display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    padding-block: 6.25rem;
-    gap: var(--space-xs); /* Or var(--space-sm), or a specific value like 30px */
-    width: 100%;
-    text-align: left;
-    scroll-behavior: none;
-  
-    /* Add negative margins to pull the container outwards */
-    margin: -4px;
-    
-    /* Crucially, calculate the width to compensate for the negative margins */
-    /* 100% width + 24px left margin + 24px right margin */
-    width: calc(100% + 48px);
-  
-    /* Ensure box-sizing is border-box if not set globally */
-    /* This makes padding/border included IN the width/height */
-    box-sizing: border-box;
+    gap: var(--space-sm);
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+    margin-top: none;
   }
 
   .heroTextContent {
-    /* Optional but recommended: Constrain text width */
-    max-width: fit-content; /* Adjust this value as needed */
-    /* Ensure no extra horizontal margin/padding pushing things apart */
-    margin-left: 0;
-    margin-right: 0; /* Might interfere with gap, often better to rely on gap */
-    padding-left: 0;
-    padding-right: 0; /* Rely on parent gap for spacing */
-    flex-shrink: 1;
+    flex: 1;
     text-align: left;
+    align-items: flex-start;
+    padding-right: var(--space-md);
+    margin-bottom: 0;
+    /* Order 1 is already set */
   }
 
   .heroImageContent {
-    /* Ensure no extra horizontal margin/padding pushing things apart */
-    margin-left: 0; /* Rely on parent gap */
-    margin-right: 0;
-    padding-left: 0; /* Rely on parent gap */
-    padding-right: 0;
-    /* You might give the image container a max-width too if needed,
-       but usually the image itself controls this. */
-    max-width: max-content;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
+    flex: 1;
+    min-height: 400px;
     justify-content: center;
+    align-items: center;
+     /* Order 2 is already set */
   }
 
-  .heroImageContent img {
-      display: block;
-      max-width: 100%;
-      height: auto;
+  .imageAndProofWrapper {
+    align-items: start;
+    max-width: 100%;
+    gap: var(--space-xs);
+    padding-inline: 0;
   }
 
-  .heroButtonWrapper {
-    text-align: left;
+  .heroSvg {
+    width: 350px; /* Tablet SVG size */
+    max-width: 100%;
   }
 
-  .heroTitle {
-    text-align: left;
-    line-height: 70px;
-    max-width: 600px;
-    font-family: var(--font-family-sora);
-    font-weight: 800;
+  .keywordsList {
+     align-items: flex-start;
+  }
+
+  .keywordItem {
+     max-width: none;
+     width: auto;
+  }
+
+  .socialProof {
+    text-align: center;
+    max-width: 400px;
+  }
+
+  .rating {
+    justify-content: left;
+  }
+}
+
+/* ==================================== */
+/* --- Desktop & Up Adjustments --- */
+/* ==================================== */
+@media (min-width: 1024px) {
+
+  .heroContent {
+    padding-top: none;
+    padding-bottom: none;
+  }
+
+  .heroLayoutContainer {
+    gap: var(--space-xs);
+  }
+
+   .heroTextContent {
+     flex: 1.1;
+   }
+
+   .heroImageContent {
+     flex: 0.9;
+     min-height: 450px;
+     justify-content: left;
+   }
+
+   .heroTitle {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-family-mulish, 'Poppins', sans-serif);
+    line-height: 1.4;
+    color: var(--color-text);
+    font-weight: 700;
   }
 
   .heroSubtitle {
-    text-align: left;
-    line-height: 40px;
+    margin-bottom: var(--space-lg);
+    line-height: 2;
   }
+
+   .heroSvg {
+     width: 300px; /* Desktop SVG size */
+   }
+
+   .socialProof {
+       max-width: 450px;
+   }
 }

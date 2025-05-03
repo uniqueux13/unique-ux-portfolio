@@ -4,9 +4,9 @@
 
 .ctaSection {
   /* Layout copied/adapted from old .heroContent */
-  max-width: 1200px; /* You can adjust max-width specifically for CTA */
-  margin: var(--space-xs) auto var(--space-xs) auto; /* Vertical spacing */
-  padding: var(--space-xs) var(--space-lg); /* Padding inside */
+  max-width: 1400px; /* You can adjust max-width specifically for CTA */
+  margin: var(--space-lg) auto; /* Vertical spacing */
+  padding: var(--space-lg) var(--space-lg); /* Padding inside */
   background-color: var(--color-card-background); /* Optional background */
   border-radius: var(--card-border-radius, 12px); /* Optional rounding */
   box-shadow: 0 4px 15px -5px var(--color-box-shadow); /* Optional shadow */
@@ -35,10 +35,8 @@
 
 /* --- NEW: Contact Info Styles --- */
 .contactHeading {
-  margin-top: var(--space-lg); /* Space above heading */
   margin-bottom: var(--space-xs);
   color: var(--color-text); /* Use main text color for headings */
-  /* Font size/weight handled by Typography component variant="h3" */
 }
 
 .contactIntro {
@@ -110,8 +108,7 @@
 /* --- CTA Button Styles (Mostly Existing) --- */
 .ctaButtonLink {
     display: inline-block; /* Allows centering via text-align */
-    margin-top: 0; /* Remove top margin if space comes from .availabilityInfo */
-    margin-bottom: var(--space-lg); /* Remove bottom margin as it's last */
+    margin-top: var(--space-lg); /* Remove top margin if space comes from .availabilityInfo */
 }
 
 /* --- Responsive (Keep commented out or implement) --- */

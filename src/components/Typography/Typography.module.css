@@ -2,7 +2,6 @@
 
 /* --- General Styles (Apply to all variants) --- */
 .h1, .h2, .h3, .h4, .p, .subtitle1, .subtitle2, .span, .heroP, .caption {
-    color: var(--color-text);
     margin-top: 0; /*  Remove default top margin */
   }
   
@@ -11,9 +10,6 @@
   .h1 {
     font-family: var(--font-family-primary);
     font-size: var(--font-size-h1);
-    line-height: var(--line-height-h1);
-    font-weight: 400; /* Regular */
-    margin-bottom: var(--space-xs); /* Use variables for consistent spacing */
   }
   
   .h2 {
@@ -43,7 +39,6 @@
   .p {
       font-family: var(--font-family-secondary);
       font-size: var(--font-size-paragraph);
-      line-height: var(--line-height-paragraph);
       font-weight: 400;
       margin-bottom: var(--space-md); /* More space below paragraphs */
   }
@@ -72,17 +67,14 @@
   
   .subtitle1 {
     font-family: var(--font-family-secondary);
-    font-size: var(--font-size-subtitle);
-    line-height: var(--line-height-subtitle);
-    font-weight: 500; /* Light */
-    margin-bottom: var(--space-md);
+    font-size: var(--font-size-hero-paragraph);
   }
   
   
   .subtitle2 {
       font-family: var(--font-family-secondary);
       font-size: var(--font-size-base); /*Use regular font size*/
-      line-height: 1.5; /*Use regular line-height*/
+      line-height: 1.7; /*Use regular line-height*/
       font-weight: 500;
       margin-bottom: var(--space-xs);
   }
@@ -107,12 +99,17 @@
   .align-justify {
     text-align: justify;
   }
+
+  ul {
+    padding: var(--space-sm);
+    width: 100%;
+  }
   
   /* Responsive Adjustments (Example) */
   @media (max-width: 768px) {
     .h1 {
       font-size: 2.5rem; /* Smaller on mobile */
-      line-height: 1.2;  /* Adjust line-height as needed */
+      line-height: 1.5;  /* Adjust line-height as needed */
     }
     /* Add other responsive adjustments for h2, h3, etc. */
   }

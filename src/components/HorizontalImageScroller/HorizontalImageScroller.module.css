@@ -14,7 +14,7 @@
   /* Container to hide overflow and optionally apply fading edges */
   .scrollerContainer {
     display: flex;
-    height: 132px;
+    height: 94px;
     width: 100%; /* Full width of the parent container */
     margin-bottom: var(--space-xs); /* Space below the scroller */
     overflow: hidden;
@@ -36,7 +36,7 @@
     gap: var(--space-xl); /* Space between images */
     flex-wrap: nowrap; /* Prevent wrapping */
     width: max-content; /* Expand to fit all content */
-    animation: scrollHorizontal var(--animation-duration, 40s) linear infinite; /* Use variable for duration */
+    animation: scrollHorizontal var(--animation-duration, 80s) linear infinite; /* Use variable for duration */
   }
   
  

@@ -1,112 +1,144 @@
-// src/components/Hero/Hero.tsx (Mouse Following Gradient Spotlight)
-import React, { useRef, useEffect } from 'react'; // Added useRef, useEffect back
+// src/components/Hero/Hero.tsx (Updated)
+import React, { useMemo } from 'react'; // Removed useRef, useEffect
+import { Link } from 'react-router-dom';
+import { FaCheckCircle, FaStar } from "react-icons/fa";
+
 import styles from './Hero.module.css';
 import Typography from '../Typography/Typography';
 import Button from '../Button/Button';
-import { Link } from 'react-router-dom';
 
-// REMOVED Particle Imports
-
-// SVG Import (Keep)
+// --- Corrected SVG Imports (using ?react suffix for Vite/modern setups) ---
 import ImportedUxSvg from '../../assets/UX.svg?react';
+
+// Assign types explicitly for clarity with ?react suffix
 const UxSvg: React.FC<React.SVGProps<SVGSVGElement>> = ImportedUxSvg;
 
-// Keep Checkmark Import
-import { FaCheckCircle } from "react-icons/fa";
+// --- Constants ---
+const HERO_KEYWORDS: string[] = [
+  "Intuitive Design & UX",
+  "High-Performance Web Development",
+  "Engaging Content Creation (Video & Written)"
+];
 
-// Props Interface
+// --- Component Props Interface ---
 interface HeroProps {
   title: string;
   subtitle?: string;
-  showButton?: boolean;
+  eyebrow?: string;
+  showButton?: boolean; // Note: This prop isn't currently used in the logic, consider removing if not needed
   buttonText?: string;
   buttonLink?: string;
   buttonArrow?: boolean;
   className?: string;
-  // Removed currentTheme prop as it's not needed for this effect
+  rating?: number | string;
+  testimonial?: string;
+  testimonialAuthor?: string;
 }
 
-// Keep Keywords
-const heroKeywords = ["Actionable UX consulting that unlocks growth.", "Future-ready AI features that elevate experience.", "Strategic content design that builds brand trust."];
+// --- Helper Component for Rating Stars ---
+interface RatingStarsProps {
+  ratingValue: number | string;
+}
+const RatingStars: React.FC<RatingStarsProps> = React.memo(({ ratingValue }) => {
+  const ratingNumber = Number(ratingValue) || 0;
+  const fullStars = Math.floor(ratingNumber);
+  return (
+    <div className={styles.rating}>
+      {[...Array(fullStars)].map((_, i) => (
+        <FaStar key={`star-${i}`} className={styles.starIcon} />
+      ))}
+      <span className={styles.ratingText}>{ratingNumber.toFixed(1)}</span>
+    </div>
+  );
+});
 
+// --- Main Hero Component ---
 const Hero: React.FC<HeroProps> = ({
   title,
   subtitle,
-  buttonText = 'Book a Free Consultation', // Keep updated defaults
+  eyebrow,
+  buttonText = 'Schedule a Free Consultation',
   buttonLink = 'https://calendly.com/kyleranta/15min',
   buttonArrow = true,
   className = '',
+  rating,
+  testimonial,
+  testimonialAuthor,
 }) => {
-  // --- Re-added Ref for mouse tracking ---
-  const heroRef = useRef<HTMLDivElement>(null);
+  // Removed: heroRef and useEffect for mouse move effect
 
-  // --- Re-added useEffect for Mouse Listener ---
-  useEffect(() => {
-    const heroElement = heroRef.current;
-    if (!heroElement) return;
+  // Memoize Keywords List
+  const keywordsList = useMemo(() => (
+    <ul className={styles.keywordsList}>
+      {HERO_KEYWORDS.map((keyword) => (
+        <li key={keyword} className={styles.keywordItem}>
+          <FaCheckCircle className={styles.keywordIcon} aria-hidden="true" />
+          <span>{keyword}</span>
+        </li>
+      ))}
+    </ul>
+  ), []); // Empty dependency array is correct here as HERO_KEYWORDS is constant
 
-    const handleMouseMove = (event: MouseEvent) => {
-      const rect = heroElement.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width) - 0.5;
-      const y = ((event.clientY - rect.top) / rect.height) - 0.5;
-      // Update CSS variables controlling the gradient position
-      heroElement.style.setProperty('--mouse-x', x.toFixed(2));
-      heroElement.style.setProperty('--mouse-y', y.toFixed(2));
-    };
-
-    const handleMouseLeave = () => {
-      // Reset position when mouse leaves
-      heroElement.style.setProperty('--mouse-x', '0');
-      heroElement.style.setProperty('--mouse-y', '0');
-    };
-
-    heroElement.addEventListener('mousemove', handleMouseMove);
-    heroElement.addEventListener('mouseleave', handleMouseLeave);
-
-    // Cleanup function
-    return () => {
-      heroElement.removeEventListener('mousemove', handleMouseMove);
-      heroElement.removeEventListener('mouseleave', handleMouseLeave);
-      
-    };
-  }, []); // Empty dependency array means this effect runs only once
-
-  // --- Removed particle state and init logic ---
+  // Prepare Social Proof Content
+  const socialProofContent = testimonial ? (
+    <div className={styles.socialProof}>
+      {rating && <RatingStars ratingValue={rating} />}
+      {/* Using variant="p" as confirmed valid */}
+      <Typography variant="p" className={styles.testimonialText}>
+        “{testimonial}”
+      </Typography>
+      {testimonialAuthor && (
+        <Typography variant="caption" className={styles.testimonialAuthor}>
+          – {testimonialAuthor}
+        </Typography>
+      )}
+    </div>
+  ) : null;
 
   return (
-    // Attach the ref to the main div
-    <div className={`${styles.heroContent} ${styles.heroLayoutContainer} ${className}`} ref={heroRef}>
+    // Removed ref={heroRef} from this div
+    <div className={`${styles.heroContent} ${className}`}>
+      <div className={styles.heroLayoutContainer}>
 
-      {/* --- Removed Conditional Particle Rendering --- */}
-
-      {/* Text Content Column */}
-      <div className={styles.heroTextContent}>
-        <Typography variant="h1" className={styles.heroTitle}> {title} </Typography>
-        {subtitle && ( <Typography variant="subtitle1" className={styles.heroSubtitle}> {subtitle} </Typography> )}
-        <ul className={styles.keywordsList}>
-            {heroKeywords.map((keyword) => (
-                <li key={keyword} className={styles.keywordItem}>
-                    <FaCheckCircle className={styles.keywordIcon} aria-hidden="true" />
-                    <span>{keyword}</span>
-                </li>
-            ))}
-        </ul>
-        <Link
+        {/* === Text Content Column === */}
+        <div className={styles.heroTextContent}>
+          {eyebrow && (
+            <Typography variant="caption" className={styles.heroEyebrow}>
+              {eyebrow}
+            </Typography>
+          )}
+          <Typography variant="h1" className={styles.heroTitle}>
+            {title}
+          </Typography>
+          {subtitle && (
+            <Typography variant="p" className={styles.heroSubtitle}>
+              {subtitle}
+            </Typography>
+          )}
+          {keywordsList}
+          <Link
             to={buttonLink}
             {...(buttonLink.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             className={styles.heroButtonWrapper}
-        >
-            <Button variant="primary" arrow={buttonArrow}> {buttonText} </Button>
-        </Link>
-      </div>
+          >
+            <Button variant="primary" arrow={buttonArrow}>
+              {buttonText}
+            </Button>
+          </Link>
+        </div>
 
-            
-      {/* Image Content Column */}
-      <div className={styles.heroImageContent}>
-        <UxSvg className={styles.heroSvg} aria-label="UX logo mark" />
-      </div>
+        {/* === Image Content Column === */}
+        <div className={styles.heroImageContent}>
+          <div className={styles.imageAndProofWrapper}>
+            {/* SVG rendering remains the same, styling handled in CSS */}
+            <UxSvg className={styles.heroSvg} aria-label="Visual representation" />
+            {/* Social Proof Rendered Here */}
+            {socialProofContent}
+          </div>
+        </div>
 
-    </div>
+      </div> {/* End heroLayoutContainer */}
+    </div> // End heroContent
   );
 };
 

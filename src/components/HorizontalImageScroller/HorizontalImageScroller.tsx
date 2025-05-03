@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 // Import YOUR Image component - Adjust path if needed
-import Image from '../Image/Image';
-import styles from './HorizontalImageScroller.module.css';
+import Image from "../Image/Image";
+import styles from "./HorizontalImageScroller.module.css";
 
 // Define the structure for each image item
 interface ImageItem {
@@ -19,10 +19,9 @@ interface HorizontalImageScrollerProps {
 
 const HorizontalImageScroller: React.FC<HorizontalImageScrollerProps> = ({
   images = [],
-  speed = '40s',
-  imageMaxHeight = '50px',
+  speed = "20s",
+  imageMaxHeight = "50px",
 }) => {
-
   if (!images || images.length === 0) {
     return null;
   }
@@ -32,14 +31,16 @@ const HorizontalImageScroller: React.FC<HorizontalImageScrollerProps> = ({
   return (
     <div
       className={styles.scrollerContainer}
-      style={{ '--animation-duration': speed } as React.CSSProperties}
+      style={{ "--animation-duration": speed } as React.CSSProperties}
     >
       <div className={styles.scrollerInner}>
         {duplicatedImages.map((image, index) => (
           <div
             key={`${image.alt}-${index}`}
             className={styles.imageWrapper}
-            style={{ '--image-max-height': imageMaxHeight } as React.CSSProperties}
+            style={
+              { "--image-max-height": imageMaxHeight } as React.CSSProperties
+            }
           >
             {/* Use YOUR Image component */}
             <Image
