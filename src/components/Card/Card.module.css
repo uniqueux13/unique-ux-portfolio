@@ -44,7 +44,7 @@
     /* padding: var(--space-xl); */
 
     /* OPTIONAL: Further increase margin-bottom for desktops if desired */
-    /* margin-bottom: var(--space-xl); */
+     margin-bottom: var(--space-xl); 
 
     /* Often, the tablet spacing (lg) is sufficient for desktops too. */
     /* Only add overrides here if you specifically need larger spacing */

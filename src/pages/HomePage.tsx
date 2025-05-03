@@ -3,6 +3,7 @@ import React from "react";
 import Section from "../components/Section/Section";
 import Hero from "../components/Hero/Hero";
 import Card from "../components/Card/Card";
+import CtaSection from "../components/CtaSection/CtaSection"
 // import TwoColumnSection from "../components/TwoColumnSection/TwoColumnSection";
 import ScrollHighlightText from "../components/ScrollHighlightText/ScrollHighlightText";
 // import CtaSection from "../components/CtaSection/CtaSection";
@@ -323,6 +324,10 @@ const HomePage: React.FC = () => {
     <Section padding='none' marginBottom='xxl'>
         <MultiStepContactForm />
       </Section>
+
+        <CtaSection>
+
+        </CtaSection>
 
       {/* <Section marginBottom='xl'>
         <CtaSection></CtaSection>

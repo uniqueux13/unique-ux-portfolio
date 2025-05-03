@@ -1,80 +1,108 @@
-// src/components/CtaSection/CtaSection.tsx
+// src/components/NextStepsSection/NextStepsSection.tsx
 import React from "react";
-import styles from "./CtaSection.module.css"; // Use local CSS Module
+import styles from "./CtaSection.module.css"; // Rename CSS module too
 import Typography from "../Typography/Typography";
 import Button from "../Button/Button";
-import { Link } from "react-router-dom"; // Keep for Calendly Button
+import { Link } from "react-router-dom"; // For internal links like Portfolio
+import { FaCalendarCheck, FaWpforms, FaEnvelope, FaBriefcase } from "react-icons/fa"; // Example Icons
 
-interface CtaSectionProps {
-  // Add props here later if you need to customize title, text, link, email etc.
+interface NextStepsSectionProps {
   className?: string;
 }
 
-// Consider renaming this component to ContactSection if it fits better
-const CtaSection: React.FC<CtaSectionProps> = ({ className = "" }) => {
+const NextStepsSection: React.FC<NextStepsSectionProps> = ({ className = "" }) => {
+
+  // Smooth scroll handler (if needed for Form link)
+  const scrollToForm = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const formElement = document.getElementById('multi-step-form-top'); // Use ID from form section
+    formElement?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
-    // Renaming the class might be good too, e.g., styles.contactSection
-    <div className={`${styles.ctaSection} ${className}`}>
-      {/* --- Contact Information Sub-section --- */}
-      <Typography variant='h3' className={styles.contactHeading}>
-        Don't like forms?
+    <div className={`${styles.nextStepsContainer} ${className}`}>
+      <Typography variant='h2' className={styles.nextStepsTitle}>
+        Ready to Start Your Project?
       </Typography>
-      <Typography variant='p' className={styles.contactIntro}>
-        Contact me directly using the information below.
+      <Typography variant='subtitle1' className={styles.nextStepsSubtitle}>
+        Choose the next step that works best for you:
       </Typography>
 
-      {/* Grid for Contact Details */}
-      <div className={styles.contactGrid}>
-        <div className={styles.contactItem}>
-          <Typography variant='caption' className={styles.contactLabel}>
-            Location
-          </Typography>
-          <Typography variant='p' className={styles.contactValue}>
-            Columbus, OH
-          </Typography>
+      {/* Grid/Flex container for the choices */}
+      <div className={styles.choicesGrid}>
+
+        {/* Choice 1: Book Strategy Call */}
+        <div className={`${styles.choiceCard} ${styles.choiceBookCall}`}>
+           <FaCalendarCheck className={styles.choiceIcon} aria-hidden="true" />
+           <Typography variant='h4' className={styles.choiceTitle}>
+             Book a Strategy Call
+           </Typography>
+           <Typography variant='p' className={styles.choiceDescription}>
+             Schedule a free 15-min call to discuss your vision and goals directly.
+           </Typography>
+           {/* Link Button */}
+           <a href='https://calendly.com/kyleranta/15min' target='_blank' rel='noopener noreferrer' className={styles.choiceButtonLink}>
+             <Button variant='primary' arrow>
+               Find a Time
+             </Button>
+           </a>
         </div>
-        <div className={styles.contactItem}>
-          <Typography variant='caption' className={styles.contactLabel}>
-            Email
-          </Typography>
-          <Typography variant='p' className={styles.contactValue}>
-            {/* Make email clickable */}
-            <a
-              href='mailto:uniqueux13@gmail.com'
-              className={styles.contactLink}
-            >
-              hello@uniqueux.com
-            </a>
-          </Typography>
+
+        {/* Choice 2: Submit Project Details */}
+        <div className={`${styles.choiceCard} ${styles.choiceSubmitForm}`}>
+           <FaWpforms className={styles.choiceIcon} aria-hidden="true" />
+           <Typography variant='h4' className={styles.choiceTitle}>
+             Submit Project Details
+           </Typography>
+           <Typography variant='p' className={styles.choiceDescription}>
+             Fill out the project assessment form with your requirements and details now.
+           </Typography>
+           {/* Scroll-to-Form Button/Link */}
+           {/* Using an anchor link that triggers scroll */}
+           <a href="#multi-step-form-top" onClick={scrollToForm} className={styles.choiceButtonLink}>
+              <Button variant='secondary' arrow>
+                Go to Form
+              </Button>
+           </a>
         </div>
-        <div className={styles.contactItem}>
-          <Typography variant='caption' className={styles.contactLabel}>
-            Phone
-          </Typography>
-          <Typography variant='p' className={styles.contactValue}>
-            {/* Make phone clickable */}
-            <a href='tel:+19379179982' className={styles.contactLink}>
-              +1 (937) 917-9982
-            </a>
-          </Typography>
+
+         {/* Choice 3: See More Work (Optional) */}
+         <div className={`${styles.choiceCard} ${styles.choiceSeeWork}`}>
+           <FaBriefcase className={styles.choiceIcon} aria-hidden="true" />
+           <Typography variant='h4' className={styles.choiceTitle}>
+             Explore Examples
+           </Typography>
+           <Typography variant='p' className={styles.choiceDescription}>
+              Not ready yet? See detailed case studies or browse the portfolio first.
+           </Typography>
+           {/* Link to Portfolio Page */}
+           <Link to='/portfolio' className={styles.choiceButtonLink}> {/* Adjust link */}
+              <Button variant='secondary' arrow>
+                View Portfolio
+              </Button>
+           </Link>
         </div>
+
+         {/* Choice 4: Quick Contact (Optional) */}
+        <div className={`${styles.choiceCard} ${styles.choiceQuickContact}`}>
+           <FaEnvelope className={styles.choiceIcon} aria-hidden="true" />
+           <Typography variant='h4' className={styles.choiceTitle}>
+             Quick Question?
+           </Typography>
+           <Typography variant='p' className={styles.choiceDescription}>
+              Have a simple question? Send a direct email for a fast response.
+           </Typography>
+           {/* Mailto Link Button */}
+           <a href='mailto:hello@uniqueux.com' className={styles.choiceButtonLink}>
+              <Button variant='secondary' arrow>
+                Send Email
+              </Button>
+           </a>
+        </div>
+
       </div>
-
-      {/* --- Original CTA Button --- */}
-      <Link
-        to='https://calendly.com/kyleranta/15min'
-        target='_blank'
-        rel='noopener noreferrer'
-        className={styles.ctaButtonLink} // Use for margin/spacing if needed
-      >
-        <Button variant='primary' arrow>
-          Book a Discovery Call
-        </Button>
-      </Link>
-
-      {/* Removed the old uniqueux13@gmail.com Typography element */}
     </div>
   );
 };
 
-export default CtaSection;
+export default NextStepsSection; // Remember to rename export/import

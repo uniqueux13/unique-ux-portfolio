@@ -1,115 +1,88 @@
-/* src/components/CtaSection/CtaSection.module.css */
-/* Updated: 2025-05-01 */
-/* Incorporates styles for new contact information and availability sections */
+/* src/components/NextStepsSection/NextStepsSection.module.css */
 
-.ctaSection {
-  /* Layout copied/adapted from old .heroContent */
-  max-width: 1400px; /* You can adjust max-width specifically for CTA */
-  margin: var(--space-lg) auto; /* Vertical spacing */
-  padding: var(--space-lg) var(--space-lg); /* Padding inside */
-  background-color: var(--color-card-background); /* Optional background */
-  border-radius: var(--card-border-radius, 12px); /* Optional rounding */
-  box-shadow: 0 4px 15px -5px var(--color-box-shadow); /* Optional shadow */
+.nextStepsContainer {
+  max-width: var(--max-width-container, 1400px);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-xxl);
+  padding: var(--space-xs) var(--space-xs); /* Generous padding */
+  text-align: center;
+  /* Optional: Add a distinct background or border */
+   background-color: var(--color-background);
+   border-top: 1px solid var(--color-border);
 }
 
-/* --- Title and Subtitle Styles (Mostly Existing) --- */
-.ctaTitle {
+.nextStepsTitle {
+  margin-bottom: var(--space-sm);
+  text-align: center;
+  /* Styling handled by Typography */
+}
+
+.nextStepsSubtitle {
+  margin-bottom: var(--space-xl); /* Space before cards */
+  color: var(--color-secondary);
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  /* Styling handled by Typography */
+}
+
+.choicesGrid {
+  display: grid;
+  /* Responsive columns: 1 small, 2 medium, up to 4 large */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-md);
+  align-items: stretch; /* Make cards in same row equal height */
+}
+
+.choiceCard {
+  background-color: var(--color-card-background);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--border-radius-large, 12px);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: left; /* Center content inside card */
+  box-shadow: var(--shadow-low);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.choiceCard:hover {
+  transform: translateY(-5px) scale(1.02); /* Example hover effect */
+  box-shadow: var(--shadow-medium);
+}
+
+.choiceIcon {
+  font-size: 2.5rem; /* Adjust icon size */
+  color: var(--color-primary); /* Use primary color for icons */
+  margin-bottom: var(--space-md);
+}
+
+.choiceTitle {
   margin-bottom: var(--space-sm);
   color: var(--color-text);
-  /* Font size/weight handled by Typography component variant="h2" */
+  /* Styling via Typography */
 }
 
-.ctaSubtitle {
-  margin-bottom: var(--space-md); /* Reduced margin from original suggestion */
-  color: var(--color-secondary); /* Use secondary color */
-  max-width: 600px; /* Keep max width */
-  margin-left: auto; /* Keep centering */
-  margin-right: auto; /* Keep centering */
-  /* Keep explicit font/line-height as per user's original file */
-  font-size: var(--font-size-paragraph);
+.choiceDescription {
+  color: var(--color-secondary);
+  font-size: var(--font-size-small);
   line-height: var(--line-height-paragraph);
+  margin-bottom: var(--space-lg); /* Push button to bottom */
+  flex-grow: 1; /* Allow description to push button down */
 }
 
-/* --- Removed .emailContact as element is removed --- */
-
-
-/* --- NEW: Contact Info Styles --- */
-.contactHeading {
-  margin-bottom: var(--space-xs);
-  color: var(--color-text); /* Use main text color for headings */
+.choiceButtonLink {
+  display: inline-block; /* Needed for Button component */
+  text-decoration: none; /* Remove underline from link wrapper */
+  margin-top: auto; /* Pushes button to bottom if description doesn't fill space */
+  width: 100%; /* Make link wrapper take width for button centering */
+  max-width: 250px; /* Max width for the button itself */
 }
 
-.contactIntro {
-  margin-bottom: var(--space-md);
-  color: var(--color-secondary);
-  /* Font size/weight handled by Typography component variant="p" */
-}
-
-.contactGrid {
-  display: grid;
-  /* Responsive columns: 1 on small, up to 3 on larger */
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: var(--space-xs);
-}
-
-
-
-.contactLabel {
-  display: block;
-  color: var(--color-secondary);
-  /* Font size handled by Typography variant="caption" */
-  /* font-weight: var(--font-weight-semibold); */ /* Handled by Typography? */
-  margin-bottom: calc(var(--space-xs) / 2); /* Smaller space */
-}
-
-.contactValue {
-  margin: 0; /* Reset paragraph margin if using Typography variant="p" */
-  color: var(--color-text); /* Use main text color for values */
-  word-break: break-word; /* Prevent long emails/numbers overflowing */
-}
-
-.contactLink {
-  color: var(--color-link);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-.contactLink:hover {
-  color: var(--color-link-hover);
-  text-decoration: underline;
-}
-
-/* --- NEW: Availability Styles --- */
-.availabilityInfo {
-  margin-bottom: var(--space-lg); /* Space before main CTA button */
-  /* display: flex; flex-direction: column; align-items: center; gap: var(--space-sm); */
-  /* Simpler: rely on parent text-align: center */
-}
-
-.availabilityText {
-  margin: 0 0 var(--space-sm) 0; /* Space below text, before badge */
-  color: var(--color-text);
-  /* Font handled by Typography variant="p" */
-}
-
-.availabilityBadge {
-  display: inline-block; /* Allow centering via text-align */
-  background-color: var(--color-primary);
-  color: var(--color-button-text);
-  padding: calc(var(--space-xs) / 2) var(--space-sm); /* Smaller padding */
-  border-radius: 1rem; /* Pill shape */
-  font-size: var(--font-size-caption);
-  font-weight: var(--font-weight-medium); /* Check if variable exists */
-  line-height: 1.2; /* Adjust line height */
-  text-transform: uppercase; /* Example styling */
-  letter-spacing: 0.5px; /* Example styling */
-}
-
-
-/* --- CTA Button Styles (Mostly Existing) --- */
-.ctaButtonLink {
-    display: inline-block; /* Allows centering via text-align */
-    margin-top: var(--space-lg); /* Remove top margin if space comes from .availabilityInfo */
-}
-
-/* --- Responsive (Keep commented out or implement) --- */
-/* @media (min-width: 992px) { ... } */
+/* Optional: Slightly different styling per card? */
+/* .choiceBookCall {} */
+/* .choiceSubmitForm {} */
+/* .choiceSeeWork {} */
+/* .choiceQuickContact {} */
