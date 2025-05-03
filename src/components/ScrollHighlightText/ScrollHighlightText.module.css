@@ -2,15 +2,16 @@
 .highlightText {
   position: relative;
   text-align: left;
-  max-width: 100%;
+  max-width: 1200px;
   font-size: var(--font-size-h3); 
   line-height: 1.9;
   letter-spacing: 0.01em;
   color: var(--color-text);
-  padding: 0 var(--space-md);
+  padding: var(--space-xs) var(--space-md);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0 auto;
 
   /* --- Highlight Effect Layer (via Background Clipping) --- */
   background: linear-gradient(
