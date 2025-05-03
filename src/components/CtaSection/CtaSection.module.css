@@ -1,15 +1,15 @@
 /* src/components/NextStepsSection/NextStepsSection.module.css */
+/* Updated: Icon hover color, special card styling, special tag */
 
 .nextStepsContainer {
   max-width: var(--max-width-container, 1400px);
   margin-left: auto;
   margin-right: auto;
   margin-bottom: var(--space-xxl);
-  padding: var(--space-xs) var(--space-xs); /* Generous padding */
+  padding: var(--space-xl) var(--space-md); /* Increased padding slightly */
   text-align: center;
-  /* Optional: Add a distinct background or border */
-   background-color: var(--color-background);
-   border-top: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  border-top: 1px solid var(--color-border);
 }
 
 .nextStepsTitle {
@@ -30,33 +30,41 @@
 
 .choicesGrid {
   display: grid;
-  /* Responsive columns: 1 small, 2 medium, up to 4 large */
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--space-md);
+  gap: var(--space-sm); /* Increased gap slightly for visual separation */
   align-items: stretch; /* Make cards in same row equal height */
 }
 
 .choiceCard {
+  position: relative; /* Needed for absolute positioning of the tag */
   background-color: var(--color-card-background);
-  border: 1px solid var(--color-border-subtle);
+  border: 1px solid var(--color-border-subtle); /* Default border */
   border-radius: var(--border-radius-large, 12px);
-  padding: var(--space-md);
+  padding: var(--space-md); /* Increased padding slightly */
   display: flex;
   flex-direction: column;
-  align-items: left; /* Center content inside card */
+  align-items: flex-start; /* Changed from 'left' to 'flex-start' */
+  text-align: left; /* Align text left within card */
   box-shadow: var(--shadow-low);
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out; /* Added border-color */
 }
 
 .choiceCard:hover {
-  transform: translateY(-5px) scale(1.02); /* Example hover effect */
+  transform: translateY(-5px) scale(1.02);
   box-shadow: var(--shadow-medium);
 }
 
 .choiceIcon {
-  font-size: 2.5rem; /* Adjust icon size */
-  color: var(--color-primary); /* Use primary color for icons */
+  font-size: 2.5rem;
+  color: var(--color-secondary); /* << CHANGED: Default icon color (muted) */
   margin-bottom: var(--space-md);
+  transition: color 0.2s ease-out; /* << ADDED: Transition for color */
+  align-self: flex-start; /* Ensure icon stays left */
+}
+
+/* << ADDED: Icon hover effect (on card hover) >> */
+.choiceCard:hover .choiceIcon {
+  color: var(--color-primary);
 }
 
 .choiceTitle {
@@ -69,20 +77,49 @@
   color: var(--color-secondary);
   font-size: var(--font-size-small);
   line-height: var(--line-height-paragraph);
-  margin-bottom: var(--space-lg); /* Push button to bottom */
-  flex-grow: 1; /* Allow description to push button down */
+  margin-bottom: var(--space-lg);
+  flex-grow: 1;
 }
 
 .choiceButtonLink {
-  display: inline-block; /* Needed for Button component */
-  text-decoration: none; /* Remove underline from link wrapper */
-  margin-top: auto; /* Pushes button to bottom if description doesn't fill space */
-  width: 100%; /* Make link wrapper take width for button centering */
-  max-width: 250px; /* Max width for the button itself */
+  display: inline-block;
+  text-decoration: none;
+  margin-top: auto;
+  /* width: 100%; */ /* Let button size itself or set specific width on Button */
+  /* max-width: 250px; */
+  align-self: flex-start; /* Align button left */
 }
 
-/* Optional: Slightly different styling per card? */
-/* .choiceBookCall {} */
-/* .choiceSubmitForm {} */
-/* .choiceSeeWork {} */
-/* .choiceQuickContact {} */
+/* --- << NEW: Special Styling for "Book a Strategy Call" Card >> --- */
+.choiceBookCall {
+  border-width: 2px; /* Slightly thicker border */
+  border-color: var(--color-primary); /* Primary color border */
+  /* Subtle glow effect using box-shadow */
+  box-shadow: 0 0 10px -5px var(--color-primary), var(--shadow-low);
+}
+
+.choiceBookCall:hover {
+  border-color: var(--color-primary); /* Ensure border stays colored on hover */
+  /* Enhanced glow/shadow on hover */
+  box-shadow: 0 0 18px -4px var(--color-primary), var(--shadow-medium);
+  /* Keep transform from base hover */
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* --- << NEW: "SPECIAL" Tag Styling >> --- */
+.specialTag {
+  position: absolute;
+  top: -12px; /* Position slightly above the card */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for exact centering */
+  background-color: var(--color-primary);
+  color: var(--color-button-text); /* Color for text on primary bg */
+  padding: 3px 10px; /* Adjust padding */
+  font-size: 0.65rem; /* Small text */
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: var(--border-radius-small);
+  line-height: 1.2;
+  z-index: 2; /* Ensure tag is above card border/content */
+}
