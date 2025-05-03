@@ -1,5 +1,8 @@
 /* src/pages/HomePage.module.css */
-
+.wrapper {
+  width: 100vw;
+  background-color: var(--color-background-alt);
+}
 /* --- Existing Styles --- */
 .manifestoTitle {
   margin-bottom: var(--space-sm);

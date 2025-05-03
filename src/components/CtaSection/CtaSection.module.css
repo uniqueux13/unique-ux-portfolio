@@ -1,15 +1,18 @@
 /* src/components/NextStepsSection/NextStepsSection.module.css */
 /* Updated: Icon hover color, special card styling, special tag */
 
+
+
 .nextStepsContainer {
   max-width: var(--max-width-container, 1400px);
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: var(--space-xxl);
+  margin-bottom: 0;
   padding: var(--space-xl) var(--space-md); /* Increased padding slightly */
+  padding-bottom: 10rem;
+  ;
   text-align: center;
-  background-color: var(--color-background);
-  border-top: 1px solid var(--color-border);
+  background-color: transparent;
 }
 
 .nextStepsTitle {

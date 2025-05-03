@@ -5,7 +5,7 @@
   text-align: center;
   padding: var(--space-md) var(--space-md); /* Use variable for padding */
   color: var(--color-text);
-  margin-top: var(--space-lg); /* Add margin above footer */
+  margin-top: 0; /* Add margin above footer */
 }
 
 /* Style for the copyright paragraph */

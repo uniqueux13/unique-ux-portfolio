@@ -325,9 +325,12 @@ const HomePage: React.FC = () => {
         <MultiStepContactForm />
       </Section>
 
+        <div className={styles.wrapper}>
         <CtaSection>
 
         </CtaSection>
+        </div>
+        
 
       {/* <Section marginBottom='xl'>
         <CtaSection></CtaSection>
