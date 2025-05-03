@@ -14,8 +14,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-background);
-  transition: background-color 0.3s ease;
+  background-color: var(--color-hero);
+  transition: var(--color-background)  0.3s ease;
 
   /* << ADDED: Declare CSS variables for mouse tracking >> */
   --hero-mouse-x: 0;
@@ -292,7 +292,7 @@
     /* padding-top: none; */ /* Keep padding from tablet or increase */
     /* padding-bottom: none; */
     padding-top: var(--space-xxl);
-    padding-bottom: var(--space-xxl);
+    padding-bottom: var(--space-xl);
   }
 
   .heroLayoutContainer {

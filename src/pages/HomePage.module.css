@@ -114,6 +114,7 @@
 /* --- Horizontal Scroller Section --- */
 .trustedSection {
   /* Optional: Add padding/margin specifically around the scroller if needed */
+  margin-bottom: var(--space-xxl);
   padding-block: none;
   /* Maybe add a subtle top/bottom border */
   /* border-block: 1px solid var(--color-border); */

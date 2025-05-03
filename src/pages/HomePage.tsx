@@ -66,7 +66,7 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* Trusted By / Scroller Section */}
-      <Section padding='none' marginBottom='none'>
+      <Section padding='md' marginBottom='none'>
         <Typography
           variant='subtitle1'
           className={styles.centerP} // Or maybe "eyebrow", "subtitle2" depending on your variants
@@ -101,7 +101,7 @@ const HomePage: React.FC = () => {
       {/* === NEW Services Section === */}
       {/* ============================== */}
       <Section
-        marginBlock='xs'
+        marginBottom='xxl'
         padding='sm'
         aria-labelledby='services-section-title'
       >
@@ -200,7 +200,7 @@ const HomePage: React.FC = () => {
       </Section>
 
       {/* Process Section / Narrative & Deliverables */}
-      <Section marginBlock='lg' padding='none'>
+      <Section marginBottom='xxl' padding='none'>
         {/* Title for the Services Section */}
         <h2
           id='services-section-title' // For accessibility
