@@ -201,7 +201,7 @@ const HomePage: React.FC = () => {
       </Section>
 
       {/* Process Section / Narrative & Deliverables */}
-      <Section marginBottom='xxl' padding='none'>
+      <Section marginBottom='xxl' padding='sm'>
         {/* Title for the Services Section */}
         <h2
           id='services-section-title' // For accessibility

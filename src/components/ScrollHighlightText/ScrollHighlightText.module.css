@@ -3,15 +3,15 @@
   position: relative;
   text-align: left;
   max-width: 1200px;
-  font-size: var(--font-size-h3); 
+  font-size: var(--font-size-h3); /* Base font size for larger screens */
   line-height: 1.9;
   letter-spacing: 0.01em;
   color: var(--color-text);
-  padding: var(--space-xs) var(--space-md);
+  padding: none; /* Base padding */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0 auto;
+  margin: 0 auto; /* Centers the block by default */
 
   /* --- Highlight Effect Layer (via Background Clipping) --- */
   background: linear-gradient(
@@ -25,18 +25,17 @@
   -webkit-background-clip: text;
   background-clip: text;
   paint-order: stroke fill;
-  /* Base color (#555) is set via 'color'. Background provides the white
+  /* Base color (#555) is set via 'color'. Background provides the white */
 
   /* --- Dynamic Reveal Mask (Same as before) --- */
-  /* This mask controls the vertical reveal */
   mask-image: linear-gradient(
     to bottom,
-    black 0%,         /* Fully visible (shows white highlight) */
-    black 48%,        
-    transparent 52%,  
-    transparent 100%  
+    black 0%,      /* Fully visible (shows highlight) */
+    black 48%,
+    transparent 52%,
+    transparent 100%
   );
-  mask-size: 100% 200%; 
+  mask-size: 100% 200%;
   mask-repeat: no-repeat;
   mask-position: 0 calc(100% - var(--highlight-percent));
 
@@ -50,73 +49,85 @@
 /* --- Removed Hover Rule --- */
 .highlightText:hover {
   /* Removed hover effect to keep the text color consistent */
-  /* Optional: You can add a hover effect if desired */
-   color: var(--color-text);
-} 
+  color: var(--color-text);
+}
 
 
 /* --- Optional Enhancements (Adjusted for new colors) --- */
 .highlightText strong {
   font-weight: var(--font-weight-bold, 700);
-  /* Inherits the current computed color (base gray or revealed white) */
-  color: inherit;
+  color: inherit; /* Inherits the current computed color */
 }
 
 .highlightText a {
-  /* Inherits the current computed color (base gray or revealed white) */
-  color: inherit;
+  color: inherit; /* Inherits the current computed color */
   text-decoration: underline;
-  /* Underline matches the base color initially */
-  text-decoration-color: var(--color-primary);
+  text-decoration-color: var(--color-primary); /* Underline matches the base color initially */
   transition: text-decoration-color 0.3s ease;
 }
 
-/* Optional: Link hover - maybe make underline white? */
 .highlightText a:hover {
   text-decoration-color: var(--color-text);
 }
 
+/* Highlight Box Styling */
 .highlightBox {
-  display: inline-block; /* Allows padding and background */
-  padding: 0.25em 0.25em; /* Adjust vertical and horizontal padding (em units scale with font size) */
-  /* Example: Use a subtle background derived from your primary color */
-  /* Using HSL allows easy alpha adjustment. Replace with your actual primary HSL values */
+  display: inline-block;
+  padding: 0.25em 0.25em; /* Relative padding scales with font size */
   background-color: hsla(var(--color-primary-hsl, 217 71% 53%), 0.15); /* 15% opacity background */
-  /* Fallback if HSL variable isn't set */
-  /* background-color: rgba(74, 144, 226, 0.15); */
+  border-radius: 2px;
+  margin: 0 0.1em;
+  vertical-align: baseline;
+  font-weight: var(--font-weight-bold);
 
-  border-radius: 2px; /* Slightly rounded corners */
-
-  /* Optional: Add a subtle border */
-  /* border: 1px solid hsla(var(--color-primary-hsl, 217 71% 53%), 0.3); */
-
-  /* Text color inside the box will inherit from ScrollHighlightText */
-  /* You could override it here if needed, e.g., color: var(--color-primary); */
-
-  margin: 0 0.1em; /* Add tiny horizontal space around the box */
-  vertical-align: baseline; /* Keep it aligned with surrounding text */
-  font-weight: var(--font-weight-bold); /* Optional: Make it slightly bolder */
+  /* Explicit color needed if parent uses text-fill-color */
+  color: var(--color-text);
+  -webkit-text-fill-color: initial; /* Reset fill color */
 }
 
-/* ADD these classes */
+/* --- Alignment Classes --- */
 .textAlignLeft {
   text-align: left;
-  margin-left: 0; /* Override auto margin */
-  /* margin-right: auto; */ /* Keep auto */
+  margin-left: 0;
+  margin-right: auto; /* Keep auto for centering potential */
 }
 .textAlignCenter {
   text-align: center;
-  /* margin auto handles centering */
+  margin-left: auto; /* auto handles centering */
+  margin-right: auto;
 }
 .textAlignRight {
   text-align: right;
-  /* margin-left: auto; */ /* Keep auto */
-  margin-right: 0; /* Override auto margin */
+  margin-left: auto; /* Keep auto for centering potential */
+  margin-right: 0;
 }
 
-/* Highlight Box needs explicit color if parent uses text-fill-color */
-.highlightBox {
-    /* ... existing styles ... */
-   color: var(--color-text); /* Set explicit color */
-   -webkit-text-fill-color: initial; /* Reset fill color */
+
+/* =================================== */
+/* --- Mobile Styles (Screens <= 767px) --- */
+/* =================================== */
+@media (max-width: 767px) {
+  .highlightText {
+    /* Reduce font size for smaller screens */
+    /* Use a smaller heading variable or a specific value */
+    font-size: var(--font-size-h4, 1.6rem); /* Adjust h4 variable or fallback value as needed */
+
+    /* Optionally adjust line height for smaller font */
+    line-height: 1.8;
+
+    /* Adjust horizontal padding for smaller viewports */
+    padding-left: none; /* Use a smaller space variable or value */
+    padding-right: none;/* Use a smaller space variable or value */
+
+    /* Optional: If you don't want a max-width on mobile, uncomment below */
+    /* max-width: none; */
+  }
+
+  /* Example: Slightly reduce padding on highlight box if needed */
+   .highlightBox {
+      padding: none;
+  } 
+
+  /* Alignment classes generally don't need mobile overrides unless */
+  /* the margin behavior needs specific adjustment */
 }

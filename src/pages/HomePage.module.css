@@ -199,6 +199,7 @@
   /* Adjust card padding for smaller screens */
   .outcomeCard {
     padding: var(--space-md);
+    margin-bottom: var(--space-none);
     /* Reset max-width or adjust flex-basis if needed */
     flex-basis: 100%; /* Make cards full width on small mobile? */
     max-width: none; /* Remove max-width on small mobile */
