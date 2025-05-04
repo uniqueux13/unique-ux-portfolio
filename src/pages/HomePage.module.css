@@ -17,8 +17,10 @@
   color: var(--color-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-weight: 500;
+  font-weight: 700;
   font-size: var(--font-size-small); /* Adjust size as needed */
+  color: var(--color-primary);
+
 }
 
 .manifestoText {
@@ -140,7 +142,7 @@
 
 /* Individual outcome card styling */
 .outcomeCard {
-  background-color: var(--color-card-background, var(--color-background-alt));
+  background-color: var(--color-background-muted);
   border-radius: var(--border-radius-md); /* Slightly larger radius */
   padding: var(--space-md); /* Padding inside the card */
   text-align: left; /* Center icon and text */

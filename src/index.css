@@ -13,7 +13,7 @@
   --color-link: white; /* Link color */
   --color-background-alt: #151516;  /* Example: Dark Gray */
   --color-card-background: #1f2937; /* Example: Dark Gray */
-  --color-background-muted: #374151;
+  --color-background-muted: #222222;
   --color-link-hover: #639fff; /* Lighter Blue hover */
   --color-secondary: #b7b7b7; /* Secondary Text/Subtle elements */
   --color-header-footer-bg: #1f1f1f; /* Header/Footer Background */
@@ -119,7 +119,7 @@
   /* Default background for card components */
   --color-card-background: #ffffff; /* Example: White */
   /* Background for muted elements like placeholders */
-  --color-background-muted: #f3f4f6; /* Example: Light Gray */
+  --color-background-muted: #fafafa; /* Example: Light Gray */
 
 }
 li {

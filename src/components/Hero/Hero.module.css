@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-hero);
+  background-color: var(--color-background-alt);
   transition: var(--color-background)  0.3s ease;
 
   /* << ADDED: Declare CSS variables for mouse tracking >> */

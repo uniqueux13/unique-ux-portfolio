@@ -67,7 +67,7 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* Trusted By / Scroller Section */}
-      <Section padding='md' marginBottom='none'>
+      <Section padding='md' marginBlock='xs'>
         <Typography
           variant='subtitle1'
           className={styles.centerP} // Or maybe "eyebrow", "subtitle2" depending on your variants
@@ -201,7 +201,7 @@ const HomePage: React.FC = () => {
       </Section>
 
       {/* Process Section / Narrative & Deliverables */}
-      <Section marginBottom='xxl' padding='sm'>
+      <Section marginBottom='xl' padding='sm'>
         {/* Title for the Services Section */}
         <h2
           id='services-section-title' // For accessibility

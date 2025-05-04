@@ -40,7 +40,7 @@
   mask-position: 0 calc(100% - var(--highlight-percent));
 
   /* --- Animation & Performance --- */
-  transition: mask-position 0.6s ease-out; /* Smooth vertical mask movement */
+  transition: mask-position 0.7s ease-out; /* Smooth vertical mask movement */
   will-change: mask-position; /* Performance hint */
 
   cursor: text;
