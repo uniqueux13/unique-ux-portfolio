@@ -11,7 +11,7 @@ import Typography from "../components/Typography/Typography";
 import HorizontalImageScroller from "../components/HorizontalImageScroller/HorizontalImageScroller";
 // import ScrollHighlightText from "../components/ScrollHighlightText/ScrollHighlightText";
 import styles from "./HomePage.module.css";
-import MultiStepContactForm from "../components/MultiStepContactForm/MultiStepContactForm";
+// import MultiStepContactForm from "../components/MultiStepContactForm/MultiStepContactForm";
 import {
   FaBullseye,
   FaPencilAlt,
@@ -86,7 +86,7 @@ const HomePage: React.FC = () => {
         />
       </div>
 
-      <Section marginBottom="xs">
+      <Section marginBottom="md">
         <ScrollHighlightText
           baseColor='var(--color-text-muted)'
           highlightColor='var(--color-text)'
@@ -102,7 +102,7 @@ const HomePage: React.FC = () => {
       {/* === NEW Services Section === */}
       {/* ============================== */}
       <Section
-        marginBottom='xxl'
+        marginBottom='md'
         padding='sm'
         aria-labelledby='services-section-title'
       >
@@ -188,7 +188,7 @@ const HomePage: React.FC = () => {
       </Section>
       {/* === End NEW Services Section === */}
 
-      <Section>
+      <Section marginBottom="lg">
         <ScrollHighlightText
           baseColor='var(--color-text-muted)'
           highlightColor='var(--color-text)'
@@ -308,7 +308,7 @@ const HomePage: React.FC = () => {
         </TwoColumnSection>
       </Section> */}
 
-<Section>
+<Section marginBottom="lg">
         <ScrollHighlightText
           baseColor='var(--color-text-muted)'
           highlightColor='var(--color-text)'
@@ -316,13 +316,8 @@ const HomePage: React.FC = () => {
           align="center"
         >
           When a landing page feels intuitive and tailor-made, it drives  
-          <span className={styles.highlightBox}>Real Results.</span>Ready to build yours? Start the assessment below.
+          <span className={styles.highlightBox}>Real Results.</span>Ready to build yours? Choose your next step below.
         </ScrollHighlightText>
-      </Section>
-
-    {/* Multi-Step Form Section */}
-    <Section padding='none' marginBottom='xxl'>
-        <MultiStepContactForm />
       </Section>
 
         <div className={styles.wrapper}>

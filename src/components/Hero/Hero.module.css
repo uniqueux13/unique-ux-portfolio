@@ -291,8 +291,8 @@
   .heroContent {
     /* padding-top: none; */ /* Keep padding from tablet or increase */
     /* padding-bottom: none; */
-    padding-top: var(--space-xxl);
-    padding-bottom: var(--space-xl);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xxl);
   }
 
   .heroLayoutContainer {

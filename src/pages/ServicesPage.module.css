@@ -17,7 +17,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: var(--space-lg); /* Add space before button */
-   /* Font size/weight likely handled by Typography variant="subtitle1" */
+  /* Font size/weight likely handled by Typography variant="subtitle1" */
 }
 
 /* Optional specific paragraph styling within hero */
@@ -56,7 +56,6 @@
 }
 /* Optional: remove top margin from the very first category title */
 /* .categoryTitle:first-of-type { margin-top: 0; } */
-
 
 /* --- Service Items Grid Layout --- */
 .serviceItems {
@@ -109,7 +108,7 @@
 
 /* Custom bullet point */
 .serviceDescription li::before {
-  content: '🔹'; /* Or '✓', '→', etc. */
+  content: "🔹"; /* Or '✓', '→', etc. */
   position: absolute;
   left: 0;
   top: 0; /* Adjust alignment if needed */
@@ -121,26 +120,30 @@
 /* This class is applied ADDITIONALLY to the Card component in ServicesPage.tsx */
 /* e.g., <Card className={styles.featuredService}> */
 .featuredService {
-/* Overrides/enhances base Card styles from Card.module.css */
-border: 2px solid var(--color-primary);
-/* Add a subtle glow effect combined with base shadow */
-/* Assumes Card.module.css applies var(--shadow-low) by default */
-box-shadow: 0 0 12px -5px var(--color-primary), var(--shadow-low);
-position: relative; /* If needed for pseudo-elements like tags */
+  /* Overrides/enhances base Card styles from Card.module.css */
+  border: 2px solid var(--color-primary);
+  /* Add a subtle glow effect combined with base shadow */
+  /* Assumes Card.module.css applies var(--shadow-low) by default */
+  box-shadow: 0 0 12px -5px var(--color-primary), var(--shadow-low);
+  position: relative; /* If needed for pseudo-elements like tags */
 }
 
 /* Enhance hover state specifically for featured card */
 .featuredService:hover {
-border-color: var(--color-primary); /* Keep border color */
-/* Enhance glow and use medium shadow */
-/* Assumes Card.module.css hover applies var(--shadow-medium) */
-box-shadow: 0 0 18px -4px var(--color-primary), var(--shadow-medium);
-/* Ensure transform is applied (matches or overrides base Card hover) */
-transform: translateY(-5px) scale(1.02);
+  border-color: var(--color-primary); /* Keep border color */
+  /* Enhance glow and use medium shadow */
+  /* Assumes Card.module.css hover applies var(--shadow-medium) */
+  box-shadow: 0 0 18px -4px var(--color-primary), var(--shadow-medium);
+  /* Ensure transform is applied (matches or overrides base Card hover) */
+  transform: translateY(-5px) scale(1.02);
 }
 
 /* --- Final Wrapper Style --- */
 .wrapper {
   width: 100%; /* Use 100% instead of 100vw */
   background-color: var(--color-background-alt); /* Use alt background */
+}
+
+.multistepformtop {
+  padding: var(--space-xl);
 }

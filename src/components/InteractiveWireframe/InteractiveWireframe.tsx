@@ -30,7 +30,7 @@ const InteractiveWireframe: React.FC<InteractiveWireframeProps> = ({ className =
         </div>
         {/* Inside the card: Button Placeholder */}
         <div className={`${styles.element} ${styles.button}`}>
-            Submit
+            Buy Now
         </div>
       </div>
 
