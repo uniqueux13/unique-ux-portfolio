@@ -159,10 +159,10 @@
       align-items: center;
   }
   .linkList {
-      text-align: center;
+      text-align: left;
   }
    .socialIcons {
-       justify-content: center; /* Center icons when columns stack */
+       justify-content: left; /* Center icons when columns stack */
    }
    .brandColumn {
        flex-basis: auto; /* Reset basis when stacked */

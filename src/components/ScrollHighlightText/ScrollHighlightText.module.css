@@ -110,15 +110,14 @@
   .highlightText {
     /* Reduce font size for smaller screens */
     /* Use a smaller heading variable or a specific value */
-    font-size: var(--font-size-h4, 1.6rem); /* Adjust h4 variable or fallback value as needed */
+    font-size: var(--font-size-h3, 1.6rem); /* Adjust h4 variable or fallback value as needed */
 
     /* Optionally adjust line height for smaller font */
     line-height: 1.8;
-
+    text-align: left;
     /* Adjust horizontal padding for smaller viewports */
     padding-left: none; /* Use a smaller space variable or value */
     padding-right: none;/* Use a smaller space variable or value */
-
     /* Optional: If you don't want a max-width on mobile, uncomment below */
     /* max-width: none; */
   }
