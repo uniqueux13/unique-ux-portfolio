@@ -74,21 +74,38 @@
   color: var(--color-secondary);
 }
 
-/* Highlight Box styles */
 .highlightBox {
+  /* Keep standard layout properties */
   display: inline-block;
   padding: 0.01em 0.08em;
+  border-radius: 4px;
+  margin: 0 0.1em;
+  vertical-align: baseline;
+
+  /* --- Animation Setup --- */
+  /* Initial state: 0% opacity background (transparent) */
+  background-color: transparent;
+
+  /* Define transition for background-color with 2-second duration */
+  transition: background-color 2.4s ease-in; /* Set duration to 2 seconds */
+
+  /* Reset other potentially interfering properties */
+  opacity: 1;          /* Ensure text itself remains visible */
+  transform: none;     /* Reset position */
+  box-shadow: none;    /* Reset glow */
+  will-change: auto;   /* Can also set to 'background-color' */
+}
+
+/* Class added by JavaScript when element is visible */
+.animateIn {
+  /* Final state: Background with 48% opacity using color-mix */
   background-color: color-mix(
     in srgb,
     var(--color-primary) 48%,
     transparent
-  ); /* Adjusted alpha */
-  border-radius: 4px; /* Adjusted radius */
-  /* Removed border for cleaner look, uncomment if preferred */
-  /* border: 1px solid hsla(var(--color-primary-hsl, 217 71% 53%), 0.3); */
-  margin: 0 0.1em;
-  vertical-align: baseline;
+  );
 }
+
 
 /* --- Responsive YouTube Embed --- */
 .videoWrapper {

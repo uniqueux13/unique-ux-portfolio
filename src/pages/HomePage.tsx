@@ -1,17 +1,18 @@
 // src/pages/HomePage.tsx
-import React from "react";
+import React from "react"; // No need for other hooks here anymore for this feature
+
+// Component Imports
 import Section from "../components/Section/Section";
 import Hero from "../components/Hero/Hero";
 import Card from "../components/Card/Card";
-import CtaSection from "../components/CtaSection/CtaSection"
-// import TwoColumnSection from "../components/TwoColumnSection/TwoColumnSection";
+import CtaSection from "../components/CtaSection/CtaSection";
 import ScrollHighlightText from "../components/ScrollHighlightText/ScrollHighlightText";
-// import CtaSection from "../components/CtaSection/CtaSection";
 import Typography from "../components/Typography/Typography";
 import HorizontalImageScroller from "../components/HorizontalImageScroller/HorizontalImageScroller";
-// import ScrollHighlightText from "../components/ScrollHighlightText/ScrollHighlightText";
+import AnimatedHighlight from "../components/AnimatedHighlight/AnimatedHighlight"; // <-- Import the new component
 import styles from "./HomePage.module.css";
-// import MultiStepContactForm from "../components/MultiStepContactForm/MultiStepContactForm";
+
+// Icon Imports
 import {
   FaBullseye,
   FaPencilAlt,
@@ -20,8 +21,8 @@ import {
   FaPuzzlePiece,
   FaMobileAlt,
   FaPaintBrush,
-  FaVideo, // Add icons for services
-} from "react-icons/fa"; // Choose icons
+  FaVideo,
+} from "react-icons/fa";
 
 // Asset Imports
 import gromoLogo from "../assets/Clients/gromo-logo.png";
@@ -32,14 +33,9 @@ import icereamAppsLogo from "../assets/Clients/icecream-apps-logo.png";
 import gallaudetLogo from "../assets/Clients/gallaudet-logo.png";
 import documintLogo from "../assets/Clients/documint-logo.png";
 import jdiLogo from "../assets/Clients/jdi-logo.png";
-import portifyLogo from "../assets/Clients/portify-logo.png"; // Example logo, adjust as needed
-// import uxCertificate from "../assets/google-ux-certificate.png";
-
-// const youtubeEmbedUrl =
-//   "https://www.youtube.com/embed/bIwTsAEJNF8?si=iP1RKxSzdA7MwotO";
+import portifyLogo from "../assets/Clients/portify-logo.png";
 
 const HomePage: React.FC = () => {
-  // Define the logos for the scroller
   const trustedLogos = [
     { src: gromoLogo, alt: "GroMo Agency Logo" },
     { src: nimblebotLogo, alt: "Nimblebot Logo" },
@@ -49,7 +45,7 @@ const HomePage: React.FC = () => {
     { src: icereamAppsLogo, alt: "Icecream Apps Logo" },
     { src: gallaudetLogo, alt: "Gallaudet University Logo" },
     { src: documintLogo, alt: "Documint Logo" },
-    { src: portifyLogo, alt: "JDI Logo" },
+    { src: portifyLogo, alt: "Portify Logo" }, // Corrected alt text potentially
   ];
 
   return (
@@ -59,42 +55,38 @@ const HomePage: React.FC = () => {
           eyebrow='INTEGRATED CONTENT STUDIO'
           title='Create A Cohesive Digital Presence That Performs.'
           subtitle='We design intuitive interfaces, build cutting-edge web applications, and create targeted, often viral content – delivering unified solutions built for impact and reach.'
-          // --- Add Social Proof Data ---
-          rating='5.0' // Or use a number: 5
+          rating='5.0'
           testimonial='It is a pleasure to work with Unique UX, they are really good at what they do and they have great ideas!'
           testimonialAuthor='Nimblebot'
         />
       </div>
 
-      {/* Trusted By / Scroller Section */}
       <Section padding='md' marginBlock='xs'>
         <Typography
           variant='subtitle1'
-          className={styles.centerP} // Or maybe "eyebrow", "subtitle2" depending on your variants
+          className={styles.centerP}
         >
           Trusted By Professionals
-          {/* Or shorter: "Trusted By" */}
-          {/* Or: "Powering Success For" */}
         </Typography>
       </Section>
 
       <div className={styles.trustedSection}>
         <HorizontalImageScroller
           images={trustedLogos}
-          speed='50s' // Adjust speed as desired
-          imageMaxHeight='55px' // Adjusted from previous example, tweak as needed
+          speed='50s'
+          imageMaxHeight='55px'
         />
       </div>
 
+      {/* === First Highlighted Text === */}
       <Section marginBottom="md">
         <ScrollHighlightText
           baseColor='var(--color-text-muted)'
           highlightColor='var(--color-text)'
-          triggerPoint={0.7} // Adjust trigger point if needed
+          triggerPoint={0.7}
           align="center"
         >
-          
-          Transforming<span className={styles.highlightBox}>Your Vision</span>into a high-performing digital reality requires diverse capabilities. Explore the core services we offer to make it happen:
+          Transforming <AnimatedHighlight>Your Vision</AnimatedHighlight> into a high-performing digital reality requires diverse capabilities. Explore the core services we offer to make it happen:
         </ScrollHighlightText>
       </Section>
 
@@ -106,44 +98,27 @@ const HomePage: React.FC = () => {
         padding='sm'
         aria-labelledby='services-section-title'
       >
-        {/* Title for the Services Section */}
         <h2
-          id='services-section-title' // For accessibility
-          style={{ textAlign: "center", marginBottom: "var(--space-sm)" }} // Center align title
+          id='services-section-title'
+          style={{ textAlign: "center", marginBottom: "var(--space-sm)" }}
         >
           Our Core Services
         </h2>
-
-        {/* <p style={{ marginTop: 0, marginBottom: 0, marginLeft: "auto", marginRight: "auto", textAlign: "center", maxWidth: '800px' }}>
-          You can find all of our core offerings below – from UX & UI design to content creation and branding. Each service is tailored to help you build a unified, high-impact digital presence.
-        </p> */}
-
-        {/* Container for the Service Cards - Reusing layout class */}
         <Section
-          className={styles.stepCards} // Reusing the same layout style
-          padding='none' // Let the outer Section handle overall padding
+          className={styles.stepCards}
+          padding='none'
           aria-label='Service Categories'
         >
           {/* Service Card 1: UX & UI Design */}
           <Card className={styles.outcomeCard}>
-            {" "}
-            {/* Reusing card style */}
-            <FaMobileAlt className={styles.cardIcon} aria-hidden='true' />{" "}
-            {/* Icon */}
+            <FaMobileAlt className={styles.cardIcon} aria-hidden='true' />
             <Typography variant='h3' className={styles.cardTitle}>
-              {" "}
-              {/* Title */}
               UX & UI Design
             </Typography>
             <Typography variant='p' className={styles.cardDescription}>
-              {" "}
-              {/* Description */}
-              Intuitive interfaces & seamless user flows for web and mobile
-              applications.
+              Intuitive interfaces & seamless user flows for web and mobile applications.
             </Typography>
-            {/* You can wrap this Card in a <Link> later */}
           </Card>
-
           {/* Service Card 2: Graphic Design & Branding */}
           <Card className={styles.outcomeCard}>
             <FaPaintBrush className={styles.cardIcon} aria-hidden='true' />
@@ -151,12 +126,9 @@ const HomePage: React.FC = () => {
               Graphic Design & Branding
             </Typography>
             <Typography variant='p' className={styles.cardDescription}>
-              Memorable logos, complete brand identities, and engaging visual
-              assets.
+              Memorable logos, complete brand identities, and engaging visual assets.
             </Typography>
-            {/* You can wrap this Card in a <Link> later */}
           </Card>
-
           {/* Service Card 3: Writing & Content Creation */}
           <Card className={styles.outcomeCard}>
             <FaPencilAlt className={styles.cardIcon} aria-hidden='true' />
@@ -164,12 +136,9 @@ const HomePage: React.FC = () => {
               Writing & Content Creation
             </Typography>
             <Typography variant='p' className={styles.cardDescription}>
-              Compelling website copy, SEO-driven articles, and effective
-              scriptwriting.
+              Compelling website copy, SEO-driven articles, and effective scriptwriting.
             </Typography>
-            {/* You can wrap this Card in a <Link> later */}
           </Card>
-
           {/* Service Card 4: Video & Audio Production */}
           <Card className={styles.outcomeCard}>
             <FaVideo className={styles.cardIcon} aria-hidden='true' />
@@ -177,40 +146,34 @@ const HomePage: React.FC = () => {
               Video & Audio Production
             </Typography>
             <Typography variant='p' className={styles.cardDescription}>
-              Professional video editing, custom music, and sound design
-              services.
+              Professional video editing, custom music, and sound design services.
             </Typography>
-            {/* You can wrap this Card in a <Link> later */}
           </Card>
         </Section>
-        {/* --- End Service Cards Container --- */}
-
       </Section>
       {/* === End NEW Services Section === */}
 
+      {/* === Second Highlighted Text === */}
       <Section marginBottom="lg">
         <ScrollHighlightText
           baseColor='var(--color-text-muted)'
           highlightColor='var(--color-text)'
-          triggerPoint={0.7} // Adjust trigger point if needed
+          triggerPoint={0.7}
           align="center"
         >
-          Applying these services with strategic focus is key. Our commitment to
-          <span className={styles.highlightBox}>Expert Execution</span>ensures every detail aligns with your goals.
+          Applying these services with strategic focus is key. Our commitment to <AnimatedHighlight>Expert Execution</AnimatedHighlight> ensures every detail aligns with your goals.
         </ScrollHighlightText>
       </Section>
 
       {/* Process Section / Narrative & Deliverables */}
       <Section marginBottom='xl' padding='sm'>
-        {/* Title for the Services Section */}
         <h2
-          id='services-section-title' // For accessibility
-          style={{ textAlign: "center", marginBottom: "var(--space-lg)" }} // Center align title
+          // Note: Duplicate ID 'services-section-title'. IDs should be unique.
+          // Consider renaming this one (e.g., 'outcomes-section-title')
+          id='outcomes-section-title'
+          style={{ textAlign: "center", marginBottom: "var(--space-lg)" }}
         >Key Service Outcomes
         </h2>
-        {/* Narrative Text */}
-        {/* --- NEW Card Section --- */}
-        {/* Use className for styling card layout (e.g., flexbox/grid) */}
         <Section
           className={styles.stepCards}
           padding='sm'
@@ -218,49 +181,34 @@ const HomePage: React.FC = () => {
         >
           {/* Card 1: Example Outcome/Deliverable */}
           <Card className={styles.outcomeCard}>
-            {" "}
-            {/* Optional: Add class for card-specific styles */}
-            <FaBullseye className={styles.cardIcon} aria-hidden='true' />{" "}
-            {/* Icon */}
+            <FaBullseye className={styles.cardIcon} aria-hidden='true' />
             <Typography variant='h4' className={styles.cardTitle}>
-              {" "}
-              {/* Title */}
               High-Converting Landing Pages
             </Typography>
             <Typography variant='p' className={styles.cardDescription}>
-              {" "}
-              {/* Description */}
-              Receive pages meticulously designed not just for aesthetics, but
-              to guide users effectively towards your key business objectives.
+              Receive pages meticulously designed not just for aesthetics, but to guide users effectively towards your key business objectives.
             </Typography>
           </Card>
-
           {/* Card 2: Example Outcome/Deliverable */}
           <Card className={styles.outcomeCard}>
-            {/* Use FaUsers for audience focus, FaPencilAlt for creation */}
             <FaUsers className={styles.cardIcon} aria-hidden='true' />
             <Typography variant='h4' className={styles.cardTitle}>
               Audience-Focused Content
             </Typography>
             <Typography variant='p' className={styles.cardDescription}>
-              Get compelling content engineered to attract, engage, and resonate
-              deeply with your specific target audience's needs and motivations.
+              Get compelling content engineered to attract, engage, and resonate deeply with your specific target audience's needs and motivations.
             </Typography>
           </Card>
-
           {/* Card 3: Example Outcome/Deliverable */}
           <Card className={styles.outcomeCard}>
-            {/* FaSitemap or FaRoute for flow, FaPuzzlePiece for fitting together */}
             <FaPuzzlePiece className={styles.cardIcon} aria-hidden='true' />
             <Typography variant='h4' className={styles.cardTitle}>
               Seamless Digital Experiences
             </Typography>
             <Typography variant='p' className={styles.cardDescription}>
-              Benefit from intuitive interfaces and user flows across web and
-              content, eliminating friction for a cohesive brand journey.
+              Benefit from intuitive interfaces and user flows across web and content, eliminating friction for a cohesive brand journey.
             </Typography>
           </Card>
-
           {/* Card 4: Example Outcome/Deliverable (Optional) */}
           <Card className={styles.outcomeCard}>
             <FaChartLine className={styles.cardIcon} aria-hidden='true' />
@@ -268,68 +216,34 @@ const HomePage: React.FC = () => {
               Measurable Impact & Growth
             </Typography>
             <Typography variant='p' className={styles.cardDescription}>
-              Leverage data-driven insights and continuous optimization to
-              ensure your digital presence delivers tangible results and growth.
+              Leverage data-driven insights and continuous optimization to ensure your digital presence delivers tangible results and growth.
             </Typography>
           </Card>
         </Section>
-        {/* --- End NEW Card Section --- */}
       </Section>
 
-      {/* <Section padding='sm' marginBottom='md'>
-        <div className={styles.videoWrapper}>
-          <iframe
-            src={youtubeEmbedUrl} // Use the correct embed URL
-            title='YouTube video player' // Keep a descriptive title
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-            referrerPolicy='strict-origin-when-cross-origin'
-            allowFullScreen
-            // width/height/frameborder are handled by CSS now
-          ></iframe>
-        </div>
-      </Section> */}
-
-      {/* <Section padding='none' marginBottom='md'>
-        {" "}
-        <TwoColumnSection
-          imageSrc={uxCertificate}
-          imageAlt='Google UX Design Certificate'
-          imageOnLeft={true}
-        >
-          <Typography variant='h2' className={styles.manifestoTitle}>
-            Certificate | Foundations of UX design
-          </Typography>
-          <Typography variant='p' className={styles.manifestoText}>
-            During my studies for the Google UX Design Certificate, I delved
-            into the core principles of UX design, refining my skills in user
-            research, prototyping, and interaction design through hands-on
-            projects.
-          </Typography>
-        </TwoColumnSection>
-      </Section> */}
-
-<Section marginBottom="xxl">
+      {/* === Third Highlighted Text === */}
+      <Section marginBottom="xxl">
         <ScrollHighlightText
           baseColor='var(--color-text-muted)'
           highlightColor='var(--color-text)'
-          triggerPoint={0.7} // Adjust trigger point if needed
+          triggerPoint={0.7}
           align="center"
         >
-          When a landing page feels intuitive and tailor-made, it drives  
-          <span className={styles.highlightBox}>Real Results.</span>Ready to build yours? Choose your next step below.
+          When a landing page feels intuitive and tailor-made, it drives <AnimatedHighlight>Real Results.</AnimatedHighlight> Ready to build yours? Choose your next step below.
         </ScrollHighlightText>
       </Section>
 
-        <div className={styles.wrapper}>
+      <div className={styles.wrapper}>
         <CtaSection>
-
+          {/* Assuming CtaSection handles its own content */}
         </CtaSection>
-        </div>
-        
+      </div>
 
-      {/* <Section marginBottom='xl'>
-        <CtaSection></CtaSection>
-      </Section> */}
+      {/* Comments for potentially unused sections are kept */}
+      {/* <Section padding='sm' marginBottom='md'> ... video ... </Section> */}
+      {/* <Section padding='none' marginBottom='md'> ... TwoColumnSection ... </Section> */}
+      {/* <Section marginBottom='xl'> <CtaSection></CtaSection> </Section> */}
     </>
   );
 };

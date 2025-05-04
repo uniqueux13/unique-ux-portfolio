@@ -70,20 +70,6 @@
   text-decoration-color: var(--color-text);
 }
 
-/* Highlight Box Styling */
-.highlightBox {
-  display: inline-block;
-  padding: 0.25em 0.25em; /* Relative padding scales with font size */
-  background-color: hsla(var(--color-primary-hsl, 217 71% 53%), 0.15); /* 15% opacity background */
-  border-radius: 2px;
-  margin: 0 0.1em;
-  vertical-align: baseline;
-  font-weight: var(--font-weight-bold);
-
-  /* Explicit color needed if parent uses text-fill-color */
-  color: var(--color-text);
-  -webkit-text-fill-color: initial; /* Reset fill color */
-}
 
 /* --- Alignment Classes --- */
 .textAlignLeft {
@@ -121,11 +107,6 @@
     /* Optional: If you don't want a max-width on mobile, uncomment below */
     /* max-width: none; */
   }
-
-  /* Example: Slightly reduce padding on highlight box if needed */
-   .highlightBox {
-      padding: none;
-  } 
 
   /* Alignment classes generally don't need mobile overrides unless */
   /* the margin behavior needs specific adjustment */
