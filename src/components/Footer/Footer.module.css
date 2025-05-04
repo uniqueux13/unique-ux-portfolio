@@ -1,55 +1,170 @@
-/* src/components/Footer/Footer.module.css (Updated) */
-
+/* Base Footer Styling */
 .footer {
-  background-color: var(--color-header-footer-bg); /* Use header/footer bg variable */
-  text-align: center;
-  padding: var(--space-md) var(--space-md); /* Use variable for padding */
-  color: var(--color-text);
-  margin-top: 0; /* Add margin above footer */
+  background-color: #222; /* Dark background */
+  color: #ccc; /* Light grey text */
+  padding: 40px 5%; /* Padding top/bottom and side */
+  font-size: 0.9rem;
+  margin-top: auto; /* Pushes footer to bottom if main content is short */
 }
 
-/* Style for the copyright paragraph */
-.footer p {
-    margin: 0; /* Remove default paragraph margin */
-    margin-bottom: var(--space-sm); /* Add space below copyright */
-    font-size: var(--font-size-caption);
-    color: var(--color-secondary);
+/* Container for footer columns */
+.footerContent {
+  display: flex;
+  flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+  justify-content: space-between; /* Distribute space */
+  gap: 30px; /* Space between columns */
+  margin-bottom: 30px; /* Space before bottom bar */
+  max-width: 1200px; /* Optional: Max width for content */
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* --- Added Color Picker Styles --- */
-.colorPickerWrapper {
-  display: flex; /* Use flex for inline alignment */
-  justify-content: center; /* Center items horizontally */
+/* Styling for each column */
+.footerColumn {
+  flex: 1; /* Allow columns to grow */
+  min-width: 200px; /* Minimum width before wrapping */
+  margin-bottom: 20px; /* Space below columns when they stack */
+}
+
+/* Special styling for the brand column if needed */
+.brandColumn {
+  flex-basis: 25%; /* Give brand column potentially more space */
+}
+
+.footerLogo {
+    max-width: 150px; /* Adjust size as needed */
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+/* Footer Headings */
+.footerHeading {
+  color: #fff; /* White heading color */
+  margin-bottom: 15px;
+  font-weight: bold; /* Using Typography component might handle this */
+  font-size: 1.1rem; /* Adjust as needed */
+}
+
+/* General text in the footer */
+.footerText {
+  color: #bbb; /* Slightly lighter grey for descriptions/address */
+  line-height: 1.6;
+}
+
+/* Styling for lists of links */
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkList li {
+  margin-bottom: 10px;
+}
+
+/* Footer Links */
+.footerLink {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+  display: inline-flex; /* Helps align icons */
   align-items: center;
-  gap: var(--space-xs);
-  margin-top: var(--space-sm); /* Space above picker */
 }
 
-.colorPickerLabel {
-  font-size: var(--font-size-caption);
-  color: var(--color-secondary);
+.footerLink:hover {
+  color: #fff; /* White on hover */
+  text-decoration: underline;
 }
 
-.colorPickerInput {
-  -webkit-appearance: none; /* Override default appearance */
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid var(--color-secondary);
-  border-radius: 4px;
-  cursor: pointer;
-  width: 45px;  /* Slightly wider */
-  height: 28px; /* Slightly taller */
-  padding: 2px;
-  background-color: transparent; /* Make background transparent */
+/* Icons next to contact info */
+.contactIcon {
+  margin-right: 8px;
+  font-size: 1em; /* Match icon size to text */
+  vertical-align: middle; /* Align icon better */
 }
-/* Style the inner color swatch for Chrome/Edge/Safari */
-.colorPickerInput::-webkit-color-swatch {
-  border-radius: 3px;
-  border: none; /* Remove border on swatch itself */
+
+/* Social Media Icons Section */
+.socialIcons {
+  display: flex;
+  gap: 15px; /* Space between icons */
+  margin-top: 10px;
 }
-/* Style the inner color swatch for Firefox */
-.colorPickerInput::-moz-color-swatch {
-  border-radius: 3px;
-  border: none;
+
+.socialLink {
+  color: #ccc;
+  font-size: 1.5rem; /* Size of social icons */
+  transition: color 0.2s ease-in-out;
+  display: inline-block; /* Needed for proper spacing/hover */
 }
-/* --- End Added Color Picker Styles --- */
+
+.socialLink:hover {
+  color: #fff; /* White on hover */
+}
+
+/* Footer Bottom Bar */
+.footerBottom {
+  border-top: 1px solid #444; /* Separator line */
+  padding-top: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  font-size: 0.8rem;
+  color: #aaa; /* Dimmer text for copyright/legal */
+  max-width: 1200px; /* Optional: Match content width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.copyRight {
+   text-align: center;
+   flex-basis: 100%; /* Center on small screens */
+}
+
+.legalLinks {
+  display: flex;
+  gap: 10px;
+  text-align: center;
+   flex-basis: 100%; /* Center on small screens */
+}
+
+.legalSeparator {
+    margin: 0 5px;
+    color: #555;
+}
+
+/* --- Responsive Adjustments --- */
+@media (min-width: 768px) {
+    /* On medium screens and up, align copyright left and legal links right */
+   .copyRight {
+       text-align: left;
+       flex-basis: auto;
+   }
+   .legalLinks {
+       text-align: right;
+       flex-basis: auto;
+   }
+}
+
+@media (max-width: 767px) {
+  .footerContent {
+    flex-direction: column; /* Stack columns */
+    align-items: center; /* Center items when stacked */
+    text-align: center;
+  }
+  .footerColumn {
+      min-width: 100%; /* Make columns full width */
+      align-items: center;
+  }
+  .linkList {
+      text-align: center;
+  }
+   .socialIcons {
+       justify-content: center; /* Center icons when columns stack */
+   }
+   .brandColumn {
+       flex-basis: auto; /* Reset basis when stacked */
+   }
+}

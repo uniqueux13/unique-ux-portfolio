@@ -308,7 +308,7 @@ const HomePage: React.FC = () => {
         </TwoColumnSection>
       </Section> */}
 
-<Section marginBottom="lg">
+<Section marginBottom="xxl">
         <ScrollHighlightText
           baseColor='var(--color-text-muted)'
           highlightColor='var(--color-text)'
