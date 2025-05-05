@@ -173,7 +173,7 @@
 /* Optional: Hover effect for the card */
 .outcomeCard:hover {
   transform: translateY(-4px);
-  box-shadow: var(--color-box-shadow);
+  box-shadow: var(--shadow-medium);
 }
 
 /* Styling for the icon within the card */

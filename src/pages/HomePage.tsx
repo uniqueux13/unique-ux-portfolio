@@ -52,8 +52,8 @@ const HomePage: React.FC = () => {
     <>
       <div className={styles.heroBackground}>
         <Hero
-          eyebrow='INTEGRATED CONTENT STUDIO'
-          title='Create A Cohesive Digital Presence That Performs.'
+          eyebrow='CONTENT STUDIO'
+          title='Create A Digital Presence That Performs.'
           subtitle='We design intuitive interfaces, build cutting-edge web applications, and create targeted, often viral content – delivering unified solutions built for impact and reach.'
           rating='5.0'
           testimonial='It is a pleasure to work with Unique UX, they are really good at what they do and they have great ideas!'

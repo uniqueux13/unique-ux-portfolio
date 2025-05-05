@@ -1,5 +1,6 @@
 /* src/components/Card/Card.module.css */
 /* Updated: Added responsive padding and margin-bottom */
+/* Updated: Added mobile carousel styles for the card */
 
 .card {
   background-color: var(--color-card-background);
@@ -11,17 +12,17 @@
 
   /* --- Base (Mobile) Spacing --- */
   padding: var(--space-md); /* Start with medium padding */
-  margin-bottom: var(--space-md); /* Start with medium bottom margin */
+  margin-bottom: var(--space-sm); /* Start with medium bottom margin */
 
   /* Add transitions if you plan hover effects (like in HomePage.module.css) */
   transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
 /* Example hover effect (optional, ensure consistency) */
-/* .card:hover {
+ .card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-medium);
-} */
+}
 
 
 /* --- Tablet and Up Spacing --- */
@@ -41,13 +42,42 @@
 @media (min-width: 1024px) {
   .card {
     /* OPTIONAL: Further increase padding for desktops if desired */
-     padding: var(--space-md); 
+     padding: var(--space-md);
 
     /* OPTIONAL: Further increase margin-bottom for desktops if desired */
-     margin-bottom: var(--space-xl); 
+     margin-bottom: var(--space-md);
 
     /* Often, the tablet spacing (lg) is sufficient for desktops too. */
     /* Only add overrides here if you specifically need larger spacing */
-    /* on large screens than on tablets.                          */
+    /* on large screens than on tablets.                      */
+  }
+}
+
+
+/* =============================================== */
+/* --- Mobile Horizontal Scroll Styles for Card -- */
+/* =============================================== */
+/* Use the same breakpoint as your reference example (e.g., 767px) */
+@media (max-width: 767px) {
+  .card {
+    /* 1. Define card width for horizontal layout */
+    /* Adjust width as needed - 80vw usually shows the current card + a peek of the next */
+    width: 80vw;
+    max-width: 330px; /* Optional: Max width if needed */
+    flex-shrink: 0;   /* Prevent cards from shrinking to fit */
+
+    /* 2. Align item for scroll snapping */
+    scroll-snap-align: start; /* Snap card to the start of the scroll container */
+
+    /* 3. Disable hover transform on mobile (prevents jumpiness during scroll) */
+    /* Override existing hover effect within this media query */
+    /* We only disable transform, keep other potential hover effects like shadow */
+  }
+
+  /* Specifically target the hover state within mobile view */
+  .card:hover {
+    transform: none; /* Disable translateY/scale effect on mobile */
+    /* Keep other hover styles if needed, e.g.: */
+    box-shadow: var(--shadow-medium);
   }
 }

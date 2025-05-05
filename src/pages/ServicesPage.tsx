@@ -267,7 +267,7 @@ const ServicesPage: React.FC = () => {
 
       {/* --- Main Services Listing Section --- */}
       {/* This outer Section provides overall padding for the service listings */}
-      <Section padding='lg' marginBlock='none'>
+      <Section padding='md' marginBlock='none'>
         {renderServiceCategory("UX & UI Design", services.uxui)}
         {renderServiceCategory(
           "Graphic Design & Branding",
