@@ -223,13 +223,13 @@
 @media (max-width: 768px) {
   /* Adjust card container gap for smaller screens if needed */
   .stepCards {
-    gap: var(--space-md);
+    gap: var(--space-sm);
   }
 
   /* Adjust card padding for smaller screens */
   .outcomeCard {
     padding: var(--space-md);
-    margin-bottom: var(--space-none);
+    margin-inline: var(--space-xs);
     /* Reset max-width or adjust flex-basis if needed */
     flex-basis: 100%; /* Make cards full width on small mobile? */
     max-width: none; /* Remove max-width on small mobile */
