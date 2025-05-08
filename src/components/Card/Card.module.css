@@ -1,6 +1,4 @@
 /* src/components/Card/Card.module.css */
-/* Updated: Added responsive padding and margin-bottom */
-/* Updated: Added mobile carousel styles for the card */
 
 .card {
   background-color: var(--color-background-muted);
@@ -60,18 +58,7 @@
 /* Use the same breakpoint as your reference example (e.g., 767px) */
 @media (max-width: 767px) {
   .card {
-    /* 1. Define card width for horizontal layout */
-    /* Adjust width as needed - 80vw usually shows the current card + a peek of the next */
-    width: 80vw;
-    max-width: 330px; /* Optional: Max width if needed */
     flex-shrink: 0;   /* Prevent cards from shrinking to fit */
-
-    /* 2. Align item for scroll snapping */
-    scroll-snap-align: start; /* Snap card to the start of the scroll container */
-
-    /* 3. Disable hover transform on mobile (prevents jumpiness during scroll) */
-    /* Override existing hover effect within this media query */
-    /* We only disable transform, keep other potential hover effects like shadow */
   }
 
   /* Specifically target the hover state within mobile view */

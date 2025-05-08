@@ -33,6 +33,7 @@
   @media (max-width: 768px) {
     .imageGrid {
       grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+      padding: var(--space-md);
     }
   }
   
@@ -40,5 +41,6 @@
     .imageGrid {
       grid-template-columns: 1fr; /* 1 column on very small screens */
       margin: 0 auto;
+      padding: var(--space-md);
     }
   }
