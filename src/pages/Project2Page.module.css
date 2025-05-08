@@ -1,167 +1,192 @@
-/* src/pages/Project1Page.module.css */
+.heroContent {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-block: var(--space-xl) var(--space-xs);
+}
+
 .heroTitle {
-    margin-bottom: var(--space-xs);
-      color: var(--color-text);
-      text-align: center;
-  }
-  
-  .heroSubtitle {
-    color: var(--color-text);
-    text-align: center;
-  }
-  .heroP{
-    font-family: var(--font-family-sora);
-    font-size: var(--font-size-hero-paragraph);
-    line-height: var(--line-height-hero-paragraph);
-    font-weight: 400;
-    margin-bottom: var(--space-md);
-}
-  .heroContent {
-    max-width: 1200px;
-    margin: 6rem auto;
-    text-align: center;
-  }
-
-
-  
-  .hero {
-    text-align: center;
-    margin-top: 6rem;
-  }
-  
-  .projectTitle {
-    margin-bottom: var(--space-md);
-      color: var(--color-text);
-      text-align: left;
-  }
-  
-  .projectSubtitle {
-    color: var(--color-text);
-    text-align: left;
-  }
-  .heroP{  /*Added class*/
-    font-family: var(--font-family-sora);
-    font-size: var(--font-size-hero-paragraph);
-    line-height: var(--line-height-hero-paragraph);
-    font-weight: 400;
-    margin-bottom: var(--space-md);
-}
-  .narrowContent {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center; /* Add this line! */
-  }
-
-  .keyResult {
-    font-weight: bold;
-    margin-bottom: var(--space-lg);
-    color: var(--color-primary);
-  }
-  
-  .heroImage {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    border-radius: 4px;
-  }
-  
-  .sectionCard {
-      background-color: var(--color-background); 
-      color: var(--color-text);
-  }
-  
-  .videoContainer {
-    position: relative;  
-    padding-bottom: 56.25%; 
-    height: 0;             
-    overflow: hidden;
-    margin-top: 2rem;
+  margin-bottom: var(--space-xs);
+  color: var(--color-text);
+  text-align: center;
 }
 
-  .sectionTitle {
-    margin-bottom: var(--space-md);
-    text-align: center; 
-  
-  }
-  
-  .processStepTitle {
-      margin-bottom: var(--space-sm);
-      font-size: 1.25rem; 
-      font-weight: bold;
-  }
-  
-  .processImage {
-    width: 100%;
-    height: auto;
-    border-radius: 4px; 
-  }
-  
-  .imageCaption {
-    font-size: 0.9rem;
-    color: var(--color-secondary);
-    margin-top: var(--space-xs);
-    text-align: center; 
-  }
-  .fullWidthImage{
-      width: 100%;
-      height: auto;
-      border-radius: 4px;
-  }
+.heroSubtitle {
+  color: var(--color-secondary);
+  text-align: center;
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-lg);
+}
 
-  .sectionDivider {
-    border: none;
-    border-top: 1px solid var(--color-secondary); 
-    margin: var(--space-lg) 0; 
-  }
+/* --- General Section Styles --- */
+.sectionTitle {
+  margin-bottom: var(--space-sm);
+  text-align: left;
+  /* Alignment handled by Typography prop */
+}
 
-  /* src/pages/Project1Page.module.css */
+.sectionSubtitle {
+  /* Used in previous version, keep if needed elsewhere */
+  color: var(--color-secondary);
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-lg);
+  /* Alignment handled by Typography prop */
+}
 
-/* ... (your existing styles) ... */
+.sectionText {
+  /* Used in Founder & Philosophy */
+  color: var(--color-text-secondary); /* Or primary text color */
+  margin-bottom: var(--space-md); /* Space between paragraphs */
+  line-height: var(--line-height-paragraph);
+}
+
+.projectTitle {
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+  text-align: left;
+}
+
+.projectSubtitle {
+  color: var(--color-text);
+  text-align: left;
+}
+
+.narrowContent {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center; /* Add this line! */
+}
+
+.keyResult {
+  font-weight: bold;
+  margin-bottom: var(--space-lg);
+  color: var(--color-primary);
+}
+
+.videoContainer {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin-top: 2rem;
+}
 
 .sectionTitle {
-    margin-bottom: var(--space-md);
-    text-align: center; /* Or left, if you prefer */
-  }
-  
-  .checkListGrid {
-    display: grid;
-    grid-template-columns: 1fr; /* One column by default (mobile) */
-    gap: var(--space-md);       /* Spacing between items */
-    margin-bottom: var(--space-md);
-  }
-  
-  .checklistItem {
-      display: flex;
-      align-items: flex-start; /* Align icon with the top of the text */
-      gap: var(--space-sm); /* Space between icon and text */
-      margin-bottom: var(--space-xs); /* Space below each item */
-  }
-  
-  
-  .checklistItemTitle {
-      /* Add styles for checklist item titles, if needed */
-      font-weight: light;
-      margin-bottom: var(--space-xs); /* Space between title and description */
-  
-  }
-  /* --- Call to Action Section --- */
-.ctaTitle {
-    margin-bottom: var(--space-sm);
-      color: var(--color-text);
-      text-align: center;
-  }
-  
-  .ctaSubtitle {
-    color: var(--color-text);
-    text-align: center;
-  }
-  
-  .ctaButton {
-    margin: 0 auto;
-  }
-  /* Responsive Styles (for larger screens) */
-  @media (min-width: 769px) {
-    .checkListGrid {
-      grid-template-columns: repeat(2, 1fr); /* Two columns on larger screens */
-    }
-  }
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.processStepTitle {
+  margin-bottom: var(--space-sm);
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.processImage {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.imageCaption {
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  margin-top: var(--space-xs);
+  text-align: center;
+}
+.fullWidthImage {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.sectionDivider {
+  border: none;
+  border-top: 1px solid var(--color-secondary);
+  margin: var(--space-lg) 0;
+}
+
+/* Styles for Introduction & Project Evolution Section */
+
+.evolutionSection {
+  /* Example: Add a subtle background or border if you want to visually separate this section */
+  /* background-color: #f9f9f9; */
+  /* border-top: 1px solid #eee; */
+  /* border-bottom: 1px solid #eee; */
+  padding-top: var(--space-l); /* Adjust padding as needed */
+  padding-bottom: var(--space-l); /* Adjust padding as needed */
+}
+
+.evolutionTitle {
+  /* Specific styles for the title of this section */
+  /* Example: color: #yourPrimaryColor; */
+  margin-bottom: var(--space-m); /* Or your preferred spacing */
+}
+
+.evolutionIntroText {
+  /* Specific styles for the introductory paragraph */
+  max-width: 800px; /* Or your preferred max-width */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-xl); /* Spacing before the app grid */
+  text-align: center; /* Or left, if preferred */
+  line-height: 1.7; /* Example line height */
+}
+
+.evolutionAppGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Creates a responsive grid */
+  gap: var(--space-l); /* Gap between cards */
+  margin-top: var(--space-l);
+  margin-bottom: var(--space-xl);
+  padding-left: var(--space-m); /* Optional padding for the grid container */
+  padding-right: var(--space-m); /* Optional padding for the grid container */
+}
+
+.evolutionAppCard {
+  /* Styles for each "card" containing an app link/button */
+  text-decoration: none; /* Removes underline from links if buttons don't override */
+  display: flex; /* To help with button sizing if fullWidth isn't enough */
+  flex-direction: column;
+  /* Example: Add a border, shadow, or background to make them look like cards */
+  /* border: 1px solid #ddd; */
+  /* border-radius: 8px; */
+  /* background-color: #fff; */
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.05); */
+  /* transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; */
+}
+
+/* Optional: Add hover effect to cards if you like */
+/*
+.evolutionAppCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+*/
+
+/* Ensure the button inside the card takes full width if the prop doesn't handle it,
+   or if your Button component doesn't have a fullWidth prop: */
+/*
+.evolutionAppCard > :global(button) { // Use :global if Button is a separate component
+  width: 100%;
+}
+*/
+
+.evolutionAppDescription {
+  /* Specific styles for the paragraph describing the apps */
+  max-width: 800px; /* Or your preferred max-width */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: var(--space-l); /* Spacing after the app grid */
+  text-align: center; /* Or left, if preferred */
+  font-size: 0.95rem; /* Slightly smaller text if desired */
+  line-height: 1.6;
+}
+
+/* Make sure your CSS variables like --space-l, --space-m, --space-xl are defined,
+   or replace them with actual values (e.g., 1rem, 2rem) */
