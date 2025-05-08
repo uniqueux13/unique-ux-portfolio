@@ -72,14 +72,6 @@ const Footer: React.FC = () => {
                 uniqueux13@gmail
               </a>
             </li>
-            <li>
-              <a href='tel:+19379179982' className={styles.footerLink}>
-                {" "}
-                {/* Replace with your actual phone */}
-                <FaPhone className={styles.contactIcon} aria-hidden='true' /> +1
-                (937) 917-9982 {/* Example Dayton Area Code */}
-              </a>
-            </li>
             <li className={styles.footerText}>
               {/* Address (Important for Local SEO if applicable) */}
               Dayton, Ohio, United States <br />
