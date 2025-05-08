@@ -47,6 +47,7 @@
   --space-lg: 3rem;
   --space-xl: 5rem;
   --space-xxl: 7rem;
+  --space-max: 12rem;
 
   /* --- Fonts (Unchanged) --- */
   --font-family-primary: "Poppins", sans-serif;

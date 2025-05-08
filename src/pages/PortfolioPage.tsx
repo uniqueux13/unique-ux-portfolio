@@ -1,9 +1,10 @@
 import React from 'react';
 import Typography from '../components/Typography/Typography';
 import { Link } from 'react-router-dom';
+// import Button from '../components/Button/Button'
+import ProjectSection from '../components/ProjectSection/ProjectSection';
 import styles from './PortfolioPage.module.css';
 import Section from '../components/Section/Section';
-import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection';
 import caseStudyProject1 from '../assets/GromoCaseStudy/caseStudy-project-1.png';
 import caseStudyProject2 from '../assets/GromoCaseStudy/caseStudy-project-2.png';
 import caseStudyProject3 from '../assets/GromoCaseStudy/caseStudy-project-3.png';
@@ -13,16 +14,19 @@ import caseStudyProject3 from '../assets/GromoCaseStudy/caseStudy-project-3.png'
 const PortfolioPage: React.FC = () => {
   return (
     <div>
-      {/* Hero Section */}
-      <div className={styles.heroContent}>
-        <Typography variant="h1" className={styles.heroTitle}>Driving Results Through Design</Typography>
-        <Typography variant="subtitle1" className={styles.heroSubtitle}>
-        Case Studies Demonstrating Impactful UX and Content Solutions
-        </Typography>
-      </div>
+      {/* --- Hero Section --- */}
+      <Section className={styles.heroWrapper} marginBottom='lg' padding='sm'>
+        <div className={styles.heroContent}>
+          <Typography variant='h1' className={styles.heroTitle}>
+            Driving Results Through Design
+          </Typography>
+          <Typography variant='subtitle1' className={styles.heroSubtitle}>
+            Case Studies Demonstrating Impactful UX and Content Solutions      
+          </Typography>
+        </div>
+      </Section>
 
-      <Section marginBottom="xl" padding="none">
-        <TwoColumnSection
+        <ProjectSection
           imageSrc= {caseStudyProject1}
           imageAlt="Marketing Agency Website Redesign"
           imageOnLeft={true}
@@ -34,11 +38,9 @@ const PortfolioPage: React.FC = () => {
           </Typography>
           <Link to='/project1' className={styles.projectLink}>View Project</Link> {/* Link to detail page (create later) */}
         </div>
-        </TwoColumnSection>
-      </Section>
+        </ProjectSection>
 
-      <Section marginBottom="xl" padding="none">
-        <TwoColumnSection
+        <ProjectSection
           imageSrc={caseStudyProject2} // Use the imported image variable
           imageAlt="Exploring Voice UI: An AR Concept"
           imageOnLeft={false}
@@ -50,11 +52,9 @@ const PortfolioPage: React.FC = () => {
           </Typography>
           <Link to='/project2' className={styles.projectLink}>View Project</Link> {/* Link to detail page (create later) */}
         </div>
-        </TwoColumnSection>
-      </Section>
+        </ProjectSection>
 
-      <Section marginBottom="xl" padding="none">
-        <TwoColumnSection
+        <ProjectSection
           imageSrc={caseStudyProject3} // Use the imported image variable
           imageAlt="Card Game Design and Development"
           imageOnLeft={true}
@@ -67,8 +67,7 @@ const PortfolioPage: React.FC = () => {
              {/* "Coming Soon" Text - No Link */}
             <Typography variant="p" className={styles.comingSoon}>Coming Soon</Typography>
           </div>
-        </TwoColumnSection>
-      </Section>
+        </ProjectSection>
     </div>
   );
 };

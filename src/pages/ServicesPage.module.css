@@ -1,7 +1,11 @@
 /* src/pages/ServicesPage.module.css */
 /* Updated: Includes layout and featured card styles */
 /* Current Date: Saturday, May 3, 2025 */
-
+/* --- Final Wrapper Style --- */
+.wrapper {
+  width: 100%; /* Use 100% instead of 100vw */
+  background-color: var(--color-background); /* Use alt background */
+}
 /* --- Hero Section Styles --- */
 .heroTitle {
   margin-bottom: var(--space-xs);
@@ -36,12 +40,10 @@
 
 .heroContent {
   max-width: 1200px;
-  margin-top: var(--space-xl); /* Adjusted margin */
-  margin-bottom: var(--space-xl); /* Adjusted margin */
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  padding-inline: var(--space-md); /* Add horizontal padding */
+  padding-block: var(--space-xl) var(--space-xs);
 }
 
 /* --- Service Category Styles --- */
@@ -62,7 +64,7 @@
   display: grid;
   /* Responsive columns, minimum 300px wide */
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-md); /* Gap between cards */
+  gap: var(--space-sm); /* Gap between cards */
   margin-bottom: var(--space-sm); /* Space after grid */
   /* No background/shadow/border needed here; cards handle their own */
 }
@@ -136,12 +138,6 @@
   box-shadow: 0 0 18px -4px var(--color-primary), var(--shadow-medium);
   /* Ensure transform is applied (matches or overrides base Card hover) */
   transform: translateY(-5px) scale(1.02);
-}
-
-/* --- Final Wrapper Style --- */
-.wrapper {
-  width: 100%; /* Use 100% instead of 100vw */
-  background-color: var(--color-background-alt); /* Use alt background */
 }
 
 .multistepformtop {

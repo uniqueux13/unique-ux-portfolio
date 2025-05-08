@@ -5,9 +5,9 @@ import React from "react";
 import Typography from "../components/Typography/Typography";
 import Card from "../components/Card/Card"; // Import Card component
 import Section from "../components/Section/Section";
-import Button from "../components/Button/Button";
+// import Button from "../components/Button/Button";
 import styles from "./ServicesPage.module.css"; // Styles for this page
-import { Link } from "react-router-dom"; // For linking buttons if needed
+// import { Link } from "react-router-dom"; // For linking buttons if needed
 import CtaSection from "../components/CtaSection/CtaSection"; // Your final CTA/Contact section component
 import MultiStepContactForm from "../components/MultiStepContactForm/MultiStepContactForm";
 
@@ -251,17 +251,6 @@ const ServicesPage: React.FC = () => {
           <Typography variant='subtitle1' className={styles.heroSubtitle}>
             Achieve Your Digital Goals with Our Expert Services
           </Typography>
-          {/* Link wraps the Button for navigation */}
-          <Link
-            to='https://calendly.com/kyleranta/15min'
-            target='_blank'
-            rel='noopener noreferrer'
-            style={{ textDecoration: "none" }}
-          >
-            <Button variant='primary' arrow>
-              Book Your Free Strategy Call
-            </Button>
-          </Link>
         </div>
       </Section>
 
@@ -283,6 +272,7 @@ const ServicesPage: React.FC = () => {
 
       {/* Multi-Step Form Section */}
       <div className={styles.multistepformtop}  id='multi-step-form-top'>
+        <Typography variant="h2" align="center">Project Estimate Form</Typography>
       </div>
 
       <Section padding='none' marginBottom='xxl'>
@@ -292,8 +282,9 @@ const ServicesPage: React.FC = () => {
       {/* --- Final CTA Section --- */}
       {/* The wrapper div might be for full-width background color */}
       <div className={styles.wrapper}>
-        {/* Assuming CtaSection is the renamed NextStepsSection or similar final contact/action component */}
-        <CtaSection />
+        <CtaSection>
+          {/* Assuming CtaSection handles its own content */}
+        </CtaSection>
       </div>
     </>
   );

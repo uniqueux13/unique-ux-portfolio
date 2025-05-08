@@ -1,4 +1,13 @@
 /* src/pages/Project1Page.module.css */
+.heroContent {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-block: var(--space-xl) var(--space-xs);
+  background-color: var(--color-background);
+}
+
 .heroTitle {
     margin-bottom: var(--space-xs);
       color: var(--color-text);
@@ -9,25 +18,7 @@
     color: var(--color-text);
     text-align: center;
   }
-  .heroP{
-    font-family: var(--font-family-sora);
-    font-size: var(--font-size-hero-paragraph);
-    line-height: var(--line-height-hero-paragraph);
-    font-weight: 400;
-    margin-bottom: var(--space-md);
-}
-  .heroContent {
-    max-width: 1200px;
-    margin: 6rem auto;
-    text-align: center;
-  }
-
-
-  
-  .hero {
-    text-align: center;
-    margin-top: 6rem;
-  }
+ 
   
   .projectTitle {
     margin-bottom: var(--space-md);
@@ -39,13 +30,7 @@
     color: var(--color-text);
     text-align: left;
   }
-  .heroP{  /*Added class*/
-    font-family: var(--font-family-sora);
-    font-size: var(--font-size-hero-paragraph);
-    line-height: var(--line-height-hero-paragraph);
-    font-weight: 400;
-    margin-bottom: var(--space-md);
-}
+  
   .narrowContent {
     max-width: 700px;
     margin: 0 auto;
@@ -56,13 +41,6 @@
     font-weight: bold;
     margin-bottom: var(--space-lg);
     color: var(--color-primary);
-  }
-  
-  .heroImage {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    border-radius: 4px;
   }
   
   .sectionCard {
@@ -144,24 +122,15 @@
       margin-bottom: var(--space-xs); /* Space between title and description */
   
   }
-  /* --- Call to Action Section --- */
-.ctaTitle {
-    margin-bottom: var(--space-sm);
-      color: var(--color-text);
-      text-align: center;
-  }
-  
-  .ctaSubtitle {
-    color: var(--color-text);
-    text-align: center;
-  }
-  
-  .ctaButton {
-    margin: 0 auto;
-  }
+
   /* Responsive Styles (for larger screens) */
   @media (min-width: 769px) {
     .checkListGrid {
       grid-template-columns: repeat(2, 1fr); /* Two columns on larger screens */
     }
+  }
+
+  .wrapper {
+    width: 100%; /* Use 100% instead of 100vw */
+    background-color: var(--color-background-muted); /* Use alt background */
   }

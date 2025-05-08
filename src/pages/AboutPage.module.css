@@ -1,143 +1,245 @@
-/* src/pages/HomePage.module.css */
+/* src/pages/AboutPage.module.css */
+/* Refactored V3: Focus on Story, Philosophy, Values */
 
-/* --- Hero Section --- */
+/* --- Hero Section Styles --- */
+.wrapper {
+  width: 100%;
+  background-color: var(--color-background-alt);
+  margin-top: var(--space-xxl);
+}
+
+.heroContent {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-block: var(--space-xl) var(--space-xs);
+}
+
 .heroTitle {
-    margin-bottom: var(--space-xs);
-      color: var(--color-text);
-      text-align: center;
-  }
-  
-  .heroSubtitle {
-    color: var(--color-text);
-    text-align: center;
-  }
-  .heroP{
-    font-family: var(--font-family-sora);
-    font-size: var(--font-size-hero-paragraph);
-    line-height: var(--line-height-hero-paragraph);
-    font-weight: 400;
-    margin-bottom: var(--space-md);
-}
-  .heroContent {
-    max-width: 1200px;
-    margin: 6rem auto;
-    text-align: center;
-  }
-  
-  .videoContainer {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-      height: 0;
-      overflow: hidden;
-  }
-  
-  .video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-  
-  .heroTitle {
-      color: var(--color-text);
-      position: relative;
-      z-index: 1;
-  }
-  
-  .heroIntro {
-      color: #121212;
-      position: relative;
-      z-index: 1;
-      font-family: var(--font-family-sora);
-      font-size: var(--font-size-hero-paragraph);
-      line-height: var(--line-height-hero-paragraph);
-      font-weight: 400;
-  }
-  
-  .heroButton {
-      position: relative;
-      z-index: 1;  
-  }
-  
-  /* --- My Process Section --- */
-  .servicesGrid {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column by default (mobile) */
-    gap: var(--space-lg);       /* Consistent spacing */
-  }
-  
-  .serviceItem {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-  }
-  .sectionTitle{
-      text-align: left;
-      margin-bottom: var(--space-sm);
-  }
-  .serviceTitle {
-    font-weight: bold;
-    margin-bottom: var(--space-xs);
-    text-align: left;
-  }
-  
-/* --- Call to Action Section --- */
-.ctaTitle {
-    margin-bottom: var(--space-sm);
-      color: var(--color-text);
-      text-align: center;
-  }
-  
-  .ctaSubtitle {
-    color: var(--color-text);
-    text-align: center;
-  }
-  
-  .ctaButton {
-    margin: 0 auto;
-  }
-  
-  @media (min-width: 769px) {
-    .servicesGrid {
-      grid-template-columns: repeat(3, 1fr); /* Three columns on larger screens */
-      grid-template-rows: repeat(2, auto);  /* Two rows on larger screens */
-    }
-    /* No other changes are needed within the media query */
-  }
-  
-  /* src/pages/AboutPage.module.css */
-
-  .experienceContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-    gap: var(--space-md);       /*  Consistent spacing  */
-    margin-top: var(--space-md); /* Space above the grid */
+  margin-bottom: var(--space-xs);
+  color: var(--color-text);
+  text-align: center;
 }
 
-.experienceItem {
-    display: flex;         /*  Use flexbox */
-    flex-direction: column; /*  Stack items VERTICALLY */
-    align-items: flex-start; /* Align items to the START (top) */
-    /* padding: var(--space-sm); Optional - add padding *inside* each item */
-    margin-bottom: none; /* Space *below* each item */
+.heroSubtitle {
+  color: var(--color-secondary);
+  text-align: center;
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-lg);
 }
 
-/*Changed to subtitle2 to add more visual depth*/
-.jobTitle {
-    font-weight: bold;
-    margin-bottom: 2px;
-    color: var(--color-text);
+/* --- General Section Styles --- */
+.sectionTitle {
+  margin-bottom: var(--space-sm);
+  text-align: left;
+  /* Alignment handled by Typography prop */
 }
-/*Changed to caption for less visual*/
-.company {
-    margin-bottom: 2px;/* Space between company and dates */
-    font-style: italic;
-    color: var(--color-secondary);
+
+.sectionSubtitle { /* Used in previous version, keep if needed elsewhere */
+  color: var(--color-secondary);
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-lg);
+   /* Alignment handled by Typography prop */
 }
-/*Changed to caption for less visual*/
-.dates {
-    color: var(--color-secondary);
+
+.sectionText { /* Used in Founder & Philosophy */
+  color: var(--color-text-secondary); /* Or primary text color */
+  margin-bottom: var(--space-md); /* Space between paragraphs */
+  line-height: var(--line-height-paragraph);
+}
+
+
+/* --- Story Section --- */
+.storyText {
+  color: var(--color-text-secondary); /* Or primary text color */
+  max-width: 80ch; /* Adjust width */
+  line-height: var(--line-height-paragraph);
+  text-align: left;
+}
+
+/* --- Philosophy / Approach Section --- */
+.philosophySection {
+  background-color: var(--color-background); /* Optional background */
+  /* Let TwoColumnSection handle internal layout */
+}
+
+.philosophyPoints {
+  margin-top: var(--space-lg);
+  display: grid;
+  /* Start with 1 column, maybe go to more on wider screens */
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+/* Tablet and up: maybe 2 or 3 columns for philosophy points */
+@media (min-width: 768px) {
+  .philosophyPoints {
+     /* Example: keep 1 column or go to 2 if enough space in TwoColumn layout */
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+
+.philosophyItem {
+  display: flex;
+  flex-direction: column; /* Stack icon, title, text */
+  gap: var(--space-xs);
+  align-items: flex-start; /* Align items left */
+  text-align: left;
+}
+
+.philosophyIcon {
+  color: var(--color-primary); /* Or secondary */
+  margin-bottom: var(--space-xs);
+  /* Size set inline in component */
+}
+
+
+/* --- Founder Section --- */
+/* Styles primarily handled by TwoColumnSection and Typography */
+/* Add overrides here if needed */
+
+
+/* --- Core Values Section --- */
+.valuesSection {
+  background-color: var(--color-background); /* Optional alternating background */
+}
+
+.valuesGrid {
+  display: grid;
+  /* Responsive grid: 2 columns mobile, 4 columns desktop */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-lg);
+  max-width: 1400px; /* Adjust max width */
+  margin: var(--space-lg) auto 0 auto; /* Top margin, centered */
+}
+
+/* Example for larger screens if needed */
+@media (min-width: 992px) {
+  .valuesGrid {
+      grid-template-columns: repeat(4, 1fr); /* Force 4 columns */
+  }
+}
+
+.valueItem {
+  display: flex;
+  flex-direction: column;
+  align-items: left; /* Center align value items */
+  text-align: left;
+  gap: var(--space-xs);
+}
+
+.valueIcon {
+  color: var(--color-secondary); /* Use a different color for visual distinction */
+  margin-bottom: var(--space-xs);
+   /* Size set inline in component */
+}
+
+/* --- Video Placeholder Section --- 
+.videoPlaceholder {
+  /* Optional background 
+}*/
+
+.videoEmbedContainer {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Clean up --- */
+/* Removed .skillsGrid, .skillCard, etc. */
+/* Removed .experienceContainer etc. */
+
+/* Container for the cards (Updated based on user's class name) */
+.stepCards {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow cards to wrap onto multiple lines */
+  justify-content: center; /* Center cards horizontally */
+  align-items: stretch; /* Make cards in the same row have equal height */
+  gap: var(--space-sm); /* Gap between cards (adjust as needed) */
+  margin: var(--space-lg) auto 0; /* Top margin, centered horizontally */
+  padding: 0 var(--space-xs); /* Remove padding if inner Section handles it */
+  max-width: var(--max-width-container, 1400px); /* Constrain width */
+  list-style: none; /* Remove list styling if it was a ul/ol */
+}
+
+/* Individual outcome card styling */
+.outcomeCard {
+  background-color: var(--color-background-muted);
+  border-radius: var(--border-radius-md); /* Slightly larger radius */
+  padding: var(--space-md); /* Padding inside the card */
+  text-align: left; /* Center icon and text */
+  border: 1px solid var(--color-border-subtle); /* Subtle border */
+  /* Flex properties for responsiveness within the flex container */
+  flex: 1 1 280px; /* Grow, shrink, with a base width */
+  max-width: 400px; /* Prevent cards from getting too wide */
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; /* Smooth hover effect */
+}
+
+/* Optional: Hover effect for the card */
+.outcomeCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Styling for the icon within the card */
+.cardIcon {
+  font-size: 2.8rem; /* << INCREASED ICON SIZE >> */
+  color: var(--color-secondary); /* Default icon color (can be primary too) */
+  margin-bottom: var(--space-sm); /* Space below icon */
+  display: inline-block; /* Needed for margin */
+  transition: color 0.2s ease-in-out; /* Smooth color transition */
+}
+
+/* Hover effect: Change icon color when hovering the CARD */
+.outcomeCard:hover .cardIcon {
+  color: var(--color-primary); /* << ICON COLOR ON HOVER >> */
+  box-shadow: var(--color-box-shadow);
+}
+
+/* Styling for the card title */
+.cardTitle {
+  font-size: var(--font-size-h4); /* Adjust size as needed */
+  font-weight: 600; /* Bold title */
+  color: var(--color-text);
+  margin-bottom: var(--space-sm); /* Space below title */
+  line-height: var(--line-height-heading);
+}
+
+/* Styling for the card description text */
+.cardDescription {
+  font-size: var(--font-size-small); /* Smaller text for description */
+  color: var(--color-secondary); /* Muted color for description */
+  line-height: var(--line-height-paragraph);
+}
+
+/* --- Media Queries --- */
+
+@media (max-width: 768px) {
+  /* Adjust card container gap for smaller screens if needed */
+  .stepCards {
+    gap: var(--space-md);
+  }
+
+  /* Adjust card padding for smaller screens */
+  .outcomeCard {
+    padding: var(--space-md);
+    margin-bottom: var(--space-none);
+    /* Reset max-width or adjust flex-basis if needed */
+    flex-basis: 100%; /* Make cards full width on small mobile? */
+    max-width: none; /* Remove max-width on small mobile */
+  }
+
+  .cardIcon {
+    font-size: 2.5rem; /* Slightly smaller icon on mobile */
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-h5); /* Slightly smaller title on mobile */
+  }
 }

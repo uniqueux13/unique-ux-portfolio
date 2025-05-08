@@ -1,27 +1,8 @@
-.heroTitle {
-    margin-bottom: var(--space-xs);
-      color: var(--color-text);
-      text-align: center;
-  }
-  
-.heroSubtitle {
-    color: var(--color-text);
-    text-align: center;
-  }
-  
-.heroP{  /*Added class*/
-    font-family: var(--font-family-sora);
-    font-size: var(--font-size-hero-paragraph);
-    line-height: var(--line-height-hero-paragraph);
-    font-weight: 400;
-    margin-bottom: var(--space-md);
-}
 
-  .heroContent {
-    max-width: 1200px;
-    margin: 6rem auto;
-    text-align: center;
-  }
+.heroWrapper {
+  width: 100%;
+  background-color: var(--color-background);
+}
 
 .projectTitle {
     /* Styles for project titles */
@@ -55,5 +36,28 @@
     color: var(--color-link-hover); 
     text-decoration: underline;     
   }
-
   
+  .heroContent {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-block: var(--space-xl) var(--space-xs);
+  }
+  
+  .heroTitle {
+    margin-bottom: var(--space-xs);
+    color: var(--color-text);
+    text-align: center;
+  }
+  
+  .heroSubtitle {
+    color: var(--color-secondary);
+    text-align: center;
+    max-width: 65ch;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-lg);
+  }
+
+  /* src/components/TwoColumnSection/TwoColumnSection.module.css */

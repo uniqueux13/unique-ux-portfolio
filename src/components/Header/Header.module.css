@@ -42,10 +42,9 @@
 
 .siteTitle {
   color: white; /* Or var(--color-text) */
-  font-size: 1.7rem; /* Adjust as needed */
+  font-size: 1.6rem; /* Adjust as needed */
   font-weight: 600;
-  font-family: var(--font-family-grotesk);
-  text-transform: uppercase;
+  font-family: var(--font-family-primary);
 }
 
 /* --- IMPORTANT: Adjust padding/height if needed --- */

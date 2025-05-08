@@ -1,61 +1,105 @@
 /* src/components/TwoColumnSection/TwoColumnSection.module.css */
 
 .twoColumnSection {
-    display: flex;
-    flex-direction: column; /* Stack vertically by default (mobile) */
-    align-items: center; /* Center items horizontally on mobile */
-    gap: var(--space-md); /* Space between content and image */
+  display: flex;
+  flex-direction: column; /* Stack vertically by default (mobile) */
+  align-items: center; /* Center items horizontally on mobile */
+  gap: var(--space-md, 16px); /* Space between content and image, with fallback */
+  margin-block: var(--space-lg, 32px); /* Vertical margin, with fallback */
+  width: 100%;
+  /* Optional: Add a max-width to the whole section for very large screens */
+  /* max-width: 1440px; */
+  /* margin-inline: auto; */ /* Center if max-width is applied */
+}
+
+.content {
+  width: 100%; /* Full width on mobile */
+  max-width: 580px; /* Max width for content on mobile for readability */
+  padding: var(--space-md, 16px);
+  text-align: left; /* Default text alignment */
+}
+
+.imageContainer {
+  width: 100%; /* Full width on mobile */
+  display: flex;
+  justify-content: center; /* Center image within its container */
+  align-items: center; /* Center image within its container */
+  padding-inline: var(--space-md, 16px); /* Horizontal padding on mobile */
+  /* On mobile, the height of this container will be determined by the image inside */
+}
+
+.image {
+  display: block; /* Removes extra space below image */
+  width: auto; /* Allow image to scale based on height or its intrinsic width */
+  height: auto; /* Allow image to scale based on width or its intrinsic height */
+  max-width: 100%; /* Image will not exceed the width of its container */
+  max-height: 70vh; /* Prevent extremely tall images from dominating mobile viewport. Adjust as needed. */
+  object-fit: contain; /* Scales image to fit container, maintaining aspect ratio, no cropping */
+  border-radius: 4px; /* Optional rounded corners */
+}
+
+/* Media query for larger screens (e.g., tablets and desktops) */
+@media (min-width: 769px) {
+  .twoColumnSection {
+    flex-direction: row; /* Horizontal layout on desktop */
+    justify-content: center;
+    align-items: center; /* Vertically align items. If one column is taller, the other will be centered.
+                           Change to 'flex-start' or 'stretch' if different alignment is needed. */
+    gap: var(--space-xl, 64px);
+    margin-block: var(--space-xl, 64px);
+    background-color: var(--color-background);
+    padding: var(--space-lg, 32px);
   }
-  
-  .content {
-    width: 100%; /* Full width on mobile */
-    max-width: 580px;
-    padding: none;
-    text-align: left; /* Or center, as needed */
-  }
-  
+
+  .content,
   .imageContainer {
-    width: 100%; /* Full width on mobile */
-      display: flex;
-      justify-content: center;
-      padding-inline: var(--space-sm); /* Optional padding */ 
-      padding-block: none; 
-      margin-block: none;
+    flex: 1 1 0; /* Allow both to grow and shrink, aiming for an even split before max-width */
+    /* Each column will try to take up equal space but won't exceed its max-width. */
   }
-  
+
+  .content {
+    max-width: 620px; /* Max width for the content block on desktop */
+    padding: var(--space-lg, 32px);
+    /* The height of the content column will be determined by its text content. */
+  }
+
+  .imageContainer {
+    /* No fixed aspect-ratio here, it will adapt to the image's aspect ratio via object-fit: contain */
+    max-width: 854px; /* Still useful to prevent the image column from becoming excessively wide.
+                         Adjust this value based on your design needs. */
+    display: flex;
+    justify-content: center; /* Center the image if it doesn't fill the container width */
+    align-items: center; /* Center the image if it doesn't fill the container height */
+    padding: 0; /* Reset mobile padding */
+    overflow: hidden; /* Good practice, though less critical with object-fit: contain */
+    /* The height of this container will be influenced by the image and the align-items on .twoColumnSection.
+       Since align-items is center, if the content is taller, this container will effectively have space
+       up to the height of the content column, and the image will be centered within that. */
+  }
+
   .image {
-    width: 100%; /* Responsive image */
-    max-width: 500px;  /* Limit maximum width */
-    height: auto;
-    border-radius: 4px; /* Optional */
-    object-fit: cover;  /* Ensure image covers the container without distortion */
+    width: auto; /* Let image determine its width based on height or intrinsic aspect ratio */
+    height: auto; /* Let image determine its height based on width or intrinsic aspect ratio */
+    max-width: 100%; /* Image will not exceed the width of .imageContainer */
+    max-height: 100%; /* Image will not exceed the height of .imageContainer.
+                         If .twoColumnSection has align-items: center, the effective height of
+                         .imageContainer can be influenced by the height of the .content block.
+                         Consider a max-height in pixels or vh if needed, e.g., max-height: 600px; */
+    object-fit: contain; /* Key change: shows entire image, scales down to fit, maintains aspect ratio */
+    border-radius: 4px; /* Re-apply if you want it on desktop too */
   }
-  
-  /* Media query for larger screens */
-  @media (min-width: 769px) {
-    .twoColumnSection {
-      flex-direction: row; /* Horizontal layout on desktop */
-      align-items: center; /* Center items vertically */
-    }
-  
-    .content {
-      width: 50%; /* Content takes up half the width */
-    }
-  
-    .imageContainer {
-      width: 50%; /* Image takes up half the width */
-      max-width: 800px;
-    }
-    .contentLeft{
-      order: 0; /* Content on the LEFT */
-    }
-    .imageLeft{
-      order: 1; /* Image on the LEFT */
-    }
-    .contentRight{
-      order: 2; /* Content on the RIGHT */
-    }
-    .imageRight{
-      order: 1; /* Image on the RIGHT */
-    }
+
+  /* Your ordering classes are preserved. */
+  .contentLeft {
+    order: 0;
   }
+  .imageLeft { /* This class applies to the .imageContainer */
+    order: 1;
+  }
+  .contentRight {
+    order: 2;
+  }
+  .imageRight { /* This class applies to the .imageContainer */
+    order: 1;
+  }
+}

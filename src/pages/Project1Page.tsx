@@ -2,12 +2,13 @@
 import React from 'react';
 import Typography from '../components/Typography/Typography';
 import Image from '../components/Image/Image';
-import Button from '../components/Button/Button';
+// import Button from '../components/Button/Button';
 import Section from '../components/Section/Section'; // Import Section
 import TwoColumnSection from '../components/TwoColumnSection/TwoColumnSection'; // Import
 import Video from '../components/Video/Video';
 import styles from './Project1Page.module.css';
-import { Link } from 'react-router-dom';
+import CtaSection from '../components/CtaSection/CtaSection'
+// import { Link } from 'react-router-dom';
 import ImageGrid from '../components/ImageGrid/ImageGrid';
 import caseStudyImage1 from'../assets/GromoCaseStudy/caseStudy-image-1.png';
 import caseStudyImage2 from'../assets/GromoCaseStudy/caseStudy-image-2.png';
@@ -40,13 +41,18 @@ import caseStudyImage24 from '../assets/GromoCaseStudy/caseStudy-image-24.png';
 const Project1Page: React.FC = () => {
   return (
     <div className={styles.project1Page}>
-      {/* Hero Section */}
-      <Section marginBottom="xl" padding="none" className={styles.heroContent}>
-            <Typography variant="h1" className={styles.heroTitle}>Marketing Agency Website Redesign</Typography>
-            <Typography variant="subtitle1" className={styles.heroSubtitle}>
-            Case Study: Enhancing User Engagement and Lead Generation for GroMo
-            </Typography>
+      {/* --- Hero Section --- */}
+      <Section className={styles.wrapper} marginBottom='none' padding='none'>
+        <div className={styles.heroContent}>
+          <Typography variant='h1' className={styles.heroTitle}>
+          Marketing Agency Website Redesign
+          </Typography>
+          <Typography variant='subtitle1' className={styles.heroSubtitle}>
+          Case Study: Enhancing User Engagement and Lead Generation for GroMo
+          </Typography>
+        </div>
       </Section>
+
     
     <Section marginBottom="xl" padding="none">
         <TwoColumnSection
@@ -444,21 +450,12 @@ const Project1Page: React.FC = () => {
         </Typography>
         
     </Section>
-
-    {/* Call to Action */}
-    <div className={styles.heroContent}>
-        <Typography variant="h2" className={styles.ctaTitle}>Ready to Create Something Unique?</Typography>
-        <Typography variant="p" className={styles.ctaSubtitle}>
-          Let's collaborate to build a digital experience that transforms your business and delights your users.
-        </Typography>
-      {/* Use a Link component for external links */}
-        <Link to="https://calendly.com/kyleranta/15min" target="_blank" rel="noopener noreferrer">
-            <Button variant="primary" arrow>Book a Free Consultation</Button>
-        </Link>
-        <Typography variant="listItem" align="center">
-         uniqueux13@gmail.com
-    </Typography>
-    </div>
+    <div className={styles.wrapper}>
+        <CtaSection>
+          {/* Assuming CtaSection handles its own content */}
+        </CtaSection>
+      </div>
+    
     </div>
   );
 };

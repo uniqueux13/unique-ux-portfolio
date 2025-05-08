@@ -1,0 +1,123 @@
+.ProjectSection {
+    display: flex;
+    flex-direction: column; /* Stack vertically by default (mobile) */
+    align-items: center; /* Center items horizontally on mobile */
+    gap: var(--space-md, 16px); /* Space between content and image, with fallback */
+    margin-block: var(--space-lg, 32px); /* Vertical margin, with fallback */
+    width: 100%; /* Ensure it takes available width */
+    /* Optional: Add a max-width to the whole section for very large screens to maintain readability */
+    /* max-width: 1440px; */
+    /* margin-inline: auto; */ /* Center if max-width is applied */
+  }
+  
+  .content {
+    width: 100%; /* Full width on mobile */
+    max-width: 580px; /* Max width for content on mobile for readability */
+    padding: var(--space-md, 16px);
+    text-align: left; /* Default text alignment */
+  }
+  
+  .imageContainer {
+    width: 100%; /* Full width on mobile */
+    display: flex;
+    justify-content: center; /* Center image within its container on mobile */
+    align-items: center;
+    padding-inline: var(--space-md, 16px); /* Horizontal padding on mobile */
+    /* No vertical padding/margin needed if image handles its own space */
+  }
+  
+  .image {
+    width: 100%; /* Responsive image, fills container width up to its max-width */
+    max-width: 500px; /* Limit maximum width on mobile to prevent overly large images */
+    height: auto; /* Maintain aspect ratio based on width */
+    border-radius: 4px; /* Optional rounded corners */
+    object-fit: cover; /* Ensure image covers its allocated space, cropping if necessary */
+    display: block; /* Removes extra space below inline images */
+  }
+  
+  /* Media query for larger screens (e.g., tablets and desktops) */
+  @media (min-width: 769px) {
+    .ProjectSection {
+      flex-direction: row; /* Horizontal layout on desktop */
+      justify-content: center; /* Center columns if they don't fill available space */
+      align-items: center; /* Vertically align items in the center */
+      gap: var(--space-xl, 64px); /* Increased gap for desktop, with fallback */
+      margin-block: var(--space-xl, 64px); /* Increased vertical margin */
+      background-color: var(--color-background); /* Optional background for the section */
+      padding: var(--space-lg, 32px); /* Padding around the entire row */
+    }
+  
+    .content,
+    .imageContainer {
+      /* Both content and image container will share space.
+         Using flex: 1 allows them to grow and shrink equally.
+         You can adjust the flex-basis or flex-grow/shrink factors if you want
+         one column to be proportionally larger than the other. E.g., content flex: 2; image flex: 1; */
+      flex: 1 1 0;
+      /* We'll set max-widths on each to control their maximum size */
+    }
+  
+    .content {
+      max-width: 620px; /* Max width for the content block on desktop */
+      padding: var(--space-lg, 32px); /* Adjust padding for desktop if needed */
+      /* text-align will be inherited or can be set specifically */
+    }
+  
+    .imageContainer {
+      /* For 1920x1080 images, the aspect ratio is 16:9 */
+      aspect-ratio: 16 / 9;
+      /* Set a max-width for the image container.
+         This allows the image to be large but not necessarily take up exactly 50%
+         if the content area is constrained by its own max-width.
+         Adjust this value based on your design. For a 1920px screen,
+         an image width of 800px-960px (half of 1600-1920px) is common.
+         Given a 1920px wide image, its height is 1080px.
+         If the container is, say, 800px wide, height will be 800 * (9/16) = 450px.
+         The original 1920x1080 image will be scaled down and cropped by object-fit: cover. */
+      max-width: 854px; /* Approx 16:9 ratio for a height around 480px, adjust as needed.
+                          This allows the image to be up to 854px wide, respecting the 16:9 aspect ratio.
+                          (e.g. 854 / (16/9) = ~480px height)
+                          Or, if you want to allow it to go up to half of a large screen minus gap:
+                          e.g. on a 1920px screen: (1920px - 64px gap) / 2 = 928px */
+      display: flex; /* To center the image if it doesn't fill the container (e.g., if object-fit: contain was used) */
+      justify-content: center;
+      align-items: center;
+      padding: 0; /* Reset mobile padding */
+      overflow: hidden; /* Important if image has border-radius and object-fit: cover */
+    }
+  
+    .image {
+      width: 100%;
+      height: 100%; /* Make image fill the aspect-ratio defined container */
+      max-width: none; /* Override mobile max-width, image will be constrained by container */
+      object-fit: cover; /* Best for filling the 16:9 container. Image will be cropped if its
+                            native aspect ratio is different, but it will always fill the space.
+                            Use 'contain' if you must show the entire 1920x1080 image without cropping,
+                            which might result in letterboxing/pillarboxing if the container somehow
+                            deviates from 16:9 (though unlikely with aspect-ratio set). */
+      border-radius: 4px; /* Re-apply if you want it on desktop too */
+    }
+  
+    /* Your ordering classes are preserved.
+       Apply these to the .content and .imageContainer elements directly.
+       Example for content on left, image on right:
+       <div class="styles.content styles.contentLeft">...</div>
+       <div class="styles.imageContainer styles.imageLeft">...</div>
+  
+       Example for image on left, content on right:
+       <div class="styles.imageContainer styles.imageRight">...</div>
+       <div class="styles.content styles.contentRight">...</div>
+    */
+    .contentLeft {
+      order: 0; /* Content on the LEFT */
+    }
+    .imageLeft { /* This class applies to the .imageContainer */
+      order: 1; /* Image to the RIGHT of .contentLeft */
+    }
+    .contentRight {
+      order: 2; /* Content on the RIGHT (when image is on the left) */
+    }
+    .imageRight { /* This class applies to the .imageContainer */
+      order: 1; /* Image on the LEFT (before .contentRight) */
+    }
+  }

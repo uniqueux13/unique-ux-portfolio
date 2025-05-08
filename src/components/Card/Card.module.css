@@ -3,7 +3,7 @@
 /* Updated: Added mobile carousel styles for the card */
 
 .card {
-  background-color: var(--color-card-background);
+  background-color: var(--color-background-muted);
   /* Suggestion: Use a variable for consistency if you have one */
   border-radius: var(--border-radius-medium, 8px);
   /* Suggestion: Use a shadow variable if you have one */
