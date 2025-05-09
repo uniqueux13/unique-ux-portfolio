@@ -72,11 +72,6 @@ const Footer: React.FC = () => {
                 uniqueux13@gmail
               </a>
             </li>
-            <li className={styles.footerText}>
-              {/* Address (Important for Local SEO if applicable) */}
-              Dayton, Ohio, United States <br />
-              {/* Add more specific address if needed & consider schema.org markup */}
-            </li>
           </ul>
         </div>
 
