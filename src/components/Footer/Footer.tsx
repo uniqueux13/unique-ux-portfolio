@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom"; // Assuming you use React Router for internal links
 import styles from "./Footer.module.css";
 import Typography from "../Typography/Typography"; // Assuming you have this component
-import { FaLinkedin, FaGithub, FaEnvelope, FaPhone } from "react-icons/fa"; // Example icons, adjust as needed
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa"; // Example icons, adjust as needed
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
